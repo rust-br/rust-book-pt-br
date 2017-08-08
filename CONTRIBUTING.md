@@ -1,99 +1,83 @@
-# Contributing
+# Contribuições
+## Por onde começar?
+**1.** Faça o _fork_ do projeto.
 
-## First edition
+**2.** [Entenda nosso fluxo](#fluxo).
 
-The first edition of the book is no longer actively being worked on, since
-we're concentrating our efforts on bringing the second edition to print. We
-will accept pull requests for small tweaks to the first edition; any larger
-work should be spent improving the second edition. Issues will likely be closed
-unless they are also issues in the second edition.
+**3.** [Leia e pratique as boas práticas](#boas-pr%C3%A1ticas).
 
-## Second edition
+## Fluxo
+Qualquer tipo de ajuda (seja ela grande ou pequena) é bem-vinda. Se encontrar qualquer parte do livro que possa ser melhorada, essa é uma grande oportunidade para participar. Caso não saiba por onde começar:
 
-We're currently working with No Starch Press to bring the second edition of the
-book to print. Each chapter goes through [a number of stages][project]:
+**1.** Fork o projeto.
 
-[project]: https://github.com/rust-lang/book/projects/1
+**2.** Antes de iniciar o processo de contribuição, **crie uma nova branch** para fazer suas alterações.
 
-* We write and edit a chapter's initial content
-* No Starch provides a round of edits and questions
-* We revise, clarify, and check those edits
-* A Technical Reviewer checks for the accuracy of technical details
-* No Starch copyedits the chapter for spelling, grammar, wording, consistency
-* We revise, clarify, and check the copyedits
-* The chapter goes to layout, at which point only minor changes should be made
+Alguns exemplos:
 
-### Documenting newly stabilized features
+- Para tradução: `git checkout -b translate/chapter-01`
+- Para revisões: `git checkout -b review/chapter-01`
+- Para erros: `git checkout -b fix/chapter-01-line-31`
 
-New features added to Rust will be documented in the ["Newest Features"
-Appendix][new] per [RFC 1636][rfc]. We'd love pull requests adding new
-sections! These sections may be incorporated into the book at some point, but
-we have no timeline for doing so; see the Post-publication section below for
-more details.
+**3.** Após realizar as alterações, é hora de fazer um commit com uma mensagem coerente do que foi feito. Exemplo:
 
-[new]: https://github.com/rust-lang/book/blob/master/second-edition/src/appendix-07-newest-features.md
-[rfc]: https://github.com/rust-lang/rfcs/pull/1636#issuecomment-247325313
+```
+git add --all
+git commit -am ‘Adiciona tradução|revisão|melhoria capítulo X linha/linhas Y’
+git push origin translate/chapter-o1
+```
 
-### Corrections and Modifications
+**4.** Envie um _Pull Request_ com as alterações feitas, fazendo referência para o `master` do repositório oficial.
 
-We would love issues and pull requests to the Markdown files in the src
-directory, up until the chapter goes to layout with No Starch. At that point,
-we will likely only be accepting changes that correct factual errors or major
-problems and not, for example, minor wording changes.
+**5.** Sua contribuição será analisada pela comunidade. Em alguns casos pediremos algumas alterações antes de dar merge.
 
-You can check which chapters have gone to layout and are frozen on the [project
-page][project] by scrolling all the way to the right to find the column titled
-**Frozen**.
+Após o merge:
 
-### Review
+- Delete a branch utilizada:
 
-Our [open pull requests][pulls] are new chapters or edits that we're currently
-working on. We would love if you would read through those and make comments for
-any suggestions or corrections!
+```
+git checkout master
+git push origin --delete <branch_name>
+git branch -D <branch_name>
+```
 
-[pulls]: https://github.com/rust-lang/book/pulls
+- Atualize seu repositório com o repositório oficial:
 
-### Translations
+```
+git fetch upstream
+git rebase upstream/master
+git push -f origin master
+```
 
-We'd especially love help translating the second edition of the book! See the
-[Translations] label to join in efforts that are currently in progress. Open
-a new issue to start working on a new language! We're waiting on [mdbook
-support] for multiple languages before we merge any in, but feel free to
-start! The chapters in [the frozen column] of the project won't see major
-changes, so if you start with those, you won't have to redo work :)
+**6.** Quando iniciar uma nova contribuição, inicie repita o processo pelo passo 2.
 
-[Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/azerupi/mdBook/issues/5
-[the frozen column]: https://github.com/rust-lang/book/projects/1
+## Sistema de labels e Project
+Para nos ajudar a saber o progresso do projeto e de cada capítulo em específico, contamos com um sistema de labels para informar aos colaboradores quais capítulos estão disponíveis e quais já estão sendo trabalhados por alguém.
 
-### Help wanted
+Os capítulos disponíveis estarão marcados com as labels `aguardando tradução` ou `aguardando revisão`. Caso tenha interesse de ajudar nesses capítulos, comente na issue dizendo que está começando a trabalhar nele e um dos membros da equipe irá atualizar a label.
 
-If you're looking for ways to help that don't involve large amounts of reading
-or writing, check out the [open issues with the E-help-wanted
-label][help-wanted]. These might be small fixes to the text Rust code, frontend
-code, or shell scripts that would help us be more efficient or enhance the book
-in some way!
+As issues com a label `frozen` são equivalentes aos capítulos que estão na sua versão final de acordo com o [repositório oficial](https://github.com/rust-lang/book/projects/1) e muito provavelmente não apresentarão novas alterações.
 
-[help-wanted]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3AE-help-wanted
+Você também pode acompanhar o andamento do projeto por [aqui](https://github.com/rust-br/rust-book-pt-br/projects/1).
 
-### Post-publication
+Qualquer dúvida não hesite em perguntar!
 
-After the second edition of the book goes to print, here are our intentions for
-changes:
+## Boas práticas
+- **Não traduza termos técnicos e blocos de código**
+- Antes de enviar sua contribuição, certifique-se de que está enviando apenas um **único** commit que represente o que foi feito. Caso tenha feito vários commits, [esmague-os](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html) antes de fazer o _Pull Request_.
+- Caso tenha qualquer tipo de dúvida, abra uma _Issue_ que faremos o possível para te ajudar.
+- Contribua com as discussões.
+- Estrangeirismo: Utilizar o formato itálico. Exemplo: _bug_
+- Sentido Figurado: Sempre destacar com aspas duplas.
+- Marcação para código: Utilizar um apóstrofe (\`) para indicar um pedaço de código no meio de um texto (`let mut guess = String::new();`). Ou três apóstrofe com o nome da linguagem de programação na frente (\`\`\`rust), para indicar um bloco de código:
 
-* The online version should stay fairly close to the printed version. For
-  example, you should be able to look at listing 10-3 in the book and find
-  listing 10-3 in the online version and copy-paste the code if you want to
-  play with it. Major changes to correct errors should get documented in
-  errata.
-* There are multiple efforts starting to translate the online book into
-  other languages. It would help the translations stay in sync if we're not
-  constantly changing the text.
-* Someday there might be a third edition, once there are enough large, new
-  features in Rust to warrant such a thing. We don't have any schedule in mind
-  for that though, nor have we decided if it would be modifications to the
-  second edition or a ground-up rewrite. Until we have plans for that, we won't
-  be accepting pull requests that aren't fixing errors, for example, changing
-  the way something is worded.
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
 
-This repository is under the same license as Rust itself, MIT/Apache2.
+## Dúvidas em tradução de termos, palavras, expressões etc…
+Quando estiver em uma situação em que você não sabe exatamente como traduzir uma palavra, termo ou expressão, nós recomendamos que abra uma _Issue_ com um título descritivo como por exemplo: “_Como traduzir a palavra/termo “x”?_” e coloque uma descrição fazendo referência à linha e o capítulo que esteja trabalhando.
+
+:crab: :crab: :crab:
