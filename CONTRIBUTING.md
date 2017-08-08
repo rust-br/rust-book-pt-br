@@ -56,6 +56,8 @@ Para nos ajudar a saber o progresso do projeto e de cada capítulo em específic
 
 Os capítulos disponíveis estarão marcados com as labels `aguardando tradução` ou `aguardando revisão`. Caso tenha interesse de ajudar nesses capítulos, comente na issue dizendo que está começando a trabalhar nele e um dos membros da equipe irá atualizar a label.
 
+As issues com a label `frozen` são equivalentes aos capítulos que estão na sua versão final de acordo com o [repositório oficial](https://github.com/rust-lang/book/projects/1) e muito provavelmente não apresentarão novas alterações.
+
 Você também pode acompanhar o andamento do projeto por [aqui](https://github.com/rust-br/rust-book-pt-br/projects/1).
 
 Qualquer dúvida não hesite em perguntar!
