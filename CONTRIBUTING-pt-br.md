@@ -1,4 +1,12 @@
 # Contribuições
+## Tabela de Conteúdos
+- [Por onde começar?](#por-onde-come%C3%A7ar)
+- [Fluxo](#fluxo)
+- [Processo de tradução](#processo-de-tradu%C3%A7%C3%A3o)
+- [Processo de revisão](#processo-de-revis%C3%A3o)
+- [Sistema de labels e Project](#sistema-de-labels-e-project)
+- [Boas práticas](#boas-pr%C3%A1ticas)
+
 ## Por onde começar?
 **1.** Faça o _fork_ do projeto.
 
@@ -51,8 +59,17 @@ git push -f origin master
 
 **6.** Quando iniciar uma nova contribuição, inicie repita o processo pelo passo 2.
 
-## Lembrete para tradução
+## Processo de tradução
+Os arquivos da tradução ficarão na pasta [`src`](./src) na raiz do repositório, e espelharão o conteúdo da pasta [`./second-edition/src`](./second-edition/src).
+
+Caso vá iniciar a tradução de um capítulo e o mesmo ainda não se encontre na pasta `src`, copie integralmente o respectivo capítulo do repositório da pasta `second-edition`.
+
 Para facilitar o processo de revisão, **não delete o texto em inglês original**. Traduza cada parágrafo embaixo do parágrafo original, dessa forma na hora que outra pessoa for revisar a tradução, esse processo será feito de forma extremamente mais fácil e efetiva.
+
+## Processo de revisão
+Preferencialmente deverá ser feito por outra pessoa que não seja aquela que traduziu o capítulo, para garantir que eventuais erros sejam mais facilmente detectados.
+
+Somente após finalizar toda a revisão do capítulo, remova o texto original em inglês.
 
 ## Sistema de labels e Project
 Para nos ajudar a saber o progresso do projeto e de cada capítulo em específico, contamos com um sistema de labels para informar aos colaboradores quais capítulos estão disponíveis e quais já estão sendo trabalhados por alguém.
