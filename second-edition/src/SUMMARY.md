@@ -17,15 +17,15 @@
 
 - [Compreendendo o Ownership](ch04-00-understanding-ownership.md)
     - [O que é Ownership?](ch04-01-what-is-ownership.md)
-    - [Referencias & Borrowing](ch04-02-references-and-borrowing.md)
-    - [Fatias](ch04-03-slices.md)
+    - [Referências & Borrowing](ch04-02-references-and-borrowing.md)
+    - [Slices](ch04-03-slices.md)
 
 - [Usando Struct para Estruturar Dados Relacionados](ch05-00-structs.md)
     - [Definindo e Instanciando Structs](ch05-01-defining-structs.md)
     - [Um Programa Exemplo Usando Structs](ch05-02-example-structs.md)
     - [Sintaxe de Método](ch05-03-method-syntax.md)
 
-- [Enum e Correspondência Entre Padrão (Match)](ch06-00-enums.md)
+- [Enums e Pattern Matching](ch06-00-enums.md)
     - [Definindo um Enum](ch06-01-defining-an-enum.md)
     - [Operador de Controle de Fluxo `match`](ch06-02-match.md)
     - [Fluxo de controle Conciso com `if let`](ch06-03-if-let.md)
@@ -47,7 +47,7 @@
     - [Erros Recuperáveis com `Result`](ch09-02-recoverable-errors-with-result.md)
     - [Entrar em `panic!` ou Não Entrar em `panic!`](ch09-03-to-panic-or-not-to-panic.md)
 
-- [Tipos Genéricos, Traits, e Lifetimes](ch10-00-generics.md)
+- [Tipos de Dados Genéricos, Traits, e Lifetimes](ch10-00-generics.md)
     - [Dados de Tipos Genéricos](ch10-01-syntax.md)
     - [Traits: Definindo Comportamento Compartilhado](ch10-02-traits.md)
     - [Validando Referências com  Lifetimes](ch10-03-lifetime-syntax.md)
@@ -57,10 +57,10 @@
     - [Executando Testes](ch11-02-running-tests.md)
     - [Organização de Teste](ch11-03-test-organization.md)
 
-- [Projeto de E/S: Criando um Programa de Linha de Comando](ch12-00-an-io-project.md)
+- [Projeto de I/O: Criando um Programa de Linha de Comando](ch12-00-an-io-project.md)
     - [Aceitando Argumentos da Linha de Comando](ch12-01-accepting-command-line-arguments.md)
     - [Lendo um arquivo](ch12-02-reading-a-file.md)
-    - [Refatoração para Melhorar a Modularidade e o Tratamento de Erros](ch12-03-improving-error-handling-and-modularity.md)
+    - [Refatorando para Melhorar a Modularidade e o Tratamento de Erros](ch12-03-improving-error-handling-and-modularity.md)
     - [Desenvolvendo a Funcionalidade da Biblioteca com `Test Driven Development`](ch12-04-testing-the-librarys-functionality.md)
     - [Trabalhando com Variáveis de Ambiente](ch12-05-working-with-environment-variables.md)
     - [Escrevendo Mensagens de Erro Para `stderr` em Vez de `stdout`](ch12-06-writing-to-stderr-instead-of-stdout.md)
@@ -70,7 +70,7 @@
 - [Funcionalidades de Linguagem Funcional em Rust](ch13-00-functional-features.md)
     - [Closures](ch13-01-closures.md)
     - [Iterators](ch13-02-iterators.md)
-    - [Melhorando o Projeto de E/S](ch13-03-improving-our-io-project.md)
+    - [Melhorando o Projeto de I/O](ch13-03-improving-our-io-project.md)
     - [Desempenho](ch13-04-performance.md)
 
 - [Mais Sobre Cargo e Crates.io](ch14-00-more-about-cargo.md)
@@ -89,7 +89,7 @@
     - [Criar Ciclos de Referência e `Leaking Memory` é Seguro](ch15-06-reference-cycles.md)
 
 - [Concorrência sem Medo](ch16-00-concurrency.md)
-    - [Tarefas](ch16-01-threads.md)
+    - [Threads](ch16-01-threads.md)
     - [Passagem de Mensagem](ch16-02-message-passing.md)
     - [Estado Compartilhado](ch16-03-shared-state.md)
     - [Concorrência Extensível: `Sync` e `Send`](ch16-04-extensible-concurrency-sync-and-send.md)
@@ -101,9 +101,9 @@
 
 ## Tópicos Avançados
 
-- [Correspondência de Padrões e Estrutura de Valores](ch18-00-patterns.md)
+- [Padrões Correspondentes à Estrutura dos Valores](ch18-00-patterns.md)
     - [Em Todos os Locais os Padrões Podem ser Usados](ch18-01-all-the-places-for-patterns.md)
-    - [Refutabilidade: Se um Padrão Falha na Correspondência](ch18-02-refutability.md)
+    - [Refutabilidade: Se um Padrão Falha no Match](ch18-02-refutability.md)
     - [Toda a Sintaxe do Padrão](ch18-03-pattern-syntax.md)
 
 - [Características Avançadas](ch19-00-advanced-features.md)
@@ -113,12 +113,12 @@
     - [Tipos Avançados](ch19-04-advanced-types.md)
     - [Funções Avançadas & Closures](ch19-05-advanced-functions-and-closures.md)
 
-- [Projeto Final: Criando um Servidor Web Multi-Tarefa](ch20-00-final-project-a-web-server.md)
-    - [Servidor Web de Única Tarefa](ch20-01-single-threaded.md)
-    - [Quão Lentos os `request` Afetam a Taxa de Transferência](ch20-02-slow-requests.md)
-    - [Projetando a Interface de Tarefas](ch20-03-designing-the-interface.md)
-    - [Criando um Pool de Tarefas e as Guardando](ch20-04-storing-threads.md)
-    - [Enviando Requisições Para Tarefas via Canais](ch20-05-sending-requests-via-channels.md)
+- [Projeto Final: Criando um Servidor Web Multithreaded](ch20-00-final-project-a-web-server.md)
+    - [Servidor Web de Uma Thread](ch20-01-single-threaded.md)
+    - [Como Requisições Lentas Afetam a Taxa de Transferência](ch20-02-slow-requests.md)
+    - [Projetando a Interface de Threads](ch20-03-designing-the-interface.md)
+    - [Criando um Pool de Threads e as Guardando](ch20-04-storing-threads.md)
+    - [Enviando Requisições Para Threads via Canais](ch20-05-sending-requests-via-channels.md)
     - [Shutdown e Cleanup de Modo Elegante](ch20-06-graceful-shutdown-and-cleanup.md)
 
 - [Apêndice](appendix-00.md)
