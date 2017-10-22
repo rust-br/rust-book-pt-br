@@ -60,12 +60,12 @@ and the width are related to each other because together they describe one
 rectangle.
 
 Embora a lista 5-8 funcione e descubra a área do retângulo chamando a função
-`área` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura 
+`area` com cada dimensão, nós podemos fazer melhor. O comprimento e a largura 
 estão relacionados uns aos outros porque juntos eles descrevem um retângulo.
 
 The issue with this method is evident in the signature of `area`:
 
-O problema com este método é evidente na assinatura de `área`:
+O problema com este método é evidente na assinatura de `area`:
 
 ```rust,ignore
 fn area(length: u32, width: u32) -> u32 {
@@ -79,7 +79,7 @@ we might do that in the Grouping Values into Tuples section of Chapter 3 on
 page XX: by using tuples. Listing 5-9 shows another version of our program that
 uses tuples:
 
-A função `área` supostamente calcula a área de um retângulo, mas a função
+A função `area` supostamente calcula a área de um retângulo, mas a função
 que escrevemos tem dois parâmetros. Os parâmetros estão relacionados, mas isso
 não é indicado em qualquer lugar no nosso programa. Seria mais legível e 
 mais gerenciável agrupar comprimento e largura. Já discutimos uma maneira de
@@ -208,7 +208,7 @@ A função `área` acessa os campos `comprimento` e `largura` da instância
 queremos dizer: calcular a área de um retângulo "' usando o seu "Comprimento"
 e "Largura" campos. Transmite o que o comprimento e a largura são relacionados
 uns aos outros, e dá nomes descritivos para os valores em vez de usar a tupla 
-de valores de índice de '0' e '1'-uma vitória para maior clareza.
+de valores de índice de `0` e `1`-uma vitória para maior clareza.
 
 ### Adding Useful Functionality with Derived Traits
 ### Adicionando Funcionalidade Util com Traits Derivadas
@@ -265,15 +265,16 @@ want and structs don’t have a provided implementation of `Display`.
 A macro 'Println!' pode fazer muitos tipos de formatação, e por padrão, 
 `{}` diz a `println!`, para utilizar a formatação conhecida como `Display`:
 saída destinada para consumo do utilizador final. Os tipos primitivos vimos 
-até agora implementar 'Display' por padrão, porque só há uma maneira que você 
-deseja mostrar um "1" ou qualquer outro tipo primitivo para um usuário. Mas com
-Structs, a forma "Println!' deve formatar a saída é menos clara, pois existem 
+até agora implementar `Display` por padrão, porque só há uma maneira que você 
+deseja mostrar um `1` ou qualquer outro tipo primitivo para um usuário. Mas com
+Structs, a forma `Println!` deve formatar a saída é menos clara, pois existem 
 mais possibilidades de exibição: você quer vírgulas ou não? Deseja imprimir o 
 chaves? Todos os campos devem ser mostrado? Devido a esta ambiguidade, Rust 
 não tente adivinhar o que queremos e structs não tem fornecido uma 
-implementação de 'Display'.
+implementação de `Display`.
 
 If we continue reading the errors, we’ll find this helpful note:
+
 Se continuarmos a ler os erros, encontramos esta nota explicativa:
 
 ```text
@@ -290,14 +291,14 @@ to print out our struct in a way that is useful for developers so we can see
 its value while we’re debugging our code.
 
 Vamos tentar! A chamada da macro `Println!` agora vai ficar como 
-`println!("rect1 is {:}", rect1);`. Colocando o especificador: `?` dentro 
+`println!("rect1 is {:?}", rect1);`. Colocando o especificador `:?` dentro 
 do `{}` diz à `println!` que nós queremos usar um formato de saída chamado
 `Debug`. `Debug` é uma trait (característica) que nos permite imprimir nossos struct
 em uma maneira que é útil para os desenvolvedores para que possamos ver o seu 
 valor enquanto estamos a depurar do nosso código.
 
 Run the code with this change. Drat! We still get an error:
-Executamos o código com esta mudança. Drat! Nós ainda obtemos um erro:
+Executamos o código com esta mudança. Pô! Nós ainda obtemos um erro:
 
 ```text
 error: the trait bound `Rectangle: std::fmt::Debug` is not satisfied
@@ -344,8 +345,14 @@ fn main() {
 <span class="caption">Listing 5-12: Adding the annotation to derive the `Debug`
 trait and printing the `Rectangle` instance using debug formatting</span>
 
+<span class="caption">Lista 5-12: Adicionando a anotação para derivar `debug`
+e imprimir a instância `Rectangle`usando a formatação debug</span>
+
 Now when we run the program, we won’t get any errors and we’ll see the
 following output:
+
+Agora, quando executamos o programa, não teremos quaisquer erros e vamos ver
+a seguinte informação:
 
 ```text
 rect1 is Rectangle { length: 50, width: 30 }
@@ -356,6 +363,12 @@ for this instance, which would definitely help during debugging. When we have
 larger structs, it’s useful to have output that’s a bit easier to read; in
 those cases, we can use `{:#?}` instead of `{:?}` in the `println!` string.
 When we use the `{:#?}` style in the example, the output will look like this:
+
+Boa! Não é o mais bonito, mas mostra os valores de todos os campos para essa 
+instância, que irá ajudar durante a depuração. Quando temos structs maiores, 
+é útil ter a informação um pouco mais fácil de ler; nesses casos, podemos usar
+`{:#?}` ao invés de `{:?}` na frase `println!`. Quando utilizamos o `{:#?}` no
+exemplo, vamos ver a informação como esta:
 
 ```text
 rect1 is Rectangle {
@@ -369,8 +382,20 @@ that can add useful behavior to our custom types. Those traits and their
 behaviors are listed in Appendix C. We’ll cover how to implement these traits
 with custom behavior as well as how to create your own traits in Chapter 10.
 
+Rust forneceu um número de traits para usarmos com a notação `derive` que pode 
+adicionar um comportamento útil aos nossos tipos personalizados. Esses 
+traits e seus comportamentos estão listadas no Apêndice C. Abordaremos como 
+implementar estas características com comportamento personalizado, bem como 
+a forma de criar as suas próprias características no Capítulo 10.
+
 Our `area` function is very specific: it only computes the area of rectangles.
 It would be helpful to tie this behavior more closely to our `Rectangle`
 struct, because it won’t work with any other type. Let’s look at how we can
 continue to refactor this code by turning the `area` function into an `area`
 *method* defined on our `Rectangle` type.
+
+A nossa função `area` é muito específica: ela apenas calcula a área de 
+retângulos. Seria útil amarrar este comportamento à nossa struc `Rectangle`,
+porque não vai funcionar com qualquer outro tipo. Vejamos como podemos 
+continuar a refazer esse código rodando a `area` em um *método* `area` definido
+no nosso `Rectangle`.
