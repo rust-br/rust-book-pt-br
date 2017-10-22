@@ -1,5 +1,5 @@
 ## An Example Program Using Structs
-## Um Exemplode um Programa que usa Structs
+## Um Exemplo de um Programa que usa Structs
 
 To understand when we might want to use structs, let’s write a program that
 calculates the area of a rectangle. We’ll start with single variables, and then

@@ -1,4 +1,5 @@
 ## Method Syntax
+## Sintaxe do Method
 
 *Methods* are similar to functions: they’re declared with the `fn` keyword and
 their name, they can have parameters and a return value, and they contain some
@@ -8,11 +9,24 @@ different from functions in that they’re defined within the context of a struc
 respectively), and their first parameter is always `self`, which represents the
 instance of the struct the method is being called on.
 
+*Methods* (métodos) são semelhantes às funções: eles são declarados com a chave
+`Fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm 
+algum código que é executado quando eles são chamados de algum outro lugar. 
+No entanto, métodos são diferentes das funções, porque são definidos no contexto
+de um struct (ou um objeto enum ou um trait, que nós cobrimos nos Capítulos 6 
+e 17, respectivamente), e o seu primeiro parâmetro é sempre `self`, que 
+representa a instância da struct do método que está a ser chamado.
+
 ### Defining Methods
+### Definindo Metodos
 
 Let’s change the `area` function that has a `Rectangle` instance as a parameter
 and instead make an `area` method defined on the `Rectangle` struct, as shown
 in Listing 5-13:
+
+Vamos alterar a função `area` que tem uma instância de `Rectangle` como um 
+parâmetro e, em vez disso, fazer um metodo `area` definido na struct `Rectangle`
+como mostrado na Lista 5-13:
 
 <span class="filename">Filename: src/main.rs</span>
 
