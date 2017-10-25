@@ -56,6 +56,9 @@ fn main() {
 <span class="caption">Listing 5-13: Defining an `area` method on the
 `Rectangle` struct</span>
 
+<span class="caption">Lista 5-13: Definindo um método de `area` na struct
+`Rectangle`</span>
+
 To define the function within the context of `Rectangle`, we start an `impl`
 (*implementation*) block. Then we move the `area` function within the `impl`
 curly braces and change the first (and in this case, only) parameter to be
@@ -65,12 +68,28 @@ use *method syntax* to call the `area` method on our `Rectangle` instance.
 The method syntax goes after an instance: we add a dot followed by the method
 name, parentheses, and any arguments.
 
+Para definir a função dentro do contexto de `Rectangle`, vamos começar 
+um bloco `impl` (*Implementação*). Depois movemos a função `area` dentro 
+do corpo ({}) do `impl` e alterarmos o primeiro (e neste caso, apenas) 
+parâmetro a ser `self` na assinatura e em todos os lugares dentro do corpo. 
+Em `main`, onde chamamos a função `area` e passamos `ct1` como um argumento,
+podemos usar o *sintaxe método* (method sintax) para chamar o método `área` 
+na nossa instância `Rectangle`. A sintaxe método vem em seguida a uma instância:
+adicionamos um ponto seguido pelo nome do método, parênteses e argumentos.
+
 In the signature for `area`, we use `&self` instead of `rectangle: &Rectangle`
 because Rust knows the type of `self` is `Rectangle` due to this method being
 inside the `impl Rectangle` context. Note that we still need to use the `&`
 before `self`, just like we did in `&Rectangle`. Methods can take ownership of
 `self`, borrow `self` immutably as we’ve done here, or borrow `self` mutably,
 just like any other parameter.
+
+Na assinatura de `area`, usamos `&self` em vez de `rectangle: &Rectangle` porque
+Rust sabe que o tipo de `self` é `Rectangle` devido a este método estar dentro do 
+contexto do `impl Rectangle`. Note que ainda precisamos usar o `&` antes de 
+`self`, tal como fizemos em `&Rectangle`. Métodos podem apropriar-se de `self`,
+emprestar `self` imutavel como temos feito aqui, ou emprestar `self` 
+mutavel, assim como qualquer outro parâmetro.
 
 We’ve chosen `&self` here for the same reason we used `&Rectangle` in the
 function version: we don’t want to take ownership, and we just want to read the
@@ -81,6 +100,8 @@ instance by using just `self` as the first parameter is rare; this technique is
 usually used when the method transforms `self` into something else and we want
 to prevent the caller from using the original instance after the transformation.
 
+Escolhemos '&auto' aqui pela mesma razão usamos '&rectângulo' na função versão: nós não queremos assumir a propriedade, e nós apenas queremos ler os dados da struct, e não escrever nele. Se quisermos mudar o exemplo que temos chamado o método como parte do que o método não, use '&mut self' como o primeiro parâmetro. Passar um método que tem a propriedade do exemplo, usando apenas a 'self' como o primeiro parâmetro é rara; esta técnica é geralmente utilizada quando o método transforma o 'self' em algo mais e queremos evitar que o chamador de usando a instância original após a transformação.
+
 The main benefit of using methods instead of functions, in addition to using
 method syntax and not having to repeat the type of `self` in every method’s
 signature, is for organization. We’ve put all the things we can do with an
@@ -88,49 +109,60 @@ instance of a type in one `impl` block rather than making future users of our
 code search for capabilities of `Rectangle` in various places in the library we
 provide.
 
+A principal vantagem do uso de métodos, em vez de funções, além de usar a sintaxe do método e não ter de repetir o tipo de 'self' em cada assinatura do método, é para a organização. Nós colocamos todas as coisas que nós podemos fazer com uma instância de um tipo em um bloco "impl" em vez de fazer os futuros utilizadores do nosso código para capacidades de pesquisa de "RECTÂNGULO" em vários lugares na biblioteca que fornecemos.
+
 > ### Where’s the `->` Operator?
 >
-> In languages like C++, two different operators are used for calling methods:
-> you use `.` if you’re calling a method on the object directly and `->` if
-> you’re calling the method on a pointer to the object and need to dereference
-> the pointer first. In other words, if `object` is a pointer,
-> `object->something()` is similar to `(*object).something()`.
->
-> Rust doesn’t have an equivalent to the `->` operator; instead, Rust has a
-> feature called *automatic referencing and dereferencing*. Calling methods is
-> one of the few places in Rust that has this behavior.
->
-> Here’s how it works: when you call a method with `object.something()`, Rust
-> automatically adds in `&`, `&mut`, or `*` so `object` matches the signature of
-> the method. In other words, the following are the same:
->
-> ```rust
-> # #[derive(Debug,Copy,Clone)]
-> # struct Point {
-> #     x: f64,
-> #     y: f64,
-> # }
-> #
-> # impl Point {
-> #    fn distance(&self, other: &Point) -> f64 {
-> #        let x_squared = f64::powi(other.x - self.x, 2);
-> #        let y_squared = f64::powi(other.y - self.y, 2);
-> #
-> #        f64::sqrt(x_squared + y_squared)
-> #    }
-> # }
-> # let p1 = Point { x: 0.0, y: 0.0 };
-> # let p2 = Point { x: 5.0, y: 6.5 };
-> p1.distance(&p2);
-> (&p1).distance(&p2);
-> ```
->
-> The first one looks much cleaner. This automatic referencing behavior works
-> because methods have a clear receiver—the type of `self`. Given the receiver
-> and name of a method, Rust can figure out definitively whether the method is
-> reading (`&self`), mutating (`&mut self`), or consuming (`self`). The fact
-> that Rust makes borrowing implicit for method receivers is a big part of
-> making ownership ergonomic in practice.
+In languages like C++, two different operators are used for calling methods:
+you use `.` if you’re calling a method on the object directly and `->` if
+you’re calling the method on a pointer to the object and need to dereference
+the pointer first. In other words, if `object` is a pointer,
+`object->something()` is similar to `(*object).something()`.
+
+Em linguagens como C++, dois operadores diferentes são usados para chamar métodos: você use '.' Se você está chamando um método do objeto diretamente e '->' se você está chamando o método em um ponteiro para o objeto e a necessidade de o ponteiro de referência primeiro. Em outras palavras, se o "objeto" é um ponteiro, "objeto->algo()' é semelhante a '(*objeto).algo()'.
+
+Rust doesn’t have an equivalent to the `->` operator; instead, Rust has a
+feature called *automatic referencing and dereferencing*. Calling methods is
+one of the few places in Rust that has this behavior.
+
+A ferrugem não tem um equivalente para o operador "->"; em vez disso, a ferrugem tem um recurso chamado de referenciamento automático dereferencing *e*. Métodos de Chamada é um dos poucos lugares na ferrugem que tem este comportamento.
+
+Here’s how it works: when you call a method with `object.something()`, Rust
+automatically adds in `&`, `&mut`, or `*` so `object` matches the signature of
+the method. In other words, the following are the same:
+
+Eis como funciona: quando você chamar um método com 'object.algo()', ferrugem adiciona automaticamente em '&', '&mut' ou '*' para 'object' corresponde a assinatura do método. Em outras palavras, as seguintes são as mesmas:
+
+
+ ```rust
+ # #[derive(Debug,Copy,Clone)]
+ # struct Point {
+ #     x: f64,
+ #     y: f64,
+ # }
+ #
+ # impl Point {
+ #    fn distance(&self, other: &Point) -> f64 {
+ #        let x_squared = f64::powi(other.x - self.x, 2);
+ #        let y_squared = f64::powi(other.y - self.y, 2);
+ #
+ #        f64::sqrt(x_squared + y_squared)
+ #    }
+ # }
+ # let p1 = Point { x: 0.0, y: 0.0 };
+ # let p2 = Point { x: 5.0, y: 6.5 };
+ p1.distance(&p2);
+ (&p1).distance(&p2);
+ ```
+
+The first one looks much cleaner. This automatic referencing behavior works
+because methods have a clear receiver—the type of `self`. Given the receiver
+and name of a method, Rust can figure out definitively whether the method is
+reading (`&self`), mutating (`&mut self`), or consuming (`self`). The fact
+that Rust makes borrowing implicit for method receivers is a big part of
+making ownership ergonomic in practice.
+
+O primeiro parece muito mais limpo. Este comportamento de referenciamento automático funciona porque métodos têm um claro Receptor-o tipo de 'self'. Dado o receptor e o nome de um método, a ferrugem pode descobrir definitivamente se o método é leitura ('&auto'), mutação ('&mut self'), ou consumir ('self'). O fato de que a ferrugem faz empréstimo para receptores de método implícito é uma grande parte de propriedade na prática ergonómica.
 
 ### Methods with More Parameters
 
@@ -140,6 +172,8 @@ of `Rectangle` and return `true` if the second `Rectangle` can fit completely
 within `self`; otherwise it should return `false`. That is, we want to be able
 to write the program shown in Listing 5-14, once we’ve defined the `can_hold`
 method:
+
+Vamos praticar usando métodos através da aplicação de um segundo método sobre o "RECTÂNGULO" struct. Desta vez, queremos uma instância de "RECTÂNGULO" para ter outra instância do retângulo "retorno" e "verdadeiro" se o segundo "RECTÂNGULO" pode caber completamente dentro de 'self'; caso contrário, ele deve retornar "falso". Isto é, queremos ser capazes de gravar o programa mostrado na Listagem 5 a 14, uma vez que você definiu o_hold 'pode' método:
 
 <span class="filename">Filename: src/main.rs</span>
 
@@ -161,6 +195,8 @@ And the expected output would look like the following, because both dimensions
 of `rect2` are smaller than the dimensions of `rect1`, but `rect3` is wider
 than `rect1`:
 
+E o resultado esperado seria o seguinte, porque ambas as dimensões da "ct2" são menores do que as dimensões da "ct1", mas "ct3' é mais amplo do que "ct1':
+
 ```text
 Can rect1 hold rect2? true
 Can rect1 hold rect3? false
@@ -179,6 +215,8 @@ boolean, and the implementation will check whether the length and width of
 `self` are both greater than the length and width of the other `Rectangle`,
 respectively. Let’s add the new `can_hold` method to the `impl` block from
 Listing 5-13, shown in Listing 5-15:
+
+Sabemos que deseja definir um método, por isso vai ser dentro do 'bloco' Retângulo impl. O nome do método será_hold 'pode', e vai tomar um empréstimo imutável de um outro "RECTÂNGULO" como um parâmetro. Podemos dizer que o tipo do parâmetro será olhando o código que chama o método: "ct1._hold(&rect2)" passa na '&rect2', que é um empréstimo imutável "ct2', uma instância do "RECTÂNGULO". Isso faz sentido porque nós só precisa ler "ct2" (em vez de escrever, o que significaria que precisaria de um empréstimo mutável), e nós queremos 'main' para conservar a propriedade da "ct2' para que possamos utilizá-lo novamente depois de chamar o "_hold'. O valor de retorno de "_hold' será um booleano, e a aplicação irá verificar se o comprimento e a largura de 'self' são ambos 
 
 <span class="filename">Filename: src/main.rs</span>
 
