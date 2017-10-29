@@ -413,7 +413,7 @@ Structs permite-nos criar tipos personalizados que são significativos para o
 nosso domínio. Usando structs, podemos manter pedaços de dados associados 
 ligados uns aos outros e o nome de cada pedaço para fazer nosso código claro.
 Métodos ajudam-nos a especificar o comportamento que as instâncias dos nossos
-structs têm, funções associadas dão-nos a funcionalidade de namespace que é 
+structs têm, funções associadas dão-nos a funcionalidade de `namespace` que é 
 particular à nossa struct sem ter uma instância disponível.
 
 But structs aren’t the only way we can create custom types: let’s turn to
