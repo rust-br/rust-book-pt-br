@@ -1,5 +1,5 @@
 ﻿## Defining and Instantiating Structs
-## Definindo e instanciando Structs 
+## Definindo e Instanciando Structs 
 
 Structs are similar to tuples, which were discussed in Chapter 3. Like tuples,
 the pieces of a struct can be different types. Unlike tuples, we name each piece
@@ -19,10 +19,10 @@ grouped together. Then, inside curly braces, we define the names and types of
 the pieces of data, which we call *fields*. For example, Listing 5-1 shows a 
 struct to store information about a user account:
 
-Para definir um struct, digite a chave 'struct' e o nome todo o struct. O nome 
-do struct deve descrever o significado dos dados agrupados. Em seguida, dentro 
-das chavetas, vamos definir os nomes e tipos dos dados, o que chamamos de 
-*campos*. Por exemplo, lista 5-1 mostra uma struct para armazenar informações
+Para definir um struct, digite a palavra-chave 'struct' e o nome todo o struct.
+O nome do struct deve descrever o significado dos dados agrupados. Em seguida,
+dentro das chaves, vamos definir os nomes e tipos dos dados, o que chamamos de 
+*campos*. Por exemplo, a lista 5-1 mostra uma struct para armazenar informações
 sobre a conta de um usuário:
 
 ```rust
