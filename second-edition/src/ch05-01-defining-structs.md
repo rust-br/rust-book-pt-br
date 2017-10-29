@@ -48,14 +48,14 @@ instances fill in that template with particular data to create values of the
 type. For example, we can declare a particular user as shown in Listing 5-2:
 
 Para usar uma struct depois a definirmos, criamos uma *instância* dessa struct,
-especificando valores concretos para cada um dos campos. Estamos a criar uma 
-instância, indicando o nome da struct e depois entre chavetas, adicionamos 
-chaves contendo pares ‘chave:valor’ onde as chaves são os nomes dos campos e os
-valores são os dados que deseja armazenar nesses campos. Nós não temos para 
-especificar os campos na mesma ordem em que os temos declarado na struct. Em 
-outras palavras, a definição da struct é como um modelo geral para o tipo, e as
-instâncias preenchem esse modelo com os dados específicos, para criar valores 
-esse tipo. Por exemplo, podemos declarar um usuário específico como mostrado 
+especificando valores para cada um dos campos. Estamos a criar uma instância, 
+indicando o nome da struct e depois entre chavetas, adicionamos chaves contendo
+pares ‘chave:valor’ onde as chaves são os nomes dos campos e os valores são os 
+dados que deseja armazenar nesses campos. Nós não temos para especificar os 
+campos na mesma ordem em que os temos declarado na struct. Em outras palavras,
+a definição da struct é como um modelo geral para o tipo, e as instâncias 
+preenchem esse modelo com os dados específicos, para criar valores desse tipo.
+Por exemplo, podemos declarar um usuário específico como mostrado 
 na lista 5-2:
 
 ```rust
