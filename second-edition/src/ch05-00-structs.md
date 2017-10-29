@@ -10,7 +10,7 @@ data. The struct and *enum* (which is discussed in Chapter 6) concepts are the
 building blocks for creating new types in your program’s domain to take full
 advantage of Rust’s compile time type checking.
 
-# Usando Structs para estruturar dados relacionados
+# Usando Structs para Estruturar Dados Relacionados
 
 Um *struct*, ou *estrutura*, é um tipo de dados personalizado que nos permite
 nomear e criar um conjunto de vários valores relacionados que compõem um grupo 
