@@ -21,7 +21,7 @@ struct User {
     active: bool,
 }
 ```
-<span class="caption">Lista 5-1: Definição de struct `User`</span>
+<span class="caption">Lista 5-1: Definição da struct `User`</span>
 
 Para usar uma struct depois de a definirmos, criamos uma *instância* dessa 
 struct, especificando valores para cada um dos campos. Estamos a criar uma 
