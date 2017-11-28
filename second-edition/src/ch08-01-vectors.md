@@ -98,11 +98,11 @@ números que inserimos são todos do tipo `i32`, e Rust infere isso dos
 dados, por isso não precisamos da anotação `Vec <i32>`.
 
 ### Dropping a Vector Drops its Elements
-### Descartando um Vetor descarta seus Elementos
+### Descartar um Vetor Descarta seus Elementos
 
 Like any other `struct`, a vector will be freed when it goes out of scope:
 
-Como qualquer outro `struct`, um vetor será liberado quando ele estiver fora do escopo:
+Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:
 
 ```rust
 {
@@ -142,9 +142,9 @@ read their contents is a good next step. There are two ways to reference a
 value stored in a vector. In the examples, we’ve annotated the types of the
 values that are returned from these functions for extra clarity.
 
-Agora que você sabe como criar, atualizar e destruir vetores, o próximo
-passo é saber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a
-valor armazenado em um vetor. Nos exemplos, anotamos os tipos de
+Agora que você sabe como criar, atualizar e destruir vetores, 
+saber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a
+valores armazenados em um vetor. Nos exemplos, anotamos os tipos de
 valores que são retornados dessas funções para maior clareza.
 
 This example shows both methods of accessing a value in a vector either with
@@ -170,7 +170,7 @@ Há algumas coisas a serem observadas aqui. Primeiro, que usamos o valor do índ
 para obter o terceiro elemento: os vetores são indexados por número, começando em zero.
 Em segundo lugar, as duas maneiras diferentes de obter o terceiro elemento são: usando `&` e
 `[]`, que nos dá uma referência, ou usando o método `get` com o índice
-passado como um argumento, o que nos dá uma `Opção <& T>`.
+passado como um argumento, o que nos dá uma `Option<&T>`.
 
 The reason Rust has two ways to reference an element is so that you can choose
 how the program behaves when you try to use an index value that the vector
@@ -179,8 +179,8 @@ a vector that holds five elements then tries to access an element at index 100
 like this:
 
 A razão pela qual Rust tem duas maneiras de fazer referência a um elemento é para que você possa escolher
-como o programa se comporta quando você tenta usar um valor de índice que o vetor
-não tem um elemento para ele. Por exemplo, o que um programa deve fazer se tiver
+como o programa se comporta quando você tenta usar um valor de índice para o qual 
+o vetor não tem um elemento correspondente. Por exemplo, o que um programa deve fazer se tiver
 um vetor que contém cinco elementos, então tenta acessar um elemento no índice 100
 dessa maneira:
 
@@ -197,10 +197,10 @@ be preferable if you want your program to consider an attempt to access an
 element past the end of the vector to be a fatal error that should crash the
 program.
 
-Quando você executa isso, você encontrará que com o primeiro método `[]`, Rust irá
+Quando você executar isso, você verá que com o primeiro método `[]`, Rust irá
 causar um `panic!` quando um elemento inexistente é referenciado. Este método seria
 preferível se você quiser que seu programa considere uma tentativa de acessar um
-elemento, passado o fim do vetor, para ser um erro fatal que, deve travar o
+elemento, passado o fim do vetor, para ser um erro fatal que deve finalizar o
 programa.
 
 When the `get` method is passed an index that is outside the array, it will
@@ -215,7 +215,7 @@ chance to enter a valid value. That would be more user-friendly than crashing
 the program for a typo!
 
 Quando é passado um índice que está fora da matriz para o método `get`, ele 
-retorna `None` sem entrar em pânico. Você usaria isso se acessasse um elemento
+retorna `None` sem entrar em pânico. Você usaria isso se acessar um elemento
 além do alcance do vetor ocorrerá ocasionalmente sob 
 circunstâncias normais. Seu código pode então ter lógica para lidar tanto com
 `Some(&element)` ou `None`, como discutimos no Capítulo 6. Por exemplo, o
@@ -236,7 +236,7 @@ That rule applies in this example, where we hold an immutable reference to the
 first element in a vector and try to add an element to the end:
 
 Uma vez que o programa tenha uma referência válida, o verificador de empréstimo (borrow checker) faz valer
-as regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir essa referência e
+as regras de propriedade e empréstimo abrangidas no Capítulo 4 para garantir que essa referência e
 quaisquer outras referências aos conteúdos do vetor permaneçam válidas. Lembre-se da regra
 que diz que não podemos ter referências mutáveis e imutáveis no mesmo escopo.
 Essa regra se aplica neste exemplo, onde mantemos uma referência imutável ao
@@ -307,7 +307,7 @@ enum!
 
 No início deste capítulo, dissemos que os vetores só podem armazenar valores
 que são todos do mesmo tipo. Isso pode ser inconveniente; definitivamente há casos 
-de uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente, o
+de uso para a necessidade de armazenar uma lista de coisas de diferentes tipos. Felizmente,
 as variantes de um enum são todas definidas sob o mesmo tipo de enum, então, quando precisamos
 armazenar elementos de um tipo diferente em um vetor, podemos definir e usar um
 enum!

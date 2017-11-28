@@ -318,7 +318,7 @@ the logic ourselves, and in addition, plays more nicely with the borrow checker.
 O método `or_insert` em `Entry` retorna o valor para o `Entry` correspondente
 se a chave existir, e se não, insere seu argumento como o novo valor para
 esta chave e retorna a `Entry` modificada. Isso é muito mais limpo do que escrever
-a lógica por nós mesmos e, além disso, trabalha-se de forma maislimpa com o borrow checker.
+a lógica por nós mesmos e, além disso, trabalha-se de forma mais limpa com o borrow checker.
 
 This code will print `{"Yellow": 50, "Blue": 10}`. The first call to `entry`
 will insert the key for the Yellow team with the value 50, since the Yellow
@@ -368,7 +368,7 @@ to assign to that value we must first dereference `count` using the asterisk
 all of these changes are safe and allowed by the borrowing rules.
 
 Isso imprimirá `{"world": 2, "hello": 1, "wonderful": 1}`. O método `or_insert`
-na verdade retorna uma referência mutável (`&mutV`) para o valor desta
+na verdade retorna uma referência mutável (`& mutV`) para o valor desta
 chave. Aqui nós armazenamos essa referência mutável na variável `count`, então, 
 para poder atribuir esse valor, devemos primeiro desreferenciar `count` usando o asterisco
 (`*`). A referência mutável fica fora do escopo no final do loop `for`, então

@@ -8,11 +8,11 @@ structure than many programmers give them credit for, and UTF-8. These things
 combine in a way that can seem difficult when coming from other languages.
 
 Nós já conversamos sobre as strings no capítulo 4, mas vamos dar uma olhada mais
-em profundidade agora. As strings são uma área que os novos Rustaceans geralmente tem maior
-dificuldade. Isto é devido a uma combinação de três coisas: a propensão de Rust para
-certificando-se de expor possíveis erros, as strings são estruturas de dados mais complicadas
+em profundidade agora. As strings são uma área que os novos Rustáceos geralmente tem maior
+dificuldade. Isto é devido a uma combinação de três coisas: a propensão de Rust de
+certificar-se de expor possíveis erros, as strings são estruturas de dados mais complicadas
 que muitos programadores lhes dão crédito, e UTF-8. Essas coisas
-combinar de tal forma que parecem difícil quando se vem de outras linguagens.
+combina de tal forma que parecem difícil quando se vem de outras linguagens.
 
 The reason strings are in the collections chapter is that strings are
 implemented as a collection of bytes plus some methods to provide useful
@@ -26,7 +26,7 @@ complicated by the differences between how people and computers interpret
 A razão pela qual as strings estão no capítulo de coleções é que as strings são
 implementadas como uma coleção de bytes mais alguns métodos para fornecer informações úteis e
 funcionalidade quando esses bytes são interpretados como texto. Nesta seção, iremos
-falar sobre as operações em `String` que cada tipo de coleção tem, como
+falar sobre as operações em `String` que todo tipo de coleção tem, como
 criar, atualizar e ler. Também discutiremos as formas em que `String`
 é diferente das outras coleções, a saber, como a indexação em um `String` é
 complicada pelas diferenças entre como as pessoas e os computadores interpretam
@@ -45,9 +45,9 @@ string slices.
 
 Antes de podermos explorar esses aspectos, precisamos falar sobre o que exatamente
 significa o termo *string*. Rust realmente só tem um tipo de string no núcleo
-da própria linguagem: `str`, a fatia de string, que geralmente é vista na forma de emprestado
-, `&str`. Nós falamos como *fatias de strings* no Capítulo 4: estas são uma
-referência a alguns dados de string codificados UTF-8 armazenados em outro lugar. Literais de strings,
+da própria linguagem: `str`, a fatia de string, que geralmente é vista na forma emprestada
+, `&str`. Nós falamos sobre *fatias de strings* no Capítulo 4: estas são uma
+referência a alguns dados de string codificados em UTF-8 armazenados em outro lugar. Literais de strings,
 por exemplo, são armazenados na saída binária do programa e, portanto, são
 fatias de string.
 
@@ -59,8 +59,8 @@ This section is largely about `String`, but both these types are used heavily
 in Rust’s standard library. Both `String` and string slices are UTF-8 encoded.
 
 O tipo chamado `String` é fornecido na biblioteca padrão do Rust, em vez de
-codificado no núleo da linguagem, e é extensível, mutável, `owned`, tipo string
-codificado UTF-8. Quando Rustaceans falam sobre "strings" em Rust, geralmente significam
+codificado no núleo da linguagem, e é um extensível, mutável, `owned`, tipo string
+codificado UTF-8. Quando Rustáceos falam sobre “strings” em Rust, geralmente significa
 tanto os tipos `String` quanto os tipos de string`&str`, normalmente ambos.
 Esta seção, é em grande parte sobre `String`, mas ambos esses tipos são usados em grande parte
 na biblioteca padrão da Rust. Tanto o `String` como as fatias de string são codificadas em UTF-8.
@@ -95,9 +95,9 @@ Often, we’ll have some initial data that we’d like to start the string off
 with. For that, we use the `to_string` method, which is available on any type
 that implements the `Display` trait, which string literals do:
 
-Muitas vezes, teremos alguns dados iniciais que gostaríamos de já iniciar a string. 
+Muitas vezes, teremos alguns dados iniciais que gostaríamos de já colocar na string. 
 Para isso, usamos o método `to_string`, que está disponível em qualquer tipo
-que implementa a trait `Display`, que as string literais fazem:
+que implementa a trait `Display`, como as strings literais:
 
 ```rust
 let data = "initial contents";
@@ -327,9 +327,9 @@ let s = s1 + "-" + &s2 + "-" + &s3;
 characters, it gets hard to see what’s going on. For more complicated string
 combining, we can use the `format!` macro:
 
-`s` será ”jogo-da-velha” neste momento. Com todos os `+` e `"`
-caracteres, fica difícil ver o que está acontecendo. Para strings mais complicadas
-, podemos usar o `format!` macro:
+`s` será “tic-tac-toe” neste momento. Com todos os `+` e `"`, 
+fica difícil ver o que está acontecendo. Para strings mais complicadas
+, podemos usar o macro `format!`:
 
 ```rust
 let s1 = String::from("tic");
@@ -344,7 +344,7 @@ same way as `println!`, but instead of printing the output to the screen, it
 returns a `String` with the contents. This version is much easier to read, and
 also does not take ownership of any of its parameters.
 
-Este código também definirá `s` para ”jogo-da-velha”. A macro `format!` funciona
+Este código também definirá `s` para “tic-tac-toe”. A macro `format!` funciona
 do mesmo modo que `println!`, mas em vez de imprimir a saída para a tela, ela
 retorna uma `String` com o conteúdo. Esta versão é muito mais fácil de ler, e
 também não incide ownership em nenhum dos seus parâmetros.
@@ -456,7 +456,7 @@ imediatamente, Rust escolhe não compilar este código e previne
 mal-entendidos anteriormente.
 
 #### Bytes and Scalar Values and Grapheme Clusters! Oh my!
-#### Bytes e Valores Escalares e Grafema Clusters! Oh nossa!
+#### Bytes e Valores Escalares e Clusters de Grafemas! Nossa!
 
 This leads to another point about UTF-8: there are really three relevant ways
 to look at strings, from Rust’s perspective: as bytes, scalar values, and
@@ -469,7 +469,7 @@ clusters de grafemas (a coisa mais próxima do que as pessoas chamariam *letras*
 If we look at the Hindi word “नमस्ते” written in the Devanagari script, it is
 ultimately stored as a `Vec` of `u8` values that looks like this:
 
-Se olharmos para a palavra Hindi “नमस्ते” escrita no script Devanagari, é
+Se olharmos para a palavra Hindi “नमस्ते” escrita na escrita Devanagari, é
 em última instância, armazenada como um `Vec` de valores `u8` que se parece com isto:
 
 ```text
@@ -644,7 +644,7 @@ fornecida pela biblioteca padrão. Existem crates disponíveis em crates.io se
 Esta é a funcionalidade que você precisa.
 
 ### Strings are Not so Simple
-### As cordas não são tão simples
+### As Strings Não são tão Simples
 
 To summarize, strings are complicated. Different programming languages make
 different choices about how to present this complexity to the programmer. Rust
