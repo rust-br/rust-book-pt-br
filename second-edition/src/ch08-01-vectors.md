@@ -42,8 +42,8 @@ Isto é um ponto importante. Vetores são homogêneos: eles podem guardar muitos
 valores, mas todos esses valores devem ser do mesmo tipo. Vetores são implementados
 usando genéricos, onde o capítulo 10 irá cobrir como usar em seus tipos. Por
 agora, tudo o que precisa saber é que o tipo `Vec` fornecido pela biblioteca
-padrão code conter qualquer tipo, e quando um `Vec` específico possui um tipo específico, o
-tipo vai dentro de `< >`. Falamos para Rust que `Vec`em `v` guardará
+padrão pode conter qualquer tipo, e quando um `Vec` específico possui um tipo específico, o
+tipo vai dentro de `< >`. Falamos para Rust que `Vec` em `v` guardará
 elementos do tipo `i32`.
 
 In real code, Rust can infer the type of value we want to store once we insert
@@ -54,7 +54,7 @@ it. This will create a new `Vec<i32>` that holds the values `1`, `2`, and `3`:
 
 No código real, a Rust pode inferir o tipo de valor que queremos armazenar uma vez que inserimos
 valores, então você raramente precisa fazer essa anotação de tipo. É mais comum
-criar um `Vec` que possui valores iniciais, e o Rust fornece a macro` vec!` por
+criar um `Vec` que possui valores iniciais, e o Rust fornece a macro `vec!` por
 conveniência. A macro criará um novo `Vec` que contém os valores que damos
 . Isso criará um novo `Vec <i32>` que contém os valores `1`,` 2` e `3`:
 
@@ -93,7 +93,7 @@ numbers we place inside are all of type `i32`, and Rust infers this from the
 data, so we don’t need the `Vec<i32>` annotation.
 
 Como qualquer variável que discutimos no Capítulo 3, se quisermos poder
-altere seu valor, precisamos fazê-lo mutable com a palavra-chave `mut`. Os 
+alterar seu valor, precisamos fazê-lo mutável com a palavra-chave `mut`. Os 
 números que inserimos são todos do tipo `i32`, e Rust infere isso dos
 dados, por isso não precisamos da anotação `Vec <i32>`.
 
@@ -129,7 +129,7 @@ those integers it holds will be cleaned up. This may seem like a
 straightforward point, but can get a little more complicated once we start to
 introduce references to the elements of the vector. Let’s tackle that next!
 
-Quando o vetor é descartado, todos os seus conteúdos também serão descartados, o que significa
+Quando o vetor é descartado, todos os seus conteúdos também será descartado, o que significa
 esses inteiros que ele contém serão limpos. Isso pode parecer um
 ponto direto, mas pode ficar um pouco mais complicado quando começamos a
 introduzir referências aos elementos do vetor. Vamos abordar isso em seguida!
@@ -142,8 +142,8 @@ read their contents is a good next step. There are two ways to reference a
 value stored in a vector. In the examples, we’ve annotated the types of the
 values that are returned from these functions for extra clarity.
 
-Agora que você sabe como criar, atualizar e destruir vetores, saber como
-ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a
+Agora que você sabe como criar, atualizar e destruir vetores, o próximo
+passo é saber ler o seu conteúdo é um bom passo seguinte. Existem duas maneiras de fazer referência a
 valor armazenado em um vetor. Nos exemplos, anotamos os tipos de
 valores que são retornados dessas funções para maior clareza.
 
