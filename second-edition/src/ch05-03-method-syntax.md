@@ -1,4 +1,4 @@
-## Sintaxe do Metodo
+## Sintaxe do Método
 
 *Methods* (métodos) são semelhantes às funções: eles são declarados com a chave
 `fn` e o seu nome, eles podem ter parâmetros e valor de retorno, e eles contêm 
@@ -8,10 +8,10 @@ de uma struct (ou um objeto enum ou uma trait, que nós cobrimos nos Capítulos 
 e 17, respectivamente), o seu primeiro parâmetro é sempre `self`, que representa
 a instância da struct do método que está a ser chamado.
 
-### Definindo Metodos
+### Definindo Métodos
 
 Vamos alterar a função `area` que tem uma instância de `Rectangle` como um 
-parâmetro e, em vez disso, fazer um metodo `area` definido na struct `Rectangle`
+parâmetro e, em vez disso, fazer um método `area` definido na struct `Rectangle`
 como mostrado na Lista 5-13:
 
 <span class="filename">Filename: src/main.rs</span>
@@ -47,9 +47,10 @@ Para definir a função dentro do contexto de `Rectangle`, vamos iniciar um bloc
 do `impl` e alteramos o primeiro (e neste caso, unico) parâmetro a ser `self` na
  assinatura e em todos os lugares dentro do corpo. 
 Em `main`, onde chamamos a função `area` e passamos `ct1` como um argumento,
-podemos usar o *método sintaxe* (method sintax) para chamar o método `área` 
-na nossa instância `Rectangle`. A sintaxe método vem em seguida a uma instância:
-adicionamos um ponto seguido pelo nome do método, parênteses e os argumentos.
+podemos usar a *sintaxe de método* (method sintax) para chamar o método `área` 
+na nossa instância `Rectangle`. A sintaxe de método vem em seguida a uma 
+instância: adicionamos um ponto seguido pelo nome do método, parênteses e os
+argumentos.
 
 Na assinatura de `area`, usamos `&self` em vez de `rectangle: &Rectangle` porque
 Rust sabe que o tipo de `self` é `Rectangle` devido a este método estar dentro do 
@@ -118,7 +119,7 @@ se o método é leitura (`&self`), mutação (`&mut self`), ou consumo (`self`).
 O fato de que Rust faz o empréstimo para receptores de método implícito é em
 grande parte porque o ownership é ergonomico na prática.
 
-### Metodos com Mais Parametros
+### Métodos com Mais Parametros
 
 Vamos praticar usando métodos através da aplicação de um segundo método sobre 
 o struct `Rectangle` . Desta vez, queremos uma instância de `Rectangle` para 
@@ -140,7 +141,7 @@ fn main() {
 }
 ```
 
-<span class="caption">Lista 5-14: Demonstrando o uso do metodo ainda não escrito
+<span class="caption">Lista 5-14: Demonstrando o uso do método ainda não escrito
 `can_hold`</span>
 
 E o resultado esperado seria o seguinte, porque ambas as dimensões de `rect2` são 
@@ -159,10 +160,10 @@ passa `&rect2`, que é um empréstimo imutável de `rect2`, uma instância do
 `Rectangle`. Isso faz sentido porque nós só precisamos de  ler `rect2` 
 (em vez de escrever, que precisaria de um empréstimo mutável),e nós queremos
 que `main` conserve a propriedade de `rect2` para que possamos utilizá-lo 
-novamente depois de chamar o metodo `can_hold`. O valor de retorno de `can_hold`
+novamente depois de chamar o método `can_hold`. O valor de retorno de `can_hold`
 será um booleano, e a aplicação irá verificar se o comprimento e a largura 
 de `self` são ambos maiores que o comprimento e a largura do outro `Rectangle`,
-respectivamente. Vamos adicionar o novo metodo `can_hold` ao bloco `impl` 
+respectivamente. Vamos adicionar o novo método `can_hold` ao bloco `impl` 
 da Lista 5-13, mostrado na Lista 5-15:
 
 
@@ -202,12 +203,6 @@ Estas são chamadas de *funções associadas* porque elas estão associados com
 a struct. Elas ainda são funções, não métodos, porque elas não têm uma 
 instância da struct para trabalhar. Você já usou a função associada 
 `String::from`.
-
-Associated functions are often used for constructors that will return a new
-instance of the struct. For example, we could provide an associated function
-that would have one dimension parameter and use that as both length and width,
-thus making it easier to create a square `Rectangle` rather than having to
-specify the same value twice:
 
 Funções associadas são usados frequentemente para construtores que retornam uma
 nova instância da struct. Poderíamos, por exemplo, fornecer uma função associada

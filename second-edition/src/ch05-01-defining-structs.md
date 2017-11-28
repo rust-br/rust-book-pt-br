@@ -2,7 +2,7 @@
 
 Structs são semelhantes às tuplas, que foram discutidas no Capítulo 3. Como 
 tuplas, os elementos de uma struct podem ser de tipos diferentes. Ao contrário
-das  tuplas, nomeie cada dado de modo que seja claro o que cada um significa. 
+das tuplas, nomeie cada dado de modo que seja claro o que cada um significa. 
 Como resultado destes nomes, structs são mais flexíveis que tuplas: nós não 
 temos de saber a ordem dos dados para especificar ou aceder aos valores de 
 uma instância.
@@ -26,9 +26,9 @@ struct User {
 Para usar uma struct depois de a definirmos, criamos uma *instância* dessa 
 struct, especificando valores para cada um dos campos. Estamos a criar uma 
 instância, indicando o nome da struct e depois entre chavetas, adicionamos 
-chaves contendo pares `campo:valor` onde as chaves são os nomes dos campos 
-e os valores são os dados que deseja armazenar nesses campos. Nós não temos 
-que atribuir os elementos na mesma ordem em que os temos declarado na struct.
+pares `campo:valor` onde as chaves são os nomes dos campos e os valores são os
+dados que deseja armazenar nesses campos. Nós não temos que atribuir os 
+elementos na mesma ordem em que os temos declarado na struct.
 Em outras palavras, a definição da struct é como um modelo geral para o tipo,
 e as instâncias preenchem esse modelo com os dados específicos, para criar 
 valores desse tipo. Por exemplo, podemos declarar um usuário específico como 
@@ -50,7 +50,7 @@ let user1 = User {
 };
 ```
 
-<span class="caption">Lista 5-2: Criar uma instancia da struct `User`</span>
+<span class="caption">Lista 5-2: Criar uma instância da struct `User`</span>
 
 Para obter um valor específico de uma struct, podemos utilizar a notação de 
 ponto. Se quiséssemos apenas esse endereço de e-mail do usuário, podemos usar
@@ -81,12 +81,14 @@ user1.email = String::from("outroemail@exemplo.com");
 instância de `User`</span>
 
 
-### Abreviatura do Init dos Campos quando as Variáveis têm o mesmo Nome dos Campos
+### Abreviatura da Inicialização dos Campos quando as 
+### Variáveis têm o mesmo Nome dos Campos
 
 Se você tiver as variáveis com os mesmos nomes dos campos da struct, você pode 
-usar o campo *init shorthand* (iniciar curto). Isto pode fazer com que as 
-funções que criam novas instâncias de structs mais concisos. Em primeiro lugar,
-vejamos o modo mais detalhado para inicializar uma instância de uma struct. 
+usar o *field init shorthand* ((inicialização abreviada do campo). Isto pode 
+fazer com que as funções que criam novas instâncias de structs mais concisos.
+Em primeiro lugar, vejamos o modo mais detalhado para inicializar uma instância
+de uma struct. 
 A função chamada `build_user` mostrada aqui na Lista 5-4 tem parâmetros 
 chamados `e-mail` e `username` (nome de usuário). A função cria e retorna uma 
 instância do `User`:
@@ -117,7 +119,7 @@ Porque os nomes dos parâmetros `e-mail` e `username` são os mesmos que os nome
 de campo do `e-mail` e `nome de usuário` da struct `User`, podemos escrever 
 `build_user` sem a repetição de `e-mail` e `username` como mostrado na Lista5-5.
 Esta versão de `build_user` comporta-se da mesma maneira como na Lista 5-4.
-A sintaxe do campo init pode fazer casos como esse mais curtos para escrever, 
+A sintaxe abreviada pode fazer casos como esse mais curtos para escrever, 
 especialmente quando structs têm muitos campos.
 
 ```rust
@@ -182,7 +184,7 @@ do `user1`</span>
 A *struct update syntax* (Sintaxe de Atualização da Struct) alcança o mesmo 
 efeito que o código na Lista 5-6 usando menos código. A sintaxe de atualização
 struct usa `..` para especificar que os campos restantes não explicitamente 
-configurado deve ter o mesmo valor que os campos na determinada instância. 
+configurados devem ter o mesmo valor que os campos na determinada instância. 
 O código na Lista 5-7 também cria uma instância no `user2`, que tem um valor
 diferente de `e-mail` e `nome de usuário` mas tem os mesmos valores para os 
 `active` e `sign_no_count` campos que `user1`:
@@ -219,9 +221,9 @@ resto dos valores dos campos da instância da variável `user1`</span>
 Podemos também definir structs que parecem semelhantes a tuplas, chamadas 
 *tuple structs*, que têm o significado que o nome struct fornece, mas não 
 têm os nomes associados com os seus campos, apenas os tipos dos campos. 
-A definição de uma tuple struct, ainda começa com a palavra-chave `struct` e o
-nome da struct, que são seguidos pelos tipos na tuple. Por exemplo, aqui estão
-as definições e usos da tuple structs chamado `Color` e `Point`:
+A definição de uma struct-tupla, ainda começa com a palavra-chave `struct` e o
+nome da struct, que é seguida pelos tipos na tupla. Por exemplo, aqui estão
+as definições e usos da struct-tupla chamados `Color` e `Point`:
 
 ```rust
 struct Color(i32, i32, i32);
@@ -232,15 +234,15 @@ let origin = Point(0, 0, 0);
 ```
 
 Note que os valores `black` e `origin` são diferentes tipos, uma vez que eles
-são de diferentes instâncias tuple structs. Cada struct que definimos é o seu 
-próprio tipo, embora os campos dentro do struct tenham os mesmos tipos. Caso 
-contrário, as tuple struct comportam-se como instâncias de tuplas, que 
+são de diferentes instâncias struct-tupla. Cada struct que definimos é o seu 
+próprio tipo, embora os campos dentro do struct tenham os mesmos tipos. 
+No geral as struct-tuplas comportam-se como instâncias de tuplas, que 
 discutimos no Capítulo 3.
 
 ### Estruturas Unit-Like sem Quaisquer Campos
 
 Podemos também definir structs que não têm quaisquer campos! Estes são chamados
-de *unit-like structs* (Unidades como Structs) porque eles se comportam da mesma
+de *unit-like structs* (unidades como structs) porque eles se comportam da mesma
 forma que `()`, o tipo unidade. Unit-like structs podem ser úteis em situações,
 como quando você precisa implementar um trait de algum tipo, mas você não tem 
 quaisquer dados que você deseja armazenar no tipo em si. Traits será discutido 

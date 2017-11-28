@@ -130,13 +130,6 @@ tomar posse dela. Desta forma, `main` mantém-se a sua proprietaria e pode
 continuar a usar o `rect1`, que é a razão para usar o `&` na assinatura 
 da função e onde chamamos a função.
 
-The `area` function accesses the `length` and `width` fields of the `Rectangle`
-instance. Our function signature for `area` now indicates exactly what we mean:
-calculate the area of a `Rectangle` using its `length` and `width` fields. This
-conveys that the length and width are related to each other, and gives
-descriptive names to the values rather than using the tupla index values of `0`
-and `1`—a win for clarity.
-
 A função `área` acessa os campos `comprimento` e `largura` da instância 
 `Rectangle`. Nossa função assinatura para `área` agora indica exatamente o que 
 queremos dizer: calcular a área de um `Rectangle` usando os campos `lenght` 
@@ -148,7 +141,7 @@ usar a tupla de valores de índice `0` e `1`-uma vitória para uma maior clareza
 
 Seria útil para ser capaz de imprimir uma instância do `Rectangle` enquanto
 estamos depurando o nosso programa, a fim de consultar os valores para todos
-os seus campos. Lista 5-11 usa a macro 'Println!' como temos usado nos 
+os seus campos. Lista 5-11 usa a macro 'println!' como temos usado nos 
 capítulos anteriores:
 
 <span class="filename">Filename: src/main.rs</span>
@@ -175,12 +168,12 @@ Quando executamos este código, obtemos um erro com esta mensagem interna:
 error[E0277]: the trait bound `Rectangle: std::fmt::Display` is not satisfied
 ```
 
-A macro 'Println!' pode fazer muitos tipos de formatação, e por padrão, 
+A macro 'println!' pode fazer muitos tipos de formatação, e por padrão, 
 `{}` diz a `println!`, para utilizar a formatação conhecida como `Display`:
 saída destinada para consumo do utilizador final. Os tipos primitivos que vimos
 até agora implementam `Display` por padrão, porque só há uma maneira que você 
 deseja mostrar um `1` ou qualquer outro tipo primitivo para um usuário. Mas com
-Structs, a forma como `Println!` deve formatar a saída é menos clara, pois 
+Structs, a forma como `println!` deve formatar a saída é menos clara, pois 
 existem mais possibilidades de exibição: você quer vírgulas ou não? Deseja 
 imprimir as chavetas `{}`? Todos os campos devem ser mostrados? Devido a esta 
 ambiguidade, Rust não tenta adivinhar o que queremos e as structs não têm uma 
@@ -216,12 +209,7 @@ nota: `Rectangle` não pode ser formatado usando `:?`; se estiver definido no
 nosso crate, adicionamos `#[derive(Debug)]` ou adicionamos manualmente.
 
 
-Rust *does* include functionality to print out debugging information, but we
-have to explicitly opt-in to make that functionality available for our struct.
-To do that, we add the annotation `#[derive(Debug)]` just before the struct
-definition, as shown in Listing 5-12:
-
-Rust *não* inclui funcionalidades para imprimir informações de depuração,
+Rust *inclui* funcionalidades para imprimir informações de depuração, mas
 temos de inseri-la explicitamente para tornar essa funcionalidade disponível
 para nossa struct. Para isso, adicionamos a anotação `#[derive(Debug)]` pouco
 antes da definição da struct, como mostrado na Lista 5-12:
