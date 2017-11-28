@@ -90,9 +90,9 @@ não se transmitiu o significado dos nossos dados no nosso código.
 
 ### Reprogramação com Structs: Adicionando Mais Significado
 
-Usamos structs para dar significado aos dados usando rotulos. Podemos 
-transformar a tupla que estamos usando, em um tipo de dados, com um nome
-para o conjunto, bem como nomes para as partes, como mostra a Lista 5-10:
+Usamos structs para dar significado aos dados usando rótulos. Podemos 
+transformar a tupla que estamos usando em um tipo de dados, com um nome
+para o conjunto bem como nomes para as partes, como mostra a Lista 5-10:
 
 <span class="filename">Filename: src/main.rs</span>
 
@@ -182,7 +182,7 @@ implementação de `Display`.
 Se continuarmos a ler os erros, encontramos esta nota explicativa:
 
 ```text
-Avisa que `Rectangle` não pode ser formatado com o formato por defeito;
+Avisa que `Rectangle` não pode ser formatado com o formato padrão;
 Devemos tentar usar `:?` ao invés, se estivermos a usar um formato de string
 ```
 
