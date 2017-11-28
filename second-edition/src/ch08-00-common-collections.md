@@ -1,5 +1,5 @@
 # Common Collections
-# Coleções comuns
+# Coleções Comuns
 
 
 Rust’s standard library includes a number of really useful data structures
@@ -49,4 +49,4 @@ We’re going to discuss how to create and update vectors, strings, and hash
 maps, as well as what makes each special.
 
 Nós iremos discutir como criar e atualizar vetores, strings, e hash 
-maps, bem como fazer cada um especial.
+maps, bem como o que os tornam especial.
