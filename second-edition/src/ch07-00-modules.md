@@ -8,10 +8,10 @@ smaller chunks, each chunk is easier to understand on its own. But what happens
 if you have too many functions? Rust has a module system that enables the reuse
 of code in an organized fashion.
 
-Quando você começa a escrever programas em Rust, seu código pode viver apenas no
-função `main`. À medida que seu código cresce, você acabará por mover a funcionalidade para
-outras funções para reutilização e melhor organização. Ao dividir seu código em
-pequenos pedaços, cada pedaço é mais fácil de entender por conta própria. Mas o que acontece
+Quando você começa a escrever programas em Rust, seu código pode se manter apenas na
+função `main`. À medida que seu código cresce, você acabará por mover as funcionalidades para
+outras outras funções a fim de reutilizar código e melhorar a organização. Ao dividir seu código em
+pequenos pedaços, cada pedaço é mais fácil de entender por si só. Mas o que acontece
 se você tem muitas funções? Rust possui um sistema de módulos que permite a reutilização
 de código de forma organizada.
 
@@ -23,9 +23,9 @@ you can choose whether those definitions are visible outside their module
 
 Da mesma forma que você extrai linhas de código em uma função, você pode extrair
 funções (e outros códigos, como structs e enums) em diferentes módulos. Um
-*module* é um namespace que contém definições de funções ou tipos, e
+*módulo* é um namespace que contém definições de funções ou tipos, e
 você pode escolher se essas definições são visíveis fora de seu módulo
-(public) ou não (private). Aqui está uma visão geral de como os módulos funcionam:
+(público) ou não (privado). Aqui está uma visão geral de como os módulos funcionam:
 
 * The `mod` keyword declares a new module. Code within the module appears
   either immediately following this declaration within curly brackets or in
@@ -41,7 +41,7 @@ você pode escolher se essas definições são visíveis fora de seu módulo
 * Por padrão, as funções, tipos, constantes e módulos são privados. A palavra-chave `pub`
     torna um item público e, portanto, é visível fora do seu namespace.
 * A palavra-chave `use` traz módulos, ou as definições dentro dos módulos, ao
-   escopo, por isso é mais fácil se referir a eles.
+   escopo, assim é mais fácil se referir a eles.
 
 We’ll look at each of these parts to see how they fit into the whole.
 

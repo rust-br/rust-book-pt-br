@@ -11,7 +11,7 @@ not being used:
 Resolvemos as mensagens de erro mostradas na Listagem 7-5 movendo o código de `network` e
 `network::server` para  os arquivos *src/network/mod.rs* e
 *src/network/server.rs*, respectivamente. Nesse ponto, `cargo build` era
-capaz de construir nosso projeto, mas ainda recebemos mensagens de warning(viso) sobre as
+capaz de construir nosso projeto, mas ainda recebemos mensagens de *warning* sobre as
 funções `client::connect`, `network::connect`, e `network::server::connect`
 não estarem em uso:
 
@@ -64,7 +64,7 @@ fazendo um arquivo *src/main.rs* conter esse código:
 
 <span class="filename">Filename: src/main.rs</span>
 
-<span class="filename">Nome do arquivo: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
 extern crate communicator;
@@ -84,8 +84,8 @@ library crate, and it’s a nice separation of concerns.
 
 Usamos o comando `extern crate` para trazer o crate de biblioteca `communicator`
 para o escopo. Nosso pacote agora contém *duas* crates. Cargo trata *src/main.rs*
-como um arquivo raiz de um crate binário, que é separada das crates binárias de biblioteca existente
-cuja arquivo raiz é *src/lib.rs*. Esse padrão é bastante comum para
+como um arquivo raiz de um crate binário, que é separado do crate de biblioteca existente
+cujo arquivo raiz é *src/lib.rs*. Esse padrão é bastante comum para
 projetos executáveis: a maioria das funcionalidades está em uma crate de biblioteca e a crate binária
 usa essa crate de biblioteca. Como resultado, outros programas também podem usar a
 crate de biblioteca, e é uma boa separação de responsabilidades.
@@ -98,7 +98,7 @@ name as the crate, `communicator`. We call the top-level module of a crate the
 Do ponto de vista de uma crate fora da biblioteca `communicator` 
 todos os módulos que criamos estão dentro de um módulo que tem o mesmo
 nome como da crate, `communicator`. Chamamos o módulo de nível superior de um
-*módulo raiz*.
+crate de *módulo raiz*.
 
 Also note that even if we’re using an external crate within a submodule of our
 project, the `extern crate` should go in our root module (so in *src/main.rs*
@@ -115,8 +115,8 @@ the `client` module. However, invoking `cargo build` will now give us an error
 after the warnings:
 
 Agora, nossa crate binária apenas chama a função `connect` da nossa biblioteca do
-módulo `client`. No entanto, invocar agora `cargo build`  nos dará um erro
-após os warnings(avisos):
+módulo `client`. No entanto, invocar agora `cargo build` nos dará um erro
+após os *warnings*:
 
 ```text
 error[E0603]: module `client` is private
@@ -137,9 +137,9 @@ unused.
 Ah ha! Este erro nos diz que o módulo `client` é privado, que é o
 cerne das advertências. É também a primeira vez em que nos encontramos com os conceitos de
 *público* e *privado* no contexto do Rust. O estado padrão de todos os códigos em
-Rust é privado: ninguém mais tem permissão para usar o código. Se você não usar um
-função privada dentro do seu programa, porque seu programa é o único código
-permitido usar essa função, Rust irá avisá-lo de que a função 
+Rust é privado: ninguém mais tem permissão para usar o código. Se você não usar uma
+função privada dentro do seu programa, como ele é o único código
+permitido a usar essa função, Rust irá avisá-lo de que a função 
 não foi utilizada.
 
 After we specify that a function like `client::connect` is public, not only
@@ -156,7 +156,7 @@ será permitida a nossa chamada para essa função a partir de nossa crate biná
 warning(aviso) de que a função não é utilizada irá desaparecer. Marcar uma função como pública
 permite ao Rust saber que a função será usada por código fora do nosso programa.
 Rust considera que agora é possível que a 
-função "sendo usada". Assim, quando uma função é marcada como pública, Rust não
+função esteja "sendo usada". Assim, quando uma função é marcada como pública, Rust não
 exige que seja usada em nosso programa e deixará de avisar que a função
 não é utilizada.
 
@@ -169,15 +169,15 @@ of the declaration. We’ll focus on fixing the warning that indicates
 private `` error from our binary crate. Modify *src/lib.rs* to make the
 `client` module public, like so:
 
-Para dizer a Rust para tornar pública uma função, adicionamos a palavra-chave `pub` ao início
-da declaração. Nos focaremos em corrigir o warning(aviso) que indica
+Para dizer ao Rust que torne pública uma função, adicionamos a palavra-chave `pub` ao início
+da declaração. Nos focaremos em corrigir o *warning* que indica
 `client::connect` não foi utilizado por enquanto, assim como o erro `` module `client` is
-private `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para fazer o
-módulo `client`, assim:
+private `` (`` módulo `client` é privado ``) do nosso crate binário. Modifique *src/lib.rs* para tornar
+o módulo `client` público, assim:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-<span class="filename">Nome do arquivo: src/lib.rs</span>
+<span class="filename">Arquivo: src/lib.rs</span>
 
 ```rust,ignore
 pub mod client;
@@ -187,7 +187,7 @@ mod network;
 
 The `pub` keyword is placed right before `mod`. Let’s try building again:
 
-A palavra-chave `pub` é colocada logo antes do `mod`. Vamos tentar construir(build) novamente:
+A palavra-chave `pub` é colocada logo antes do `mod`. Vamos tentar fazer o build novamente:
 
 ```text
 error[E0603]: function `connect` is private
@@ -201,13 +201,13 @@ Hooray! We have a different error! Yes, different error messages are a cause
 for celebration. The new error shows `` function `connect` is private ``, so
 let’s edit *src/client.rs* to make `client::connect` public too:
 
-Opa! Temos um erro diferente! Sim, diferentes mensagens de erro são uma causa
-para a celebração. O novo erro mostra que `` function `connect` is private ``(`` função `connect` é privada ``), então
-vamos editar *src/client.rs* para torná-la públicao `client::connect` também:
+Opa! Temos um erro diferente! Sim, mensagens diferentes de erro 
+são motivo para comemorar. O novo erro mostra que que a função `connect` é privada 
+(function `connect` is private), então vamos editar *src/client.rs* para torná-la pública também:
 
 <span class="filename">Filename: src/client.rs</span>
 
-<span class="filename">Nome do arquivo: src/client.rs</span>
+<span class="filename">Arquivo: src/client.rs</span>
 
 ```rust
 pub fn connect() {
@@ -251,8 +251,8 @@ called.
 
 Os avisos de código não utilizados nem sempre indicam que um item no seu código precisa
 se tornar público: se você *não* quiser que essas funções façam parte de sua 
-API pública, warnings(avisos) de código não utilizados podem alertá-lo que esse códigos não utilizados podem
-ser excluidos com segurança. Eles também podem estar alertando você para um bug se você tivesse apenas
+API pública, *warnings* de código não utilizado podem alertá-lo de que esse códigos não sejam mais necessários,
+e que podem ser excluidos com segurança. Eles também podem estar alertando você para um bug, caso você tivesse apenas
 acidentalmente removido todos os lugares dentro da sua biblioteca onde esta função é
 chamada.
 
@@ -261,12 +261,12 @@ crate’s public API, so let’s mark them as `pub` as well to get rid of the
 remaining warnings. Modify *src/network/mod.rs* to look like the following:
 
 Mas neste caso, nós *queremos* que as outras duas funções façam parte da nossa
-API pública da crate, então vamos marcá-los como `pub` também para se livrar do
-warnings(avisos) remanescentes. Modifique *src/network/mod.rs* para se parecer com o seguinte:
+API pública da crate, então vamos marcá-las como `pub` também para se livrar do
+*warnings* remanescentes. Modifique *src/network/mod.rs* dessa forma:
 
 <span class="filename">Filename: src/network/mod.rs</span>
 
-<span class="filename">Nome do arquivo: src/network/mod.rs</span>
+<span class="filename">Arquivo: src/network/mod.rs</span>
 
 ```rust,ignore
 pub fn connect() {
@@ -304,7 +304,7 @@ public. We’re working from the interior of the library out this time, whereas
 with `client::connect` we worked from the outside in. We need to change
 *src/lib.rs* to make `network` public too, like so:
 
-Hmmm, ainda estamos recebendo uns warnings(avisos) de função não utilizadas, embora
+Hmmm, ainda estamos recebendo uns *warnings* de função não utilizadas, embora
 `network::connect` esteja configurado para `pub`. A razão é que a função é pública
 dentro do módulo, mas o módulo `network` na qual a função reside não é
 público. Estamos trabalhando a partir do interior da biblioteca desta vez, enquanto que
@@ -313,7 +313,7 @@ com `client::connect` trabalhamos de fora. Precisamos mudar
 
 <span class="filename">Filename: src/lib.rs</span>
 
-<span class="filename">Nome do arquivo: src/lib.rs</span>
+<span class="filename">Arquivo: src/lib.rs</span>
 
 ```rust,ignore
 pub mod client;
@@ -322,6 +322,8 @@ pub mod network;
 ```
 
 Now when we compile, that warning is gone:
+
+Agora, quando compilamos, esse aviso desapareceu:
 
 ```text
 warning: function is never used: `connect`
@@ -349,9 +351,9 @@ No geral, estas são as regras para a visibilidade do item:
 2. If an item is private, it can be accessed only by its immediate parent
    module and any of the parent’s child modules.
 
-1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos parentes.
-2. Se um item é privado, ele só pode ser acessado por seu mṕdulo pai imediato
-   qualquer um dos módulos filho do pai.
+1. Se um item for público, ele pode ser acessado através de qualquer um dos seus módulos pais.
+2. Se um item é privado, ele só pode ser acessado por seu módulo pai imediato e
+   qualquer um dos módulos filhos do pai.
 
 ### Privacy Examples
 ### Exemplos de Privacidade
@@ -366,7 +368,7 @@ projeto da biblioteca e digite o código da Listagem 7-6 no seu novo projeto
 
 <span class="filename">Filename: src/lib.rs</span>
 
-<span class="filename">Nome do arquivo: src/lib.rs</span>
+<span class="filename">Arquivo: src/lib.rs</span>
 
 ```rust,ignore
 mod outermost {
@@ -392,7 +394,7 @@ fn try_me() {
 <span class="caption">Listing 7-6: Examples of private and public functions,
 some of which are incorrect</span>
 
-<span class="caption">Lista 7-6: exemplos de funções públicas e privadas,
+<span class="caption">Lista 7-6: Exemplos de funções públicas e privadas,
 alguns dos quais estão incorretos</span>
 
 
@@ -442,7 +444,7 @@ be accessed by its current module `outermost`. That means the `try_me` function
 is not allowed to call `outermost::inside::inner_function` or
 `outermost::inside::secret_function`.
 
-O módulo denominado `inside` é privado e não tem módulos filho, portanto, ele só pode
+O módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode
 ser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`
 não tem permissão de chamar `outermost::inside::inner_function` ou
 `outermost::inside::secret_function`.
@@ -456,7 +458,7 @@ errors, and then compile the code to see whether or not you’re right, using th
 privacy rules to understand why.
 
 Aqui estão algumas sugestões para alterar o código na tentativa de corrigir os
-erros. Antes de tentar cada um, tente adivinhar se ele irá consertar o
+erros. Antes de tentar cada uma, tente adivinhar se ela irá consertar os
 erros e, em seguida, compile o código para ver se você está certo ou não, usando as
 regras de privacidade para entender o porquê.
 
@@ -467,8 +469,8 @@ regras de privacidade para entender o porquê.
   that we want to refer to the modules starting from the root module.)
 
 * E se o módulo `inside` fosse público?
-* E se `outermost` fosse pública e `inside` fosse privado?
-* E se, no corpo de `inner_function`, você chamasse
+* E se `outermost` fosse público e `inside` fosse privado?
+* E se, no corpo de `inner_function`, você chamasse o
   `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam
    que queremos consultar os módulos a partir do módulo raiz.)
 
