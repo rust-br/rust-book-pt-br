@@ -251,8 +251,8 @@ called.
 
 Os avisos de código não utilizados nem sempre indicam que um item no seu código precisa
 se tornar público: se você *não* quiser que essas funções façam parte de sua 
-API pública, *warnings* de código não utilizado podem alertá-lo de que esse códigos não sejam mais necessários,
-e que podem ser excluidos com segurança. Eles também podem estar alertando você para um bug, caso você tivesse apenas
+API pública, *warnings* de código não utilizado podem alertá-lo de que esses códigos não são mais necessários,
+e que podem ser excluídos com segurança. Eles também podem estar alertando você para um bug, caso você tivesse apenas
 acidentalmente removido todos os lugares dentro da sua biblioteca onde esta função é
 chamada.
 
@@ -261,7 +261,7 @@ crate’s public API, so let’s mark them as `pub` as well to get rid of the
 remaining warnings. Modify *src/network/mod.rs* to look like the following:
 
 Mas neste caso, nós *queremos* que as outras duas funções façam parte da nossa
-API pública da crate, então vamos marcá-las como `pub` também para se livrar do
+API pública da crate, então vamos marcá-las como `pub` também para se livrar dos
 *warnings* remanescentes. Modifique *src/network/mod.rs* dessa forma:
 
 <span class="filename">Filename: src/network/mod.rs</span>
@@ -304,7 +304,7 @@ public. We’re working from the interior of the library out this time, whereas
 with `client::connect` we worked from the outside in. We need to change
 *src/lib.rs* to make `network` public too, like so:
 
-Hmmm, ainda estamos recebendo uns *warnings* de função não utilizadas, embora
+Hmmm, ainda estamos recebendo um *warning* de função não utilizada, embora
 `network::connect` esteja configurado para `pub`. A razão é que a função é pública
 dentro do módulo, mas o módulo `network` na qual a função reside não é
 público. Estamos trabalhando a partir do interior da biblioteca desta vez, enquanto que

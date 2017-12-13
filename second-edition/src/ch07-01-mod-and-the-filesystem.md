@@ -174,7 +174,7 @@ Nesse caso, como estamos construindo uma biblioteca, o arquivo que serve como
 ponto de entrada para construir nossa biblioteca é *src/lib.rs*. No entanto, em relação a
 criação de módulos, não há nada de especial sobre *src/lib.rs*. Poderíamos também
 criar módulos em *src/main.rs* para uma crate binária da mesma forma que nós
-criamos módulos em *src/lib.rs* para a crate da biblioteca. Na verdade, módulos 
+criamos módulos em *src/lib.rs* para a crate da biblioteca. Na verdade, podemos colocar módulos 
 dentro de módulos, o que pode ser útil à medida que seus módulos crescem para manter juntas 
 funcionalidades relacionadas e separar funcionalidades não relacionadas. A
 escolha de como você organiza seu código depende do que você pensa sobre a
@@ -249,7 +249,7 @@ library’s users think about your project’s domain. Use the techniques shown
 here to create side-by-side modules and nested modules in whatever structure
 you would like.
 
-Convorme a  hierarquia mostrada na Listagem 7-2, `client` é um filho do módulo `network`
+Conforme a hierarquia mostrada na Listagem 7-2, `client` é um filho do módulo `network`
 em vez de um irmão. Projetos mais complicados podem ter muitos módulos, é necessário 
 organizá-los logicamente para mantê-los sob controle. O que "logicamente" significa em 
 seu projeto fica a seu critério, e depende do que você e os usuários da sua biblioteca 
@@ -651,7 +651,7 @@ também mudar o arquivo *src/network.rs* para o arquivo *src/network/mod.rs* e c
 o código de `network::server` no diretório *network* em
 *src/network/server.rs* em vez de apenas extrair o
 módulo `network::server` em *src/server.rs*? O motivo é que Rust não
-ser capaz de reconhecer que `server` deveria ser um submódulo de `network`
+será capaz de reconhecer que `server` deveria ser um submódulo de `network`
 se o arquivo *server.rs* estiver no diretório *src*. Para esclarecer o comportamento de Rust
 aqui, consideremos um exemplo diferente com a seguinte hierarquia de módulos,
 onde todas as definições estão em *src/lib.rs*:
@@ -744,4 +744,4 @@ Os módulos devem ser declarados no arquivo do módulo pai usando a palavra-chav
 
 Next, we’ll talk about the `pub` keyword and get rid of those warnings!
 
-Em seguida, vamos falar sobre a palavra-chave `pub` e livrar-se dessas warnings!
+Em seguida, vamos falar sobre a palavra-chave `pub` e nos livrar dessas warnings!
