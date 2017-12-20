@@ -40,8 +40,8 @@ outro projeto, não o nosso.
 
 Para entender por que esse programa invoca esses warnings(avisos), vamos tentar usar a
 biblioteca `connect` de outro projeto, chamando-a externamente. Para fazer isso,
-vamos criar um crate binário no mesmo diretório que a nossa crate de biblioteca
-fazendo um arquivo *src/main.rs* conter esse código:
+vamos criar um crate binário no mesmo diretório que o nosso crate de biblioteca
+inserindo um arquivo *src/main.rs* que contém esse código:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -57,21 +57,21 @@ Usamos o comando `extern crate` para trazer o crate de biblioteca `communicator`
 para o escopo. Nosso pacote agora contém *duas* crates. Cargo trata *src/main.rs*
 como um arquivo raiz de um crate binário, que é separado do crate de biblioteca existente
 cujo arquivo raiz é *src/lib.rs*. Esse padrão é bastante comum para
-projetos executáveis: a maioria das funcionalidades está em uma crate de biblioteca e a crate binária
-usa essa crate de biblioteca. Como resultado, outros programas também podem usar a
+projetos executáveis: a maioria das funcionalidades está em um crate de biblioteca e o crate binário
+usa esse crate de biblioteca. Como resultado, outros programas também podem usar o
 crate de biblioteca, e é uma boa separação de responsabilidades.
 
-Do ponto de vista de uma crate fora da biblioteca `communicator` 
+Do ponto de vista de um crate fora da biblioteca `communicator` 
 todos os módulos que criamos estão dentro de um módulo que tem o mesmo
-nome como da crate, `communicator`. Chamamos o módulo de nível superior de um
+nome como do crate, `communicator`. Chamamos o módulo de nível superior de um
 crate de *módulo raiz*.
 
-Observe também que, mesmo que estejamos usando uma crate externa dentro de um submódulo do nosso
+Observe também que, mesmo que estejamos usando um crate externo dentro de um submódulo do nosso
 projeto, o `extern crate` deve entrar em nosso módulo raiz (então em *src/main.rs*
-ou *src/lib.rs*). Então, em nossos submódulos, podemos consultar itens de crates externas
+ou *src/lib.rs*). Então, em nossos submódulos, podemos consultar itens de crates externos
 como se os itens fossem módulos de nível superior.
 
-Agora, nossa crate binária apenas chama a função `connect` da nossa biblioteca do
+Agora, nosso crate binário apenas chama a função `connect` da nossa biblioteca do
 módulo `client`. No entanto, invocar agora `cargo build` nos dará um erro
 após os *warnings*:
 
@@ -92,7 +92,7 @@ permitido a usar essa função, Rust irá avisá-lo de que a função
 não foi utilizada.
 
 Depois de especificar que uma função como `client::connect` é pública, não só
-será permitida a nossa chamada para essa função a partir de nossa crate binária, mas o
+será permitida a nossa chamada para essa função a partir de nosso crate binário, mas o
 warning(aviso) de que a função não é utilizada irá desaparecer. Marcar uma função como pública
 permite ao Rust saber que a função será usada por código fora do nosso programa.
 Rust considera que agora é possível que a 
@@ -168,7 +168,7 @@ acidentalmente removido todos os lugares dentro da sua biblioteca onde esta fun�
 chamada.
 
 Mas neste caso, nós *queremos* que as outras duas funções façam parte da nossa
-API pública da crate, então vamos marcá-las como `pub` também para se livrar dos
+API pública do crate, então vamos marcá-las como `pub` também para nos livrar dos
 *warnings* remanescentes. Modifique *src/network/mod.rs* dessa forma:
 
 <span class="filename">Arquivo: src/network/mod.rs</span>
@@ -201,7 +201,7 @@ warning: function is never used: `connect`
 ```
 
 Hmmm, ainda estamos recebendo um *warning* de função não utilizada, embora
-`network::connect` esteja configurado para `pub`. A razão é que a função é pública
+`network::connect` esteja marcada como `pub`. A razão é que a função é pública
 dentro do módulo, mas o módulo `network` na qual a função reside não é
 público. Estamos trabalhando a partir do interior da biblioteca desta vez, enquanto que
 com `client::connect` trabalhamos de fora. Precisamos mudar
@@ -241,8 +241,8 @@ No geral, estas são as regras para a visibilidade do item:
 ### Exemplos de Privacidade
 
 Vejamos mais alguns exemplos de privacidade para obter alguma prática. Crie um novo
-projeto da biblioteca e digite o código da Listagem 7-6 no seu novo projeto
-*src/lib.rs*:
+projeto de biblioteca e digite o código da Listagem 7-6 no arquivo 
+*src/lib.rs* desse novo projeto:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 
@@ -288,8 +288,8 @@ acessível.
 
 A chamada para `outermost::middle_secret_function` causará um erro de compilação.
 `middle_secret_function` é privado, então a segunda regra se aplica. O módulo raiz
-não é o módulo atual de `middle_secret_function` (` outermost`
-é), nem é um módulo filho do módulo atual de `middle_secret_function`.
+não é nem o módulo atual de `middle_secret_function` (que seria o `outermost`), 
+nem um módulo filho do módulo atual de `middle_secret_function`.
 
 O módulo denominado `inside` é privado e não tem módulos filhos, portanto, ele só pode
 ser acessado pelo seu módulo atual `outermost`. Isso significa que a função `try_me`
@@ -309,6 +309,6 @@ regras de privacidade para entender o porquê.
   `::outermost::middle_secret_function()`? (Os dois dois pontos no início significam
    que queremos consultar os módulos a partir do módulo raiz.)
 
-Sinta-se livre para projetar mais experimentos e experimentá-los!
+Sinta-se livre para projetar mais experimentos que lhe vierem à mente!
 
 Em seguida, vamos falar sobre trazer itens ao escopo com a palavra-chave `use`.

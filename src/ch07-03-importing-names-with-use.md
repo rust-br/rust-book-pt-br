@@ -31,7 +31,7 @@ Felizmente, Rust tem uma palavra-chave para tornar estas chamadas mais concisas.
 
 A palavra-chave `use` de Rust encurta as chamadas de função longas, trazendo os módulos e
 a função que deseja chamar para o escopo. Aqui está um exemplo de como trazer o
-módulo `a::series::of` para dentro do escopo raiz de uma crate binária:
+módulo `a::series::of` para dentro do escopo raiz de um crate binário:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -131,7 +131,7 @@ também trazer mais itens do que se esperava e causar conflitos de nomeação.
 
 ### Usando `super` para Acessar um Módulo Pai
 
-Como vimos no início deste capítulo, quando você cria uma crate de biblioteca,
+Como vimos no início deste capítulo, quando você cria um crate de biblioteca,
 o Cargo faz um módulo `tests` para você. Vamos ver isso em mais detalhes agora.
 No seu projeto `communicator`, abra *src/lib.rs*:
 
@@ -195,7 +195,7 @@ error[E0433]: failed to resolve. Use of undeclared type or module `client`
 
 A compilação falhou, mas por quê? Não precisamos colocar `communicator ::` em
 frente da função como fizemos em *src/main.rs* porque estamos definitivamente
-dentro da crate da biblioteca `communicator` aqui. A razão é que os caminhos são
+dentro do crate da biblioteca `communicator` aqui. A razão é que os caminhos são
 sempre relativos ao módulo atual, que aqui é `tests`. A única
 exceção está em uma instrução `use`, onde os caminhos são relativos à crate raiz
 por padrão. Nosso módulo `tests` precisa do módulo `client` no seu escopo!
@@ -209,7 +209,7 @@ e listar todo o caminho, assim:
 ::client::connect();
 ```
 
-Ou, podemos usar `super` para voltar para cima um módulo na hierarquia de nosso 
+Ou, podemos usar `super` para voltar um módulo na hierarquia a partir de nosso 
 módulo atual, assim:
 
 ```rust,ignore
@@ -260,7 +260,7 @@ test tests::it_works ... ok
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 ```
 
-## Sumário
+## Resumo
 
 Agora você conhece algumas técnicas novas para organizar o seu código! Use estas técnicas
 para agrupar as funcionalidades relacionadas, evitar que os arquivos tornem-se muito longos, e

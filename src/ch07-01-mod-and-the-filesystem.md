@@ -91,7 +91,7 @@ mod client {
 ```
 
 <span class = "caption"> Listagem 7-1: O módulo `network` e o módulo `client`
-definido lado a lado em *src/lib.rs* </span>
+definidos lado a lado em *src/lib.rs* </span>
 
 Agora, temos uma função `network::connect` e uma função `client::connect`.
 Estas podem ter funcionalidades completamente diferentes, e os nomes das funções
@@ -100,8 +100,8 @@ não estão em conflito entre si porque estão em módulos diferentes.
 Nesse caso, como estamos construindo uma biblioteca, o arquivo que serve como
 ponto de entrada para construir nossa biblioteca é *src/lib.rs*. No entanto, em relação a
 criação de módulos, não há nada de especial sobre *src/lib.rs*. Poderíamos também
-criar módulos em *src/main.rs* para uma crate binária da mesma forma que nós
-criamos módulos em *src/lib.rs* para a crate da biblioteca. Na verdade, podemos colocar módulos 
+criar módulos em *src/main.rs* para um crate binária da mesma forma que nós
+criamos módulos em *src/lib.rs* para o crate de biblioteca. Na verdade, podemos colocar módulos 
 dentro de módulos, o que pode ser útil à medida que seus módulos crescem para manter juntas 
 funcionalidades relacionadas e separar funcionalidades não relacionadas. A
 escolha de como você organiza seu código depende do que você pensa sobre a
@@ -260,7 +260,7 @@ ser definido em *src/client.rs*.
 
 Agora, o projeto deve compilar com sucesso, embora você obtenha alguns
 warnings (avisos). Lembre-se de usar `cargo build`, em vez de `cargo run`, porque temos
-uma crate de biblioteca em vez de uma crate binária:
+um crate de biblioteca em vez de um crate binário:
 
 ```text
 $ cargo build
@@ -296,7 +296,7 @@ seção “Controlando a visibilidade com `pub`”. A boa notícia é que eles s
 
 Em seguida, vamos extrair o módulo `network` em seu próprio arquivo usando o mesmo
 procedimento. Em *src/lib.rs*, exclua o corpo do módulo `network` e adicione um
-ponto e vírgula para a declaração, assim:
+ponto e vírgula à declaração, assim:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 
@@ -386,6 +386,8 @@ note: maybe move this module `network` to its own directory via
 `network/mod.rs`
 ```
 
+(**Tradução:** talvez mover este módulo network para o seu próprio diretório via `network/mod.rs`)
+
 Em vez de continuar a seguir o mesmo padrão de nomeação de arquivo usado
 anteriormente, podemos fazer o que a nota sugere:
 
@@ -403,8 +405,8 @@ $ mv src/server.rs src/network
 ```
 
 Agora, quando tentamos executar `cargo build`, a compilação funcionará (embora ainda teremos
-avisos). Nosso layout do módulo ainda parece assim, que é exatamente o
-o mesmo que ocorreu quando tínhamos todo o código em *src/lib.rs* na Listagem 7-3:
+avisos). O layout dos nossos módulos ainda é exatamente o 
+mesmo de quando tínhamos todo o código em *src/lib.rs* na Listagem 7-3:
 
 ```text
 communicator
@@ -413,7 +415,7 @@ communicator
      └── server
 ```
 
-O layout do arquivo correspondente agora se parece com isto:
+O layout dos arquivos correspondentes agora ficou assim:
 
 ```text
 ├── src
@@ -468,7 +470,7 @@ Vamos resumir as regras dos módulos em relação aos arquivos:
 * Se um módulo chamado `foo` possui submódulos, você deve colocar as declarações
    para `foo` em um arquivo chamado *foo/mod.rs*.
 
-Essas regras aplicam-se de forma recursiva, então, se um módulo chamado `foo` tiver um submódulo chamado
+Essas regras se aplicam de forma recursiva, então, se um módulo chamado `foo` tiver um submódulo chamado
 `bar` e` bar` não possui submódulos, você deve ter os seguintes arquivos
 no seu diretório *src*:
 
