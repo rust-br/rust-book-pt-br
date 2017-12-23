@@ -100,7 +100,7 @@ não estão em conflito entre si porque estão em módulos diferentes.
 Nesse caso, como estamos construindo uma biblioteca, o arquivo que serve como
 ponto de entrada para construir nossa biblioteca é *src/lib.rs*. No entanto, em relação a
 criação de módulos, não há nada de especial sobre *src/lib.rs*. Poderíamos também
-criar módulos em *src/main.rs* para um crate binária da mesma forma que nós
+criar módulos em *src/main.rs* para um crate binário da mesma forma que nós
 criamos módulos em *src/lib.rs* para o crate de biblioteca. Na verdade, podemos colocar módulos 
 dentro de módulos, o que pode ser útil à medida que seus módulos crescem para manter juntas 
 funcionalidades relacionadas e separar funcionalidades não relacionadas. A
