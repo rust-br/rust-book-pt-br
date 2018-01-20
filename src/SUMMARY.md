@@ -3,10 +3,10 @@
 ## Começando
 
 - [🇧🇷 Introdução](ch01-00-introduction.md)
-    - [Installation](ch01-01-installation.md)
-    - [Hello, World!](ch01-02-hello-world.md)
+    - [🇧🇷 Instalação](ch01-01-installation.md)
+    - [🇧🇷 Olá, Mundo!](ch01-02-hello-world.md)
 
-- [Guessing Game Tutorial](ch02-00-guessing-game-tutorial.md)
+- [🇧🇷 Jogo de Adivinhação](ch02-00-guessing-game-tutorial.md)
 
 - [🇧🇷 Conceitos Comuns de Programação](ch03-00-common-programming-concepts.md)
     - [🇧🇷 Variáveis e Mutabilidade](ch03-01-variables-and-mutability.md)
@@ -20,25 +20,25 @@
     - [References & Borrowing](ch04-02-references-and-borrowing.md)
     - [Slices](ch04-03-slices.md)
 
-- [Structs](ch05-00-structs.md)
+- [🇧🇷 Structs](ch05-00-structs.md)
     - [Method Syntax](ch05-01-method-syntax.md)
 
-- [Enums and Pattern Matching](ch06-00-enums.md)
-    - [Defining an Enum](ch06-01-defining-an-enum.md)
-    - [The `match` Control Flow Operator](ch06-02-match.md)
-    - [Concise Control Flow with `if let`](ch06-03-if-let.md)
+- [🇧🇷 Enums e Pattern Matching](ch06-00-enums.md)
+    - [🇧🇷 Definindo uma Enum](ch06-01-defining-an-enum.md)
+    - [🇧🇷 Operador `match`](ch06-02-match.md)
+    - [🇧🇷 Controle de Fluxo Conciso](ch06-03-if-let.md)
 
 ## Basic Rust Literacy
 
-- [Modules](ch07-00-modules.md)
-    - [`mod` and the Filesystem](ch07-01-mod-and-the-filesystem.md)
-    - [Controlling Visibility with `pub`](ch07-02-controlling-visibility-with-pub.md)
-    - [Importing Names with `use`](ch07-03-importing-names-with-use.md)
+- [🇧🇷 Módulos](ch07-00-modules.md)
+    - [🇧🇷 `mod` e o Sitemas de Arquivos](ch07-01-mod-and-the-filesystem.md)
+    - [🇧🇷 Controlando a Visibilidade com `pub`](ch07-02-controlling-visibility-with-pub.md)
+    - [🇧🇷 Importando nomes com `use`](ch07-03-importing-names-with-use.md)
 
 - [Fundamental Collections](ch08-00-fundamental-collections.md)
-    - [Vectors](ch08-01-vectors.md)
-    - [Strings](ch08-02-strings.md)
-    - [Hash Maps](ch08-03-hash-maps.md)
+    - [🇧🇷 Vetores](ch08-01-vectors.md)
+    - [🇧🇷 Strings](ch08-02-strings.md)
+    - [🇧🇷 Hash Maps](ch08-03-hash-maps.md)
 
 - [Error Handling](ch09-00-error-handling.md)
     - [Unrecoverable Errors with `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
