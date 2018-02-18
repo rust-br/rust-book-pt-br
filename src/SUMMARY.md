@@ -23,15 +23,15 @@
 - [🇧🇷 Structs](ch05-00-structs.md)
     - [Method Syntax](ch05-01-method-syntax.md)
 
-- [🇧🇷 Enums e Pattern Matching](ch06-00-enums.md)
+- [🇧🇷 Enums e Casamento de Padrões](ch06-00-enums.md)
     - [🇧🇷 Definindo uma Enum](ch06-01-defining-an-enum.md)
     - [🇧🇷 Operador `match`](ch06-02-match.md)
-    - [🇧🇷 Controle de Fluxo Conciso](ch06-03-if-let.md)
+    - [🇧🇷 Controle de Fluxo Conciso com `if let`](ch06-03-if-let.md)
 
 ## Basic Rust Literacy
 
 - [🇧🇷 Módulos](ch07-00-modules.md)
-    - [🇧🇷 `mod` e o Sitemas de Arquivos](ch07-01-mod-and-the-filesystem.md)
+    - [🇧🇷 `mod` e o Sistema de Arquivos](ch07-01-mod-and-the-filesystem.md)
     - [🇧🇷 Controlando a Visibilidade com `pub`](ch07-02-controlling-visibility-with-pub.md)
     - [🇧🇷 Importando nomes com `use`](ch07-03-importing-names-with-use.md)
 

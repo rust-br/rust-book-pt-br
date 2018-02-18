@@ -26,7 +26,7 @@ Este livro tem como público-alvo um leitor que já sabe como programar em pelo
 menos uma linguagem de programação. Após ler este livro, você deve se sentir
 confiante para escrever programas em Rust. Ensinaremos Rust através de exemplos
 focados e pequenos, que se complementam gradualmente para demonstrar o uso de
-várias características da linguagem Rust, bem como como eles funcionam “nos
+várias características da linguagem Rust, bem como eles funcionam “nos
 bastidores”.
 
 ## Sobre a Tradução
