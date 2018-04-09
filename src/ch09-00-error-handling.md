@@ -27,7 +27,7 @@ Rust agrupa erros em duas categorias principais: *recuperáveis* e *irrecuperáv
 Erros recuperáveis são situações em que é razoável reportar o problema ao usuário
 e tentar a operação novamente, como um erro de arquivo não encontrado. Erros 
 irrecuperáveis são sempre sintomas de bugs, como tentar acessar uma localização
-além do fim de um *array*
+além do fim de um *array*.
 
 Most languages don’t distinguish between these two kinds of errors and handle
 both in the same way using mechanisms like exceptions. Rust doesn’t have
@@ -38,11 +38,11 @@ returning `Result<T, E>` values. Additionally, we’ll explore considerations to
 take into account when deciding whether to try to recover from an error or to
 stop execution.
 
-A maioria das linguagens não distingue entre esses dois tipos de erros e lida
-com ambos da mesma maneira usando mecanismos como *exceptions*. Rust não tem
-*exceptions*. Ao invés, ele tem o valor `Result<T, E>` para erros recuperáveis
+A maioria das linguagens não distingue esses dois tipos de erros e lida
+com ambos da mesma maneira usando mecanismos como exceções. Rust não tem
+exceções. Em vez disso, ele tem o valor `Result<T, E>` para erros recuperáveis
 e a macro `panic!` que para a execução ao encontrar um erro irrecuperável. Esse
-capitulo cobre primeiro como chamar `panic!` e depois fala sobre retornar valores
+capítulo cobre primeiro como chamar `panic!` e depois fala sobre retornar valores
 `Result<T, E>`. Adicionalmente, vamos explorar o que se levar em consideração
 para decidir entre tentar se recuperar de um erro ou parar execução.
 
