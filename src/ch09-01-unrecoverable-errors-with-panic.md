@@ -1,36 +1,10 @@
-## Unrecoverable Errors with `panic!`
 ## Erros Irrecuperáveis com `panic!`
-
-Sometimes, bad things happen in your code, and there’s nothing you can do about
-it. In these cases, Rust has the `panic!` macro. When the `panic!` macro
-executes, your program will print a failure message, unwind and clean up the
-stack, and then quit. The most common situation this occurs in is when a bug of
-some kind has been detected, and it’s not clear to the programmer how to handle
-the error.
 
 Às vezes coisas ruins acontecem no seu código, e não há nada que você possa fazer
 sobre isso. Nesses casos, Rust tem a macro `panic!`. Quando ela é executada, seu
 programa vai imprimir uma mensagem de falha, resolver e limpar a pilha e então
 terminar. A situação mais comum em que isso acontece é quando algum tipo de bug
 foi detectado, e não é claro para o programador como tratar esse erro.
-
-> ### Unwinding the Stack or Aborting in Response to a `panic!`
->
-> By default, when a `panic!` occurs, the program starts *unwinding*, which
-> means Rust walks back up the stack and cleans up the data from each function
-> it encounters. But this walking back and cleanup is a lot of work. The
-> alternative is to immediately *abort*, which ends the program without
-> cleaning up. Memory that the program was using will then need to be cleaned
-> up by the operating system. If in your project you need to make the resulting
-> binary as small as possible, you can switch from unwinding to aborting on
-> panic by adding `panic = 'abort'` to the appropriate `[profile]` sections in
-> your *Cargo.toml* file. For example, if you want to abort on panic in release
-> mode, add this:
->
-> ```toml
-> [profile.release]
-> panic = 'abort'
-> ```
 
 > ### Resolver a Pilha ou Abortar em Resposta a `panic!`
 >
@@ -48,16 +22,6 @@ foi detectado, e não é claro para o programador como tratar esse erro.
 > panic = 'abort'
 > ```
 
-Let’s try calling `panic!` in a simple program:
-
-<span class="filename">Filename: src/main.rs</span>
-
-```rust,should_panic
-fn main() {
-    panic!("crash and burn");
-}
-```
-
 Vamos tentar chamar `panic!` em um programa simples:
 
 <span class="filename">Arquivo: src/main.rs</span>
@@ -66,18 +30,6 @@ Vamos tentar chamar `panic!` em um programa simples:
 fn main() {
     panic!("Quebra tudo");
 }
-```
-
-When you run the program, you’ll see something like this:
-
-```text
-$ cargo run
-   Compiling panic v0.1.0 (file:///projects/panic)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.25 secs
-     Running `target/debug/panic`
-thread 'main' panicked at 'crash and burn', src/main.rs:2
-note: Run with `RUST_BACKTRACE=1` for a backtrace.
-error: Process didn't exit successfully: `target/debug/panic` (exit code: 101)
 ```
 
 Quando você roda o programa, verá algo como isso:
@@ -92,24 +44,10 @@ note: Run with `RUST_BACKTRACE=1` for a backtrace.
 error: Process didn't exit successfully: `target/debug/panic` (exit code: 101)
 ```
 
-The call to `panic!` causes the error message contained in the last three
-lines. The first line shows our panic message and the place in our source code
-where the panic occurred: *src/main.rs:2* indicates that it’s the second line
-of our *src/main.rs* file.
-
 A chamada a `panic!` causa a mensagem de erro contida nas últimas três linhas.
 A primeira linha mostra nossa mensagem de pânico e a posição no código fonte
 em que ocorreu o pânico: *src/main.rs:2* indica que é a segunda linha do nosso 
 arquivo *src/main.rs*.
-
-In this case, the line indicated is part of our code, and if we go to that
-line, we see the `panic!` macro call. In other cases, the `panic!` call might
-be in code that our code calls. The filename and line number reported by the
-error message will be someone else’s code where the `panic!` macro is called,
-not the line of our code that eventually led to the `panic!` call. We can use
-the backtrace of the functions the `panic!` call came from to figure out the
-part of our code that is causing the problem. We’ll discuss what a backtrace is
-in more detail next.
 
 Nesse caso, a linha indicada é parte do nosso código, e se formos àquela linha
 veremos a chamada à macro `panic!`. Em outros casos, a chamada a `panic!` pode
@@ -120,13 +58,7 @@ de `panic!`. Podemos usar o *backtrace* das funções de onde veio a chamada a `
 para entender qual parte de nosso código está causando o problema. Vamos discutir
 o que é um *backtrace* em seguida.
 
-### Using a `panic!` Backtrace
 ### Usando um Backtrace de `panic!`
-
-Let’s look at another example to see what it’s like when a `panic!` call comes
-from a library because of a bug in our code instead of from our code calling
-the macro directly. Listing 9-1 has some code that attempts to access an
-element by index in a vector:
 
 Vamos ver outro exemplo para ver o que acontece quando uma chamada `panic!` vem de uma
 biblioteca por causa de um bug no nosso código em vez de nosso código chamar
@@ -143,30 +75,13 @@ fn main() {
 }
 ```
 
-<span class="caption">Listing 9-1: Attempting to access an element beyond the
-end of a vector, which will cause a `panic!`</span>
-
 <span class="caption">Listagem 9-1: Tentativa de acessar um elemento além do fim
 de um vetor, que causará um `panic!`</span>
-
-Here, we’re attempting to access the hundredth element (hundredth as indexing
-starts at zero) of our vector, but it has only three elements. In this case,
-Rust will panic. Using `[]` is supposed to return an element, but if you pass
-an invalid index, there’s no element that Rust could return here that would be
-correct.
 
 Aqui, estamos tentando acessar o centésimo elemento (centésimo pois o índice 
 começa em zero) de nosso vetor, mas ele só tem três elementos. Nesse caso, Rust
 entrará em pânico. Supostamente `[]` devolve um elemento, mas se você passa um
 índice inválido, não há elemento que Rust possa retornar que fosse correto.
-
-Other languages, like C, will attempt to give you exactly what you asked for in
-this situation, even though it isn’t what you want: you’ll get whatever is at
-the location in memory that would correspond to that element in the vector,
-even though the memory doesn’t belong to the vector. This is called a *buffer
-overread* and can lead to security vulnerabilities if an attacker is able to
-manipulate the index in such a way as to read data they shouldn’t be allowed to
-that is stored after the array.
 
 Outras linguagens, como C, vão tentar te dar exatamente o que você pediu nessa
 situação, mesmo que não seja o que você quer: você vai receber o que quer que 
@@ -175,10 +90,6 @@ mesmo que a memória não pertença ao vetor. Isso se chama um *buffer overread*
 pode levar a vulnerabilidades de segurança se um agressor for capaz de manipular
 o índice de forma a ler dados guardados depois do array aos quais ele não deveria
 ter acesso.
-
-To protect your program from this sort of vulnerability, if you try to read an
-element at an index that doesn’t exist, Rust will stop execution and refuse to
-continue. Let’s try it and see:
 
 Para proteger seu programa desse tipo de vulnerabilidade, se você tentar ler
 um elemento em um índice que não exista, Rust vai parar a execução e se recusar
@@ -195,26 +106,11 @@ note: Run with `RUST_BACKTRACE=1` for a backtrace.
 error: Process didn't exit successfully: `target/debug/panic` (exit code: 101)
 ```
 
-This error points at a file we didn’t write, *libcollections/vec.rs*. That’s
-the implementation of `Vec<T>` in the standard library. The code that gets run
-when we use `[]` on our vector `v` is in *libcollections/vec.rs*, and that is
-where the `panic!` is actually happening.
-
 Esse erro aponta para um arquivo que não escrevemos, *libcollections/vec.rs*.
 Essa é a implementação de `Vec<T>` na biblioteca padrão. O código que roda
 quando usamos `[]` em nosso vetor `v` está em *libcollections/vec.rs*, e é aí
 que o `panic!` está de fato acontecendo.
 
-The next note line tells us that we can set the `RUST_BACKTRACE` environment
-variable to get a backtrace of exactly what happened to cause the error. A
-*backtrace* is a list of all the functions that have been called to get to this
-point. Backtraces in Rust work like they do in other languages: the key to
-reading the backtrace is to start from the top and read until you see files you
-wrote. That’s the spot where the problem originated. The lines above the lines
-mentioning your files are code that your code called; the lines below are code
-that called your code. These lines might include core Rust code, standard
-library code, or crates that you’re using. Let’s try getting a backtrace:
-Listing 9-2 shows output similar to what you’ll see:
 
 A próxima linha nos diz que podemos definir a variável de ambiente `RUST_BACKTRACE`
 para ter um *backtrace* (rastro) do que aconteceu, exatamente, para causar o erro. Um 
@@ -267,34 +163,14 @@ stack backtrace:
   17:                0x0 - <unknown>
 ```
 
-<span class="caption">Listing 9-2: The backtrace generated by a call to
-`panic!` displayed when the environment variable `RUST_BACKTRACE` is set</span>
-
 <span class="caption">Listagem 9-2: O *backtrace* gerado por uma chamada
 a `panic!` mostrado quando a variável de ambiente `RUST_BACKTRACE` está definida.</span>
-
-That’s a lot of output! The exact output you see might be different depending
-on your operating system and Rust version. In order to get backtraces with this
-information, debug symbols must be enabled. Debug symbols are enabled by
-default when using cargo build or cargo run without the --release flag, as we
-have here.
 
 Isso é bastante saída! A saída exata que você recebe pode ser diferente dependendo
 do seu sistema operacional e versão de Rust. Para conseguir *backtraces* com essa 
 informação, símbolos de debug devem estar ativados. Símbolos de debug estão ativados
 por padrão quando usamos cargo build ou cargo run sem a opção de --release, 
 como temos aqui.
-
-In the output in Listing 9-2, line 11 of the backtrace points to the line in
-our project that’s causing the problem: *src/main.rs* in line 4. If we don’t
-want our program to panic, the location pointed to by the first line mentioning
-a file we wrote is where we should start investigating to figure out how we got
-to this location with values that caused the panic. In Listing 9-1 where we
-deliberately wrote code that would panic in order to demonstrate how to use
-backtraces, the way to fix the panic is to not request an element at index 100
-from a vector that only contains three items. When your code panics in the
-future, you’ll need to figure out what action the code is taking with what
-values that causes the panic and what the code should do instead.
 
 Na saída da Lista 9-2, a linha 11 do *backtrace* aponta para a linha no nosso
 projeto que está causando o problema: *src/main.rs* na linha 4. Se não 
@@ -307,10 +183,6 @@ no índice  100 de um vetor que contém apenas três itens. Quando seu código e
 em pânico no futuro, você precisará descobrir quais ações o seu código está tomando,
 e com quais valores, que estão causando o pânico, e o que deveria ser feito em vez
 disso.
-
-We’ll come back to `panic!` and when we should and should not use `panic!` to
-handle error conditions later in the chapter. Next, we’ll look at how to
-recover from an error using `Result`.
 
 Voltaremos ao `panic!` e veremos mais adiante no capítulo quando usá-lo, ou não,
 para lidar com erros. Em seguida, olharemos como se recuperar de um erro usando 
