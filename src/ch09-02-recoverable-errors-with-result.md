@@ -31,7 +31,7 @@ queremos retornar possam divergir.
 Vamos chamar uma função que retorna um valor `Result` porque a função poderia
 falhar: na Listagem 9-3 tentamos abrir um arquivo:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
 use std::fs::File;
@@ -92,7 +92,7 @@ do valor retornado por `File::open`. A Listagem 9-4 mostra uma maneira de lidar
 com o `Result` usando uma ferramenta básica: a expressão `match` que discutimos
 no Capítulo 6.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,should_panic
 use std::fs::File;
@@ -110,7 +110,7 @@ fn main() {
 ```
 
 <span class="caption">Listagem 9-4: Usando uma expressão `match` para tratar as
-variantes de `Result` que podemos encontrar</span>
+variantes de `Result` que podemos encontrar.</span>
 
 Note que, como no enum `Option`, o enum `Result` e suas variantes foram importadas
 no prelúdio, então não precisamos especificar `Result::` antes das variantes `Ok` 
@@ -144,7 +144,7 @@ falhou por qualquer outra razão, por exemplo porque não temos a permissão par
 abrir o arquivo, nós ainda queremos chamar `panic!` da mesma maneira que fizemos
 na Listagem 9-4. Veja a Listagem 9-5, que adiciona outra linha ao `match`:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 <!-- ignore this test because otherwise it creates hello.txt which causes other
 tests to fail lol -->
@@ -180,7 +180,7 @@ fn main() {
 ```
 
 <span class="caption">Listagem 9-5: Tratando diferentes tipos de erros de diversas
-maneiras</span>
+maneiras.</span>
 
 O tipo do valor que `File::open` retorna dentro da variante `Err` é `io::Error`,
 que é uma struct fornecida pela biblioteca padrão. Essa struct tem o método
@@ -196,9 +196,9 @@ o padrão da linha. Essa condição deve ser verdadeira para o código da linha 
 executado; caso contrário a análise de padrões vai continuar considerando as 
 próximas linhas no `match`. O `ref` no padrão é necessário para que o `error`
 não seja movido para a condição do *guard*, mas meramente referenciado por ele.
-A razão de `ref` ser utilizado ao invés de `&` para pegar uma referência vai ser
+A razão de `ref` ser utilizado em vez de `&` para pegar uma referência vai ser
 discutida em detalhe no Capítulo 18. Resumindo, no contexto de um padrão, `&` 
-corresponde uma referência e nos dá seu valor, enquanto `ref` corresponde um valor
+corresponde a uma referência e nos dá seu valor, enquanto `ref` corresponde a um valor
 e nos dá uma referência a ele.
 
 A condição que queremos checar no *match guard* é se o valor retornado pelo
@@ -212,14 +212,14 @@ entre em pânico pra qualquer erro além do de arquivo ausente.
 ### Atalhos para Pânico em Erro: `unwrap` e `expect`
 
 Usar `match` funciona bem o suficiente, mas pode ser um pouco verboso e nem
-sempre comunica a tão bem a intenção. O tipo `Result<T, E>` tem vários métodos 
+sempre comunica tão bem a intenção. O tipo `Result<T, E>` tem vários métodos 
 auxiliares definidos para fazer diversas tarefas. Um desses métodos, chamado
 `unwrap`, é um método de atalho que é implementado justamente como o `match` que
 escrevemos na Listagem 9-4. Se o valor de `Result` for da variante `Ok`, `unwrap`
 vai retornar o valor dentro de `Ok`. Se o `Result` for da variante `Err`, `unwrap`
 vai chamar a macro `panic!`. Aqui um exemplo de `unwrap` em ação:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,should_panic
 use std::fs::File;
@@ -239,11 +239,11 @@ repr: Os { code: 2, message: "No such file or directory" } }',
 ```
 
 Outro método, `expect`, que é semelhante a `unwrap`, nos deixa também escolher
-a mensagem de erro do `panic!`. Usar `expect` ao invés de `unwrap` e fornecer
+a mensagem de erro do `panic!`. Usar `expect` em vez de `unwrap` e fornecer
 boas mensagens de erros podem transmitir sua intenção e tornar a procura pela
 fonte de pânico mais fácil. A sintaxe de `expect` é a seguinte:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,should_panic
 use std::fs::File;
@@ -255,7 +255,7 @@ fn main() {
 
 Nós usamos `expect` da mesma maneira que `unwrap`: para retornar o *handle* de arquivo
 ou chamar a macro de `panic!`. A mensagem de erro usada por `expect` na sua chamada
-de `panic!` será o parâmtero que passamos para `expect` ao invés da mensagem padrão
+de `panic!` será o parâmtero que passamos para `expect` em vez da mensagem padrão
 que o `unwrap` usa. Aqui está como ela aparece:
 
 ```text
@@ -265,15 +265,14 @@ thread 'main' panicked at 'Falhou ao abrir hello.txt: Error { repr: Os { code:
 ```
 
 Como essa mensagem de erro começa com o texto que especificamos, `Falhou ao abrir
-hello.txt`, será mais fácil encontrar o trecho do código de onde vem essa mensagem de erro
-se originou. Se usamos `unwrap` em diversos lugares, pode tomar mais tempo encontrar
+hello.txt`, será mais fácil encontrar o trecho do código de onde vem essa mensagem de erro. Se usamos `unwrap` em diversos lugares, pode tomar mais tempo encontrar
 exatamente qual dos `unwrap` está causando o pânico, dado que todas as chamadas
 a `unwrap` chamam o print de pânico com a mesma mensagem.
 
 ### Propagando Erros
 
 Quando você está escrevendo uma função cuja implementação chama algo que pode 
-falhar, ao invés de tratar o erro dentro dessa função, você pode retornar o
+falhar, em vez de tratar o erro dentro dessa função, você pode retornar o
 erro ao código que a chamou de forma que ele possa decidir o que fazer. Isso é
 conhecido como *propagar* o erro e dá mais controle ao código que chamou sua
 função, onde talvez haja mais informação sobre como tratar o erro
@@ -283,7 +282,7 @@ Por exemplo, a Listagem 9-6 mostra uma função que lê um nome de usuário de u
 Se o arquivo não existe ou não pode ser lido, essa função vai retornar esses erros
 ao código que chamou essa função:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
 use std::io;
@@ -331,7 +330,7 @@ valor de erro da nossa função. Se `File::open` tem sucesso, nós guardamos o *
 arquivo na variável `f` e continuamos.
 
 Então, criamos uma nova `String` na variável `s` e chamamos o método `read_to_string`
-no *handle* de arquivo `f` para ler os conteúdos do arquivo e armazená-lo em `s`. O método
+no *handle* de arquivo `f` para ler o conteúdo do arquivo e armazená-lo em `s`. O método
 `read_to_string` também retorna um `Result` porque ele pode falhar, mesmo que
 `File::open` teve sucesso. Então precisamos de outro `match` para tratar esse
 `Result`: se `read_to_string` teve sucesso, então nossa função teve sucesso, e nós
@@ -341,7 +340,7 @@ o valor de erro no `match` que tratou o valor de retorno de `File::open`.
 No entanto, não precisamos explicitamente escrever `return`, porque essa já é a 
 última expressão na função.
 
-O código que chama nossa função vai então tratar receber ou um valor `Ok` que
+O código que chama nossa função vai então receber ou um valor `Ok` que
 contém um nome de usuário ou um valor de `Err` que contém um `io::Error`. Nós
 não sabemos o que o código que chamou nossa função fará com esses valores. Se o 
 código que chamou recebe um valor de `Err`, ele poderia chamar `panic!` e causar
@@ -360,7 +359,7 @@ A Listagem 9-7 mostra uma implementação de `read_username_from_file` que tem a
 mesma funcionalidade que tinha na Listagem 9-6, mas esta implementação usa o operador
 de interrogação:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
 use std::io;
@@ -376,7 +375,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 ```
 
 <span class="caption">Listagem 9-7: Uma função que retorna erros para o código
-que a chamou usando `?`</span>
+que a chamou usando `?`.</span>
 
 O `?` colocado após um valor de `Result` é definido para funcionar quase
 da mesma maneira que as expressões `match` que definimos para tratar o valor
@@ -390,7 +389,7 @@ A única diferença entre a expressão `match` da Listagem 9-6 e o que o operado
 de interrogação faz é que quando usamos o operador de interrogação, os valores
 de erro passam pela função `from` definida no *trait* `From` na biblioteca
 padrão. Vários tipos de erro implementam a função `from` para converter um
-erro de um tipo em outro tipo. Quando usado pelo operador de 
+erro de um tipo em outro. Quando usado pelo operador de 
 interrogação, a chamada à função `from` converte o tipo de erro que o
 operador recebe no tipo de erro definido no tipo de retorno da função em 
 que estamos usando `?`. Isso é útil quando partes de uma função podem falhar
@@ -410,7 +409,7 @@ função mais simples. Poderíamos até encurtar ainda mais esse código
 ao encadear chamadas de método imediatamente depois do `?`, como mostrado
 na Listagem 9-8:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
 use std::io;
@@ -430,7 +429,7 @@ fn read_username_from_file() -> Result<String, io::Error> {
 de interrogação.</span>
 
 Nós movemos a criação da nova `String` em `s` para o começo da função;
-essa parte não mudou. Ao invés de criar uma variável `f`, nós encadeamos
+essa parte não mudou. Em vez de criar uma variável `f`, nós encadeamos
 a chamada para `read_to_string` diretamente ao resultado de 
 `File::open("hello.txt")?`. Nós ainda temos um `?` ao fim da chamada a 
 `read_to_string`, e ainda retornamos um valor de `Ok` contendo o nome de usuário
@@ -475,9 +474,9 @@ error[E0277]: the `?` operator can only be used in a function that returns
 ```
 
 Esse erro aponta que só podemos usar o operador de interrogação em funções
-que retornam `Result`. EM funções que não retornam `Result`, quando você chama
+que retornam `Result`. Em funções que não retornam `Result`, quando você chama
 outras funções que retornam `Result`, você deve usar um `match` ou um dos métodos
-de `Result` para tratá-lo ao invés de usar `?` para potencialmente
+de `Result` para tratá-lo em vez de usar `?` para potencialmente
 propagar o erro ao código que a chamou.
 
 Agora que discutimos os detalhes de chamar `panic!` ou retornar `Result`, vamos

@@ -12,10 +12,10 @@ chamando `panic!` e transformando seu erro recuperável em um irrecuperável.
 Portanto, retornar `Result` é uma boa escolha padrão quando você está definindo
 uma função que pode falhar.
 
-Em algumas situações é mais apropriado escrever código que entra em pânico ao invés
+Em algumas situações é mais apropriado escrever código que entra em pânico em vez
 de retornar um `Result`, mas eles são menos comuns. Vamos explorar porque é apropriado
 entrar em pânico em alguns exemplos, protótipos de código e testes; depois situações
-em que você como humano pode saber que um método não vai falhar que o compilador não
+em que você como humano pode saber que um método não vai falhar, mas que o compilador não
 tem como saber; e concluir com algumas diretrizes sobre como decidir entrar ou
 não em pânico em código de biblioteca.
 
@@ -69,7 +69,7 @@ definitivamente iríamos querer tratar o `Result` de uma forma mais robusta.
 ### Diretrizes para Tratamento de Erro
 
 É aconselhável fazer que seu código entre em `panic!` quando é possível que
-ele entre em um estado mau. Nesse contexto, estado mau é quando
+ele entre em um mau estado. Nesse contexto, mau estado é quando
 alguma hipótese, garantia, contrato ou invariante foi quebrada, tal como
 valores inválidos, valores contraditórios, ou valores faltando que são passados
 a seu código - além de um ou mais dos seguintes:
@@ -84,7 +84,7 @@ código dela para que ela possa consertá-la durante o desenvolvimento. Similarm
 `panic!` é em geral apropriado se você está chamando código externo que está fora
 do seu controle e ele retorna um estado inválido que você não tem como consertar.
 
-Quando se chega a um estado mau, mas isso é esperado que aconteça não importa
+Quando se chega a um mau estado, mas isso é esperado que aconteça não importa
 quão bem você escreva seu código, ainda é mais apropriado retornar um `Result`
 a fazer uma chamada a `panic!`. Um exemplo disso é um *parser* recebendo dados
 malformados ou uma requisição HTTP retornando um status que indique que você atingiu
@@ -94,7 +94,7 @@ de forma que o código que chamou seu código pode decidir como tratar o problem
 Entrar em `panic!` não seria a melhor maneira de lidar com esses casos.
 
 Quando seu código realiza operações em valores, ele deveria verificar que os valores
-são válidos primeiro, e entrar em `panic!` caso não o sejam. Isso é 
+são válidos primeiro, e entrar em `panic!` caso não sejam. Isso é 
 em boa parte por razões de segurança: tentar operar em dados inválidos pode expor seu
 código a vulnerabilidades. Essa é a principal razão para a biblioteca padrão entrar em
 `panic!` se você tentar um acesso de memória fora dos limites: tentar acessar memória 
@@ -110,9 +110,9 @@ violação leva a pânico, devem ser explicados na documentação da API da fun�
 No entanto, ter várias checagens de erro em todas suas funções pode ser verboso
 e irritante. Felizmente, você pode usar o sistema de tipos do Rust (e portanto a
 checagem que o compilador faz) para fazer várias dessas checagens para você. Se
-sua função têm um tipo particular como parâmetro, você pode continuar com a lógica
+sua função tem um tipo particular como parâmetro, você pode continuar com a lógica
 do seu código sabendo que o compilador já assegurou que você tem um valor válido.
-Por exemplo, se você tem um tipo ao invés de uma `Option`, seu programa espera
+Por exemplo, se você tem um tipo em vez de uma `Option`, seu programa espera
 ter *algo* ao invés de *nada*. Seu código não precisa tratar dois casos para
 as variantes `Some` e `None`: ele vai somente ter um caso para definitivamente ter
 um valor. Um código que tente passar nada para sua função não vai nem compilar,
@@ -124,17 +124,16 @@ negativo.
 ### Criando Tipos Customizados para Validação
 
 Vamos dar um passo além na ideia de usar o sistema de tipos de Rust para assegurar que temos
-um valor válido um passo adiante e ver como criar um tipo customizado para validação.
+um valor válido e ver como criar um tipo customizado para validação.
 Lembre do jogo de adivinhação no Capítulo 2 onde nosso código pedia ao usuário 
 para adivinhar um número entre 1 e 100. Nós nunca validamos que o chute do usuário
 fosse entre esses números antes de compará-lo com o número secreto; nós somente 
 validamos que o chute era positivo. Nesse caso, as consequências não foram tão
 drásticas: nosso output de "Muito alto" ou "Muito baixo" ainda estariam corretos. Seria
 uma melhoria útil guiar o usuário para chutes válidos, e ter um comportamento distinto
-quando um usuário chuta um número fora do limite e quando um usuário ao invés digita, 
-por exemplo, letras.
+quando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.
 
-Uma maneira de fazer isso seria interpretar o chute como um `i32` ao invés de
+Uma maneira de fazer isso seria interpretar o chute como um `i32` em vez de
 somente um `u32` para permitir números potenciamente negativos, e então adicionar
 uma checagem se o número está dentro dos limites, conforme a seguir:
 
@@ -142,7 +141,7 @@ uma checagem se o número está dentro dos limites, conforme a seguir:
 loop {
     // snip
 
-    let palpite: i32 = match guess.trim().parse() {
+    let palpite: i32 = match palpite.trim().parse() {
         Ok(num) => num,
         Err(_) => continue,
     };
@@ -152,7 +151,7 @@ loop {
         continue;
     }
 
-    match guess.cmp(&numero_secreto) {
+    match palpite.cmp(&numero_secreto) {
     // snip
 }
 ```
@@ -160,7 +159,7 @@ loop {
 A expressão `if` checa se nosso valor está fora dos limites, informa o usuário
 sobre o problema, e chama `continue` para começar a próxima iteração do loop
 e pedir por outro chute. Depois da expressão `if` podemos proceder com as 
-comparações entre `guess` e o número secreto sabendo que `guess` está 
+comparações entre `palpite` e o número secreto sabendo que `palpite` está 
 entre 1 e 100.
 
 No entanto, essa não é a solução ideal: se fosse absolutamente crítico que o
@@ -168,11 +167,11 @@ programa somente operasse em valores entre 1 e 100, e ele tivesse várias funç�
 com esse requisito, seria tedioso (e potencialmente impactante na performance)
 ter uma checagem dessa em cada função.
 
-Ao invés disso, podemos fazer um novo tipo e colocar as validações em uma função
-para criar uma instância do tipo ao invés de repetir as validações em todo lugar.
+Em vez disso, podemos fazer um novo tipo e colocar as validações em uma função
+para criar uma instância do tipo em vez de repetir as validações em todo lugar.
 Dessa maneira, é seguro para funções usarem o novo tipo nas suas assinaturas e 
 confidentemente usar os valores que recebem. A Listagem 9-9  mostra uma maneira de 
-definir um tipo `Guess` que vai somente criar uma instância de `Guess` se a função
+definir um tipo `Palpite` que vai somente criar uma instância de `Palpite` se a função
 `new` receber um valor entre 1 e 100:
 
 ```rust
@@ -197,10 +196,10 @@ impl Palpite {
 }
 ```
 
-<span class="caption">Listagem 9-9: Um tipo `Guess` que somente funciona com valores
-entre 1 e 100</span>
+<span class="caption">Listagem 9-9: Um tipo `Palpite` que somente funciona com valores
+entre 1 e 100.</span>
 
-Primeiro, definimos uma struct chamada `Guess` que tem um campo chamado `value`
+Primeiro, definimos uma struct chamada `Palpite` que tem um campo chamado `value`
 que guarda um `u32`. Isso é onde o número vai ser guardado.
 
 Então nós implementamos uma função associada chamada `new` em `Palpite` que cria
@@ -212,7 +211,7 @@ está escrevendo o código chamando a função que ele tem um bug que precisa se
 corrigido, porque criar um `Palpite` com um `valor` fora desses limites violaria
 o contrato em que `Palpite::new` se baseia. As condições em que `Palpite::new` pode 
 entrar em pânico devem ser discutidas na sua documentação da API voltada ao público;
-no capítulo 14 nós cobriremos convenções de documentação indicando a possibilidade de um `panic!`
+no Capítulo 14 nós cobriremos convenções de documentação indicando a possibilidade de um `panic!`
 na documentação de API. Se `valor` de fato passa no
 teste, criamos um novo `Palpite` com o campo `valor` preenchido com o parâmetro
 `valor` e retornamos o `Palpite`.
@@ -228,7 +227,7 @@ que não há maneira de um `Palpite` ter um `valor` que não foi checado pelas c
 definidas na função `Palpite::new`.
 
 Uma função que tem um parâmetro ou retorna somente números entre 1 e 100 pode
-então declarar na sua assinatura que ela recebe ou retorna um `Palpite` ao invés
+então declarar na sua assinatura que ela recebe ou retorna um `Palpite` em vez
 de um `u32` e não precisaria fazer nenhuma checagem adicional no seu corpo.
 
 ## Resumo

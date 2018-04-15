@@ -13,8 +13,8 @@ foi detectado, e não é claro para o programador como tratar esse erro.
 > Mas essa limpeza dá bastante trabalho. A alternativa é imediatamente *abortar*,
 > que termina o programa sem fazer a limpeza. A memória que o programa estava usando vai então
 > precisar ser limpada pelo sistema operacional. Se no seu projeto você precisa tornar
-> o binário final o menor possível, você pode trocar de resolver para abortar no *panic*
-> adicionando `panic = 'abort'` para a seção apropriadada de `[profile]` no seu arquivo
+> o binário final o menor possível, você pode deixar de resolver e sim abortar no *panic*
+> adicionando `panic = 'abort'` à seção apropriadada de `[profile]` no seu arquivo
 > *Cargo.toml*. Por exemplo, se você quiser abortar no *panic* no modo de *release*, adicione
 > isso:
 > ```toml
@@ -65,7 +65,7 @@ biblioteca por causa de um bug no nosso código em vez de nosso código chamar
 a macro diretamente. A Listagem 9-1 tem código que tenta acessar um elemento em
 um vetor por meio de um índice:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,should_panic
 fn main() {
@@ -161,6 +161,7 @@ stack backtrace:
   15:     0x7f0d53f16400 - __libc_start_main
   16:     0x560ed90e6659 - _start
   17:                0x0 - <unknown>
+
 ```
 
 <span class="caption">Listagem 9-2: O *backtrace* gerado por uma chamada
@@ -172,14 +173,14 @@ informação, símbolos de debug devem estar ativados. Símbolos de debug estão
 por padrão quando usamos cargo build ou cargo run sem a opção de --release, 
 como temos aqui.
 
-Na saída da Lista 9-2, a linha 11 do *backtrace* aponta para a linha no nosso
+Na saída da Listagem 9-2, a linha 11 do *backtrace* aponta para a linha no nosso
 projeto que está causando o problema: *src/main.rs* na linha 4. Se não 
 queremos que nosso programa entre em pânico, a localização apontada pela primeira
 linha mencionando um arquivo que escrevemos é onde deveríamos começar a investigar
 para entender como chegamos nesse ponto com valores que causaram o pânico. Na lista
 9-1 onde nós deliberadamente escrevemos código que causaria pânico para demonstrar
 como usar *backtraces*, a forma de consertar o pânico é não requisitar um elemento
-no índice  100 de um vetor que contém apenas três itens. Quando seu código entrar
+no índice 100 de um vetor que contém apenas três itens. Quando seu código entrar
 em pânico no futuro, você precisará descobrir quais ações o seu código está tomando,
 e com quais valores, que estão causando o pânico, e o que deveria ser feito em vez
 disso.
