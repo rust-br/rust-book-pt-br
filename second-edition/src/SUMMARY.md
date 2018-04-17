@@ -1,12 +1,16 @@
 # The Rust Programming Language
 
+[Foreword](foreword.md)
+[Introduction](ch00-00-introduction.md)
+
 ## Getting started
 
-- [Introduction](ch01-00-introduction.md)
+- [Getting Started](ch01-00-getting-started.md)
     - [Installation](ch01-01-installation.md)
     - [Hello, World!](ch01-02-hello-world.md)
+    - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
-- [Guessing Game Tutorial](ch02-00-guessing-game-tutorial.md)
+- [Programming a Guessing Game](ch02-00-guessing-game-tutorial.md)
 
 - [Common Programming Concepts](ch03-00-common-programming-concepts.md)
     - [Variables and Mutability](ch03-01-variables-and-mutability.md)
@@ -67,11 +71,11 @@
 
 ## Thinking in Rust
 
-- [Functional Language Features in Rust](ch13-00-functional-features.md)
-    - [Closures](ch13-01-closures.md)
-    - [Iterators](ch13-02-iterators.md)
-    - [Improving our I/O Project](ch13-03-improving-our-io-project.md)
-    - [Performance](ch13-04-performance.md)
+- [Functional Language Features: Iterators and Closures](ch13-00-functional-features.md)
+    - [Closures: Anonymous Functions that Can Capture Their Environment](ch13-01-closures.md)
+    - [Processing a Series of Items with Iterators](ch13-02-iterators.md)
+    - [Improving Our I/O Project](ch13-03-improving-our-io-project.md)
+    - [Comparing Performance: Loops vs. Iterators](ch13-04-performance.md)
 
 - [More about Cargo and Crates.io](ch14-00-more-about-cargo.md)
     - [Customizing Builds with Release Profiles](ch14-01-release-profiles.md)
@@ -115,16 +119,14 @@
 
 - [Final Project: Building a Multithreaded Web Server](ch20-00-final-project-a-web-server.md)
     - [A Single Threaded Web Server](ch20-01-single-threaded.md)
-    - [How Slow Requests Affect Throughput](ch20-02-slow-requests.md)
-    - [Designing the Thread Pool Interface](ch20-03-designing-the-interface.md)
-    - [Creating the Thread Pool and Storing Threads](ch20-04-storing-threads.md)
-    - [Sending Requests to Threads Via Channels](ch20-05-sending-requests-via-channels.md)
-    - [Graceful Shutdown and Cleanup](ch20-06-graceful-shutdown-and-cleanup.md)
+    - [Turning our Single Threaded Server into a Multithreaded Server](ch20-02-multithreaded.md)
+    - [Graceful Shutdown and Cleanup](ch20-03-graceful-shutdown-and-cleanup.md)
 
 - [Appendix](appendix-00.md)
     - [A - Keywords](appendix-01-keywords.md)
-    - [B - Operators](appendix-02-operators.md)
-    - [C - Derivable Traits]()
-    - [D - Macros]()
-    - [E - Translations]()
-    - [F - Newest Features](appendix-07-newest-features.md)
+    - [B - Operators and Symbols](appendix-02-operators.md)
+    - [C - Derivable Traits](appendix-03-derivable-traits.md)
+    - [D - Macros](appendix-04-macros.md)
+    - [E - Translations](appendix-05-translation.md)
+    - [F - Newest Features](appendix-06-newest-features.md)
+    - [G - How Rust is Made and “Nightly Rust”](appendix-07-nightly-rust.md)

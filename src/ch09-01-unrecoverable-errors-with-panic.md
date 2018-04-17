@@ -188,4 +188,3 @@ disso.
 Voltaremos ao `panic!` e veremos mais adiante no capítulo quando usá-lo, ou não,
 para lidar com erros. Em seguida, olharemos como se recuperar de um erro usando 
 `Result`.
-

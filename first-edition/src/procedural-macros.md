@@ -177,7 +177,7 @@ similar to regular macros work. You should check out the
 [docs](https://docs.rs/quote) for a good introduction.
 
 So I think that's it. Oh, well, we do need to add dependencies for `syn` and
-`quote` in the `cargo.toml` for `hello-world-derive`.
+`quote` in the `Cargo.toml` for `hello-world-derive`.
 
 ```toml
 [dependencies]
@@ -267,8 +267,8 @@ fn impl_hello_world(ast: &syn::DeriveInput) -> quote::Tokens {
             }
         }
     } else {
-        //Nope. This is an Enum. We cannot handle these!
-       panic!("#[derive(HelloWorld)] is only defined for structs, not for enums!");
+        // Nope. This is an Enum. We cannot handle these!
+        panic!("#[derive(HelloWorld)] is only defined for structs, not for enums!");
     }
 }
 ```

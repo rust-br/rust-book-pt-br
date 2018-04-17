@@ -21,4 +21,3 @@ e a macro `panic!` que para a execução ao encontrar um erro irrecuperável. Es
 capítulo cobre primeiro como chamar `panic!` e depois fala sobre retornar valores
 `Result<T, E>`. Adicionalmente, vamos explorar o que se levar em consideração
 para decidir entre tentar se recuperar de um erro ou parar execução.
-

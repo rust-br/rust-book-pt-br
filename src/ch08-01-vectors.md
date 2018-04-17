@@ -172,7 +172,7 @@ para colocar todos os elementos próximos um do outro onde o vetor estava. Nesse
 caso, a referência ao primeiro elemento apontaria para memória não alocada.
 As regras de empréstimo impedem que os programas acabem nessa situação.
 
-> Nota: para mais informações, veja o Nomicon em
+> Nota: para mais informações, veja o Rustonomicon em
 *https://doc.rust-lang.org/stable/nomicon/vec.html*.
 
 

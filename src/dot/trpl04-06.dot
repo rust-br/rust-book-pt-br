@@ -1,0 +1,41 @@
+digraph {
+    rankdir=LR;
+    overlap=false;
+    dpi=300.0;
+    node [shape="plaintext"];
+
+    table0[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+        <TR><TD COLSPAN="2" SIDES="B">longo</TD></TR>
+        <TR><TD>nome</TD><TD>valor</TD></TR>
+        <TR><TD>ptr</TD><TD PORT="pointer2"></TD></TR>
+        <TR><TD>tamanho</TD><TD>5</TD></TR>
+    </TABLE>>];
+
+    table3[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+        <TR><TD COLSPAN="2" SIDES="B">s</TD></TR>
+        <TR><TD>nome</TD><TD>valor</TD></TR>
+        <TR><TD>ptr</TD><TD PORT="pointer"></TD></TR>
+        <TR><TD>tamanho</TD><TD>11</TD></TR>
+        <TR><TD>capacidade</TD><TD>11</TD></TR>
+    </TABLE>>];
+    table4[label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+        <TR><TD>índice</TD><TD>valor</TD></TR>
+        <TR><TD PORT="pointee">0</TD><TD>t</TD></TR>
+        <TR><TD>1</TD><TD>e</TD></TR>
+        <TR><TD>2</TD><TD>x</TD></TR>
+        <TR><TD>3</TD><TD>t</TD></TR>
+        <TR><TD>4</TD><TD>o</TD></TR>
+        <TR><TD>5</TD><TD> </TD></TR>
+        <TR><TD PORT="pointee2">6</TD><TD>l</TD></TR>
+        <TR><TD>7</TD><TD>o</TD></TR>
+        <TR><TD>8</TD><TD>n</TD></TR>
+        <TR><TD>9</TD><TD>g</TD></TR>
+        <TR><TD>10</TD><TD>o</TD></TR>
+    </TABLE>>];
+
+
+    edge[tailclip="false"];
+    table0:pointer2:c -> table4:pointee2;
+    table3:pointer:c -> table4:pointee;
+}
+

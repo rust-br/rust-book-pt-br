@@ -244,6 +244,3 @@ apropriadas fará seu código mais confiável em face aos problemas inevitáveis
 Agora que você viu as maneiras úteis em que a biblioteca padrão usa genéricos com
 os enums `Option` e `Result`, nós falaremos como genéricos funcionam e como você
 pode usá-los em seu código no próximo capítulo.
-
-
-

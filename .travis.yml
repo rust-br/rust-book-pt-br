@@ -2,16 +2,20 @@ sudo: false
 language: rust
 cache: cargo
 rust:
-  - nightly
-branches:
-  only:
-  - master
-addons:
-  apt:
-    packages:
-      - aspell
-      - aspell-en
-before_script:
-  - (cargo install mdbook --git https://github.com/azerupi/mdBook.git --force || true)
+- stable
+install:
+- curl -LSfs https://japaric.github.io/trust/install.sh | sh -s -- --git rust-lang-nursery/mdBook
+  --crate mdbook --force --target x86_64-unknown-linux-gnu --tag v0.1.2
 script:
-  - bash ci/build.sh
+- mdbook build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GH_TOKEN"
+  local_dir: book
+  target_branch: gh-pages
+  on:
+    branch: master
+env:
+  global:
+    secure: l2S3FVJkqPN/AvCQa0E/OCJehGxvuZ5GPw+sFui+FjE7f1FIK44hHzfqgW2MJmBVbJRcxaQRQZgynlQT3vCntCpqoVd3JJXN/arfnsVwLx7/GDTRZp/24DdMMCyS33RULv7FC7ul2ixLDXmU4usA2hcS/PEww55VH0F+FnxNUDfq79Mjui1rFBVI1kCykNE/jHyAi54SMgCMleAx8nsgWmvcTrDQUcktbM4w7EafrtZr1SA3maG7oxdi5ZfpXojrVeyjydpc9T31mel+aorQCK0eSBBnOirwGRZoNNMAGXCWgxgYSUnZsqnhCHgnfQ3+qQ4Np2PO5PdVUHuJONyTkb9Bqf/UKHaIl8eyyLxlr310LOnVMvlLmnkKvKycstBznIr+HWzCxGwLZdfWaXAdI305AjFZDoZsAkDMox1NO6NgbbK2Ipsez8Bbw83i7QRbrFje1WfLx3mSkGWihk2cD/78U9lICJ9AOOyFw01ZyccDfAZoVimCleGlu2H4lfZnOyIiefXTN2gIPnIMT0F5FfgHXcxMJRDEAmUIl12Q9M8p44d02rnH+XxBFEM4jliAzEY148vevC5VMq8mAlKnzy4n0zrvub5sctK4IfbI+2gfs8UEFh2oa56MhC5iIYxtGj1XTZf2VJz0op+1xjEV2yN+vwk2qp4tv5JMc+0MULg=

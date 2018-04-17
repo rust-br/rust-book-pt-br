@@ -780,8 +780,8 @@ para satisfazer o `read_line`. Quando o usuário pressiona
 <span class="keystroke">Enter</span>, um caractere de nova linha é inserido na
 string. Por exemplo, se o usuário digitar <span class="keystroke">5</span> e
 depois <span class="keystroke">Enter</span>, `palpite` ficaria assim: `5\n`. O
-`\n` representa uma linha nova, a tecla Enter. O método `trim` elimina o `\n`,
-deixando apenas `5`.
+`\n` representa uma linha nova, a tecla <span class="keystroke">Enter</span>.
+O método `trim` elimina o `\n`, deixando apenas `5`.
 
 O [método `parse` em strings][parse]<!-- ignore --> converte uma string para
 algum tipo de número. Dado que ele pode interpretar uma variedade de tipos
@@ -883,7 +883,7 @@ problema, porque o programa está fazendo exatamente o que dissemos para ele
 fazer: pedir sempre outro palpite! Parece que o usuário não consegue sair!
 
 O usuário pode sempre interromper o programa usando as teclas
-<span class="keystroke">Ctrl-C</span>. Mas há uma outra forma de escapar deste
+<span class="keystroke">ctrl-c</span>. Mas há uma outra forma de escapar deste
 monstro insaciável que mencionamos na discussão do método `parse`, na seção
 "Comparando o Palpite com o Número Secreto": se o usuário fornece uma resposta
 não-numérica, o programa vai sofrer um _crash_. O usuário pode levar vantagem
