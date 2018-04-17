@@ -199,7 +199,7 @@ impl Palpite {
 <span class="caption">Listagem 9-9: Um tipo `Palpite` que somente funciona com valores
 entre 1 e 100.</span>
 
-Primeiro, definimos uma struct chamada `Palpite` que tem um campo chamado `value`
+Primeiro, definimos uma struct chamada `Palpite` que tem um campo chamado `valor`
 que guarda um `u32`. Isso é onde o número vai ser guardado.
 
 Então nós implementamos uma função associada chamada `new` em `Palpite` que cria
