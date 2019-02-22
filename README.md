@@ -1,44 +1,51 @@
-# NOTICE ABOUT STATUS
+# STATUS ATUAL
 
-The second edition of The Rust Programming Language is getting ever closer to being printed!
+A segunda edição de "The Rust Programming Language" ("A linguagem de
+programação Rust") está cada vez mais perto da impressão!
 
-This means we're not able to make large changes to chapters that are in any column to the
-right of, and including, the "Frozen" column [on our Project board][proj]. Issues or pull
-requests submitted for frozen chapters are welcome but will be closed until we start work
-on a third edition. Thank you!
+Isso significa que não podemos fazer grandes mudanças nos capítulos
+que estão na coluna "Frozen" ("congelada") ou nas colunas a direita
+dela [no board do nosso Projeto][proj]. [Issues][issues] ou
+[Pull Requests][pulls] que sejam de capítulos congelados são
+bem-vindos, mas serão fechados até começarmos a trabalhar na terceira
+edição. Agradecemos!
 
 [proj]: https://github.com/rust-lang/book/projects/1
+[issues]: https://github.com/rust-lang/book/issues/
+[pulls]: https://github.com/rust-lang/book/pulls/
 
 # The Rust Programming Language
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
-This repo contains two editions of “The Rust Programming Language”; we
-recommend starting with the second edition.
+Este repositório contém duas edições de “The Rust Programming
+Language”; nós recomendamos começar com a segunda edição.
 
-The second edition is a rewrite that will be printed by No Starch Press,
-available around May 2018. Check [the No Starch Page][nostarch] for the latest
-information on the release date and how to order.
+A segunda edição é uma revisão que será impressa por No Starch Press,
+disponível por volta de maio de 2018. Vá a [No Starch][nostarch] para
+ver as informações mais atualizadas sobre data de lançamento e fazer um
+pedido.
 
 [nostarch]: https://nostarch.com/rust
 
-You can read the book for free online! Please see the book as shipped with the
-latest [stable], [beta], or [nightly] Rust releases. Be aware that issues in
-those versions may have been fixed in this repository already.
+Você pode ler o livro de graça online! Veja as últimas revisões
+[oficial], [beta], ou [recém desenvolvida] do livro de Rust (em
+inglês). Esteja ciente que problemas nestas versões podem já ter sido
+resolvidos neste repositório.
 
-[stable]: https://doc.rust-lang.org/stable/book/second-edition/
+[oficial]: https://doc.rust-lang.org/stable/book/second-edition/
 [beta]: https://doc.rust-lang.org/beta/book/second-edition/
-[nightly]: https://doc.rust-lang.org/nightly/book/second-edition/
+[recém desenvolvida]: https://doc.rust-lang.org/nightly/book/second-edition/
 
-[The first edition is still available to read online][first].
+[A primeira edição ainda pode ser lida aqui (versão em inglês)][first].
 
 [first]: https://doc.rust-lang.org/book/
 
 
 ## Requirements
 
-Building the book requires [mdBook], ideally the same version that
-[rust-lang/rust uses in this file][rust-mdbook]. To get it:
+Compilar o livro requer [mdBook], de preferência a mesma versão que
+[rust-lang/rust usa neste arquivo][rust-mdbook]. Para baixar:
 
 [mdBook]: https://github.com/azerupi/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
@@ -49,16 +56,16 @@ $ cargo install mdbook --vers [version-num]
 
 ## Building
 
-To build the book, first `cd` into either the `first-edition` or
-`second-edition` directory depending on which edition of the book you would
-like to build. Then type:
+Para compilar o livro, primeiro entre (`cd`) na pasta `first-edition`
+ou `second-edition`, dependendo de qual edição do livro você quer
+compilar. Então execute:
 
 ```bash
 $ mdbook build
 ```
 
-The output will be in the `book` subdirectory. To check it out, open it in
-your web browser.
+O resultado vai estar na subpasta `book`. Para verificar, abra no seu
+browser.
 
 _Firefox:_
 ```bash
@@ -76,72 +83,76 @@ $ Start-Process "chrome.exe" .\book\index.html  # Windows (PowerShell)
 $ start chrome.exe .\book\index.html            # Windows (Cmd)
 ```
 
-To run the tests:
+Para rodar os testes:
 
 ```bash
 $ mdbook test
 ```
 
-## Contributing
+## Contribuir
 
-We'd love your help! Please see [CONTRIBUTING.md][contrib] to learn about the
-kinds of contributions we're looking for.
+Nos adoraríamos sua ajuda! Por favor, leia [CONTRIBUTING.md][contrib]
+para aprender sobre tipos de contribuições que estamos buscando.
 
 [contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
 
 ### Translations
 
-We'd especially love help translating the second edition of the book! See the
-[Translations] label to join in efforts that are currently in progress. Open
-a new issue to start working on a new language! We're waiting on [mdbook
-support] for multiple languages before we merge any in, but feel free to
-start! The chapters in [the frozen column] of the project won't see major
-changes, so if you start with those, you won't have to redo work :)
+Nós amamos mais ainda ajudas na tradução da segunda edição do livro!
+Veja a label [Translations] para se juntar aos esforços atualmente em
+andamento. Abra uma nova issue para começar a trabalhar em uma nova
+linguagem! Estamos aguardando [suporte de mdbook] para múltiplas línguas
+antes de fazer merge de qualquer coisa, mas sinta-se a vontade para
+começar! Os capítulos na [coluna "Frozen"] do projeto não terão maiores
+mudanças, então, se começar com esses, você não terá retrabalho :)
 
 [Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/azerupi/mdBook/issues/5
-[the frozen column]: https://github.com/rust-lang/book/projects/1
+[suporte de mdbook]: https://github.com/azerupi/mdBook/issues/5
+[coluna congelada]: https://github.com/rust-lang/book/projects/1
 
 ## No Starch
 
-As the second edition of the book will be published by No Starch, we first
-iterate here, then ship the text off to No Starch. Then they do editing, and we
-fold it back in.
+Como a segunda edição do livro vai ser publicada por No Starch, nós
+primeiro interagimos aqui, depois enviados o texto a No Starch. Então
+fazem a edição, e nós editamos aqui.
 
-As such, there’s a directory, *nostarch*, which corresponds to the text in No
-Starch’s system.
+Existe uma pasta, *nostarch*, que corresponde ao texto no sistema da
+No Starch.
 
-When we've started working with No Starch in a word doc, we will also check
-those into the repo in the *nostarch/odt* directory. To extract the text from
-the word doc as markdown in order to backport changes to the online book:
+Quando começamos a trabalhar com a No Starch em um arquivo de word, nós
+também colocamos os arquivos no repositório na pasta *nostarch/odt*.
+Para extrair o texto do arquivo de word em markdown, para enviar
+mudanças para o livro online:
 
-1. Open the doc file in LibreOffice
-1. Accept all tracked changes
-1. Save as Microsoft Word 2007-2013 XML (.docx) in the *tmp* directory
-1. Run `./doc-to-md.sh`
-1. Inspect changes made to the markdown file in the *nostarch* directory and
-   copy the changes to the *src* directory as appropriate.
+1. Abra o arquivo word no LibreOffice
+1. Aceite todas as mudanças encontradas
+1. Salve como Microsoft Word 2007-2013 XML (.docx) na pasta *tmp*
+1. Execute `./doc-to-md.sh`
+1. Verifique as mudanças no arquivo markdown na pasta *nostarch* e
+   copie essas mudanças para a pasta *src* em seu devido lugar.
 
 ## Graphviz dot
 
-This is mostly for Carol's reference because she keeps having to look it up.
+Isto é basicamente para referências para Carol, pois ela precisa sempre
+verificar.
 
-We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
-book. The source for those files live in the `dot` directory. To turn a `dot`
-file, for example, `dot/trpl04-01.dot` into an `svg`, run:
+A gente usa [Graphviz](http://graphviz.org/) para alguns diagramas no
+livro. A origem desses arquivos é a pasta `dot`. Para transformar um
+arquivo `dot`, por exemplo, `dot/trpl04-01.dot`, em `svg`, execute:
 
 ```bash
 $ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
 ```
 
-In the generated SVG, remove the width and the height attributes from the `svg`
-element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
-values that don't cut off the image.
+No SVG gerado, remova atributos de largura e altura da tag `svg` e
+coloque um atributo `viewBox` com `0.00 0.00 1000.00 1000.00` ou outro
+valor que não corte a imagem.
 
-## Spellchecking
+## Verificação Ortográfica
 
-To scan source files for spelling errors, you can use the `spellcheck.sh`
-script. It needs a dictionary of valid words, which is provided in
-`dictionary.txt`. If the script produces a false positive (say, you used word
-`BTreeMap` which the script considers invalid), you need to add this word to
-`dictionary.txt` (keep the sorted order for consistency).
+Para procurar erros de ortografia no código fonte, você pode usar o
+script `spellcheck.sh`. Precisa de um dicionário de palavras válidas,
+que existe em `dictionary.txt`. Se o script der um falso erro (digamos,
+você usa a palavra `BTreeMap`, que o script considera inválida), você
+precisa adicionar a palavra ao arquivo `dictionary.txt` (mantenha a
+ordem já usada no arquivo).
