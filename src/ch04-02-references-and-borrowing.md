@@ -314,7 +314,7 @@ não é bom. Rust não vai nos deixar fazer isso.
 A solução aqui é retornar a `String` diretamente:
 
 ```rust
-fn não_soltar() -> String {
+fn nao_soltar() -> String {
     let s = String::from("texto");
 
     s
