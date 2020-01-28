@@ -144,7 +144,7 @@ Hello, world!
 <!--
 Regardless of your operating system, the string `Hello, world!` should print to
 the terminal. If you don’t see this output, refer back to the
-[“Troubleshooting”][troubleshooting]<!-- ignore --> part of the Installation
+[“Troubleshooting”][troubleshooting] part of the Installation
 section for ways to get help.
 
 If `Hello, world!` did print, congratulations! You’ve officially written a Rust

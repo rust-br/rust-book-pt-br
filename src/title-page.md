@@ -11,9 +11,9 @@ _por Steve Klabnik e Carol Nichols, com contribuições da Comunidade Rust_
 <!--
 This version of the text assumes you’re using Rust 1.40.0 or later with
 `edition="2018"` in *Cargo.toml* of all projects to use Rust 2018 Edition
-idioms. See the [“Installation” section of Chapter 1][install]<!-- ignore -->
-to install or update Rust, and see the new [Appendix E][editions]<!-- ignore
---> for information on editions.
+idioms. See the [“Installation” section of Chapter 1][install]
+to install or update Rust, and see the new [Appendix E][editions]
+for information on editions.
 -->
 
 Esta versão do texto assume que você está utilizando Rust 1.37.0 ou superior

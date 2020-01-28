@@ -71,13 +71,11 @@ Our `grep` project will combine a number of concepts you’ve learned so far:
 Nosso projeto `grep` combinará uma série de conceitos que você aprendeu até agora:
 
 <!--
-* Organizing code (using what you learned about modules in [Chapter 7][ch7]<!--
-  ignore -->)
-* Using vectors and strings (collections, [Chapter 8][ch8]<!-- ignore -->)
-* Handling errors ([Chapter 9][ch9]<!-- ignore -->)
-* Using traits and lifetimes where appropriate ([Chapter 10][ch10]<!-- ignore
-  -->)
-* Writing tests ([Chapter 11][ch11]<!-- ignore -->)
+* Organizing code (using what you learned about modules in [Chapter 7][ch7])
+* Using vectors and strings (collections, [Chapter 8][ch8])
+* Handling errors ([Chapter 9][ch9])
+* Using traits and lifetimes where appropriate ([Chapter 10][ch10])
+* Writing tests ([Chapter 11][ch11])
 -->
 
 * Organizar código (usando o que aprendeu em módulos, [Capítulo 7][ch7]<!--
@@ -93,7 +91,7 @@ Nosso projeto `grep` combinará uma série de conceitos que você aprendeu até 
 
 <!--
 We’ll also briefly introduce closures, iterators, and trait objects, which
-Chapters [13][ch13]<!-- ignore --> and [17][ch17]<!-- ignore --> will cover in
+Chapters [13][ch13] and [17][ch17] will cover in
 detail.
 -->
 
