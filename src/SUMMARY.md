@@ -48,7 +48,7 @@
     - [Bringing Paths Into Scope with the `use` Keyword](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
     - [Separating Modules into Different Files](ch07-05-separating-modules-into-different-files.md)
 
-- [Fundamental Collections](ch08-00-common-collections.md)
+- [Coleções Comuns](ch08-00-common-collections.md)
     - [🇧🇷 Vetores](ch08-01-vectors.md)
     - [🇧🇷 Strings](ch08-02-strings.md)
     - [🇧🇷 Hash Maps](ch08-03-hash-maps.md)
@@ -105,7 +105,7 @@
     - [Concorrência com Estado Compartilhado](ch16-03-shared-state.md)
     - [Concorrência Extensível com as Trais `Sync` e `Send`](ch16-04-extensible-concurrency-sync-and-send.md)
 
-- [🇧🇷 Rust é uma Linguagem Orientada a Objetos?](ch17-00-oop.md)
+- [🇧🇷 Funcionalidades Orientadas a Objeto em Rust](ch17-00-oop.md)
     - [🇧🇷 O que Significa Orientado a Objetos?](ch17-01-what-is-oo.md)
     - [🇧🇷 Usando Objetos Trait que Permitem Valores de Tipos Diferentes](ch17-02-trait-objects.md)
     - [🇧🇷 Implementando um Padrão de Projeto Orientado a Objetos](ch17-03-oo-design-patterns.md)
