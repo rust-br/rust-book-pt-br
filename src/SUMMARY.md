@@ -1,19 +1,24 @@
 # A Linguagem de Programação Rust
 
+[🇧🇷A Linguagem de Programação Rust](title-page.md)
+[🇧🇷Prefácio](foreword.md)
+[Introdução](ch00-00-introduction.md)
+
 ## Começando
 
-- [🇧🇷 Introdução](ch01-00-introduction.md)
+- [🇧🇷 Introdução](ch01-00-getting-started.md)
     - [🇧🇷 Instalação](ch01-01-installation.md)
     - [🇧🇷 Olá, Mundo!](ch01-02-hello-world.md)
+    - [Olá, Cargo!](ch01-03-hello-cargo.md)
 
 - [🇧🇷 Jogo de Adivinhação](ch02-00-guessing-game-tutorial.md)
 
 - [🇧🇷 Conceitos Comuns de Programação](ch03-00-common-programming-concepts.md)
     - [🇧🇷 Variáveis e Mutabilidade](ch03-01-variables-and-mutability.md)
-    - [🇧🇷 Tipos de dados](ch03-02-data-types.md)
+    - [🇧🇷 Tipos de Dados](ch03-02-data-types.md)
     - [🇧🇷 Funções](ch03-03-how-functions-work.md)
     - [🇧🇷 Comentários](ch03-04-comments.md)
-    - [🇧🇷 Controle de fluxo](ch03-05-control-flow.md)
+    - [🇧🇷 Controle de Fluxo](ch03-05-control-flow.md)
 
 - [🇧🇷 Entendendo _Ownership_](ch04-00-understanding-ownership.md)
     - [🇧🇷 O Que É Ownership?](ch04-01-what-is-ownership.md)
@@ -21,19 +26,28 @@
     - [🇧🇷 _Slices_](ch04-03-slices.md)
 
 - [🇧🇷 Structs](ch05-00-structs.md)
-    - [Method Syntax](ch05-01-method-syntax.md)
+    - [Definindo e Instanciando Structs](ch05-01-defining-structs.md)
+    - [Um Exemplo do Uso de Structs](ch05-02-example-structs.md)
+    - [Sintaxe de Métodos](ch05-03-method-syntax.md)
 
 - [🇧🇷 Enums e Casamento de Padrões](ch06-00-enums.md)
     - [🇧🇷 Definindo uma Enum](ch06-01-defining-an-enum.md)
     - [🇧🇷 Operador `match`](ch06-02-match.md)
     - [🇧🇷 Controle de Fluxo Conciso com `if let`](ch06-03-if-let.md)
 
-## Basic Rust Literacy
+## Alfabetização Rust Básica
 
 - [🇧🇷 Módulos](ch07-00-modules.md)
-    - [🇧🇷 `mod` e o Sistema de Arquivos](ch07-01-mod-and-the-filesystem.md)
-    - [🇧🇷 Controlando a Visibilidade com `pub`](ch07-02-controlling-visibility-with-pub.md)
-    - [🇧🇷 Importando nomes com `use`](ch07-03-importing-names-with-use.md)
+    - [OLD🇧🇷 `mod` e o Sistema de Arquivos](ch07-01-mod-and-the-filesystem.md)
+    - [OLD🇧🇷 Controlando a Visibilidade com `pub`](ch07-02-controlling-visibility-with-pub.md)
+    - [OLD🇧🇷 Importando nomes com `use`](ch07-03-importing-names-with-use.md)
+
+    - [Packages and Crates](ch07-01-packages-and-crates.md)
+    - [Defining Modules to Control Scope and Privacy](ch07-02-defining-modules-to-control-scope-and-privacy.md)
+    - [Paths for Referring to an Item in the Module Tree](ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md)
+    - [Bringing Paths Into Scope with the `use` Keyword](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
+    - [Separating Modules into Different Files](ch07-05-separating-modules-into-different-files.md)
+
 
 - [Fundamental Collections](ch08-00-fundamental-collections.md)
     - [🇧🇷 Vetores](ch08-01-vectors.md)
@@ -47,32 +61,32 @@
 
 - [🇧🇷 Tipos Genéricos, _Traits_, e Tempos de vida (_Lifetimes_)](ch10-00-generics.md)
     - [🇧🇷 Tipos Genéricos de Dados](ch10-01-syntax.md)
-    - [🇧🇷 Traits: Definindo Comportamento Compartilhado](ch10-02-traits.md) - NEED DEFAULT METHOD IMPLEMENTATIONS
+    - [🇧🇷 Traits: Definindo Comportamento Compartilhado](ch10-02-traits.md)
     - [🇧🇷 Validating References with Lifetimes](ch10-03-lifetime-syntax.md)
 
-- [Testing](ch11-00-testing.md)
-    - [Writing tests](ch11-01-writing-tests.md)
-    - [Running tests](ch11-02-running-tests.md)
+- [Writing Automated Tests](ch11-00-testing.md)
+    - [How to Write Tests](ch11-01-writing-tests.md)
+    - [Controlling How Tests Are Run](ch11-02-running-tests.md)
     - [Test Organization](ch11-03-test-organization.md)
 
-- [An I/O Project](ch12-00-an-io-project.md)
+- [An I/O Project: Building a Command Line Program](ch12-00-an-io-project.md)
     - [Accepting Command Line Arguments](ch12-01-accepting-command-line-arguments.md)
     - [Reading a File](ch12-02-reading-a-file.md)
-    - [Improving Error Handling and Modularity](ch12-03-improving-error-handling-and-modularity.md)
-    - [Testing the Library's Functionality](ch12-04-testing-the-librarys-functionality.md)
+    - [Refactoring to Improve Modularity and Error Handling](ch12-03-improving-error-handling-and-modularity.md)
+    - [Developing the Library’s Functionality with Test Driven Development](ch12-04-testing-the-librarys-functionality.md)
     - [Working with Environment Variables](ch12-05-working-with-environment-variables.md)
-    - [Writing to `stderr` instead of `stdout`](ch12-06-writing-to-stderr-instead-of-stdout.md)
+    - [Writing Error Messages to Standard Error Instead of Standard Output](ch12-06-writing-to-stderr-instead-of-stdout.md)
 
 ## Thinking in Rust
 
-- [Functional Language Features in Rust](ch13-00-functional-features.md)
-    - [Closures](ch13-01-closures.md)
-    - [Iterators](ch13-02-iterators.md)
-    - [Improving our I/O Project](ch13-03-improving-our-io-project.md)
-    - [Performance](ch13-04-performance.md)
+- [Functional Language Features: Iterators and Closures](ch13-00-functional-features.md)
+    - [Closures: Anonymous Functions that Can Capture Their Environment](ch13-01-closures.md)
+    - [Processing a Series of Items with Iterators](ch13-02-iterators.md)
+    - [Improving Our I/O Project](ch13-03-improving-our-io-project.md)
+    - [Comparing Performance: Loops vs. Iterators](ch13-04-performance.md)
 
 - [More about Cargo and Crates.io](ch14-00-more-about-cargo.md)
-    - [Release Profiles](ch14-01-release-profiles.md)
+    - [Customizing Builds with Release Profiles](ch14-01-release-profiles.md)
     - [Publishing a Crate to Crates.io](ch14-02-publishing-to-crates-io.md)
     - [Cargo Workspaces](ch14-03-cargo-workspaces.md)
     - [Installing Binaries from Crates.io with `cargo install`](ch14-04-installing-binaries.md)
@@ -86,24 +100,41 @@
     - [🇧🇷 `RefCell<T>` e a Pattern de Mutabilidade Interior](ch15-05-interior-mutability.md)
     - [🇧🇷 Ciclos de Referências Podem Vazar Memória](ch15-06-reference-cycles.md)
 
-- [Concurrency](ch16-00-concurrency.md)
+- [Concorrência sem Medo](ch16-00-concurrency.md)
+    - [Usando Threads para Executar Código Simultaneamente](ch16-01-threads.md)
+    - [Usando Troca de Mensagens para Transferir Dados entre Threads](ch16-02-message-passing.md)
+    - [Concorrência com Estado Compartilhado](ch16-03-shared-state.md)
+    - [Concorrência Extensível com as Trais `Sync` e `Send`](ch16-04-extensible-concurrency-sync-and-send.md)
 
-- [🇧🇷 Rust é uma linguagem orientada a objetos?](ch17-00-oop.md)
-    - [🇧🇷 O que significa orientado a objetos?](ch17-01-what-is-oo.md)
-    - [🇧🇷 Usando objetos trait que permitem valores de tipos diferentes](ch17-02-trait-objects.md)
-    - [🇧🇷 Implementando um padrão de projeto orientado a objetos](ch17-03-oo-design-patterns.md)
+- [🇧🇷 Rust é uma Linguagem Orientada a Objetos?](ch17-00-oop.md)
+    - [🇧🇷 O que Significa Orientado a Objetos?](ch17-01-what-is-oo.md)
+    - [🇧🇷 Usando Objetos Trait que Permitem Valores de Tipos Diferentes](ch17-02-trait-objects.md)
+    - [🇧🇷 Implementando um Padrão de Projeto Orientado a Objetos](ch17-03-oo-design-patterns.md)
 
-## Advanced Topics
+## Tópicos Avançados
 
-- [Patterns](ch18-00-patterns.md) (perhaps an appendix?)
+- [Padrões e Casamento (Pattern Matching)](ch18-00-patterns.md)
+    - [Todos Lugares Onde Padrões Podem Ser Usados](ch18-01-all-the-places-for-patterns.md)
+    - [Refutabilidade: Se um Padrão Pode ou Não Falhar no Match](ch18-02-refutability.md)
+    - [Sintaxe dos Padrões](ch18-03-pattern-syntax.md)
 
-- [More Lifetimes](ch19-00-more-lifetimes.md) (perhaps merge this into advanced type system features?)
+- [Funcionalidades Avançadas](ch19-00-advanced-features.md)
+    - [Rust Inseguro](ch19-01-unsafe-rust.md)
+    - [Traits Avançados](ch19-03-advanced-traits.md)
+    - [Tipos Avançados](ch19-04-advanced-types.md)
+    - [Funções e Closures Avançadas](ch19-05-advanced-functions-and-closures.md)
+    - [Macros](ch19-06-macros.md)
 
-- [Advanced Type System Features](ch20-00-advanced-types.md) (perhaps called "Advanced Traits"?)
+- [Projeto Final: Construindo um Servidor Web Multi Thread](ch20-00-final-project-a-web-server.md)
+    - [Criando um Servidor Web de uma Thread](ch20-01-single-threaded.md)
+    - [Transformando Nosso Servidor de Uma Thread em um Multi Thread](ch20-02-multithreaded.md)
+    - [Desligamento e Limpeza sem Problemas](ch20-03-graceful-shutdown-and-cleanup.md)
 
-- [Appendix](appendix-00.md)
-    - [Keywords](appendix-01-keywords.md)
-    - [Operators](appendix-02-operators.md)
-    - [Derivable Traits](appendix-03-derivable-traits.md)
-    - [Nightly Rust](appendix-04-nightly-rust.md)
-    - [Macros](appendix-05-macros.md)
+- [🇧🇷Apêndices](appendix-00.md)
+    - [A - Palavras chave](appendix-01-keywords.md)
+    - [B - Operadores e Símbolos](appendix-02-operators.md)
+    - [C - Traits Deriváveis](appendix-03-derivable-traits.md)
+    - [D - Ferramentas Úteis para Desenvolvimento](appendix-04-useful-development-tools.md)
+    - [E - Edições](appendix-05-editions.md)
+    - [F - Traduções do Livro](appendix-06-translation.md)
+    - [G - Como Rust é Feito e “Nightly Rust”](appendix-07-nightly-rust.md)
