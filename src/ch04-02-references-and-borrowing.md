@@ -1,3 +1,12 @@
+<!--
+## References and Borrowing
+
+The issue with the tuple code in Listing 4-5 is that we have to return the
+`String` to the calling function so we can still use the `String` after the
+call to `calculate_length`, because the `String` was moved into
+`calculate_length`.
+-->
+
 ## Referências e _Borrowing_
 
 O problema de usar tuplas, que vimos no fim da seção anterior, é que precisamos
