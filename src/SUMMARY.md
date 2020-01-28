@@ -48,7 +48,7 @@
     - [Bringing Paths Into Scope with the `use` Keyword](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
     - [Separating Modules into Different Files](ch07-05-separating-modules-into-different-files.md)
 
-- [Fundamental Collections](ch08-00-fundamental-collections.md)
+- [Fundamental Collections](ch08-00-common-collections.md)
     - [🇧🇷 Vetores](ch08-01-vectors.md)
     - [🇧🇷 Strings](ch08-02-strings.md)
     - [🇧🇷 Hash Maps](ch08-03-hash-maps.md)
