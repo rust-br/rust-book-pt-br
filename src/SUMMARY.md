@@ -136,5 +136,5 @@
     - [C - Traits Deriváveis](appendix-03-derivable-traits.md)
     - [D - Ferramentas Úteis para Desenvolvimento](appendix-04-useful-development-tools.md)
     - [E - Edições](appendix-05-editions.md)
-    - [F - Traduções do Livro](appendix-06-translation.md)
+    - [🇧🇷 F - Traduções do Livro](appendix-06-translation.md)
     - [G - Como Rust é Feito e “Nightly Rust”](appendix-07-nightly-rust.md)
