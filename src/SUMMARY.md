@@ -6,7 +6,7 @@
 
 ## Começando
 
-- [🇧🇷 Introdução](ch01-00-getting-started.md)
+- [🇧🇷 Começando](ch01-00-getting-started.md)
     - [🇧🇷 Instalação](ch01-01-installation.md)
     - [🇧🇷 Olá, Mundo!](ch01-02-hello-world.md)
     - [Olá, Cargo!](ch01-03-hello-cargo.md)
@@ -47,7 +47,6 @@
     - [Paths for Referring to an Item in the Module Tree](ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md)
     - [Bringing Paths Into Scope with the `use` Keyword](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
     - [Separating Modules into Different Files](ch07-05-separating-modules-into-different-files.md)
-
 
 - [Fundamental Collections](ch08-00-fundamental-collections.md)
     - [🇧🇷 Vetores](ch08-01-vectors.md)
