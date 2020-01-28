@@ -2,7 +2,7 @@
 # Using Structs to Structure Related Data
 -->
 
-﻿# Usando Structs para Estruturar Dados Relacionados
+# Usando Structs para Estruturar Dados Relacionados
 
 <!--
 A *struct*, or *structure*, is a custom data type that lets you name and
