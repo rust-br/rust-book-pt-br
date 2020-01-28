@@ -1,3 +1,10 @@
+<!--
+## What Is Ownership?
+
+Rust’s central feature is *ownership*. Although the feature is straightforward
+to explain, it has deep implications for the rest of the language.
+-->
+
 ## O Que É Ownership? 
 
 A característica central do Rust é *ownership*. Embora seja bem direta de
