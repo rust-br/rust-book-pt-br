@@ -30,6 +30,7 @@
   quando escrevemos `use std::io`?`` ao invés de ``Lembra quando `use`amos
   `std::io`?``
 
+<!--
 ## Code
 
 * Add the file name before markdown blocks to make it clear which file we're
@@ -38,7 +39,19 @@
   and which stayed the same... not sure how to do this yet
 * Split up long lines as appropriate to keep them under 80 chars if possible
 * Use `bash` syntax highlighting for command line output code blocks
+-->
 
+# Código
+
+* Adicione o nome do arquivo antes dos blocos _markdown_ para deixar claro qual
+  arquivos estamos referenciando, quando aplicável.
+* Quando fizer mudanças no código, deixe claro que partes dele mudaram e quais
+  continuam as mesmas... não tenho certeza de como fazer isso ainda.
+* Quando apropriado, divida linhas longas para caberem em menos de 80 colunas,
+  se possível.
+* Use `bash` para colorir os blocos de saída de linha de comando
+
+<!--
 ## Links
 
 Once all the scripts are done:
@@ -50,3 +63,17 @@ Once all the scripts are done:
   the book is read offline or on docs.rust-lang.org
 * Use markdown links and keep in mind that they will be changed into `text at
   *url*` in print, so word them in a way that it reads well in that format
+-->
+
+## Links
+
+Quando todos scripts tiverem rodado:
+
+* Se um link não deve ser impresso, marque o como ignorado
+  * Isso inclui todos os links internos "Capítulo XX", que *devem* ser links
+    na versão HTML
+* Todos links internos do livro e da documentação da API da stdlib devem ser
+  relativos para que eles funcionem seja o livro lido offline ou no docs.rust-lang.org.
+* Use links _markdown_ e tenha em mente que no livro físico eles serão impressos
+  como `text em *url*`, então os redija de tal forma que caiam bem nesse formato.
+
