@@ -1,34 +1,10 @@
 # Patterns and Matching
 
-Patterns are a special syntax in Rust for matching against the structure of
-types, both complex and simple. Using patterns in conjunction with `match`
-expressions and other constructs gives you more control over the control flow
-of a program. A pattern is made up of some combination of:
+The second edition of the book is no longer distributed with Rust's documentation.
 
-- literals
-- destructured arrays, enums, structs, or tuples
-- variables
-- wildcards
-- placeholders
+If you came here via a link or web search, you may want to check out [the current
+version of the book](../ch18-00-patterns.html) instead.
 
-These pieces describe the shape of the data we’re working with, which we then
-match against values to determine whether our program has the correct data to
-continue running a particular bit of code.
-
-<!-- I think we need a concise description of what we use patterns for here,
-what they provide the programmer. Hopefully you can see what I've trying to do,
-above! But I think you'll agree it's not quite right, can you have a whack, try
-to give the reader that explanation? -->
-<!-- We tweaked the wording a bit, how's this? /Carol -->
-
-To use a pattern we compare it to some value. If the pattern matches our value,
-we use the value parts in our code. Recall our `match` expressions from Chapter
-6 that used patterns like a coin sorting machine. If the value fits the shape
-of the pattern, we can use the named pieces. If it doesn’t, the code associated
-with the pattern won’t run.
-
-This chapter is a reference on all things related to patterns. We’ll cover the
-valid places to use patterns, the difference between *refutable* and
-*irrefutable* patterns, and the different kinds of pattern syntax that you
-might see. By the end, you’ll see how to use patterns to create powerful and
-clear code.
+If you have an internet connection, you can [find a copy distributed with
+Rust
+1.30](https://doc.rust-lang.org/1.30.0/book/second-edition/ch18-00-patterns.html).
