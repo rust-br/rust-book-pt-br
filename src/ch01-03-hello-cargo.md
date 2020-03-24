@@ -7,7 +7,7 @@ depends on, and building those libraries. (We call libraries your code needs
 *dependencies*.)-->
 ## Olá Cargo!
 
-Cargo é o construtor do sistema e gerenciador de pacotes da Rust. A maioria dos Rustáceos usará esta
+Cargo é o construtor do sistema e gerenciador de pacotes do Rust. A maioria dos Rustáceos usará esta
 ferramenta para gerenciar seus projetos Rust porque o Cargo cuida de muitas tarefas
 para você, como criar seu código, baixar as bibliotecas das quais seu código
 depende e construir essas bibliotecas. (Chamamos bibliotecas que seu código precisa de
@@ -35,7 +35,7 @@ você usou os instaladores oficiais, conforme coberto na seção "Instalação".
 você instalou o Rust por outros meios, pode verificar se possui o Cargo
 instalado inserindo o seguinte em seu terminal:
 
-```text
+```bash
 $ cargo --version
 ```
 
@@ -57,7 +57,7 @@ Vamos criar um novo projeto usando o Cargo e ver como ele difere do nosso
 projeto original Hello World. Volte para o diretório *projects* (ou
 onde você decidiu colocar seu código) e, em qualquer sistema operacional, execute:
 
-```text
+```bash
 $ cargo new hello_cargo --bin
 $ cd hello_cargo
 ```
@@ -201,7 +201,7 @@ entering the following commands: -->
 Agora vamos ver o que há de diferente na criação e na execução do seu programa Hello World 
 através do Cargo! No diretório do seu projeto, construa-o inserindo os seguintes comandos:
 
-```text
+```bash
 $ cargo build
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
@@ -214,7 +214,7 @@ Isso cria um arquivo executável em *target/debug/hello_cargo* (ou
 *target\\debug\\hello_cargo.exe* no Windows), que você pode executar com este
 comando:
 
-```text
+```bash
 $ ./target/debug/hello_cargo # or .\target\debug\hello_cargo.exe on Windows
 Hello, world!
 ```
@@ -239,7 +239,7 @@ Nós apenas construímos um projeto com `cargo build` e o executamos com
 `./target/debug/hello_cargo`, mas também podemos usar o `cargo run` para compilar e 
 executar tudo de uma só vez:
 
-```text
+```bash
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
      Running `target/debug/hello_cargo`
@@ -255,7 +255,7 @@ O Cargo descobriu que os arquivos não foram alterados; portanto, apenas executo
 Se você tivesse modificado seu código-fonte, o Cargo teria reconstruído o projeto antes de 
 executá-lo e você teria visto resultados como este:
 
-```text
+```bash
 $ cargo run
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
@@ -268,7 +268,7 @@ make sure that it compiles, but not bother producing an executable: -->
 Finalmente, há o comando `cargo check`. Este comando verificará rapidamente seu código para 
 garantir que ele seja compilado, mas não irá produzir um executável:
 
-```text
+```bash
 $ cargo check
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
@@ -350,7 +350,7 @@ Embora o projeto `hello_cargo` seja simples, ele agora usa grande parte das ferr
 usará para o resto de sua carreira em Rust. De fato, para trabalhar em qualquer projeto existente, 
 você pode usar os seguintes comandos para verificar o código usando o Git, mudar para o diretório do projeto e construir:
 
-```text
+```bash
 $ git clone someurl.com/someproject
 $ cd someproject
 $ cargo build
