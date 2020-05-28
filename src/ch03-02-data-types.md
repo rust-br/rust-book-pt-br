@@ -15,7 +15,7 @@ Capítulo 2, devemos adicionar uma anotação de tipo, como a seguinte:
 let guess: u32 = "42".parse().expect("Não é um número!");
 ```
 
-Se não adicionarmos uma anotção de tipo, Rust irá mostrar o seguinte erro,
+Se não adicionarmos uma anotação de tipo, Rust irá mostrar o seguinte erro,
 que significa que o compilador precisa de mais informaçoes para saber qual tipo de dados
 queremos usar:
 
@@ -79,7 +79,7 @@ Além disso, os tipos `isize` e `usize` dependem do computador em que seu progra
 está rodando: 64 bits se estiver em uma arquitetura de 64-bit e 32 bits
 se sua arquitetura for 32-bit.
 
-Você criar inteiros literais em qualquer uma das formas mostrada na Tabela 3-2. Observe
+Você pode criar inteiros literais em qualquer uma das formas mostrada na Tabela 3-2. Observe
 que todos os literais de números, exceto o byte literal, permitem um sufixo de tipo,
 como por exemplo, `57u8` e `_` são separadores visuais, tal como `1_000`.
 
@@ -94,7 +94,7 @@ como por exemplo, `57u8` e `_` são separadores visuais, tal como `1_000`.
 | Byte (`u8` apenas)  | `b'A'`        |
 
 Então como você pode saber qual tipo de inteiro usar? Se sentir-se inseguro, as
-escolhas padrões do Rust são geralmente são boas, e por padrão os inteiros são do tipo `i32`: Esse
+escolhas padrões do Rust geralmente são boas, e por padrão os inteiros são do tipo `i32`: Esse
 tipo geralmente é o mais rápido, até em sistemas de 64-bit. A
 principal situação em que você usuaria `isize` ou `usize` é indexar algum tipo de coleção.
 
@@ -102,7 +102,7 @@ principal situação em que você usuaria `isize` ou `usize` é indexar algum ti
 
 Rust também tem dois tipos primitivos para *números de ponto flutuante*, que são
 números com casas decimais. Os pontos flutuantes do Rust são
-`f32` e `f64`, que têm respectivamente os tamanhos de 32 e 64 bits. Por padrão o tipo padrão é `f64`
+`f32` e `f64`, que têm respectivamente os tamanhos de 32 e 64 bits. O tipo padrão é `f64`
 porque nos processadores modernos, a velocidade é quase a mesma que em um `f32`, mas possui
 maior precisão.
 
@@ -199,7 +199,7 @@ então a sua intuição de o que é um "caractere" pode não combinar com o que 
 
 ### Tipos compostos
 
-*Tipos compostos* pode agrupar vários valores em um único tipo. Rust tem dois
+*Tipos compostos* podem agrupar vários valores em um único tipo. Rust tem dois
 tipos primitivos compostos: tuplas e vetores.
 
 #### O tipo tuplaero de valores
@@ -271,7 +271,7 @@ de uma tupla, todos os elementos de uma matriz devem ser do mesmo tipo.
 Matrizes em Rust são diferentes de matrizes de outras linguagens, porque matrizes em Rust são de
 tamanhos fixos: uma vez declarado, eles não podem aumentar ou diminuir de tamanho.
 
-Em Rust, os valores entram numa matriz são escritos em uma lista separados
+Em Rust, os valores que entram numa matriz são escritos em uma lista separados
 por vírgulas dentro de colchetes:
 
 <span class="filename">Nome do arquivo: src/main.rs</span>
@@ -290,7 +290,7 @@ fornecido pela biblioteca padrão que *é* permitido diminuir ou aumentar o tama
 Se você não tem certeza se deve usar uma matriz ou vetor, você provavlemente usará um
 vetor. O Capítulo 8 discute sobre vetores com mais detalhes.
 
-Um exemplo de quando você poderia necessitar usar uma matriz no lugar de um vetor é em
+Um exemplo de quando você poderia necessitar usar uma matriz no lugar de um vetor é 
 um programa em que você precisa saber o nome dos meses do ano. É improvável
 que tal programa deseje adicionar ou remover meses, então você pode usar uma matriz
 porque você sabe que sempre conterá 12 itens:
@@ -361,4 +361,4 @@ Esse é o primeiro exemplo dos pricípios de segurança do Rust em ação. Em v�
 linguagens de baixo nível, esse tipo de verificação não é feita e quando você fornece um
 índice incorreto, memória inválida pode ser acessada. Rust protege você deste tipo
 de erro ao sair imediatamente, em vez de permitir o acesso à memória e
-continuando. Capítulo 9 discute mais sobre o tratamento de erros do Rust.
+continuando. O Capítulo 9 discute mais sobre o tratamento de erros do Rust.
