@@ -227,7 +227,7 @@ feita em outra parte do código.
 
 Mesmo que esses erros sejam frustrantes às vezes, lembre-se que é o compilador
 do Rust apontando um bug potencial antecipadamente (em tempo de compilação,
-em vez de execuçao), e mostrando exatamente onde está o problema, em vez de você
+em vez de execução), e mostrando exatamente onde está o problema, em vez de você
 ter que investigar por que algumas vezes os seus dados não são aquilo que você
 esperava que fosse.
 
@@ -305,7 +305,7 @@ não é bom. Rust não vai nos deixar fazer isso.
 A solução aqui é retornar a `String` diretamente:
 
 ```rust
-fn não_soltar() -> String {
+fn nao_soltar() -> String {
     let s = String::from("texto");
 
     s

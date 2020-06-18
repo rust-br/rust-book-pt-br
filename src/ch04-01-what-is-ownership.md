@@ -10,7 +10,7 @@ utilizados enquanto o programa executa; em outras linguagens, o programador deve
 alocar e liberar memória de forma explícita. Rust usa uma terceira abordagem: a
 memória é gerenciada através de um sistema de posse, que tem um conjunto de
 regras verificadas em tempo de compilação. Nenhuma característica relacionada ao
-ownership implica qulaquer custo em tempo de execução.
+ownership implica qualquer custo em tempo de execução.
 
 Como ownership é um conceito novo para muitos programadores, leva um pouco de
 tempo para se acostumar. A boa notícia é que quanto mais experiente você se
@@ -206,10 +206,10 @@ A primeira parte é feita por nós: quando chamamos `String::from`, sua
 implementação solicita a memória de que precisa. Isso é meio que universal em
 linguagens de programação.
 
-No entanto, a segunda parte é diferente. Em linguagnes com um *garbage collector
+No entanto, a segunda parte é diferente. Em linguagens com um *garbage collector
 (GC)*, o GC rastreia e limpa a memória que não está mais sendo usada, e nós,
 como programadores, não precisamos pensar sobre isso. Sem um GC, é
-resposabilidade do programador identificar quando a memória não está mais sendo
+responsabilidade do programador identificar quando a memória não está mais sendo
 usada e chamar, explicitamente, um código que a retorne, assim como fizemos para
 solicitá-la. Fazer isso corretamente tem sido, historicamente, um problema
 difícil de programação. Se esquecermos, vamos desperdiçar memória. Se fizermos
