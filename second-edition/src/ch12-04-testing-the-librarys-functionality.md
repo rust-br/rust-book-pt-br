@@ -221,10 +221,10 @@ a linha contém a string na `query`</span>
 
 #### Armazenamento de Linhas Correspondentes
 
-Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string de consulta. Por isso,
-podemos fazer um vetor mutável antes do loop `for` e chamar o método `push`
-para armazenar uma `line` no vetor. Após o loop `for`, devolvemos o vetor, como
-mostrado na Listagem 12-19:
+Nós também precisamos de uma maneira de armazenar as linhas que contêm nossa string 
+de consulta. Por isso, podemos fazer um vetor mutável antes do loop `for` e chamar 
+o método `push` para armazenar uma `line` no vetor. Após o loop `for`, devolvemos 
+o vetor, como mostrado na Listagem 12-19:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 
@@ -259,19 +259,18 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 
 Nosso teste passou, então sabemos que funciona!
 
-Neste ponto, poderíamos considerar oportunidades de refatorar
-a implementação da função de pesquisa, mantendo os testes passando para
-a mesma funcionalidade. O código na função de pesquisa não é muito ruim,
-mas não tira proveito de algumas características úteis dos iteradores. Iremos
-voltar para este exemplo no Capítulo 13, onde exploraremos iteradores em detalhes
-e veremos como melhorá-lo.
+Neste ponto, poderíamos considerar oportunidades de refatorar a implementação da função de 
+pesquisa, mantendo os testes passando para a mesma funcionalidade. O código na função de 
+pesquisa não é muito ruim, mas não tira proveito de algumas características úteis dos 
+iteradores. Iremos voltar para este exemplo no Capítulo 13, onde exploraremos iteradores 
+em detalhes e veremos como melhorá-lo.
 
 #### Usando a Função `search` na Função` run`
 
 Agora que a função `search` está funcionando e testada, precisamos chamar `search`
-da nossa função `run`. Precisamos passar o valor `config.query` e o 
-`contents` que `run` lê do arquivo para a função `search`. Então, `run`
-irá imprimir cada linha retornada de `search`:
+da nossa função `run`. Precisamos passar o valor `config.query` e o `contents` que `run` 
+lê do arquivo para a função `search`. Então, `run` irá imprimir cada linha retornada 
+de `search`:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 

@@ -9,12 +9,11 @@ uma vez e todas as suas buscas são insensíveis às maiúsculas e minúsculas n
 
 ### Escrevendo um Teste de Falha para a Função `search` insensível a Maiúsculas e Minúsculas
 
-Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando
-a variável de ambiente estiver ativada. Seguiremos com o processo TDD, então
-o primeiro passo é novamente escrever um teste de falha. Vamos adicionar um novo teste para a
-nova função `search_case_insensitive` e renomear nosso antigo teste de
-`one_result` para `case_sensitive` de forma a esclarecer as diferenças entre os dois
-testes, conforme mostrado na Listagem 12-20:
+Queremos adicionar uma nova função `search_case_insensitive` que chamaremos quando a variável 
+de ambiente estiver ativada. Seguiremos com o processo TDD, então o primeiro passo é novamente 
+escrever um teste de falha. Vamos adicionar um novo teste para a nova função `search_case_insensitive` 
+e renomear nosso antigo teste de `one_result` para `case_sensitive` de forma a esclarecer as 
+diferenças entre os dois testes, conforme mostrado na Listagem 12-20:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 
@@ -58,28 +57,27 @@ Trust me.";
 <span class="caption">Listagem 12-20: Adicionando um novo teste de falha para a
 função insensível à maiúsculas e minúsculas que estamos prestes a adicionar</span>
 
-Note que também editamos o `contents` do antigo teste. Adicionamos uma nova linha
-com o texto `“Duct tape”` usando um D maiúsculo que não deve corresponder à consulta
-“duct” quando procuramos de forma sensível à maiúsculas e minúsculas. Alterando o teste antigo
-desta forma, ajuda a garantir que não quebramos acidentalmente a diferenciação de maiúsculas e minúsculas
-na funcionalidade de pesquisa que já implementamos. Este teste deve passar agora
-e deve continuar a passar enquanto trabalhamos na pesquisa insensível à maiúsculas e minúsculas.
+Note que também editamos o `contents` do antigo teste. Adicionamos uma nova linha com o 
+texto `“Duct tape”` usando um D maiúsculo que não deve corresponder à consulta “duct” quando 
+procuramos de forma sensível à maiúsculas e minúsculas. Alterando o teste antigo desta forma, 
+ajuda a garantir que não quebramos acidentalmente a diferenciação de maiúsculas e minúsculas
+na funcionalidade de pesquisa que já implementamos. Este teste deve passar agora e deve continuar 
+a passar enquanto trabalhamos na pesquisa insensível à maiúsculas e minúsculas.
 
-O novo teste para a pesquisa insensível usa “rUsT” para sua consulta. Na função
-`search_case_insensitive` que estamos prestes a adicionar, a consulta “rUsT” deve
-combinar a linha que contém “Rust:” com um R maiúsculo e também a linha “Trust
-me.”, embora ambos tenham uma caixa (maiúsculas e minúsculas) diferente da consulta. Este é o nosso teste de
-falha, e ele não compilará porque ainda não definimos a
-função `search_case_insensitive`. Sinta-se livre para adicionar uma implementação
-que sempre retorna um vetor vazio, semelhante à forma como fizemos para a função `search`
-na Listagem 12-16 para ver a compilação e o teste falhar.
+O novo teste para a pesquisa insensível usa “rUsT” para sua consulta. Na função `search_case_insensitive` 
+que estamos prestes a adicionar, a consulta “rUsT” deve combinar a linha que contém “Rust:” 
+com um R maiúsculo e também a linha “Trust me.”, embora ambos tenham uma caixa (maiúsculas e 
+minúsculas) diferente da consulta. Este é o nosso teste de falha, e ele não compilará porque 
+ainda não definimos a função `search_case_insensitive`. Sinta-se livre para adicionar uma 
+implementação que sempre retorna um vetor vazio, semelhante à forma como fizemos para a função 
+`search` na Listagem 12-16 para ver a compilação e o teste falhar.
 
 ### Implementando a Função `search_case_insensitive`
 
-A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase
-o mesmo que a função `search`. A única diferença é que vamos forçar minúsculas
-para `query` e para cada `line`, qualquer que seja o caso dos argumentos de entrada,
-eles serão sempre minúsculos quando verificamos se a linha contém a consulta:
+A função `search_case_insensitive`, mostrada na Listagem 12-21, será quase o mesmo que a função 
+`search`. A única diferença é que vamos forçar minúsculas para `query` e para cada `line`, 
+qualquer que seja o caso dos argumentos de entrada, eles serão sempre minúsculos quando verificamos 
+se a linha contém a consulta:
 
 <span class="filename">Arquivo: src/lib.rs</span>
 
@@ -147,7 +145,7 @@ pub struct Config {
 
 Note que nós adicionamos o campo `case_sensitive` que contém um Booleano. Em seguida nós
 precisamos da função `run` para verificar o valor do campo `case_sensitive` e usá-la
-para decidir se devemos chamar a função `search` ou a
+para decidir se devemos chamar a função `search` ou a 
 função `search_case_insensitive`, conforme mostrado na Listagem 12-22. Note que isso ainda
 não irá compilar ainda:
 

@@ -169,8 +169,8 @@ instância de uma struct `Config`</span>
 A assinatura do `parse_config` agora indica que ele retorna um valor `Config`.
 No corpo de `parse_config`, onde costumávamos retornar trechos de strings com
 referência a valores `String` em `args`, agora definimos `Config` para conter valores
-`String` owned. A variável `args` em `main` é o owner do argumento de
-valores e está apenas permitindo que a função `parse_config` os empreste (borrow), o que significa
+`String` owned. A variável `args` em `main` é o owner do argumento de valores e está 
+apenas permitindo que a função `parse_config` os empreste (borrow), o que significa
 que violaremos as regras de borrow do Rust se o `Config` tentasse se apropriar (ownership) dos
 valores em `args`.
 
@@ -179,15 +179,15 @@ mais fácil, embora ineficiente, o caminho é chamar o método `clone` nos
 valores. Isso fará uma cópia completa dos dados para a instância `Config` 
 , que leva mais tempo e memória do que armazenar uma referência à string de 
 dados. No entanto, a clonagem dos dados também torna nosso código muito direto
-porque não precisamos administrar as vidas das referências; nessa
-circunstância, desistir de um pouco de desempenho para ganhar simplicidade é uma coisa que vale a pena
-a troca.
+porque não precisamos administrar as vidas das referências; nessa circunstância, 
+desistir de um pouco de desempenho para ganhar simplicidade é uma coisa que vale 
+a pena a troca.
 
 > ### Os Prós e Contras de Usar `clone`
 >
 > Existe uma tendência entre muitos Rustaceos para evitar o uso de `clone` para consertar
-> problemas de ownership devido ao seu custo de tempo de execução. No Capítulo 13, você aprenderá
-> como usar métodos mais eficientes neste tipo de situação. Mas por agora,
+> problemas de ownership devido ao seu custo de tempo de execução. No Capítulo 13, 
+> você aprenderá como usar métodos mais eficientes neste tipo de situação. Mas por agora,
 > é bom copiar algumas strings para continuar a fazer progresso porque iremos
 > fazer essas cópias apenas uma vez, e nosso nome de arquivo e seqüência de consulta são muito
 > pequenos. É melhor ter um programa de trabalho que seja um pouco ineficiente do que
@@ -215,13 +215,12 @@ relacionado de `query` e `filename`, e para poder retornar os nomes dos valores 
 nomes de campos struct a partir da função `parse_config`.
 
 Então, agora que a finalidade da função `parse_config` é criar uma instância `Config`
-, podemos alterar `parse_config` de ser uma função simples para um
-função denominada `new` que está associada à estrutura `Config`. Fazendo essa
-mudança tornará o código mais idiomático: podemos criar instâncias de tipos na 
-biblioteca padrão, como `String`, chamando `String::new`, e
-mudando `parse_config` para uma função `new` associada a `Config`, iremos
-ser capazes de criar instâncias de `Config` chamando `Config::new`. Listagem 12-7
-mostra as mudanças que precisamos fazer:
+, podemos alterar `parse_config` de ser uma função simples para um função denominada 
+`new` que está associada à estrutura `Config`. Fazendo essa mudança tornará o código 
+mais idiomático: podemos criar instâncias de tipos na biblioteca padrão, como `String`, 
+chamando `String::new`, e mudando `parse_config` para uma função `new` associada a 
+`Config`, iremos ser capazes de criar instâncias de `Config` chamando `Config::new`. 
+Listagem 12-7 mostra as mudanças que precisamos fazer:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -333,11 +332,11 @@ ou um erro.
 #### Retornando um `Result` de um `new` Em vez de Chamar `panic!`
 
 Em vez disso, podemos retornar um valor `Result` que conterá uma instância `Config` em
-caso bem-sucedido e descreverá o problema no caso de erro. Quando
-`Config::new` está se comunicando com `main`, podemos usar o tipo `Result` para
-sinalizar que não houve problema. Então podemos mudar `main` para converter uma variante `Err`
-em um erro mais prático para os nossos usuários sem os demais textos
-sobre `thread 'main'` e `RUST_BACKTRACE` que uma chamada para `panic!` causa.
+caso bem-sucedido e descreverá o problema no caso de erro. Quando `Config::new` está se 
+comunicando com `main`, podemos usar o tipo `Result` para sinalizar que não houve problema. 
+Então podemos mudar `main` para converter uma variante `Err` em um erro mais prático para 
+os nossos usuários sem os demais textos sobre `thread 'main'` e `RUST_BACKTRACE` que uma 
+chamada para `panic!` causa.
 
 A Listagem 12-9 mostra as mudanças que precisamos fazer para o valor de retorno de
 `Config::new` e o corpo da função necessária para retornar um `Result`. Note
@@ -361,21 +360,19 @@ impl Config {
 }
 ```
 
-<span class="caption">Listagem 12-9: Retornando um `Result` de
-`Config::new`</span>
+<span class="caption">Listagem 12-9: Retornando um `Result` de `Config::new`</span>
 
 Nossa função `new` agora retorna um` Result` com uma instância `Config` no caso de sucesso 
 e um `&'static str` no caso de erro. Lembre-se da seção “The Static Lifetime” no capítulo 10 
 que `& 'static str` é o tipo de string literal, que é o nosso tipo de mensagem de erro por enquanto.
 
-Fizemos duas mudanças no corpo da função `new`: em vez de chamar
-`panic!` quando o usuário não passa argumentos suficientes, agora devolvemos um valor `Err`
+Fizemos duas mudanças no corpo da função `new`: em vez de chamar `panic!` quando o 
+usuário não passa argumentos suficientes, agora devolvemos um valor `Err`
 , e nós wrapped (embalamos) o valor de retorno `Config` em um `Ok`. Estas alterações
 fazem com que a função esteja conforme a sua nova assinatura de tipo.
 
-Retornar um valor `Err` de `Config::new` permite que a função `main`
-lide com o valor `Result` retornado da função `new` e saia do processo
-de forma mais limpa no caso de erro.
+Retornar um valor `Err` de `Config::new` permite que a função `main` lide com o valor `Result` 
+retornado da função `new` e saia do processo de forma mais limpa no caso de erro.
 
 #### Chamando `Config::new` e Manipulação de Erros
 
@@ -402,29 +399,27 @@ fn main() {
     // --snip--
 ```
 
-<span class="caption">Listagem 12-10: Se ao criar um `Config` falha, saimos
-com um código de erro</span>
+<span class="caption">Listagem 12-10: Se ao criar um `Config` falha, saimos com um 
+código de erro</span>
 
 Nesta lista, usamos um método que não abordamos antes:
 `unwrap_or_else`, que está definido em `Result <T, E>` pela biblioteca padrão.
 Usar `unwrap_or_else` nos permite definir algum erro personalizado, não-`panic!` de
 manipulação. Se o `Result` for um valor `Ok`, o comportamento deste método é semelhante
-a `unwrap`: ele retorna o valor interno `Ok`. No entanto, se o valor
-é um valor `Err`, este método chama o código na *closure*, que é uma
-função anônima que definimos e passamos como um argumento para `unwrap_or_else`. Nós
-entraremos em detalhes sobre closures no Capítulo 13. Por enquanto, você precisa apenas saber
-que `unwrap_or_else` passará o valor interno do `Err`, que neste
-caso é a string estática `not enough arguments` que adicionamos na Listagem 12-9,
-para o nosso closure no argumento `err` que aparece entre os pipes verticais.
-O código no closure pode então usar o valor `err` quando ele é executado.
+a `unwrap`: ele retorna o valor interno `Ok`. No entanto, se o valor é um valor `Err`, 
+este método chama o código na *closure*, que é uma função anônima que definimos e 
+passamos como um argumento para `unwrap_or_else`. Nós entraremos em detalhes sobre 
+closures no Capítulo 13. Por enquanto, você precisa apenas saber que `unwrap_or_else` 
+passará o valor interno do `Err`, que neste caso é a string estática `not enough arguments` 
+que adicionamos na Listagem 12-9, para o nosso closure no argumento `err` que aparece 
+entre os pipes verticais. O código no closure pode então usar o valor `err` quando ele é executado.
 
 Adicionamos uma nova linha de `use` para importar `process` da biblioteca padrão.
 O código na closure que será executado no caso de erro são apenas duas linhas: nós
 imprimos o valor de `err` e depois chamamos `process::exit`. A função `process::exit`
-interromperá o programa imediatamente e retornará o número que foi
-passado como o código de status de saída. Isso é semelhante ao manuseio baseado no `panic!`
-que usamos na Listagem 12-8, mas já não obtemos todos os resultados extras. Vamos tentar
-isto:
+interromperá o programa imediatamente e retornará o número que foi passado como o código 
+de status de saída. Isso é semelhante ao manuseio baseado no `panic!` que usamos na Listagem 
+12-8, mas já não obtemos todos os resultados extras. Vamos tentar isto:
 
 ```text
 $ cargo run
@@ -438,17 +433,16 @@ Problem parsing arguments: not enough arguments
 
 ### Extraindo a Lógica do `main`
 
-Agora que terminamos de refatorar a análise da configuração, voltemos
-a lógica do programa. Como afirmamos em “Separação de Responsabilidades para
-Projetos Binários”, vamos extrair uma função chamada `run` que irá armazenar toda a lógica
-atualmente na função `main` que não está envolvida com a configuração ou
-manipulação de erros. Quando terminarmos, `main` será conciso e
-fácil de verificar por inspeção, e poderemos fazer testes para todas as
+Agora que terminamos de refatorar a análise da configuração, voltemos a lógica do programa. 
+Como afirmamos em “Separação de Responsabilidades para Projetos Binários”, vamos extrair 
+uma função chamada `run` que irá armazenar toda a lógica atualmente na função `main` que 
+não está envolvida com a configuração ou manipulação de erros. Quando terminarmos, `main` 
+será conciso e fácil de verificar por inspeção, e poderemos fazer testes para todas as
 outras lógicas.
 
 Listagem 12-11 mostra a função extraída `run`. Por enquanto, estamos apenas fazendo
-a pequena melhoria incremental da extração da função. Ainda estamos
-definindo a função em *src/main.rs*:
+a pequena melhoria incremental da extração da função. Ainda estamos definindo a função 
+em *src/main.rs*:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -478,19 +472,17 @@ fn run(config: Config) {
 <span class="caption">Listagem 12-11: Extraindo uma função `run` contendo o
 resto da lógica do programa</span>
 
-A função `run` agora contém toda a lógica restante de `main`, começando
-por ler o arquivo. A função `run` pega a instância `Config` como um
-argumento.
+A função `run` agora contém toda a lógica restante de `main`, começando por ler o arquivo. 
+A função `run` pega a instância `Config` como um argumento.
 
 #### Retornando Erros da Função `run`
 
-Com a lógica do programa restante separada na função `run`, podemos
-melhorar o tratamento de erros, como fizemos com `Config::new` na Listagem 12-9.
-Em vez de permitir que o programa entre em pânico ao chamar `expect`, a função `run`
-retornará um `Result<T, E>` quando algo der errado. Isso permitirá
-nos permitirá consolidar ainda mais na lógica principal a manipulação de erros em uma
-maneira fácil de usar. A Listagem 12-12 mostra as mudanças que precisamos fazer para a
-assinatura e corpo de `run`:
+Com a lógica do programa restante separada na função `run`, podemos melhorar o tratamento 
+de erros, como fizemos com `Config::new` na Listagem 12-9. Em vez de permitir que o programa 
+entre em pânico ao chamar `expect`, a função `run` retornará um `Result<T, E>` quando 
+algo der errado. Isso permitirá nos permitirá consolidar ainda mais na lógica principal 
+a manipulação de erros em uma maneira fácil de usar. A Listagem 12-12 mostra as mudanças 
+que precisamos fazer para a assinatura e corpo de `run`:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -522,21 +514,20 @@ caso.
 Para o tipo de erro, usamos o *trait object* `Box<Error>` (e nós trouxemos
 `std::error::Error` no escopo com uma instrução `use` na parte superior). Vamos cobrir
 objetos trait no Capítulo 17. Por enquanto, apenas saiba que `Box<Error>` significa que
-a função retornará um tipo que implemente o trait `Error`, mas não temos
-que especificar qual tipo em particular o valor de retorno será. Isso nos dá
-flexibilidade para retornar valores de erro que podem ser de diferentes tipos em diferentes
-casos de erro.
+a função retornará um tipo que implemente o trait `Error`, mas não temos que especificar 
+qual tipo em particular o valor de retorno será. Isso nos dá flexibilidade para retornar 
+valores de erro que podem ser de diferentes tipos em diferentes casos de erro.
 
 Em segundo lugar, removemos as chamadas para `expect` em favor de `?`, como falamos sobre
 isso no Capítulo 9. Ao invés de `panic!` em um erro, `?` retornará o valor do erro
 a partir da função atual para que o chamador lide com ele.
 
 Em terceiro lugar, a função `run` agora retorna um valor `Ok` no caso de sucesso. Nós
-declaramos o tipo de sucesso da função `run` como `()` na assinatura, que
-significa que precisamos wrap (envolver) o valor do tipo de unidade no valor `Ok`. Esta sintaxe `Ok(())`
-pode parecer um pouco estranha no início, mas usar `()` como este é o
-maneira idiomática de indicar que chamamos `run` para seus efeitos colaterais somente;
-ele não retorna o valor que precisamos.
+declaramos o tipo de sucesso da função `run` como `()` na assinatura, que significa que 
+precisamos wrap (envolver) o valor do tipo de unidade no valor `Ok`. Esta sintaxe `Ok(())`
+pode parecer um pouco estranha no início, mas usar `()` como este é o maneira idiomática 
+de indicar que chamamos `run` para seus efeitos colaterais somente; ele não retorna o 
+valor que precisamos.
 
 Quando você executa este código, ele compilará, mas exibirá um aviso:
 
@@ -549,16 +540,15 @@ warning: unused `std::result::Result` which must be used
 = note: #[warn(unused_must_use)] on by default
 ```
 
-Rust nos diz que nosso código ignorou o valor `Result` e o valor de `Result`
-pode indicar que ocorreu um erro. Mas não estamos checando para ver se ocorreu ou
-não o erro, e o compilador nos lembra que provavelmente queríamos
-tratar algum código de erros aqui! Vamos corrigir esse problema agora.
+Rust nos diz que nosso código ignorou o valor `Result` e o valor de `Result` pode indicar 
+que ocorreu um erro. Mas não estamos checando para ver se ocorreu ou não o erro, e o 
+compilador nos lembra que provavelmente queríamos tratar algum código de erros aqui! 
+Vamos corrigir esse problema agora.
 
 #### Manipulação de Erros Retornados de `run` em `main`
 
-Verificamos erros e lidaremos com eles usando uma técnica semelhante à nossa
-manipulação de erros com `Config::new` na Listagem 12-10, mas com umas
-diferenças:
+Verificamos erros e lidaremos com eles usando uma técnica semelhante à nossa manipulação 
+de erros com `Config::new` na Listagem 12-10, mas com umas diferenças:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
@@ -577,21 +567,21 @@ fn main() {
 }
 ```
 
-Usamos `if let` em vez de `unwrap_or_else` para verificar se `run` retorna um valor
-`Err` e chama `process::exit(1)` se o fizer. A função `run` não retorna
-um valor que queremos `unwrap` da mesma forma que `Config::new`
-retorna a instância `Config`. Porque `run` retorna `()` no caso de sucesso,
-nós só nos preocupamos em detectar um erro, por isso não precisamos de `unwrap_or_else` para
-devolver o valor unwrapped porque seria apenas `()`.
+Usamos `if let` em vez de `unwrap_or_else` para verificar se `run` retorna um valor `Err` 
+e chama `process::exit(1)` se o fizer. A função `run` não retorna um valor que queremos 
+`unwrap` da mesma forma que `Config::new` retorna a instância `Config`. Porque `run` 
+retorna `()` no caso de sucesso, nós só nos preocupamos em detectar um erro, por 
+isso não precisamos de `unwrap_or_else` para devolver o valor unwrapped porque seria 
+apenas `()`.
 
-Os corpos das funções `if let` e `unwrap_or_else` são os mesmos em
-ambos os casos: imprimimos o erro e saímos.
+Os corpos das funções `if let` e `unwrap_or_else` são os mesmos em ambos os casos: 
+imprimimos o erro e saímos.
 
 ### Dividindo o Código em uma Crate de Biblioteca
 
-O nosso projeto `minigrep` parece estar bem até agora! Agora vamos dividir o
-*src/main.rs* e colocar algum código no arquivo *src/lib.rs* para que possamos testá-lo
-em um arquivo *src/main.rs* com menos responsabilidades.
+O nosso projeto `minigrep` parece estar bem até agora! Agora vamos dividir o *src/main.rs* 
+e colocar algum código no arquivo *src/lib.rs* para que possamos testá-lo em um arquivo 
+*src/main.rs* com menos responsabilidades.
 
 Vamos mover todo o código que não é da função `main` de  *src/main.rs* para
 *src/lib.rs*:

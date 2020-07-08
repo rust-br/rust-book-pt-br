@@ -61,13 +61,13 @@
     - [Running tests](ch11-02-running-tests.md)
     - [Test Organization](ch11-03-test-organization.md)
 
-- [An I/O Project: Building a Command Line Program](ch12-00-an-io-project.md)
-    - [Accepting Command Line Arguments](ch12-01-accepting-command-line-arguments.md)
-    - [Reading a File](ch12-02-reading-a-file.md)
-    - [Refactoring to Improve Modularity and Error Handling](ch12-03-improving-error-handling-and-modularity.md)
-    - [Developing the Library’s Functionality with Test Driven Development](ch12-04-testing-the-librarys-functionality.md)
-    - [Working with Environment Variables](ch12-05-working-with-environment-variables.md)
-    - [Writing Error Messages to Standard Error Instead of Standard Output](ch12-06-writing-to-stderr-instead-of-stdout.md)
+- [Um projeto de E/S: Criando um Programa de Linha de Comando](ch12-00-an-io-project.md)
+    - [Aceitando Argumentos em Linha de Comando](ch12-01-accepting-command-line-arguments.md)
+    - [Lendo Arquivo](ch12-02-reading-a-file.md)
+    - [Refatoração para Melhorar a Modularidade e o Tratamento de Erros](ch12-03-improving-error-handling-and-modularity.md)
+    - [Desenvolvendo a Biblioteca de Funcionalidades com Desenvolvimento Guiado por Testes](ch12-04-testing-the-librarys-functionality.md)
+    - [Trabalhando com Variáveis de Ambiente](ch12-05-working-with-environment-variables.md)
+    - [Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão](ch12-06-writing-to-stderr-instead-of-stdout.md)
 
 ## Thinking in Rust
 
