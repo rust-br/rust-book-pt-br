@@ -29,7 +29,7 @@ Rust é excelente para muitas pessoas por várias razões. Vamos discutir alguns
 mais importantes.
 
 ### Teams of Developers
-### Time de Desenvolvedores
+### Times de Desenvolvedores
 
 Rust is proving to be a productive tool for collaborating among large teams of
 developers with varying levels of systems programming knowledge. Low-level code
@@ -45,10 +45,9 @@ de desenvolvedores com níveis variados de conhecimento de programação de sist
 O código de baixo nível é propenso a uma variedade de erros sutis, que na maioria 
 das outras linguagens só podem ser detectados por meio de testes extensivos e revisão 
 cuidadosa do código por desenvolvedores experientes. Em Rust, o compilador desempenha 
-um papel de _gatekeeper_ (guardião), recusando-se a compilar código com esses tipos de 
-erros - incluindo erros de concorrência (simultaneidade). Ao trabalhar junto (do mesmo lado; 
-em conjunto) com o compilador, a equipe pode dedicar mais tempo à lógica do programa, em 
-vez de procurar bugs.
+um papel de guardião, recusando-se a compilar código com esses tipos de erros - incluindo 
+erros de concorrência. Ao trabalhar junto com o compilador, a equipe pode dedicar mais 
+tempo à lógica do programa, em vez de procurar bugs.
 
 Rust also brings contemporary developer tools to the systems programming world:
 
@@ -62,11 +61,11 @@ Rust also brings contemporary developer tools to the systems programming world:
 A Rust também traz ferramentas de desenvolvedor contemporâneas para o mundo da 
 programação de sistemas:
 
-* Cargo, o gerenciador de dependências incluso e ferramenta de *build*, torna a adição, 
+* Cargo, o gerenciador de dependências incluso e ferramenta de compilação, torna a adição, 
   compilação e gerenciamento de dependências indolor e consistente em todo o ecossistema Rust.
 * O Rustfmt garante um estilo de codificação consistente entre os desenvolvedores.
-* O Rust Language Server (RLS) possibilita a integração de IDEs para *code completion* 
-  (preenchimento de código) e *inline error messages* (mensagens de erro em linha).  
+* O Rust Language Server (RLS) possibilita a integração de IDEs para preenchimento de código 
+  e mensagens de erro em linha.  
 
 By using these and other tools in the Rust ecosystem, developers can be
 productive while writing systems-level code.
@@ -102,10 +101,9 @@ learning, and even major parts of the Firefox web browser.
 
 Rust é usado em produção por centenas de empresas, grandes e pequenas, para uma 
 variedade de tarefas, como ferramentas de linha de comando, serviços na Web, 
-ferramentas DevOps, dispositivos *embedded* (embarcados), análise e transcodificação de 
-áudio e vídeo, criptomoedas, bioinformática, motores de busca (search engines), 
-internet das coisas, aprendizado de máquina e até partes importantes do navegador 
-Firefox.
+ferramentas DevOps, dispositivos embarcados, análise e transcodificação de 
+áudio e vídeo, criptomoedas, bioinformática, motores de busca, internet das coisas, 
+aprendizado de máquina e até partes importantes do navegador Firefox.
 
 ### Open Source Developers
 ### Desenvolvedores de Código Aberto
@@ -258,7 +256,7 @@ how Rust helps you to program using multiple threads fearlessly. Chapter 17
 looks at how Rust idioms compare to Object Oriented Programming principles you
 may be familiar with.
 
-No Capítulo 16, abordaremos diferentes modelos de programação simultânea (concorrente) e como 
+No Capítulo 16, abordaremos diferentes modelos de programação concorrente e como 
 Rust ajuda você a programar, sem medo, usando várias threads. O Capítulo 17 analisa como 
 a linguagem Rust se comparam aos princípios de Programação Orientada a Objetos com os quais 
 você deve estar familiarizado.
