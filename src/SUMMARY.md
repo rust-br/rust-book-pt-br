@@ -107,3 +107,4 @@
     - [Derivable Traits](appendix-03-derivable-traits.md)
     - [Nightly Rust](appendix-04-nightly-rust.md)
     - [Macros](appendix-05-macros.md)
+    - [G - Como é feito o Rust e o "Rust Nightly"](appendix-07-nightly-rust.md)
