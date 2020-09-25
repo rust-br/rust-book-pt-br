@@ -134,7 +134,7 @@ kinds of contributions we're looking for.
 
 Nós adoraríamos sua ajuda! Por favor veja o [CONTRIBUTING.md][contrib] para saber mais sobre o tipo de contribuições que nós procuramos.
 
-[contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
+[contrib]: https://github.com/rust-br/rust-book-pt-br/blob/master/CONTRIBUTING.md
 
 <!-- ### Translations
 
