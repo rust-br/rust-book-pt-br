@@ -1,8 +1,12 @@
 # A Linguagem de Programação Rust
 
+[🇧🇷 A linguagem de programação Rust](title-page.md)
+[🇧🇷 Prefácio](foreword.md)
+[🇧🇷 Introdução](ch00-00-introduction.md)
+
 ## Começando
 
-- [🇧🇷 Introdução](ch01-00-introduction.md)
+- [🇧🇷 Começando](ch01-00-getting-started.md)
     - [🇧🇷 Instalação](ch01-01-installation.md)
     - [🇧🇷 Olá, Mundo!](ch01-02-hello-world.md)
 
@@ -63,7 +67,7 @@
     - [Working with Environment Variables](ch12-05-working-with-environment-variables.md)
     - [Writing to `stderr` instead of `stdout`](ch12-06-writing-to-stderr-instead-of-stdout.md)
 
-## Thinking in Rust
+## Pensando em Rust
 
 - [Functional Language Features in Rust](ch13-00-functional-features.md)
     - [Closures](ch13-01-closures.md)
@@ -93,7 +97,7 @@
     - [🇧🇷 Usando objetos trait que permitem valores de tipos diferentes](ch17-02-trait-objects.md)
     - [🇧🇷 Implementando um padrão de projeto orientado a objetos](ch17-03-oo-design-patterns.md)
 
-## Advanced Topics
+## Tópicos avançados
 
 - [Patterns](ch18-00-patterns.md) (perhaps an appendix?)
 
