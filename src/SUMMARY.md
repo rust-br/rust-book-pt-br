@@ -9,6 +9,7 @@
 - [🇧🇷 Começando](ch01-00-getting-started.md)
     - [🇧🇷 Instalação](ch01-01-installation.md)
     - [🇧🇷 Olá, Mundo!](ch01-02-hello-world.md)
+    - [🇧🇷 Olá, Cargo!](ch01-03-hello-cargo.md)
 
 - [🇧🇷 Jogo de Adivinhação](ch02-00-guessing-game-tutorial.md)
 
