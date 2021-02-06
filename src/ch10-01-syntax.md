@@ -22,7 +22,7 @@ em um corte. A segunda função encontra o maior `char` em um corte:
 
 ```rust
 fn maior_i32(lista: &[i32]) -> i32 {
-    let mut maior = list[0];
+    let mut maior = lista[0];
 
     for &item in lista.iter() {
         if item > maior {
@@ -370,7 +370,7 @@ daquela struct. A Listagem 10-11 define um método `mistura` na estrutura
 `Ponto<T, U>` da Listagem 10-8. O método recebe outro `Ponto` como parâmetro,
 que pode ter tipos diferentes de `self` `Ponto` dos quais usamos no `mistura`.
 O método cria uma nova instância de `Ponto` que possui o valor `x` de `self`
-`Point` (que é um tipo de `T`) e o valor de `y` passado de `Ponto` (que é do 
+`Ponto` (que é um tipo de `T`) e o valor de `y` passado de `Ponto` (que é do 
 tipo `W`):
 
 <span class="filename">Nome do arquivo: src/main.rs</span>

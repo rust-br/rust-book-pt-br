@@ -1,4 +1,4 @@
-﻿# Usando Structs para Estruturar Dados Relacionados
+# Usando Structs para Estruturar Dados Relacionados
 
 Uma *struct*, ou *estrutura*, é um tipo de dados personalizado que nos permite
 nomear e criar um conjunto de vários valores relacionados que compõem um grupo 

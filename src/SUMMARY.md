@@ -25,8 +25,10 @@
     - [🇧🇷 Referências e _Borrowing_](ch04-02-references-and-borrowing.md)
     - [🇧🇷 _Slices_](ch04-03-slices.md)
 
-- [🇧🇷 Structs](ch05-00-structs.md)
-    - [Method Syntax](ch05-01-method-syntax.md)
+- [🇧🇷 Usando Structs para Estruturar Dados Relacionados](ch05-00-structs.md)
+    - [🇧🇷 Definindo e Instanciando Structs](ch05-01-defining-structs.md)
+    - [🇧🇷 Um Exemplo de um Programa que usa Structs](ch05-02-example-structs.md)
+    - [🇧🇷 Sintaxe do Método](ch05-03-method-syntax.md)
 
 - [🇧🇷 Enums e Casamento de Padrões](ch06-00-enums.md)
     - [🇧🇷 Definindo uma Enum](ch06-01-defining-an-enum.md)
@@ -60,13 +62,13 @@
     - [Running tests](ch11-02-running-tests.md)
     - [Test Organization](ch11-03-test-organization.md)
 
-- [An I/O Project](ch12-00-an-io-project.md)
-    - [Accepting Command Line Arguments](ch12-01-accepting-command-line-arguments.md)
-    - [Reading a File](ch12-02-reading-a-file.md)
-    - [Improving Error Handling and Modularity](ch12-03-improving-error-handling-and-modularity.md)
-    - [Testing the Library's Functionality](ch12-04-testing-the-librarys-functionality.md)
-    - [Working with Environment Variables](ch12-05-working-with-environment-variables.md)
-    - [Writing to `stderr` instead of `stdout`](ch12-06-writing-to-stderr-instead-of-stdout.md)
+- [🇧🇷 Um projeto de E/S](ch12-00-an-io-project.md)
+    - [🇧🇷 Aceitando Argumentos em Linha de Comando](ch12-01-accepting-command-line-arguments.md)
+    - [🇧🇷 Lendo um Arquivo](ch12-02-reading-a-file.md)
+    - [🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros](ch12-03-improving-error-handling-and-modularity.md)
+    - [🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades](ch12-04-testing-the-librarys-functionality.md)
+    - [🇧🇷 Trabalhando com Variáveis de Ambiente](ch12-05-working-with-environment-variables.md)
+    - [🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão](ch12-06-writing-to-stderr-instead-of-stdout.md)
 
 ## Pensando em Rust
 
@@ -94,7 +96,7 @@
 - [Concurrency](ch16-00-concurrency.md)
 
 - [🇧🇷 Rust é uma linguagem orientada a objetos?](ch17-00-oop.md)
-    - [🇧🇷 O que significa orientado a objetos?](ch17-01-what-is-oo.md)
+    - [🇧🇷 O que significa orientado a objetos?](ch17-01-oo.md)
     - [🇧🇷 Usando objetos trait que permitem valores de tipos diferentes](ch17-02-trait-objects.md)
     - [🇧🇷 Implementando um padrão de projeto orientado a objetos](ch17-03-oo-design-patterns.md)
 
@@ -112,4 +114,4 @@
     - [Derivable Traits](appendix-03-derivable-traits.md)
     - [Nightly Rust](appendix-04-nightly-rust.md)
     - [Macros](appendix-05-macros.md)
-    - [G - Como é feito o Rust e o "Rust Nightly"](appendix-07-nightly-rust.md)
+    - [🇧🇷 G - Como é feito o Rust e o "Rust Nightly"](appendix-07-nightly-rust.md)

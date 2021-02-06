@@ -84,7 +84,7 @@ estrutura pública `Postagem` que contenha algum conteúdo, por isso começaremo
 definição da estrutura e a função pública `new` associada para criar uma
 instância de `Postagem`, como mostra a Listageḿ 17-12. Também faremos um trait privado
 `Estado`. Então o `Postagem` conterá um objeto trait `Box<Estado>` dentro de um
-`Opcao` em um campo privado, chamado `estado`. Você verá porquê o `Opcao`
+`Option` em um campo privado, chamado `estado`. Você verá porquê o `Option`
 é necessário.
 
 O trait `Estado` define o comportamento compartilhado por diferentes estados de postagem e os
@@ -96,7 +96,7 @@ apenas o estado `Rascunho`, porque esse é o estado em que queremos uma postagem
 
 ```rust
 pub struct Postagem {
-    estado: Opcao<Box<Estado>>,
+    estado: Option<Box<Estado>>,
     conteudo: String,
 }
 
@@ -204,7 +204,7 @@ mudar seu estado de `Rascunho` para `RevisaoPendente`. Listagem 17-15 mostra est
 
 ```rust
 # pub struct Postagem {
-#     estado: Opcao<Box<Estado>>,
+#     estado: Option<Box<Estado>>,
 #     conteudo: String,
 # }
 #
@@ -255,7 +255,7 @@ do `Box<Self>`, invalidando o antigo estado para que o valor de estado do
 `Postagem` possa se transfor em um novo estado.
 
 Para consumir o antigo estado, o método `solicitar_revisao` precisa apropriar-se
-do valor do estado. Este é o lugar onde o `Opcao` no campo `estado` do `Postagem`:
+do valor do estado. Este é o lugar onde o `Option` no campo `estado` do `Postagem`:
 chamamos o método `take` para tirar o valor de `Some` do campo `estado`
 e deixar um `None` no lugar, porque Rust não nos permite ter
 campos não preenchidos nas estruturas. Isso nos permite mover o valor do `estado` para fora
@@ -293,7 +293,7 @@ estado é aprovado, como mostra a Listagem 17-16:
 
 ```rust
 # pub struct Postagem {
-#     estado: Opcao<Box<Estado>>,
+#     estado: Option<Box<Estado>>,
 #     conteudo: String,
 # }
 #
@@ -374,7 +374,7 @@ caso contrário, queremos que retorne uma string vazia, como mostra a Listagem 1
 #     fn conteudo<'a>(&self, post: &'a Postagem) -> &'a str;
 # }
 # pub struct Postagem {
-#     estado: Opcao<Box<Estado>>,
+#     estado: Option<Box<Estado>>,
 #     conteudo: String,
 # }
 #
@@ -395,9 +395,9 @@ Porque o objetivo é manter todos essas regras dentro das estruturas que impleme
 da postagem (que é, `self`) como um argumento. Então retornamos o valor que é
 retornado usando o método `conteudo` do valor do `estado`.
 
-Nós chamamos o método `as__ref` do `Opcao` porque queremos uma referência ao valor
-do `Opcao` em vez da propriedade do valor. Como `estado`
-é um `Opcao<Box<Estado>>`, quando chamamos `as_ref`, um `Opcao<Box<Estado>>` é
+Nós chamamos o método `as__ref` do `Option` porque queremos uma referência ao valor
+do `Option` em vez da propriedade do valor. Como `estado`
+é um `Option<Box<Estado>>`, quando chamamos `as_ref`, um `Option<Box<Estado>>` é
 retornado. Se não chamarmos `as__ref`, receberíamos um erro,
 porque não podemos obter `estado` emprestado do `&self` do parâmetro da função.
 
@@ -505,7 +505,7 @@ objeto trait, entao precisamos que seus métodos sejam objetos seguros.
 
 Outra duplicação inclui a implementação semelhante dos métodos `solicitar_revisao`
 e `aprovar` do `Postagem`. Ambos os métodos delegam a implementação do
-mesmo método sobre o valor do campo `estado` do `Opcao` e definem  o novo
+mesmo método sobre o valor do campo `estado` do `Option` e definem  o novo
 valor do campo `estado` para o resultado. Se tivéssemos muitos métodos no `Postagem`
 que seguissem  esse padrão, poderíamos considerar a definição de uma macro para eliminar
 a repetição (veja o Apêndice D, Macros).

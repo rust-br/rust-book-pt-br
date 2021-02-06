@@ -493,7 +493,7 @@ fn main() {
     let primeira_sentenca = romance.split('.')
         .next()
         .expect("Não pôde achar um '.'");
-    let i = ImportantExcerpt { parte: primeira_sentenca };
+    let i = ExcertoImportante { parte: primeira_sentenca };
 }
 ```
 

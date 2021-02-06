@@ -70,7 +70,7 @@ está limitado a 140 caracteres.
 
 ```rust
 # pub trait Resumir {
-#     fn summary(&self) -> String;
+#     fn resumo(&self) -> String;
 # }
 #
 pub struct ArtigoDeNoticia {
@@ -81,7 +81,7 @@ pub struct ArtigoDeNoticia {
 }
 
 impl Resumir for ArtigoDeNoticia {
-    fn summary(&self) -> String {
+    fn resumo(&self) -> String {
         format!("{}, by {} ({})", self.titulo, self.autor, self.local)
     }
 }
@@ -94,7 +94,7 @@ pub struct Tweet {
 }
 
 impl Resumir for Tweet {
-    fn summary(&self) -> String {
+    fn resumo(&self) -> String {
         format!("{}: {}", self.nomeusuario, self.conteudo)
     }
 }
