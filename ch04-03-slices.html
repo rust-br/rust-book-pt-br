@@ -1,0 +1,565 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Slices - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html" class="active"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#slices" id="slices"><em>Slices</em></a></h2>
+<p>Outro tipo de dados em que não há ownership é a <em>slice</em> (do inglês, fatia).
+Slices lhe permitem referenciar uma sequência contígua de elementos em uma
+coleção em vez de referenciar a coleção inteira.</p>
+<p>Aqui está um pequeno problema de programação: escrever uma função que pega uma
+string e retorna a primeira palavra que encontrar dentro dela. Se a função não
+encontrar um espaço na string, significa que a string inteira é uma palavra só,
+então a string toda deve ser retornada.</p>
+<p>Vamos pensar sobre a assinatura desta função:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra(s: &amp;String) -&gt; ?
+</code></pre>
+<p>Esta função, <code>primeira_palavra</code>, tem uma <code>&amp;String</code> como parâmetro. Nós não
+queremos tomar posse dela, então tudo bem. Mas o que nós deveríamos retornar?
+Não temos uma forma de falar sobre <em>parte</em> de uma string. No entanto, poderíamos
+retornar o índice do final de uma palavra. Vamos tentar fazer isso, conforme
+mostrado na Listagem 4-5:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn primeira_palavra(s: &amp;String) -&gt; usize {
+    let bytes = s.as_bytes();
+
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return i;
+        }
+    }
+
+    s.len()
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 4-5: A função <code>primeira_palavra</code>, que retorna um
+índice para um byte da <code>String</code> passada como parâmetro.</span></p>
+<p>Vamos dividir este código em algumas partes. Como precisamos varrer a <code>String</code>
+elemento por elemento, e verificar se algum valor é um espaço, vamos converter
+nossa <code>String</code> em um array de bytes usando o método <code>as_bytes</code>:</p>
+<pre><code class="language-rust ignore">let bytes = s.as_bytes();
+</code></pre>
+<p>Depois, criamos um iterador sobre o array de bytes usando o método <code>iter</code>:</p>
+<pre><code class="language-rust ignore">for (i, &amp;item) in bytes.iter().enumerate() {
+</code></pre>
+<p>Vamos discutir sobre iteradores em mais detalhes no Capítulo 13. Por enquanto,
+saiba que <code>iter</code> é um método que retorna cada elemento em uma coleção, e
+<code>enumerate</code> encapsula o resultado do <code>iter</code> e retorna cada elemento como parte
+de uma tupla. O primeiro elemento da tupla é o índice, e o segundo elemento é
+uma referência ao valor. Isto é um pouco mais conveniente do que calcular o
+índice nós mesmos.</p>
+<p>Como o método <code>enumerate</code> retorna uma tupla, podemos usar padrões para
+desestruturar esta tupla, assim como qualquer outra coisa em Rust. Então, no
+<code>for</code>, especificamos um padrão que tem <code>i</code> para o índice na tupla e <code>&amp;item</code> para
+o byte. Como pegamos uma referência ao elemento através do
+<code>.iter().enumerate()</code>, usamos um <code>&amp;</code> neste padrão.</p>
+<p>Nós procuramos o byte que representa um espaço usando a sintaxe de byte literal.
+Se encontrarmos um espaço, retornamos a posição dele. Caso contrário, retornamos
+o tamanho da string usando <code>s.len()</code>:</p>
+<pre><code class="language-rust ignore">    if item == b' ' {
+        return i;
+    }
+}
+s.len()
+</code></pre>
+<p>Agora temos uma forma de descobrir o índice do fim da primeira palavra na
+string, mas tem um problema. Estamos retornando um <code>usize</code> por si só, mas ele só
+possui um significado no contexto da <code>&amp;String</code>. Em outras palavras, como é um
+valor separado da <code>String</code>, não há garantia de que ele ainda será válido no
+futuro. Considere o programa na Listagem 4-6, que usa a função da Listagem 4-5:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn primeira_palavra(s: &amp;String) -&gt; usize {
+</span><span class="boring">    let bytes = s.as_bytes();
+</span><span class="boring">
+</span><span class="boring">    for (i, &amp;item) in bytes.iter().enumerate() {
+</span><span class="boring">        if item == b' ' {
+</span><span class="boring">            return i;
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    s.len()
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn main() {
+    let mut s = String::from(&quot;texto longo&quot;);
+
+    let palavra = primeira_palavra(&amp;s); // palavra vai ter o valor 5.
+
+    s.clear(); // Isso esvazia a String, deixando ela igual a &quot;&quot;.
+
+    // palavra ainda tem o valor 5 aqui, mas já não há mais uma string para a
+    // qual o valor 5 faça algum sentido. palavra agora é totalmente inválida!
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 4-6: Armazenando o resultado de uma chamada à
+função <code>primeira_palavra</code>, e depois, mudando o conteúdo da <code>String</code>.</span></p>
+<p>Este programa compila sem erros, e também o faria se usássemos a variável
+<code>palavra</code> depois de chamar <code>s.clear()</code>. <code>palavra</code> não está conectada ao estado
+de <code>s</code> de nenhuma forma, então, <code>palavra</code> ainda contém o valor <code>5</code>. Poderíamos
+usar esse valor <code>5</code> com a variável <code>s</code> para tentar extrair a primeira palavra da
+string, mas isso seria um bug, pois o conteúdo de <code>s</code> já mudou após termos salvo
+o valor <code>5</code> na variável <code>word</code>.</p>
+<p>Ter que se preocupar sobre o índice da <code>palavra</code> ficar fora de sincronia com os
+dados em <code>s</code> é tedioso e propenso a erros! Gerenciar esses índices é ainda mais
+delicado se escrevermos uma função <code>segunda_palavra</code>. Sua assinatura teria que
+ser algo do tipo:</p>
+<pre><code class="language-rust ignore">fn segunda_palavra(s: &amp;String) -&gt; (usize, usize) {
+</code></pre>
+<p>Agora estamos rastreando os índices do início <em>e</em> do final, e temos ainda mais
+valores que são calculados a partir dos dados em um estado particular, mas que
+não estão vinculados a este estado de nenhuma forma. Agora temos três variáveis
+não relacionadas flutuando que precisam ser mantidas em sincronia.</p>
+<p>Felizmente, Rust possui uma solução para este problema: slices de string.</p>
+<h3><a class="header" href="#slices-de-string" id="slices-de-string">Slices de String</a></h3>
+<p>Uma <em>slice de string</em> é uma referência para uma parte de uma <code>String</code>, e tem a
+seguinte forma:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;texto longo&quot;);
+
+let texto = &amp;s[0..5];
+let longo = &amp;s[6..11];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Isto é similar a pegar uma referência à <code>String</code> inteira, mas com um <code>[0..5]</code> a
+mais. Em vez de uma referência à <code>String</code> inteira, trata-se de uma referência a
+uma porção da <code>String</code>. A sintaxe <code>início..fim</code> representa um <em>range</em>
+(uma faixa) que começa em <code>início</code> e continua até, mas não incluindo, <code>fim</code>.</p>
+<p>Podemos criar slices usando um range entre colchetes especificando
+<code>[índice_inicial..índice_final]</code>, em que <code>índice_inicial</code> é a primeira posição
+inclusa na slice, e <code>índice_final</code> é um a mais que a última posição inclusa na
+slice. Internamente, a estrutura de dados de uma slice armazena a posição
+inicial e o tamanho da slice, que corresponde a <code>índice_final</code> menos
+<code>índice_inicial</code>. Então, no caso do <code>let longo = &amp;s[6..11];</code>, <code>longo</code> seria uma
+slice que contém um ponteiro para o sétimo byte de <code>s</code> (índice 6) e um tamanho
+igual a 5.</p>
+<p>A Figura 4-6 mostra isto em um diagrama.</p>
+<img alt="mundo contendo um ponteiro para o 7o byte da String s e um tamanho 5" src="img/trpl04-06.svg" class="center" style="width: 50%;" />
+<p><span class="caption">Figura 4-6: Slice referente a uma parte de uma
+<code>String</code></span></p>
+<p>Com a sintaxe de range do Rust (<code>..</code>), se você quiser começar com o primeiro
+elemento (índice zero), você pode omitir o valor antes dos dois pontos. Em
+outras palavras, estas formas são equivalentes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;texto&quot;);
+
+let slice = &amp;s[0..2];
+let slice = &amp;s[..2];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Da mesma forma, se a sua slice inclui o último byte da <code>String</code>, você pode
+omitir o último número. Isso significa que as seguintes formas são equivalentes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;texto&quot;);
+
+let tamanho = s.len();
+
+let slice = &amp;s[3..tamanho];
+let slice = &amp;s[3..];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Você também pode omitir ambos os valores para pegar uma slice da string inteira.
+Logo, essas duas formas são equivalentes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;texto&quot;);
+
+let tamanho = s.len();
+
+let slice = &amp;s[0..tamanho];
+let slice = &amp;s[..];
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Nota: Os índices do range de uma slice de string devem coincidir com os
+limites entre caracteres UTF-8 válidos. Se você tentar criar uma slice de
+string no meio de um caractere que tenha mais de um byte, seu programa vai
+terminar com erro. Para introduzir slices de string, estamos utilizando
+apenas caracteres ASCII nesta seção; uma discussão mais detalhada sobre
+manipulação de caracteres UTF-8 será feita na seção &quot;Strings&quot; do Capítulo 8.</p>
+</blockquote>
+<p>Com toda essa informação em mente, vamos reescrever a função <code>primeira_palavra</code>
+para retornar uma slice. O tipo que representa &quot;slice de string&quot; é escrito como
+<code>&amp;str</code>:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn primeira_palavra(s: &amp;String) -&gt; &amp;str {
+    let bytes = s.as_bytes();
+
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &amp;s[0..i];
+        }
+    }
+
+    &amp;s[..]
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Pegamos o índice para o fim da palavra da mesma forma como fizemos na Listagem
+4-5, buscando a primeira ocorrência de um espaço. Quando o encontramos,
+retornamos uma slice de string usando o início da string e o índice do espaço
+como índices inicial e final, respectivamente.</p>
+<p>Agora, quando chamamos <code>primeira_palavra</code>, pegamos de volta um único valor que
+está vinculado à string. O valor é composto de uma referência para o ponto
+inicial da slice e o número de elementos que ela contém.</p>
+<p>Retornar uma slice também funcionaria para uma função <code>segunda_palavra</code>:</p>
+<pre><code class="language-rust ignore">fn segunda_palavra(s: &amp;String) -&gt; &amp;str {
+</code></pre>
+<p>Agora, temos uma API bem direta que é bem mais difícil de bagunçar, uma vez que
+o compilador vai se certificar que as referências dentro da <code>String</code>
+permanecerão válidas. Lembra do bug do programa na Listagem 4-6, quando
+obtivemos o índice para o fim da primeira palavra mas depois limpamos a string,
+invalidando o índice obtido? Aquele código era logicamente incorreto, mas não
+mostrava nenhum erro imediato. Os problemas apareceriam mais tarde quando
+tentássemos usar o índice da primeira palavra com uma string que foi esvaziada.
+Slices tornam esse bug impossível de acontecer e nos permitem saber que temos um
+problema no código muito mais cedo. Na versão usando slice, a função
+<code>primeira_palavra</code> vai lançar um erro em tempo de compilação:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let mut s = String::from(&quot;texto longo&quot;);
+
+    let palavra = first_word(&amp;s);
+
+    s.clear(); // Erro!
+}
+</code></pre>
+<p>Aqui está o erro:</p>
+<pre><code class="language-text">error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
+ --&gt; src/main.rs:6:5
+  |
+4 |     let word = primeira_palavra(&amp;s);
+  |                                  - immutable borrow occurs here
+5 |
+6 |     s.clear(); // Erro!
+  |     ^ mutable borrow occurs here
+7 | }
+  | - immutable borrow ends here
+</code></pre>
+<p>Voltando às regras de borrowing, lembre-se que, se temos uma referência imutável
+para algum valor, não podemos também obter uma referência mutável do mesmo. Como
+<code>clear</code> precisa truncar a <code>String</code>, esse método tenta obter uma referência
+mutável, e acaba falhando. O Rust não só tornou nossa API mais fácil de usar,
+como também eliminou uma classe inteira de erros em tempo de compilação!</p>
+<h4><a class="header" href="#strings-literais-são-slices" id="strings-literais-são-slices">Strings Literais São Slices</a></h4>
+<p>Lembre-se de que falamos sobre strings literais serem armazenadas dentro do
+binário. Agora que conhecemos slices, podemos entender strings literais
+adequadamente:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = &quot;Olá, mundo!&quot;;
+<span class="boring">}
+</span></code></pre></pre>
+<p>O tipo de <code>s</code> aqui é <code>&amp;str</code>: é uma slice apontando para aquele ponto específico
+do binário. Também é por isso que strings literais são imutáveis; <code>&amp;str</code> é uma
+referência imutável.</p>
+<h4><a class="header" href="#slices-de-strings-como-parâmetros" id="slices-de-strings-como-parâmetros">Slices de Strings como Parâmetros</a></h4>
+<p>Saber que você pode obter slices de literais e <code>String</code>s nos levam a mais um
+aprimoramento da função <code>primeira_palavra</code>, e aqui está sua assinatura:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra(s: &amp;String) -&gt; &amp;str {
+</code></pre>
+<p>Um Rustáceo mais experiente escreveria esta função conforme a seguir, permitindo
+utilizar a mesma função com <code>String</code>s e <code>&amp;str</code>s:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra(s: &amp;str) -&gt; &amp;str {
+</code></pre>
+<p>Se temos uma slice de string, podemos passá-la diretamente. Se temos uma
+<code>String</code>, podemos passar uma slice da <code>String</code> inteira. Definir uma função que
+recebe uma slice em vez de uma referência para uma String deixa nossa API mais
+genérica e útil sem perder nenhuma funcionalidade:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn primeira_palavra(s: &amp;str) -&gt; &amp;str {
+</span><span class="boring">    let bytes = s.as_bytes();
+</span><span class="boring">
+</span><span class="boring">    for (i, &amp;item) in bytes.iter().enumerate() {
+</span><span class="boring">        if item == b' ' {
+</span><span class="boring">            return &amp;s[0..i];
+</span><span class="boring">        }
+</span><span class="boring">    }
+</span><span class="boring">
+</span><span class="boring">    &amp;s[..]
+</span><span class="boring">}
+</span>fn main() {
+    let minha_string = String::from(&quot;texto longo&quot;);
+
+    // primeira_palavra funciona com slices de `String`s
+    let palavra = primeira_palavra(&amp;minha_string[..]);
+
+    let minha_string_literal = &quot;texto longo&quot;;
+
+    // primeira_palavra funciona com strings literais
+    let palavra = primeira_palavra(&amp;minha_string_literal[..]);
+	
+	// uma vez que strings literais *são* slices de strings,
+	// isso também funciona, sem nem usar sintaxe de slice!
+    let palavra = primeira_palavra(minha_string_literal);
+}
+</code></pre></pre>
+<h3><a class="header" href="#outras-slices" id="outras-slices">Outras Slices</a></h3>
+<p>Slices de string, como você pode imaginar, são específicas de strings. Mas há
+também um tipo de slice mais genérico. Considere esta array:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a = [1, 2, 3, 4, 5];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Assim como às vezes queremos nos referir a uma parte de uma string, podemos
+também querer nos referir a uma parte de uma array, e faríamos isso da seguinte
+forma:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a = [1, 2, 3, 4, 5];
+
+let slice = &amp;a[1..3];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Essa slice tem o tipo <code>&amp;[i32]</code>. Ela funciona da mesma forma que as slices de
+string, armazenando uma referência para o primeiro elemento e um tamanho. Você
+vai usar esse tipo de slice para todos os tipos de coleções. Vamos discutir
+essas coleções em mais detalhe quando falarmos sobre vetores no Capítulo 8.</p>
+<h2><a class="header" href="#resumo" id="resumo">Resumo</a></h2>
+<p>Os conceitos de ownership, borrowing, e slices são o que garante a segurança de
+memória dos programas em Rust em tempo de compilação. A linguagem Rust lhe dá
+controle sobre o uso da memória, assim como outras linguagens de programação de
+sistemas, mas como o dono dos dados limpa automaticamente a memória quando ele
+sai de escopo, você não tem que escrever e debugar código extra para ter esse
+controle.</p>
+<p>O ownership afeta o funcionamento de várias outras partes do Rust, por isso
+vamos falar um pouco mais sobre esses conceitos neste livro daqui para a frente.
+Vamos seguir para o próximo capítulo e ver como agrupar dados em uma <code>struct</code>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch04-02-references-and-borrowing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch05-00-structs.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch04-02-references-and-borrowing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch05-00-structs.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

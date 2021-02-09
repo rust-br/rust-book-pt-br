@@ -1,0 +1,400 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot; - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html" class="active"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!-- # Appendix G - How Rust is Made and “Nightly Rust” -->
+<h1><a class="header" href="#apêndice-g---como-é-feito-o-rust-e-o-rust-nightly" id="apêndice-g---como-é-feito-o-rust-e-o-rust-nightly">Apêndice G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></h1>
+<p>Este apêndice é sobre como o Rust é feito e como isso afeta você como um
+desenvolvedor Rust. Mencionamos que a saída deste livro foi gerada pelo Rust
+estável (<em>Stable</em>) na versão 1.21.0, mas todos os exemplos que compilam devem
+continuar sendo compilados em qualquer versão estável do Rust mais recente.
+Esta seção explica como garantimos que isso seja verdade!</p>
+<!-- ### Stability Without Stagnation -->
+<h3><a class="header" href="#estabilidade-sem-estagnação" id="estabilidade-sem-estagnação">Estabilidade sem estagnação</a></h3>
+<p>Como linguagem, o Rust se preopcupa muito com a estabilidade do seu código.
+Queremos que o Rust seja uma base sólida sobre a qual você possa construir,
+e se as coisas estivessem mudando constantemente, isso seria impossível. Ao
+mesmo tempo, se não pudermos experimentar novos recursos, poderemos descobrir
+falhas importantes somente após o lançamento, quando não podemos mais mudar as
+coisas.</p>
+<p>Nossa solução para esse problema é o que chamamos de &quot;estabilidade sem
+estagnação&quot;, e somos guiados pelo seguinte princípio: você nunca deve ter medo
+de atualizar para uma nova versão do Rust. Cada atualização deve ser indolor,
+mas também deve trazer novos recursos, menos bugs e tempos de compilação mais
+rápidos.</p>
+<!-- ### Choo, Choo! Release Channels and Riding the Trains -->
+<h3><a class="header" href="#tchu-tchu-canais-de-release-e-passeios-de-trem" id="tchu-tchu-canais-de-release-e-passeios-de-trem">Tchu, Tchu! Canais de <em>Release</em> e Passeios de Trem</a></h3>
+<p>O desenvolvimento do Rust opera em um &quot;<em>train scheduler</em>&quot; (Horário de trem).
+Isto é, todo o desenvolvimento é feito na <em>branch</em> <code>master</code> do repositório do
+Rust. As versões seguem um modelo de trem de liberação de 
+software (<em>train model</em>) que têm sido usado pela Cisco IOS e outros projetos de software. Existem três canais de <em>release</em> para o Rust.</p>
+<!-- 
+* Nightly
+* Beta
+* Stable
+-->
+<ul>
+<li>Nightly</li>
+<li>Beta</li>
+<li>Stable (Estável)</li>
+</ul>
+<p>A maioria dos desenvolvedores Rust usa principalmente o canal estável
+(<em>Stable</em>), mas aqueles que desejam usar novos recursos experimentais
+podem usar o <em>Nightly</em> ou o <em>Beta</em>.</p>
+<p>Aqui está um exemplo de como o processo de desenvolvimento e lançamento
+(<em>release</em>) funciona: vamos supor que a equipe do Rust esteja trabalhando no
+lançamento do Rust 1.5. Esse lançamento ocorreu em dezembro de 2015, mas nos
+fornecerá números de versão realistas. Um novo recurso foi adicionado ao Rust:
+um novo commit é feito na <em>branch</em> <code>master</code>.
+Todas as noites, uma nova versão <em>Nightly</em> do Rust é produzida. Todo dia é um
+dia de lançamento e esses lançamentos são criados automaticamente por nossa
+infraestrutura de lançamento. Assim, com o passar do tempo, nossos lançamentos
+ficam assim, uma vez por noite:</p>
+<pre><code class="language-text">nightly: * - - * - - *
+</code></pre>
+<p>A cada seis semanas, chega a hora de preparar uma nova <em>release</em>!
+A <em>branch</em> <code>beta</code> do repositório do Rust é ramificada a partir da <em>branch</em>
+<code>master</code> usada pelo <em>Nightly</em>. Agora existem duas <em>releases</em>.</p>
+<pre><code class="language-text">nightly: * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>A maioria dos usuários do Rust não usa ativamente as versões beta, mas faz
+testes com versões beta no sistema de IC (integração contínua) para ajudar o
+Rust a descobrir possíveis regressões. Enquanto isso, ainda há uma <em>release</em>
+todas as noites:</p>
+<pre><code class="language-text">nightly: * - - * - - * - - * - - *
+                     |
+beta:                *
+</code></pre>
+<p>Agora digamos que uma regressão seja encontrada. Ainda bem que tivemos algum
+tempo para testar a versão beta antes da regressão se tornar uma versão estável!
+A correção é aplicada à <em>branch</em> <code>master</code>, de modo que todas as noites é
+corrigida e, em seguida, a correção é portada para a <em>branch</em> <code>beta</code>, e uma nova
+versão beta é produzida:</p>
+<pre><code class="language-text">nightly: * - - * - - * - - * - - * - - *
+                     |
+beta:                * - - - - - - - - *
+</code></pre>
+<p>Seis semanas depois da criação da primeira versão beta, é hora de uma versão
+estável! A <em>branch</em> <code>stable</code> é produzida a partir da <em>branch</em><code> beta</code>:</p>
+<pre><code class="language-text">nightly: * - - * - - * - - * - - * - - * - * - *
+                     |
+beta:                * - - - - - - - - *
+                                       |
+stable:                                *
+</code></pre>
+<p>Viva! Rust 1.5 está feito! No entanto, esquecemos uma coisa: como as seis
+semanas se passaram, também precisamos de uma nova versão beta da <em>próxima</em>
+versão do Rust, 1.6.
+Então, depois que a <em>branch</em> <code>stable</code> é criada a partir da <code>beta</code>,
+a próxima versão da <code>beta</code> é criada a partir da <code>nightly</code> novamente:</p>
+<pre><code class="language-text">nightly: * - - * - - * - - * - - * - - * - * - *
+                     |                         |
+beta:                * - - - - - - - - *       *
+                                       |
+stable:                                *
+</code></pre>
+<p>Isso é chamado de &quot;<em>train model</em>&quot; (modelo de trem) porque a cada seis semanas,
+uma <em>release</em> &quot;sai da estação&quot;, mas ainda precisa percorrer o canal beta antes
+de chegar como uma <em>release</em> estável.</p>
+<p>O Rust é lançando a cada seis semanas, como um relógio.
+Se você souber a data de um lançamento do Rust, poderá saber a data do próximo:
+seis semanas depois. Um aspecto interessante de ter lançamentos agendados a cada
+seis semanas é que o próximo trem estará chegando em breve. Se um recurso falhar
+em uma versão específica, não há necessidade de se preocupar: outra está
+acontecendo em pouco tempo! Isso ajuda a reduzir a pressão para ocultar recursos
+possivelmente &quot;não polidos&quot; perto do prazo de lançamento.</p>
+<p>Graças a esse processo, você sempre pode verificar a próxima versão do Rust e
+verificar por si mesmo que é fácil fazer uma atualização para a mesma: se uma
+versão beta não funcionar conforme o esperado, você pode reportar à equipe e ter
+isso corrigido antes do próximo lançamento estável!
+A quebra de uma versão beta é relativamente rara, mas o <code>rustc</code> ainda é um
+software, e bugs existem.</p>
+<!-- ### Unstable Features -->
+<h3><a class="header" href="#recursos-instáveis" id="recursos-instáveis">Recursos instáveis</a></h3>
+<p>Há mais um problema neste modelo de lançamento: recursos instáveis.
+O Rust usa uma técnica chamada &quot;sinalizadores de recursos&quot; para determinar quais
+recursos estão ativados em uma determinada <em>release</em>. Se um novo recurso estiver
+em desenvolvimento ativo, ele pousará na <em>branch</em> <code>master</code> e, logo, no
+<em>Nightly</em>, mas atrás de um sinalizador de recurso.
+Se você, como usuário, deseja experimentar o recurso de trabalho em andamento,
+pode, mas deve estar usando uma versão <em>Nightly</em> do Rust e anotar seu
+código-fonte com o sinalizador apropriado para ativar.</p>
+<p>Se você estiver usando uma versçao beta ou estável do Rust, você não pode usar
+qualquer sinalizador de recurso. Essa é a chave que nos permite usar de forma
+prática os novos recursos antes de declará-los estáveis para sempre. Aqueles que
+desejam optar pelo que há de mais moderno podem fazê-lo, e aqueles que desejam
+uma experiência sólida podem se manter estáveis sabendo que seu código não será
+quebrado. Estabilidade sem estagnação.</p>
+<p>Este livro contém informações apenas sobre recursos estáveis, pois os recursos
+em desenvolvimento ainda estão sendo alterados e certamente serão diferentes
+entre quando este livro foi escrito e quando eles forem ativados em compilações
+estáveis. Você pode encontrar documentação on-line para recursos do exclusivos
+do <em>Nightly</em> (<em>nightly-only</em>).</p>
+<!-- ### Rustup and the Role of Rust Nightly -->
+<h3><a class="header" href="#o-rustup-e-o-papel-do-rust-nightly" id="o-rustup-e-o-papel-do-rust-nightly">O Rustup e o papel do <em>Rust Nightly</em></a></h3>
+<p>O Rustup facilita a troca entre os diferentes canais de <em>release</em> do Rust,
+global ou por projeto. Para instalar o <em>Rust Nightly</em>, por exemplo:</p>
+<pre><code class="language-text">$ rustup install nightly
+</code></pre>
+<p>Você pode ver todos os <em>toolchains</em> (versões do Rust e componentes associados)
+instalados com o <code>rustup</code> também.
+Veja um exemplo nos computadores de seus autores:</p>
+<pre><code class="language-powershell">&gt; rustup toolchain list
+stable-x86_64-pc-windows-msvc (default)
+beta-x86_64-pc-windows-msvc
+nightly-x86_64-pc-windows-msvc
+</code></pre>
+<p>Como pode ver, o <em>toolchain</em> estável (<em>Stable</em>) é o padrão. A maioria dos
+usuários do Rust usa o estável na maioria das vezes. Você pode querer usar o
+estável na mioria das vezes, mas usará o <em>Nightly</em> em um projeto específico
+por se preocupar com um recurso de ponta.
+Para fazer isso, você pode usar <code>rustup override</code> no diretório desse projeto
+para definir que o <em>toolchain</em> do <em>Nightly</em> deve ser usado quando o <code>rustup</code> for
+usado nesse diretório.</p>
+<pre><code class="language-text">$ cd ~/projects/needs-nightly
+$ rustup override add nightly
+</code></pre>
+<p>Agora, toda que chamar <code>rustc</code> ou <code>cargo</code> dentro de <code>~/projects/needs-nightly</code>,
+o <code>rustup</code> irá garantir que você esteja usando o <em>Rust Nightly</em> ao invés do
+padrão <em>Rust Stable</em>. Isso é útil quando você tem muitos projetos em Rust.</p>
+<!-- ### The RFC Process and Teams -->
+<h3><a class="header" href="#o-processo-de-rfc-e-equipes" id="o-processo-de-rfc-e-equipes">O Processo de RFC e Equipes</a></h3>
+<p>Então, como você aprende sobre esses novos recursos? O modelo de desenvolvimento
+da Rust segue um processo de solicitação de comentários (RFC). Se você deseja
+uma melhoria no Rust, pode escrever uma proposta, chamada RFC (Request For
+Comments).</p>
+<p>Qualquer um pode escrever RFCs para melhorar o Rust, e as propostas são
+revisadas e discutidas pela equipe do Rust, que é composta por muitas subequipes
+de tópicos. Há uma lista completa das equipes
+<a href="https://www.rust-lang.org/en-US/team.html">no site do Rust</a>,
+que inclui equipes para cada área do projeto: design de linguagem, implementação
+do compilador, infraestrutura, documentação e muito mais. A equipe apropriada
+lê a proposta e os comentários, escreve alguns comentários próprios e,
+eventualmente, há um consenso para aceitar ou rejeitar o recurso.</p>
+<p>Se o recurso for aceito, uma <em>Issue</em> será aberta no repositório do Rust e alguém
+poderá implementá-lo. A pessoa que a implementa pode muito bem não ser a pessoa
+que propôs o recurso em primeiro lugar! Quando a implementação está pronta, ela
+chega à <em>branch</em> <code>master</code> atrás de um sinalizador de recurso, conforme
+discutimos na seção &quot;Recursos instáveis&quot;.</p>
+<p>Depois de algum tempo, assim que os desenvolvedores do Rust que usam versões
+<em>Nightly</em> puderem experimentar o novo recurso, os membros da equipe discutirão o
+recurso, como ele funciona no <em>Nightly</em> e decidirão se ele deve se tornar parte
+do Rust estável ou não. Se a decisão for sim, o portão do recurso será removido
+e o recurso agora será considerado estável! Ele entra no próximo trem para uma
+nova versão estável do Rust.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="appendix-05-macros.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="appendix-05-macros.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

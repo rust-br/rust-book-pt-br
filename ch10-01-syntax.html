@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Tipos Genéricos de Dados - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html" class="active"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#tipos-genéricos-de-dados" id="tipos-genéricos-de-dados">Tipos Genéricos de Dados</a></h2>
+<p>Usando tipos genéricos onde usualmente colocamos tipos, como em assinaturas de
+funções ou estruturas, vamos criar definições que podemos usar muitos tipos 
+diferentes de tipos concretos de dados. Vamos dar uma olhada em como definir
+funções, structs, enums e métodos usando tipos genéricos, e ao final dessa
+seção discutiremos a performance do código usando tipos genéricos.</p>
+<h3><a class="header" href="#usando-tipos-genéricos-de-dados-em-definições-de-funções" id="usando-tipos-genéricos-de-dados-em-definições-de-funções">Usando Tipos Genéricos de Dados em Definições de Funções</a></h3>
+<p>Nós podemos definir funções que usam tipos genéricos na assinatura da função
+onde os tipos de dados dos parâmetros e os retornos vão. Desse modo, o código
+que escrevemos pode ser mais flexível e pode fornecer mais funcionalidades para 
+os chamadores da nossa função, e ainda diminuir duplicação de código.</p>
+<p>Continuando com nossa função <code>maior</code>, a Listagem 10-4 mostra duas funções que 
+oferecem a mesma funcionalidade de encontrar o maior valor dado um corte. A
+primeira função é a que extraímos na Listagem 10-3 que encontra o maior <code>ì32</code> 
+em um corte. A segunda função encontra o maior <code>char</code> em um corte:</p>
+<p><span class="filename">Nome do Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn maior_i32(lista: &amp;[i32]) -&gt; i32 {
+    let mut maior = lista[0];
+
+    for &amp;item in lista.iter() {
+        if item &gt; maior {
+            maior = item;
+        }
+    }
+
+    maior
+}
+
+fn maior_char(lista: &amp;[char]) -&gt; char {
+    let mut maior = lista[0];
+
+    for &amp;item in lista.iter() {
+        if item &gt; maior {
+            maior = item;
+        }
+    }
+
+    maior
+}
+
+fn main() {
+    let lista_numero = vec![34, 50, 25, 100, 65];
+
+    let resultado = maior_i32(&amp;lista_numero);
+    println!(&quot;O maior número {}&quot;, resultado);
+<span class="boring">   assert_eq!(resultado, 100);
+</span>
+    let lista_char = vec!['y', 'm', 'a', 'q'];
+
+    let resultado = maior_char(&amp;lista_char);
+    println!(&quot;O maior char é {}&quot;, resultado);
+<span class="boring">   assert_eq!(resultado, 'y');
+</span>}
+</code></pre></pre>
+<p><span class="caption">Listing 10-4: Duas funções que diferem apenas em seus
+nomes e nos tipos de suas assinaturas</span></p>
+<p>Aqui as funções <code>maior_i32</code> e <code>maior_char</code> tem exatamente o mesmo corpo, então 
+seria bom se pudéssemos transformar essas duas funções em uma e nos livrar da 
+duplicação. Por sorte, nós podemos fazer isso introduzindo um parâmetro de 
+tipo genérico!</p>
+<p>Para parametrizar os tipos na assinatura de uma função que vamos definir,
+precisamos criar um nome para o tipo parâmetro, assim como damos nomes para os 
+valores dos parâmetros de uma função. Nós vamos escolher o nome <code>T</code>. Qualquer 
+identificador pode ser usado como um nome de tipo de parâmetro, mas estamos 
+escolhendo <code>T</code> porque a convenção de nomes de tipos de Rust é a CamelCase. 
+Nomes de parâmetros de tipos genéricos também tendem a ser curtos por 
+convenção, e frequentemente usam apenas uma letra. A abreviatura de &quot;tipo&quot;, <code>T</code>
+é a escolha padrão feita por programadores Rust.</p>
+<p>Quando usamos um parâmetro no corpo de uma função, nós temos que declarar o 
+parâmetro na assinatura para que o compilador saiba o que aquele nome no corpo
+significa. Similarmente, quando usamos um tipo de nome de parâmetro em uma 
+assinatura de função, temos que declarar o tipo de nome de parâmetro antes de 
+usa-lo. Declarações de tipos de nomes vão em colchetes entre o nome da função e 
+a lista de paramêtros.</p>
+<p>A assinatura da função da função genérica <code>maior</code> que vamos definir se parecerá
+com isto:</p>
+<pre><code class="language-rust ignore">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T {
+</code></pre>
+<p>Nós leríamos isso como: a função <code>maior</code> é genérica sobre algum tipo <code>T</code>. Ela
+tem um parâmetro chamado <code>lista</code>, e o tipo de <code>lista</code> é um corte dos valores
+do tipo <code>T</code>. A função <code>maior</code> retornará um valor do mesmo tipo <code>T</code>.</p>
+<p>A listagem 10-5 mostra a definição da função unificada <code>maior</code> usando um tipo 
+genérico de dado na sua assinatura, e mostra quando nós poderemos chamar a 
+função <code>maior</code> com ou um corte de valores de <code>i32</code> ou de valores <code>char</code>. Note 
+que esse código não compilará ainda! </p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn maior&lt;T&gt;(lista: &amp;[T]) -&gt; T {
+    let mut maior = lista[0];
+
+    for &amp;item in lista.iter() {
+        if item &gt; maior {
+            maior = item;
+        }
+    }
+
+    maior
+}
+
+fn main() {
+    let lista_numero = vec![34, 50, 25, 100, 65];
+
+    let resultado = maior(&amp;lista_numero);
+    println!(&quot;The maior number is {}&quot;, resultado);
+
+    let lista_char = vec!['y', 'm', 'a', 'q'];
+
+    let resultado = maior(&amp;char_lista);
+    println!(&quot;O maior char e {}&quot;, resultado);
+}
+</code></pre>
+<p><span class="caption">Listagem 10-5: Uma definição para a função <code>maior</code> que 
+usa um tipo genérico como parâmetro mas não compila ainda</span></p>
+<p>Se nós tentarmos compilar o código agora, nós receberemos esse erro:</p>
+<pre><code class="language-text">error[E0369]: binary operation `&gt;` cannot be applied to type `T`
+  |
+5 |         if item &gt; maior {
+  |            ^^^^
+  |
+note: an implementation of `std::cmp::PartialOrd` might be missing for `T`
+</code></pre>
+<p>A nota menciona <code>std::cmp::PartialOrd</code>, que é um <em>trait</em>. Nós vamos falar sobre
+trait na próxima sessão, mas de forma breve, o que esse erro está dizendo é que
+o corpo de <code>maior</code> não funcionará para todos os possíveis tipos que <code>T</code> poderia
+ser; já que queremos comparar valores do tipo <code>T</code> no corpo, nós podemos apenas
+usar tipos que sabem como ser ordenados. A biblioteca padrão definiu que o 
+trait <code>std::cmp::PartialOrd</code> que tipos podem implementar para habilitar
+comparações. Vamos voltar a traits e em como especificar que um tipo genérico
+tenha um trait em particular na próxima sessão, mas vamos deixar isso de lado 
+por um momento e explorar outros lugares que podemos usar parâmetros de tipos 
+genéricos primeiro.</p>
+<h3><a class="header" href="#usando-tipos-de-dados-genéros-em-definições-de-structs" id="usando-tipos-de-dados-genéros-em-definições-de-structs">Usando Tipos de Dados Genéros em Definições de Structs</a></h3>
+<p>Nós podemos definir structs para usar um parâmetro de tipo genérico em um ou 
+mais campos de um struct com a sintaxe <code>&lt;&gt;</code> também. A listagem 10-6 mostra a 
+definição e faz uso do struct <code>Ponto</code> que contém as coordenadas <code>x</code> e <code>y</code> com 
+valores de qualquer tipo:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">struct Ponto&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let inteiro = Ponto { x: 5, y: 10 };
+    let float = Ponto { x: 1.0, y: 4.0 };
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-6: Uma struct <code>Ponto</code> contém os valores <code>x</code> e
+<code>y</code> do tipo <code>T</code></span></p>
+<p>A sintaxe é similar a que se usa em definições de funções usando tipos 
+genéricos. Primeiro, nós temos que declarar o nome do tipo de parâmetro dentro
+de colchetes angulares logo após o nome da struct. Então nós podemos usar tipos
+genéricos na definição da struct onde nós especificaríamos tipos concretos de
+dados.</p>
+<p>Note que porque só usamos um tipo genérico na definição de <code>Ponto</code>, o que 
+estamos dizendo é que o struct <code>Ponto</code> é genérico sobre algum tipo <code>T</code>, e os
+campos <code>x</code> e <code>y</code> são <em>ambos</em> do mesmo tipo, qualquer que seja. Se nós tentarmos
+criar uma instância de um <code>Ponto</code> que possui valores de tipos diferentes, como
+na Listagem 10-7, nosso código não compilará:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">struct Ponto&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+fn main() {
+    let nao_funciona = Ponto { x: 5, y: 4.0 };
+}
+</code></pre>
+<p><span class="caption">Listagem 10-7: Os campos <code>x</code> e <code>y</code> precisam ser do mesmo
+tipo porque ambos tem o tipo genérico de dado <code>T</code></span></p>
+<p>Se nós tentarmos compilar isso, receberemos o seguinte erro:</p>
+<pre><code class="language-text">error[E0308]: mismatched types
+ --&gt;
+  |
+7 |     let nao_funciona = Point { x: 5, y: 4.0 };
+  |                                         ^^^ expected integral variable, found
+  floating-point variable
+  |
+  = note: expected type `{integer}`
+  = note:    found type `{float}`
+</code></pre>
+<p>Quando atribuímos o valor de 5 para <code>x</code>, o compilador sabe que para essa 
+instância de <code>Ponto</code> o tipo genérico <code>T</code> será um número inteiro. Então quando
+especificamos 4.0 para <code>y</code>, o qual é definido para ter o mesmo tipo de <code>x</code>, nós
+temos um tipo de erro de incompatibilidade.</p>
+<p>Se nós quisermos definir um struct de <code>Ponto</code> onde <code>x</code> e <code>y</code> têm tipos 
+diferentes e quisermos fazer com que esses tipos sejam genéricos, nós podemos 
+usar parâmetros múltiplos de tipos genéricos. Na listagem 10-8, nós mudamos a
+definição do <code>Ponto</code> para os tipos genéricos <code>T</code> e <code>U</code>. O campo <code>x</code> é do tipo
+<code>T</code>, e o campo <code>y</code> do tipo <code>U</code>:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">struct Ponto&lt;T, U&gt; {
+    x: T,
+    y: U,
+}
+
+fn main() {
+    let ambos_inteiros = Ponto { x: 5, y: 10 };
+    let ambos_floats = Ponto { x: 1.0, y: 4.0 };
+    let inteiro_e_float = Ponto { x: 5, y: 4.0 };
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-8: Um <code>Ponto</code> genérico sobre dois tipos <code>x</code> e
+<code>y</code> podem ser valores de tipos diferentes</span></p>
+<p>Agora todos as instâncias de <code>Ponto</code> são permitidas! Você pode usar quantos
+parâmetros de tipos genéricos em uma definição quanto quiser, mas usar mais que
+alguns começa a tornar o código difícil de ler e entender. Se você chegar em um
+ponto que precisa usar muitos tipos genéricos, é provavelmente um sinal que seu
+código poderia ser reestruturado e separado em partes menores.</p>
+<h3><a class="header" href="#usando-tipos-de-dados-genéricos-em-definições-de-enum" id="usando-tipos-de-dados-genéricos-em-definições-de-enum">Usando Tipos de Dados Genéricos em Definições de Enum</a></h3>
+<p>Similar a structs, enums podem ser definidos para conter tipos genéricos de 
+dados nas suas variantes. Nós usamos o enum <code>Option&lt;T&gt;</code> concedido pela 
+biblioteca padrão no capítulo 6, e agora a definição deve fazer mais sentido. 
+Vamos dar uma outra olhada:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Option&lt;T&gt; {
+    Some(T),
+    None,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Em outras palavras, <code>Option&lt;T&gt;</code> é um enum genérico do tipo <code>T</code>. Ele têm duas
+variantes: <code>Some</code>, que contém o valor do tipo <code>T</code>, e uma variante <code>None</code> que 
+não contém nenhum valor. A biblioteca padrão tem que ter apenas essa deifinição
+para suportar a criação de valores desse enum que pode conter qualquer tipo
+concreto. A ideia de um &quot;um valor opcional&quot; é um conceito mais abstrato que o 
+de um tipo específico, e Rust nos deixa expressar esse conceito abstrato sem 
+muitas duplicações.</p>
+<p>Enum podem usar tipos múltiplos genéricos também. A definição do enum 
+<code>Resultado</code> que usamos no Capítulo 9 é um exemplo:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Resultado&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>O enum <code>Resultado</code> é genérico sobre dois tipos, <code>T</code> e <code>E</code>. <code>Resultado</code> tem duas
+variantes: <code>Ok</code>, que contém um valor do tipo <code>T</code>, e <code>Err</code>, que contém um valor
+do tipo  <code>E</code>. Essa definição faz com que seja conveniente usar o enum 
+<code>Resultado</code> em qualquer lugar que tenhamos uma operação que possa ser bem 
+sucedida (e retornar um valor de algum tipo <code>T</code>) ou falhar (e retornar um erro
+de algum tipo <code>E</code>). Lembre da Listagem 9-2 quando abrimos um arquivo: naquele
+caso, <code>T</code> tinha o tipo <code>std::fs::File</code> quando o arquivo era aberto com sucesso
+e <code>E</code> tinha o tipo <code>std::io::Error</code> quando havia problemas em abrir o arquivo.</p>
+<p>Quando você reconhece situações no seu código com structs múltiplos ou 
+definições de enum que diferem apenas nos tipos de valores que eles contém, 
+você pode remover a duplicata usando o mesmo processo usado na definição de 
+funções para introduzir tipos genéricos.</p>
+<h3><a class="header" href="#usando-tipos-genéricos-de-dados-em-definições-de-métodos" id="usando-tipos-genéricos-de-dados-em-definições-de-métodos">Usando Tipos Genéricos de Dados em Definições de Métodos</a></h3>
+<p>Como fizemos no Capítulo 5, nós podemos implementar métodos em estruturas e
+enums que têm tipos genéricos em suas definições. A Listagem 10-9 mostra o
+struct <code>Ponto&lt;T&gt;</code> que definimos na Listagem 10-6. Nós, então, definimos um
+método chamado <code>x</code> no <code>Ponto&lt;T&gt;</code> que retorna a referência para o dado no campo
+<code>x</code>:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">struct Ponto&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Ponto&lt;T&gt; {
+    fn x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+
+fn main() {
+    let p = Ponto { x: 5, y: 10 };
+
+    println!(&quot;p.x = {}&quot;, p.x());
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-9: Implementando um método chamado <code>x</code> na
+struct <code>Ponto&lt;T&gt;</code> que retornará uma referência para o campo <code>x</code>, que é do tipo
+<code>T</code>.</span></p>
+<p>Note que temos que declarar <code>T</code> logo após <code>impl</code> para usar <code>T</code> no tipo 
+<code>Ponto&lt;T&gt;</code>. Declarar <code>T</code> como um tipo genérico depois e <code>impl</code> é como o Rust
+sabe se o tipo dentro das chaves angulares em <code>Ponto</code> é um tipo genérico ou um
+tipo concreto. Por exemplo, nós poderíamos escolher implementar métodos nas
+instâncias de <code>Ponto&lt;f32&gt;</code> ao invés nas de <code>Ponto</code> com qualquer tipo genérico.
+A listagem 10-10 mostra que não declaramos nada depois de <code>impl</code> nesse caso, já
+que estamos usanod um tipo concreto, <code>f32</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">struct Ponto&lt;T&gt; {
+</span><span class="boring">    x: T,
+</span><span class="boring">    y: T,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl Ponto&lt;f32&gt; {
+    fn distancia_da_origem(&amp;self) -&gt; f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 10-10: Construindo um bloco de <code>impl</code> que só se 
+aplica a uma struct com o tipo específico usado pelo parâmetro de tipo genérico
+<code>T</code></span></p>
+<p>Esse código significa que o tipo <code>Ponto&lt;f32&gt;</code> terá um método chamado 
+<code>distancia_da_origem</code>, e outras instâncias do <code>Ponto&lt;T&gt;</code> onde <code>T</code> não é do tipo
+<code>f32</code> não terá esse método definido. Esse método quão longe nosso ponto está
+das coordenadas (0.0, 0.0) e usa operações matemáticas que só estão disponíveis
+para tipos de ponto-flutuantes.</p>
+<p>Parâmetros de tipos genéricos em uma definição de struct não são sempre os 
+parâmetros de tipos genéricos que você quer usar na assinatura de método 
+daquela struct. A Listagem 10-11 define um método <code>mistura</code> na estrutura
+<code>Ponto&lt;T, U&gt;</code> da Listagem 10-8. O método recebe outro <code>Ponto</code> como parâmetro,
+que pode ter tipos diferentes de <code>self</code> <code>Ponto</code> dos quais usamos no <code>mistura</code>.
+O método cria uma nova instância de <code>Ponto</code> que possui o valor <code>x</code> de <code>self</code>
+<code>Ponto</code> (que é um tipo de <code>T</code>) e o valor de <code>y</code> passado de <code>Ponto</code> (que é do 
+tipo <code>W</code>):</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">struct Ponto&lt;T, U&gt; {
+    x: T,
+    y: U,
+}
+
+impl&lt;T, U&gt; Ponto&lt;T, U&gt; {
+    fn mistura&lt;V, W&gt;(self, other: Ponto&lt;V, W&gt;) -&gt; Ponto&lt;T, W&gt; {
+        Ponto {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+fn main() {
+    let p1 = Ponto { x: 5, y: 10.4 };
+    let p2 = Ponto { x: &quot;Ola&quot;, y: 'c'};
+
+    let p3 = p1.mistura(p2);
+
+    println!(&quot;p3.x = {}, p3.y = {}&quot;, p3.x, p3.y);
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-11: Métodos que usam diferentes tipos 
+genéricos das suas definições de struct</span></p>
+<p>No <code>main</code>, nós definimos um <code>Ponto</code> que tem um <code>i32</code> para o <code>x</code> (com o valor de
+<code>5</code>) e um <code>f64</code> para <code>y</code> (com o valor de <code>10.4</code>). <code>p2</code> é um <code>Ponto</code> que tem um
+pedaço de string <code>x</code> (com o valor <code>&quot;Ola&quot;</code>) e um <code>char</code> para <code>y</code> (com o valor
+<code>c</code>). Chamando <code>mistura</code> no <code>p1</code> com o argumento <code>p2</code> nos dá <code>p3</code>, que terá um
+<code>i32</code> para <code>x</code>, já que <code>x</code> veio de <code>p1</code>. <code>p3</code> terá um <code>char</code> para <code>y</code>, já que 
+<code>y</code> veio de <code>p2</code>. O <code>println!</code> irá imprimir <code>p3.x = 5, p3.y = c</code>.</p>
+<p>Note que os parâmetro genéricos <code>T</code> e <code>U</code> são declarados depois de <code>impl</code>, já
+que eles vão com a definição do struct. Os parâmetros genéricos <code>V</code> e <code>Ẁ</code> são
+declarados depois de <code>fn mistura</code>, já que elés só são relevantes para esse 
+método.</p>
+<h3><a class="header" href="#desempenho-do-código-usando-genéricos" id="desempenho-do-código-usando-genéricos">Desempenho do Código Usando Genéricos</a></h3>
+<p>Você pode estar lendo essa seção e imaginando se há um custo no tempo de 
+execução para usar parâmetros de tipos genéricos. Boas notícias: o modo como
+Rust implementa tipos genéricos significa que seu código não vai ser executado
+mais devagar do que se você tivesse especificado tipos concretos ao invés de 
+tipos genéricos como parâmetros!</p>
+<p>Rust consegue fazer isso realizando <em>monomorfização</em> de código usando tipos 
+genéricos em tempo de compilação. Monomorfização é o processo de transformar
+código genérico em código específico substituindo os tipos genéricos pelos 
+tipos concretos que são realmente utilizados.</p>
+<p>O que o compilador faz é o oposto dos passos que fizemos para criar uma função
+de tipo genérico na Listagem 10-5. O compilador olhar para todos os lugares que
+o código genérico é chamado e gera o código para os tipos concretos que o
+código genérico é chamado.</p>
+<p>Vamos trabalhar sobre o exemplo que usa o padrão de enum <code>Option</code> da 
+biblioteca:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let inteiro = Some(5);
+let float = Some(5.0);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Quando o Rust compilar esse código, ele vai fazer a monomorfização. O 
+compilador lerá os valores que foram passados para <code>Option</code> e ver que temos
+dois tipos de <code>Option&lt;T&gt;</code>: um é <code>i32</code>, e o outro <code>f64</code>. Assim sendo, ele 
+expandirá a definição genérica de <code>Option&lt;T&gt;</code> para <code>Option_i32</code> e <code>Option_64</code>,
+substituindo a definição genérica por definições específicas.</p>
+<p>A versão monomorfizada do nosso código que o compilador gera é a seguinte, com
+os usos da <code>Option</code> genérica substituídos pelas definições específicas criadas 
+pelo compilador:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">enum Option_i32 {
+    Some(i32),
+    None,
+}
+
+enum Option_f64 {
+    Some(f64),
+    None,
+}
+
+fn main() {
+    let inteiro = Option_i32::Some(5);
+    let float = Option_f64::Some(5.0);
+}
+</code></pre></pre>
+<p>Nós podemos escrever códigos não duplicados usando tipos genéricos, e Rust vai
+compila-lo em código que especifica o tipo em cada instância. Isso significa 
+que não pagamos nenhum custo em tempo de processamento para usar tipos 
+genéricos; quando o código roda, ele executa do mesmo modo como executaria se
+tivéssemos duplicado cada definição particular a mão. O proccesso de 
+monomorfização é o que faz os tipos genéricos de Rust serem extremamente 
+eficientes em tempo de processamento.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch10-00-generics.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch10-02-traits.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch10-00-generics.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch10-02-traits.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

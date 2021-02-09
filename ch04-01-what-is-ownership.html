@@ -1,0 +1,718 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 O Que É Ownership? - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html" class="active"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#o-que-É-ownership" id="o-que-É-ownership">O Que É Ownership?</a></h2>
+<p>A característica central do Rust é <em>ownership</em>. Embora seja bem direta de
+explicar, ela tem implicações profundas em todo o resto da linguagem.</p>
+<p>Todos os programas têm que decidir de que forma vão usar a memória do computador
+durante a execução. Algumas linguagens possuem <em>garbage collection</em> (coleta de
+lixo), que constantemente busca segmentos de memória que já não são mais
+utilizados enquanto o programa executa; em outras linguagens, o programador deve
+alocar e liberar memória de forma explícita. Rust usa uma terceira abordagem: a
+memória é gerenciada através de um sistema de posse, que tem um conjunto de
+regras verificadas em tempo de compilação. Nenhuma característica relacionada ao
+ownership implica qualquer custo em tempo de execução.</p>
+<p>Como ownership é um conceito novo para muitos programadores, leva um pouco de
+tempo para se acostumar. A boa notícia é que quanto mais experiente você se
+torna em Rust e nas regras do sistema de posse, mais você será capaz de
+escrever, naturalmente, código seguro e eficiente. Fique aí!</p>
+<p>Quando você entender ownership, você terá uma fundação sólida para entender as
+características que fazem o Rust ser único. Neste capítulo, você vai aprender
+ownership trabalhando em alguns exemplos com foco em uma estrutura de dados
+muito comum: <em>strings</em>.</p>
+<!-- PROD: START BOX -->
+<blockquote>
+<h3><a class="header" href="#a-pilha-e-a-heap" id="a-pilha-e-a-heap">A Pilha e a <em>Heap</em></a></h3>
+<p>Em muitas linguagens de programação, não temos que pensar muito sobre a pilha
+e sobre a <em>heap</em>. Mas em uma linguagem de programação de sistemas, como Rust,
+o fato de um valor estar na pilha ou na heap tem impacto na forma como a
+linguagem se comporta e no porquê de termos que tomar certas decisões. Vamos
+descrever partes do ownership em relação à pilha e à heap mais para a frente
+neste capítulo, então aqui vai uma explicação preparatória.</p>
+<p>Tanto a pilha como a heap são partes da memória que estão disponíveis ao seu
+código para uso em tempo de execução, mas elas são estruturadas de formas
+diferentes. A pilha armazena valores na ordem em que eles chegam, e os remove
+na ordem inversa. Isto é chamado de <em>last in, first out</em> (último a chegar,
+primeiro a sair). Imagine uma pilha de pratos: quando você coloca mais pratos,
+você os põe em cima da pilha, e quando você precisa de um prato, você pega o
+que está no topo. Adicionar ou remover pratos do meio ou do fundo não funciona
+tão bem! Dizemos fazer um <em>push</em> na pilha quando nos refererimos a inserir
+dados, e fazer um <em>pop</em> da pilha quando nos referimos a remover dados.</p>
+<p>A pilha é rápida por conta da forma como ela acessa os dados: ela nunca tem
+que procurar um lugar para colocar novos dados, ou um lugar de onde obter
+dados, este lugar é sempre o topo da pilha. Outra propriedade que faz a pilha
+ser rápida é que todos os dados contidos nela devem ocupar um tamanho fixo e
+conhecido.</p>
+<p>Para dados com um tamanho desconhecido em tempo de compilação, ou com um
+tamanho que pode mudar, podemos usar a heap em vez da pilha. A heap é menos
+organizada: quando colocamos dados na heap, nós pedimos um certo espaço de
+memória. O sistema operacional encontra um espaço vazio em algum lugar na heap
+que seja grande o suficiente, marca este espaço como em uso, e nos retorna um
+<em>ponteiro</em>, que é o endereço deste local. Este processo é chamado de
+<em>alocar na heap</em>, e às vezes se abrevia esta frase como apenas &quot;alocação&quot;.
+Colocar valores na pilha não é considerado uma alocação. Como o ponteiro tem
+um tamanho fixo e conhecido, podemos armazená-lo na pilha, mas quando queremos
+os dados, de fato, temos que seguir o ponteiro. </p>
+<p>Imagine que você está sentado em um restaurante. Quando você entra, você diz
+o número de pessoas que estão com você, o atendente encontra uma mesa vazia
+que acomode todos e os leva para lá. Se alguém do seu grupo chegar mais tarde,
+poderá perguntar onde vocês estão para encontrá-los.</p>
+<p>Acessar dados na heap é mais lento do que acessar dados na pilha, porque você
+precisa seguir um ponteiro para chegar lá. Processadores de hoje em dia são
+mais rápidos se não precisarem pular tanto de um lugar para outro na memória.
+Continuando com a analogia, considere um garçom no restaurante anotando os
+pedidos de várias mesas. É mais eficiente anotar todos os pedidos de uma única
+mesa antes de passar para a mesa seguinte. Anotar um pedido da mesa A, depois
+um da mesa B, depois outro da mesa A, e outro da mesa B novamente seria um
+processo bem mais lento. Da mesma forma, um processador pode cumprir melhor
+sua tarefa se trabalhar em dados que estão próximos uns dos outros (assim como
+estão na pilha) em vez de dados afastados entre si (como podem estar na heap).
+Alocar um espaço grande na heap também pode levar tempo.</p>
+<p>Quando nosso código chama uma função, os valores passados para ela (incluindo
+possíveis ponteiros para dados na heap) e as variáveis locais da função são
+colocados na pilha. Quando a função termina, esses valores são removidos dela.</p>
+<p>Rastrear quais partes do código estão usando quais dados na heap, minimizar a
+quantidade de dados duplicados na heap e limpar segmentos inutilizados da heap
+para que não fiquemos sem espaço são todos problemas tratados pelo ownership.
+Uma vez que você entende ownership, você não vai mais precisar pensar tanto
+sobre a pilha e a heap, mas saber que ownership existe para gerenciar os dados
+na heap pode ajudar a explicar como e por que ele funciona.</p>
+</blockquote>
+<!-- PROD: END BOX -->
+<h3><a class="header" href="#regras-de-ownership" id="regras-de-ownership">Regras de Ownership</a></h3>
+<p>Primeiro, vamos dar uma olhada nas regras de ownership. Mantenha em mente essas
+regras quando trabalharmos com os exemplos em seguida:</p>
+<blockquote>
+<ol>
+<li>Cada valor em Rust possui uma variável que é dita seu <em>owner</em> (sua dona).</li>
+<li>Pode apenas haver um owner por vez.</li>
+<li>Quando o owner sai fora de escopo, o valor será destruído.</li>
+</ol>
+</blockquote>
+<h3><a class="header" href="#escopo-de-variáveis" id="escopo-de-variáveis">Escopo de Variáveis</a></h3>
+<p>Já analisamos um exemplo de programa em Rust no Capítulo 2. Agora que já
+passamos da sintaxe básica, não vamos incluir o código <code>fn main() {</code> nos
+próximos exemplos, então se você estiver acompanhando, terá que colocá-los
+manualmente dentro de uma função <code>main</code>. Como resultado, nossos exemplos serão
+um pouco mais concisos, mantendo o foco nos detalhes que realmente interessam.</p>
+<p>Como um primeiro exemplo de ownership, vamos olhar para o <em>escopo</em> de algumas
+variáveis. Um escopo é a área dentro de um programa para a qual um item é
+válido. Digamos que nós temos uma variável como esta:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = &quot;olá&quot;;
+<span class="boring">}
+</span></code></pre></pre>
+<p>A variável <code>s</code> se refere a uma string literal cujo valor é fixo no código. A
+variável é válida do ponto em que é declarada até o fim do atual <em>escopo</em>. A
+Listagem 4-1 tem comentários indicando onde a variável <code>s</code> é válida:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>{                      // s não é válida aqui, ainda não está declarada
+    let s = &quot;texto&quot;;   // s é válida deste ponto em diante
+
+    // faz alguma coisa com s
+}                      // agora este escopo terminou, e s não é mais válida
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 4-1: Uma variável e o escopo em que ela é
+válida.</span></p>
+<p>Em outras palavras, existem dois pontos no tempo que são importantes aqui:</p>
+<ol>
+<li>Quando <code>s</code> <em>entra no escopo</em>, ela é válida.</li>
+<li>Permanece dessa maneira até que ela <em>saia de escopo</em>.</li>
+</ol>
+<p>Neste ponto, a relação entre escopos e quando variáveis são válidas é similar a
+outras linguagens de programação. Agora vamos construir sobre este entendimento,
+apresentando o tipo <code>String</code>.</p>
+<h3><a class="header" href="#o-tipo-string" id="o-tipo-string">O Tipo <code>String</code></a></h3>
+<p>Para ilustrar as regras de ownership, precisamos de um tipo de dados que seja
+mais complexo do que aqueles abordados no Capítulo 3. Os tipos abordados na
+seção &quot;Tipos de Dados&quot; são todos armazenados na pilha, e retirados dela quando
+seu escopo termina, mas queremos ver dados que são armazenados na heap e
+explorar como o Rust faz para saber quando limpar esses dados.</p>
+<p>Vamos usar <code>String</code> como exemplo aqui, e concentrar nas partes de <code>String</code> que
+estão relacionadas ao ownership. Esses aspectos também se aplicam aos outros
+tipos complexos de dados fornecidos pela biblioteca padrão e os que você mesmo
+cria. Vamos discutir <code>String</code> mais a fundo no Capítulo 8. </p>
+<p>Já vimos strings literais, em que um valor de string é fixado pelo código do
+nosso programa. Strings literais são convenientes, mas nem sempre são adequadas
+para situações em que queremos usar texto. Um motivo é que elas são imutáveis.
+Outro é que nem todos os valores de string são conhecidos enquanto escrevemos
+nosso código: por exemplo, o que fazer se queremos obter uma entrada do usuário
+e armazená-la? Para essas situações, Rust tem um segundo tipo de strings,
+<code>String</code>. Este tipo é alocado na heap, e como tal, é capaz de armazenar uma
+quantidade de texto que é desconhecida em tempo de compilação. Você pode criar
+uma <code>String</code> de uma string literal usando a função <code>from</code>, da seguinte forma:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;texto&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>O <code>::</code> é um operador que nos permite indicar que o <em>namespace</em> desta função
+<code>from</code>, em particular, é o tipo <code>String</code>, de forma que não precisamos usar um
+nome específico como <code>string_from</code>. Vamos discutir esta sintaxe na seção
+&quot;Sintaxe do Método&quot; do Capítulo 5, e quando falarmos sobre <em>namespaces</em> com
+módulos no Capítulo 7.</p>
+<p>Este tipo de string <em>pode</em> ser alterada:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut s = String::from(&quot;olá&quot;);
+
+s.push_str(&quot;, mundo!&quot;); // push_str() adiciona um literal à String
+
+println!(&quot;{}&quot;, s); // Isso vai exibir `olá, mundo!`
+<span class="boring">}
+</span></code></pre></pre>
+<p>Mas então, qual é a diferença aqui? Por que <code>String</code> pode ser alterada enquanto
+literais não podem? A diferença está em como esses dois tipos lidam com memória.</p>
+<h3><a class="header" href="#memória-e-alocação" id="memória-e-alocação">Memória e Alocação</a></h3>
+<p>No caso de uma string literal, sabemos o seu conteúdo em tempo de compilação,
+então o texto é injetado diretamente para dentro do executável final, o que
+faz strings literais serem rápidas e eficientes. Mas essas propriedades provêm
+apenas da sua imutabilidade. Infelizmente, não podemos colocar um segmento de
+memória dentro do binário para cada texto cujo tamanho é desconhecido em tempo
+de compilação, e cujo tamanho pode mudar ao longo da execução do programa.</p>
+<p>Com o tipo <code>String</code>, para poder acomodar um trecho mutável e expansível de
+texto, precisamos alocar uma quantidade de memória na heap, que é desconhecida
+em tempo de compilação, para manter o seu conteúdo. Isto significa que:</p>
+<ol>
+<li>A memória deve ser solicitada ao sistema operacional em tempo de execução.</li>
+<li>Precisamos de uma forma de retornar esta memória ao sistema operacional
+quando tivermos finalizado nossa <code>String</code>.</li>
+</ol>
+<p>A primeira parte é feita por nós: quando chamamos <code>String::from</code>, sua
+implementação solicita a memória de que precisa. Isso é meio que universal em
+linguagens de programação.</p>
+<p>No entanto, a segunda parte é diferente. Em linguagens com um <em>garbage collector
+(GC)</em>, o GC rastreia e limpa a memória que não está mais sendo usada, e nós,
+como programadores, não precisamos pensar sobre isso. Sem um GC, é
+responsabilidade do programador identificar quando a memória não está mais sendo
+usada e chamar, explicitamente, um código que a retorne, assim como fizemos para
+solicitá-la. Fazer isso corretamente tem sido, historicamente, um problema
+difícil de programação. Se esquecermos, vamos desperdiçar memória. Se fizermos
+cedo demais, teremos uma variável inválida. Se fizermos duas vezes, também será
+um bug. Precisamos casar exatamente um <code>allocate</code> (alocar) com exatamente um
+<code>free</code> (liberar).</p>
+<p>Rust segue um caminho diferente: a memória é automaticamente retornada assim que
+a variável que a possui sai de escopo. Aqui está uma versão do nosso exemplo de
+escopo da Listagem 4-1 usando uma <code>String</code> em vez de uma string literal:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>{
+    let s = String::from(&quot;texto&quot;); // s é válida deste ponto em diante
+
+    // faz alguma coisa com s
+}                                  // agora este escopo terminou, e s não é
+                                   // mais válida
+<span class="boring">}
+</span></code></pre></pre>
+<p>Existe um ponto natural em que podemos retornar ao sistema operacional a memória
+da qual precisa nossa <code>String</code>: quando <code>s</code> sai de escopo. Quando uma variável
+sai de escopo, o Rust chama para nós uma função especial. Essa função é chamada
+<code>drop</code>, e é aí que o autor de <code>String</code> pode colocar o código que retorna
+a memória. Rust chama <code>drop</code> automaticamente ao fechar chaves (<code>}</code>).</p>
+<blockquote>
+<p>Nota: Em C++, esta forma de desalocar recursos no fim do tempo de vida útil de
+um item às vezes é chamado de <em>Resource Acquisition Is Initialization</em> (RAII,
+do inglês, Aquisição de Recurso É Inicialização). A função <code>drop</code> em Rust vai
+lhe ser bastante familar se você já tiver usado padrões RAII.</p>
+</blockquote>
+<p>Este padrão tem um profundo impacto na forma de escrever código em Rust. Pode
+parecer simples agora, mas o comportamento do código pode ser inesperado em
+situações mais complicadas, quando queremos que múltiplas variáveis usem os
+dados que alocamos na heap. Vamos explorar algumas dessas situações agora.</p>
+<h4><a class="header" href="#formas-de-interação-entre-variáveis-e-dados-move" id="formas-de-interação-entre-variáveis-e-dados-move">Formas de Interação Entre Variáveis e Dados: <em>Move</em></a></h4>
+<p>Múltiplas variáveis podem interagir com os mesmos dados de diferentes formas em
+Rust. Vamos ver um exemplo usando um número inteiro na Listagem 4-2:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+let y = x;
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 4-2: Atribuindo o valor inteiro da variável <code>x</code>
+para <code>y</code>.</span></p>
+<p>Provavelmente podemos advinhar o que isto faz com base nas nossas experiências
+com outras linguagens: &quot;Associe o valor <code>5</code> a <code>x</code>; depois faça uma cópia do
+valor em <code>x</code> e a associe a <code>y</code>.&quot; Agora temos duas variáveis, <code>x</code> e <code>y</code>, e ambas
+são iguais a <code>5</code>. É isto mesmo que acontece, porque números inteiros são valores
+simples que possuem um tamanho fixo e conhecido, e esses dois valores <code>5</code> são
+colocados na pilha.</p>
+<p>Agora vamos ver a versão usando <code>String</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;texto&quot;);
+let s2 = s1;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Isso parece bem similar ao código anterior, então poderíamos assumir que
+funcionaria da mesma forma, isto é, a segunda linha faria uma cópia do valor em
+<code>s1</code> e a associaria a <code>s2</code>. Mas não é exatamente isso que acontece.</p>
+<p>Para explicar isso mais detalhadamente, vamos ver como a <code>String</code> funciona por
+baixo dos panos na Figura 4-1. Uma <code>String</code> é feita de três partes, mostradas
+à esquerda: um ponteiro para a memória que guarda o conteúdo da string, um
+tamanho, e uma capacidade. Este grupo de dados é armazenado na pilha. No lado
+direito está a memória na heap que guarda o conteúdo.</p>
+<img alt="String na memória" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
+<p><span class="caption">Figura 4-1: Representação na memória de uma <code>String</code>
+contendo o valor <code>&quot;texto&quot;</code> associado a <code>s1</code>.</span></p>
+<p>O tamanho representa quanta memória, em bytes, o conteúdo da <code>String</code> está
+usando atualmente. A capacidade é a quantidade total de memória, em bytes, que
+a <code>String</code> recebeu do sistema operacional. A diferença entre tamanho e
+capacidade é importante, mas não neste contexto, então não há problema em
+ignorar a capacidade por enquanto.</p>
+<p>Quando atribuímos <code>s1</code> a <code>s2</code>, os dados da <code>String</code> são copiados, o que
+significa que estamos copiando o ponteiro, o tamanho e a capacidade que estão na
+pilha. Não estamos copiando os dados que estão na heap, aos quais o ponteiro se
+refere. Em outras palavras, a representação dos dados na memória ocorre como
+na Figura 4-2.</p>
+<img alt="s1 e s2 apontando para o mesmo valor" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
+<p><span class="caption">Figura 4-2: Representação na memória da variável <code>s2</code>, que
+tem uma cópia do ponteiro, tamanho e capacidade de <code>s1</code>.</span></p>
+<p>A representação <em>não</em> ocorre como na Figura 4-3, que é como ficaria a memória se
+o Rust também copiasse os dados da heap. Se o Rust fizesse isso, a operação
+<code>s2 = s1</code> seria potencialmente bastante custosa em termos de desempenho em tempo
+de execução caso os dados na heap fossem grandes.</p>
+<img alt="s1 e s2 em dois lugares" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
+<p><span class="caption">Figura 4-3: Outra possibilidade do que <code>s2 = s1</code> poderia
+fazer se o Rust também copiasse os dados da heap.</span></p>
+<p>Anteriormente, dissemos que, quando uma variável sai de escopo, o Rust
+automaticamente chama a função <code>drop</code> e limpa a memória da heap para esta
+variável. Mas a Figura 4-2 mostra que os dois ponteiros estão apontando para o
+mesmo lugar. Isso é um problema: quando <code>s2</code> e <code>s1</code> saem de escopo, os dois vão
+tentar liberar a mesma memória. Isso é conhecido como erro de <em>double free</em>
+(liberação dupla), e é um dos bugs de segurança de memória que mencionamos
+anteriormente. Liberar memória duas vezes pode levar à corrupção da memória,
+o que pode, por sua vez, trazer potenciais vulnerabilidades de segurança.</p>
+<p>Para garantir a segurança de memória, há um outro detalhe sobre o que acontece
+nesta situação em Rust. Em vez de tentar copiar a memória alocada, o Rust
+considera que <code>s1</code> deixa de ser válida, e portanto, o Rust não precisa liberar
+nenhuma memória quando <code>s1</code> sai de escopo. Veja só o que acontece quando você
+tenta usar <code>s1</code> depois que <code>s2</code> é criada, não vai funcionar:</p>
+<pre><code class="language-rust ignore">let s1 = String::from(&quot;texto&quot;);
+let s2 = s1;
+
+println!(&quot;{}&quot;, s1);
+</code></pre>
+<p>Você vai ter um erro como este, porque o Rust lhe impede de usar a referência
+que foi invalidada:</p>
+<pre><code class="language-text">error[E0382]: use of moved value: `s1`
+ --&gt; src/main.rs:5:20
+  |
+3 |     let s2 = s1;
+  |         -- value moved here
+4 |
+5 |     println!(&quot;{}&quot;, s1);
+  |                    ^^ value used here after move
+  |
+  = note: move occurs because `s1` has type `std::string::String`, which does
+  not implement the `Copy` trait
+</code></pre>
+<p>Se você já ouviu os termos &quot;cópia rasa&quot; e &quot;cópia profunda&quot; (<em>shallow copy</em> e
+<em>deep copy</em>) enquanto trabalhava com outras linguagens, o conceito de copiar o
+ponteiro, tamanho e capacidade sem copiar os dados provavelmente parece uma
+cópia rasa. Mas como o Rust também invalida a primeira variável, em vez de
+chamar isto de cópia rasa, isto é conhecido como um <em>move</em>. Aqui poderíamos
+dizer que <code>s1</code> foi <em>movida</em> para <code>s2</code>. Então, o que realmente acontece é
+mostrado na Figura 4-4.</p>
+<img alt="s1 movida para s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
+<p><span class="caption">Figura 4-4: Representação na memória depois de <code>s1</code> ter
+sido invalidada.</span></p>
+<p>Isso resolve o nosso problema! Tendo apenas <code>s2</code> válida, quando ela sair de
+escopo, somente ela vai liberar a memória, e pronto.</p>
+<p>Ademais, isto implica uma decisão de projeto: Rust nunca vai criar <em>deep copies</em>
+dos seus dados. Logo, para qualquer cópia <em>automática</em> que aconteça, pode-se
+assumir que ela não será custosa em termos de desempenho em tempo de execução. </p>
+<h4><a class="header" href="#formas-de-interação-entre-variáveis-e-dados-clone" id="formas-de-interação-entre-variáveis-e-dados-clone">Formas de Interação Entre Variáveis e Dados: Clone</a></h4>
+<p>Se nós <em>queremos</em> fazer uma cópia profunda dos dados da <code>String</code> que estão na
+heap, e não apenas os dados que estão na pilha, podemos usar um método comum
+chamado <code>clone</code>. Vamos discutir sintaxe de métodos no Capítulo 5, mas como os
+métodos constituem uma característica comum em várias linguagens de programação,
+você provavelmente já os viu antes.</p>
+<p>Aqui está um exemplo de uso do método <code>clone</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s1 = String::from(&quot;texto&quot;);
+let s2 = s1.clone();
+
+println!(&quot;s1 = {}, s2 = {}&quot;, s1, s2);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Isto funciona bem, e é assim que você pode, explicitamente, produzir o
+comportamento mostrado na Figura 4-3, onde os dados da heap <em>são</em> copiados.</p>
+<p>Quando você ver uma chamada para <code>clone</code>, você sabe que algum código arbitrário
+está sendo executado, e que este código talvez seja custoso. É um indicador
+visual de que algo diferente está acontecendo.</p>
+<h4><a class="header" href="#dados-somente-da-pilha-copy" id="dados-somente-da-pilha-copy">Dados Somente da Pilha: Copy</a></h4>
+<p>Há um outro detalhezinho de que ainda não falamos. Este código usando números
+inteiros, parte do qual foi mostrado anteriormente na Listagem 4-2, funciona e é
+válido:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+let y = x;
+
+println!(&quot;x = {}, y = {}&quot;, x, y);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Mas este código parece contradizer o que acabamos de aprender: não temos uma
+chamada ao método <code>clone</code>, mas <code>x</code> ainda é válido e não foi movido para <code>y</code>.</p>
+<p>O motivo é que tipos como números inteiros têm um tamanho conhecido em tempo de
+compilação e são armazenados inteiramente na pilha, e por isso, cópias desses
+valores são rápidas de se fazer. Isso significa que não há razão para impedir
+<code>x</code> de ser válido após criarmos a variável <code>y</code>. Em outras palavras, não há
+diferença entre cópia rasa e profunda aqui, então chamar o método <code>clone</code> não
+faria nada diferente de uma cópia rasa, por isso podemos deixá-lo de lado.</p>
+<p>O Rust tem uma anotação especial chamada de <em>trait</em> <code>Copy</code>, que podemos colocar
+em tipos como números inteiros, que são armazenados na pilha (falaremos mais
+sobre traits no Capítulo 10). Se um tipo possui o trait <code>Copy</code>, uma variável
+anterior vai continuar sendo utilizável depois de uma atribuição. O Rust não vai
+nos deixar anotar um tipo com o trait <code>Copy</code> se este tipo, ou qualquer uma de
+suas partes, tiver implementado o trait <code>Drop</code>. Se o tipo precisa que algo
+especial aconteça quando o valor sair de escopo e há uma anotação <code>Copy</code> neste
+tipo, vamos ter um erro de compilação. Para aprender sobre como inserir a
+anotação <code>Copy</code> ao seu tipo, veja o Apêndice C em Traits Deriváveis.</p>
+<p>Então quais tipos são <code>Copy</code>? Você pode verificar a documentação de um
+determinado tipo para se certificar, mas como regra geral, qualquer grupo de
+valores simples escalares podem ser <code>Copy</code>, e nada que precise de alocação ou
+que seja uma forma de recurso é <code>Copy</code>. Aqui estão alguns tipos que são <code>Copy</code>:</p>
+<ul>
+<li>Todos os tipos inteiros, como <code>u32</code>.</li>
+<li>O tipo booleano, <code>bool</code>, com valores <code>true</code> e <code>false</code>.</li>
+<li>O tipo caractere, <code>char</code>.</li>
+<li>Todos os tipos de ponto flutuante, como <code>f64</code>.</li>
+<li>Tuplas, mas apenas aquelas que contém tipos que também são <code>Copy</code>.
+<code>(i32, i32)</code> é <code>Copy</code>, mas <code>(i32, String)</code> não.</li>
+</ul>
+<h3><a class="header" href="#ownership-e-funções" id="ownership-e-funções">Ownership e Funções</a></h3>
+<p>A semântica para passar um valor a uma função é similar à de atribuir um valor
+a uma variável. Passar uma variável a uma função irá mover ou copiar, assim como
+acontece em uma atribuição. A Listagem 4-3 tem um exemplo com algumas anotações
+mostrando onde as variáveis entram e saem de escopo:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s = String::from(&quot;texto&quot;);  // s entra em escopo.
+
+    toma_posse(s);                  // move o valor de s para dentro da função...
+                                    // ... e ele não é mais válido aqui.
+
+    let x = 5;                      // x entra em escopo.
+
+    faz_uma_copia(x);               // x seria movido para dentro da função,
+                                    // mas i32 é Copy, então está tudo bem em
+                                    // usar x daqui para a frente.
+
+} // Aqui, x sai de escopo, e depois s. Mas como o valor de s foi movido, nada
+  // de especial acontece.
+
+fn toma_posse(uma_string: String) { // uma_string entra em escopo.
+    println!(&quot;{}&quot;, uma_string);
+} // Aqui, uma_string sai de escopo, e o método `drop` é chamado. A memória que
+  // guarda seus dados é liberada.
+
+fn faz_uma_copia(um_inteiro: i32) { // um_inteiro entra em escopo.
+    println!(&quot;{}&quot;, um_inteiro);
+} // Aqui, um_inteiro sai de escopo. Nada de especial acontece.
+</code></pre></pre>
+<p><span class="caption">Listagem 4-3: Funções com anotações de ownership e
+escopo</span></p>
+<p>Se tentássemos usar <code>s</code> após a chamada para <code>toma_posse</code>, o Rust iria lançar um
+erro de compilação. Essas verificações estáticas nos protegem de certo enganos.
+Tente adicionar um código à função <code>main</code> que usa <code>s</code> e <code>x</code> para ver onde você
+pode usá-los e onde as regras de ownership lhe impedem de fazê-lo.</p>
+<h3><a class="header" href="#retorno-de-valores-e-escopo" id="retorno-de-valores-e-escopo">Retorno de Valores e Escopo</a></h3>
+<p>Retornar valores também pode transferir a posse de um valor. Aqui está um
+exemplo com anotações similares àquelas da Listagem 4-3:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = entrega_valor();           // entrega_valor move o valor retornado
+                                        // para s1.
+
+    let s2 = String::from(&quot;texto&quot;);     // s2 entra em escopo.
+
+    let s3 = pega_e_entrega_valor(s2);  // s2 é movido para dentro da função
+                                        // pega_e_entrega_valor, que também
+                                        // move o valor retornado para s3.
+} // Aqui, s3 sai de escopo e é destruída. s2 sai de escopo, mas já foi movida,
+  // então nada demais acontece. s1 sai de escopo e é destruída.
+
+fn entrega_valor() -&gt; String {               // entrega_valor move o valor
+                                             // retornado para dentro da função
+                                             // que a chamou.
+
+    let uma_string = String::from(&quot;olá&quot;);    // uma_string entra em escopo.
+
+    uma_string                               // uma_string é retornada e movida
+                                             // para a função que chamou
+                                             // entrega_valor.
+}
+
+// pega_e_entrega_valor vai pegar uma String e retorná-la.
+fn pega_e_entrega_valor(uma_string: String) -&gt; String { // uma_string entra em
+                                                        // escopo.
+
+    uma_string  // uma_string é retornada e movida para a função que chamou
+                // pega_e_entrega_valor.
+}
+</code></pre></pre>
+<p>A posse de uma variável segue o mesmo padrão toda vez: atribuir um valor a outra
+variável irá movê-lo. Quando uma variável que inclui dados na heap sai de
+escopo, o valor será destruído pelo método <code>drop</code>, a não ser que os dados tenham
+sido movidos para outra variável.</p>
+<p>Obter e retornar a posse de um valor em cada função é um pouco tedioso. O que
+fazer se queremos deixar uma função usar um valor sem tomar posse dele? É meio
+irritante saber que qualquer coisa que passemos a uma função também precisa ser
+passado de volta se quisermos usá-lo novamente, além de algum possível resultado
+proveniente do corpo da função que também queremos retornar.</p>
+<p>É possível retornar múltiplos valores usando uma tupla, da seguinte forma:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let s1 = String::from(&quot;texto&quot;);
+
+    let (s2, tamanho) = calcula_tamanho(s1);
+
+    println!(&quot;O tamanho de '{}' é {}.&quot;, s2, tamanho);
+}
+
+fn calcula_tamanho(s: String) -&gt; (String, usize) {
+    let tamanho = s.len(); // len() retorna o tamanho de uma String.
+
+    (s, tamanho)
+}
+</code></pre></pre>
+<p>Mas isto é muita cerimônia e trabalho para um conceito que deveria ser comum.
+Para nossa sorte, Rust tem uma ferramenta para este conceito, e ela é chamada de
+<em>referências</em>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch04-00-understanding-ownership.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch04-02-references-and-borrowing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch04-00-understanding-ownership.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch04-02-references-and-borrowing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

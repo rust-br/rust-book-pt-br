@@ -1,0 +1,609 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Definindo uma Enum - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html" class="active"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#definindo-uma-enum" id="definindo-uma-enum">Definindo uma Enum</a></h2>
+<p>Vamos ver um caso em que enums podem ser mais apropriadas do que structs e
+descobrir como elas podem ser úteis. Digamos que estamos trabalhando com
+endereços IP. Atualmente, existem duas versões do protocolo IP que são mais
+utilizadas: a quatro e a seis. Estas são as únicas possibilidades para um
+endereço IP com que o nosso programa vai trabalhar: nós podemos <em>enumerar</em>
+todos os possíveis valores, é daí que vem o nome enumeração.</p>
+<p>Um endereço IP qualquer pode ser ou da versão quatro ou da versão seis, mas
+nunca das duas ao mesmo tempo. Esta propriedade dos endereços IP faz com que a
+enum seja bem apropriada para este caso, pois enums só podem assumir o valor de
+uma de suas variantes. Os endereços de ambas as versões, seja quatro ou seis,
+ainda são, fundamentalmente, endereços IP, e deveriam ser tratados pelo mesmo
+tipo no código em situações que se aplicam a qualquer versão de endereço IP.</p>
+<p>Podemos expressar esse conceito em código definindo uma enum <code>VersaoIp</code> e
+listando os possíveis tipos de que um endereço IP pode ser: <code>V4</code> e <code>V6</code>. Estas
+são as chamadas <em>variantes</em> da enum:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum VersaoIp {
+    V4,
+    V6,
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>VersaoIp</code> é um tipo de dados que agora nós podemos usar em qualquer lugar no
+nosso código.</p>
+<h3><a class="header" href="#valores-de-uma-enum" id="valores-de-uma-enum">Valores de uma Enum</a></h3>
+<p>Podemos criar instâncias de cada uma das duas variantes de <code>VersaoIp</code>, da
+seguinte forma:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">enum VersaoIp {
+</span><span class="boring">    V4,
+</span><span class="boring">    V6,
+</span><span class="boring">}
+</span><span class="boring">
+</span>let quatro = VersaoIp::V4;
+let seis = VersaoIp::V6;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Repare que as variantes pertencem ao <em>namespace</em> da enum, e se usa <code>::</code> para
+separar os dois. Isso é útil porque agora ambos os valores <code>VersaoIp::V4</code> e
+<code>VersaoIp::V6</code> são do mesmo tipo: <code>VersaoIp</code>. Agora nós podemos, por exemplo,
+definir uma função que usa qualquer <code>VersaoIp</code>.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">enum VersaoIp {
+</span><span class="boring">    V4,
+</span><span class="boring">    V6,
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn rotear(versao_ip: VersaoIp) { }
+<span class="boring">}
+</span></code></pre></pre>
+<p>E podemos ainda chamar esta função passando qualquer uma das variantes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">enum VersaoIp {
+</span><span class="boring">    V4,
+</span><span class="boring">    V6,
+</span><span class="boring">}
+</span><span class="boring">
+</span><span class="boring">fn rotear(versao_ip: VersaoIp) { }
+</span><span class="boring">
+</span>rotear(VersaoIp::V4);
+rotear(VersaoIp::V6);
+<span class="boring">}
+</span></code></pre></pre>
+<p>O uso de enums tem ainda mais vantagens. Pensando mais a fundo sobre o nosso
+tipo de endereço IP, ainda não temos uma forma de representar o <em>endereço</em> em
+si, apenas sabemos qual a <em>versão</em> dele. Tendo em vista o que você acabou de
+aprender sobre structs no Capítulo 5, você poderia abordar esse problema assim
+como visto na Listagem 6-1:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum VersaoIp {
+    V4,
+    V6,
+}
+
+struct EnderecoIp {
+    versao: VersaoIp,
+    endereco: String,
+}
+
+let local = EnderecoIp {
+    versao: VersaoIp::V4,
+    endereco: String::from(&quot;127.0.0.1&quot;),
+};
+
+let loopback = EnderecoIp {
+    versao: VersaoIp::V6,
+    endereco: String::from(&quot;::1&quot;),
+};
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 6-1: Representação do endereço e da variante
+<code>VersaoIp</code> de um endereço IP usando uma <code>struct</code></span></p>
+<p>Aqui nós definimos uma struct <code>EnderecoIp</code> que tem dois membros: <code>versao</code>, do
+tipo <code>VersaoIp</code> (que definimos anteriormente) e <code>endereco</code>, do tipo <code>String</code>.
+Temos duas instâncias dessa struct. A primeira, <code>local</code>, tem o valor
+<code>VersaoIp::V4</code> como sua <code>versao</code>, e um endereço associado igual a <code>127.0.0.1</code>.
+A segunda instância, <code>loopback</code>, tem como sua <code>versao</code> a outra variante de
+<code>VersaoIp</code>, <code>V6</code>, e o endereço <code>::1</code> associado a ela. Nós usamos uma struct
+para encapsular os valores de <code>versao</code> e <code>endereco</code>, agora a variante está
+associada ao valor.</p>
+<p>Podemos representar o mesmo conceito de uma forma mais concisa usando apenas
+uma enum, em vez de uma enum dentro de uma struct, colocando dados dentro de
+cada variante da enum, diretamente. Esta nova definição da enum <code>EnderecoIp</code>
+diz que ambas as variantes, <code>V4</code> e <code>V6</code>, terão uma <code>String</code> associada:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum EnderecoIp {
+    V4(String),
+    V6(String),
+}
+
+let local = EnderecoIp::V4(String::from(&quot;127.0.0.1&quot;));
+
+let loopback = EnderecoIp::V6(String::from(&quot;::1&quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Podemos anexar dados a cada variante da enum diretamente, assim não existe mais
+a necessidade de uma struct adicional.</p>
+<p>Há uma outra vantagem de se usar uma enum em vez de uma struct: cada variante
+pode conter dados de diferentes tipos e quantidades. Os endereços IP da versão
+quatro têm sempre quatro componentes numéricas, cada uma com valor de 0 a 255.
+Se quiséssemos representar endereços <code>V4</code> como quatro valores <code>u8</code>, e ao mesmo
+tempo manter os endereços <code>V6</code> como uma <code>String</code>, não poderíamos usar uma
+struct. Já as enums podem facilmente atender a este caso:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum EnderecoIp {
+    V4(u8, u8, u8, u8),
+    V6(String),
+}
+
+let local = EnderecoIp::V4(127, 0, 0, 1);
+
+let loopback = EnderecoIp::V6(String::from(&quot;::1&quot;));
+<span class="boring">}
+</span></code></pre></pre>
+<p>Acabamos de ver algumas possibilidades que poderíamos usar para representar
+endereços IP das duas versões por meio de uma enum. Acontece que essa
+necessidade de representar endereços IP, incluindo sua versão, é tão comum que
+a biblioteca padrão já possui uma definição que podemos usar! (<a href="https://doc.rust-lang.org/std/net/enum.IpAddr.html">Veja a
+documentação em inglês</a><!-- ignore -->). Vamos ver como a biblioteca
+padrão define <code>IpAddr</code>: ele tem basicamente a mesma enum e as mesmas variantes
+que nós definimos e usamos anteriormente, mas os dados do endereço são
+embutidos dentro das variantes na forma de duas structs separadas, que são
+definidas de um jeito diferente pra cada variante.</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Ipv4Addr {
+    // detalhes omitidos
+}
+
+struct Ipv6Addr {
+    // detalhes omitidos
+}
+
+enum IpAddr {
+    V4(Ipv4Addr),
+    V6(Ipv6Addr),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse código mostra que você pode colocar qualquer tipo de dados dentro de uma
+variante de enum: strings, tipos numéricos ou structs, por exemplo. Você pode
+até mesmo incluir outra enum! Além disso, os tipos definidos pela biblioteca
+padrão não são tão mais complicados do que o que talvez você pensaria em fazer.</p>
+<p>Repare que, mesmo havendo um <code>IpAddr</code>definido pela biblioteca padrão, nós ainda
+podemos criar e utilizar nossa própria definição (com o mesmo nome, inclusive)
+sem nenhum conflito, porque não trouxemos a definição da biblioteca padrão para
+dentro do nosso escopo. Falaremos mais sobre a inclusão de tipos em um escopo
+no Capítulo 7.</p>
+<p>Vamos ver outro exemplo de uma enum na Listagem 6-2: esta tem uma grande
+variedade de tipos embutidos nas suas variantes:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Mensagem {
+    Sair,
+    Mover { x: i32, y: i32 },
+    Escrever(String),
+    MudarCor(i32, i32, i32),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 6-2: Enum <code>Mensagem</code>, cujas variantes contêm,
+cada uma, diferentes tipos e quantidades de dados</span></p>
+<p>Esta enum tem quatro variantes de diferentes tipos:</p>
+<ul>
+<li><code>Sair</code> não tem nenhum dado associado.</li>
+<li><code>Mover</code> contém uma struct anônima.</li>
+<li><code>Escrever</code> contém uma única <code>String</code>.</li>
+<li><code>MudarCor</code> contém três valores do tipo <code>i32</code>.</li>
+</ul>
+<p>Definir uma enum com variantes iguais às da Listagem 6-2 é similar a definir
+diferentes tipos de struct, exceto que a enum não usa a palavra-chave <code>struct</code>,
+e todas as variantes são agrupadas dentro do tipo <code>Mensagem</code>. As structs
+seguintes podem guardar os mesmos dados que as variantes da enum anterior:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct MensagemSair; // unit struct
+struct MensagemMover {
+    x: i32,
+    y: i32,
+}
+struct MensagemEscrever(String); // tuple struct
+struct MensagemMudarCor(i32, i32, i32); // tuple struct
+<span class="boring">}
+</span></code></pre></pre>
+<p>Mas se usarmos structs diferentes, cada uma tendo seu próprio tipo, não vamos
+conseguir tão facilmente definir uma função que possa receber qualquer um
+desses tipos de mensagens, assim como fizemos com a enum <code>Mensagem</code>, definida
+na Listagem 6-2, que consiste em um tipo único.</p>
+<p>Há mais uma similaridade entre enums e structs: da mesma forma como podemos
+definir métodos em structs usando <code>impl</code>, também podemos definir métodos em
+enums. Aqui está um método chamado <code>invocar</code>, que poderia ser definido na nossa
+enum <code>Mensagem</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">enum Mensagem {
+</span><span class="boring">    Sair,
+</span><span class="boring">    Mover { x: i32, y: i32 },
+</span><span class="boring">    Escrever(String),
+</span><span class="boring">    MudarCor(i32, i32, i32),
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl Mensagem {
+    fn invocar(&amp;self) {
+        // o corpo do método é definido aqui
+    }
+}
+
+let m = Mensagem::Escrever(String::from(&quot;olá&quot;));
+m.invocar();
+<span class="boring">}
+</span></code></pre></pre>
+<p>O corpo do método usaria o valor <code>self</code> para obter a mensagem sobre a qual o
+método foi chamado. Neste exemplo, criamos a variável <code>m</code>, que contém o valor
+<code>Mensagem::Escrever(String::from(&quot;olá&quot;))</code>, e é isso que <code>self</code> vai ser no corpo
+do método <code>invocar</code> quando <code>m.invocar()</code> for executado.</p>
+<p>Vamos ver agora outra enum da biblioteca padrão que também é muito útil e
+comum: <code>Option</code>.</p>
+<h3><a class="header" href="#a-enum-option-e-suas-vantagens-sobre-valores-nulos" id="a-enum-option-e-suas-vantagens-sobre-valores-nulos">A Enum <code>Option</code> e Suas Vantagens Sobre Valores Nulos</a></h3>
+<p>Na seção anterior, vimos como a enum <code>EnderecoIp</code> nos permite usar o sistema de
+tipos do Rust para codificar em nosso programa mais informação do que apenas os
+dados que queremos representar. Essa seção explora um caso de estudo da
+<code>Option</code>, que é outra enum definida pela biblioteca padrão. O tipo <code>Option</code> é
+muito utilizado, pois engloba um cenário muito comum, em que um valor pode ser
+algo ou pode não ser nada. Expressar esse conceito por meio do sistema de tipos
+significa que o compilador pode verificar se você tratou, ou não, todos os
+casos que deveriam ser tratados, podendo evitar <em>bugs</em> que são extremamente
+comuns em outras linguagens de programação.</p>
+<p>O <em>design</em> de uma linguagem de programação é geralmente tratado em termos de
+quais características são incluídas, mas as que são excluídas também têm 
+importância. Rust não tem o valor nulo (<em>null</em>) que outras linguagens têm. O
+valor nulo quer dizer que não há nenhum valor. Em linguagens que têm essa
+característica, as variáveis sempre estão em um dos dois estados: nulo ou não
+nulo.</p>
+<p>Em uma conferência, Tony Hoare, inventor do valor nulo, disse o seguinte:</p>
+<blockquote>
+<p>Eu o chamo meu erro de um bilhão de dólares. Naquela época, eu estava
+projetando o primeiro sistema abrangente de tipos para referências em uma
+linguagem orientada a objetos. Meu objetivo era garantir que todo uso de
+referências deveria ser absolutamente seguro, com verificação automática
+feita pelo compilador. Mas não pude resistir à tentação de colocar uma
+referência nula, simplesmente porque era tão fácil de implementar. Isso tem
+provocado inúmeros erros, vulnerabilidades, e falhas de sistemas que
+provavelmente causaram um bilhão de dólares de dor e danos nos últimos
+quarenta anos.</p>
+</blockquote>
+<p>O problema com valores nulos é que, se você tentar usar um valor nulo como se
+fosse não nulo, vai acontecer algum tipo de erro. Pelo fato dessa propriedade
+de nulo e não nulo ser tão sutil, é extremamente fácil cometer esse tipo de
+erro.</p>
+<p>Porém, o conceito que o valor nulo tenta expressar ainda é útil: um valor nulo
+representa algo que, por algum motivo, está inválido ou ausente no momento.</p>
+<p>O problema, na verdade, não está no conceito, mas na implementação em
+particular. Por isso, Rust não possui valores nulos, mas sim uma enum que
+engloba o conceito de um valor estar presente ou ausente. Esta enum é a
+<code>Option&lt;T&gt;</code>, que está definida na biblioteca padrão da seguinte forma:
+(<a href="https://doc.rust-lang.org/std/option/enum.Option.html">Veja a documentação em inglês</a><!-- ignore -->).</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Option&lt;T&gt; {
+    Some(T), // algum valor
+    None, // nenhum valor
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A enum <code>Option&lt;T&gt;</code> é tão útil que ela já vem inclusa no prelúdio: você não
+precisa trazê-la explicitamente para o seu escopo. Além disso, o mesmo ocorre
+com suas variantes: você pode usar <code>Some</code> e <code>None</code> diretamente sem prefixá-las
+com <code>Option::</code>. <code>Option&lt;T&gt;</code> continua sendo uma enum como qualquer outra, e
+<code>Some(T)</code> e <code>None</code> ainda são variantes do tipo <code>Option&lt;T&gt;</code>.</p>
+<p>A sintaxe do <code>&lt;T&gt;</code> é uma característica do Rust de que não falamos ainda.
+Trata-se de um parâmetro de tipo genérico, vamos abordá-lo com mais detalhe no
+Capítulo 10. Por ora, tudo que você precisa saber é que <code>&lt;T&gt;</code> significa que a
+variante <code>Some</code> da enum <code>Option</code> pode conter um dado de qualquer tipo. Aqui vão
+alguns exemplos de <code>Option</code> contendo tipos de número e texto:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let algum_numero = Some(5);
+let algum_texto = Some(&quot;um texto&quot;);
+
+let numero_ausente: Option&lt;i32&gt; = None;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Se usamos <code>None</code> em vez de <code>Some</code>, precisamos dizer ao Rust qual é o tipo de
+<code>Option&lt;T&gt;</code> que nós temos, porque o compilador não consegue inferir qual tipo
+estará contido na variante <code>Some</code> apenas olhando para um valor <code>None</code>.</p>
+<p>Quando temos um <code>Some</code>, sabemos que um valor está presente, contido dentro do
+<code>Some</code>. Já quando temos um <code>None</code>, de certa forma, significa o mesmo que um
+valor nulo: não temos um valor que seja válido. Então por que a <code>Option&lt;T&gt;</code> é
+tão melhor que usar um valor nulo?</p>
+<p>Em resumo, é porque <code>Option&lt;T&gt;</code> e <code>T</code> (podendo <code>T</code> ser de qualquer tipo) são
+tipos diferentes, por isso, o compilador não vai permitir usar um valor do tipo
+<code>Option&lt;T&gt;</code> como se ele definitivamente tivesse um valor válido. Por exemplo,
+o código seguinte não vai compilar, porque ele está tentando somar um <code>i8</code> a um
+<code>Option&lt;i8&gt;</code>:</p>
+<pre><code class="language-rust ignore">let x: i8 = 5;
+let y: Option&lt;i8&gt; = Some(5);
+
+let soma = x + y;
+</code></pre>
+<p>Quando executamos esse código, temos uma mensagem de erro como essa:</p>
+<pre><code class="language-text">error[E0277]: the trait bound `i8: std::ops::Add&lt;std::option::Option&lt;i8&gt;&gt;` is
+not satisfied
+ --&gt;
+  |
+5 |     let sum = x + y;
+  |                 ^ no implementation for `i8 + std::option::Option&lt;i8&gt;`
+  |
+</code></pre>
+<p>Intenso! O que essa mensagem quer dizer é que o Rust não consegue entender como
+somar um <code>i8</code> e um <code>Option&lt;i8&gt;</code>, porque eles são de tipos diferentes. Quando
+temos um valor de um tipo como <code>i8</code> em Rust, o compilador tem certeza de que
+temos sempre um valor válido. Podemos prosseguir com confiança, sem ter de
+verificar se o valor é nulo antes de usá-lo. Somente quando temos um
+<code>Option&lt;i8&gt;</code> (ou qualquer que seja o tipo com que estamos trabalhando), vamos
+ter de nos preocupar com a possibilidade de não haver um valor, e o compilador
+vai se certificar de que nós estamos tratando este caso antes de usar o valor.</p>
+<p>Em outras palavras, você tem que converter um <code>Option&lt;T&gt;</code> em um <code>T</code> antes de
+poder executar operações com ele. Geralmente, isso ajuda a detectar um dos
+problemas mais comuns com valores nulos: assumir que algo não é nulo quando,
+na verdade, ele é.</p>
+<p>Só de não ter que se preocupar com a possibilidade de ter deixado um valor nulo
+escapar já lhe dá mais confiança em seu código. Pra ter um valor que pode ser
+nulo em algum momento, você precisa, explicitamente, marcá-lo como sendo do
+tipo <code>Option&lt;T&gt;</code>. A partir daí, sempre que for usar o valor, você será obrigado
+a tratar, de forma explícita, o caso do valor sendo nulo. Sempre que houver um
+valor que não seja um <code>Option&lt;T&gt;</code>, você <em>pode</em> assumir, com segurança, que o
+valor não é nulo. Esta foi uma decisão deliberada de projeto do Rust para
+limitar as sutilezas dos valores nulos e aumentar a segurança do código.</p>
+<p>Então, como obter o valor <code>T</code> da variante <code>Some</code> quando se tem um <code>Option&lt;T&gt;</code>,
+para que se possa usar seu valor? A enum <code>Option&lt;T&gt;</code> possui diversos métodos
+que são úteis em uma variedade de situações, você pode pesquisá-los na
+<a href="https://doc.rust-lang.org/std/option/enum.Option.html">documentação</a><!-- ignore --> (em inglês). Será extremamente útil na sua
+jornada com Rust se familizarizar com os métodos da enum <code>Option&lt;T&gt;</code>.</p>
+<p>Em geral, pra usar um valor <code>Option&lt;T&gt;</code>, queremos ter um código que trate cada
+uma das variantes. Queremos um código que só será executado quando tivermos um
+valor <code>Some(T)</code>, e esse código terá permissão para usar o valor <code>T</code> que está
+embutido. Queremos também um outro código que seja executado se tivermos um
+valor <code>None</code>, e esse código não terá um valor <code>T</code> disponível. A expressão
+<code>match</code> é uma instrução de controle de fluxo que faz exatamente isso quando
+usada com enums: ela executa códigos diferentes dependendo de qual variante
+tiver a enum, e esse código poderá usar os dados contidos na variante
+encontrada.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch06-00-enums.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch06-02-match.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch06-00-enums.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch06-02-match.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

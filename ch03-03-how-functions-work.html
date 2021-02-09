@@ -1,0 +1,496 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Funções - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html" class="active"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#funções" id="funções">Funções</a></h1>
+<p>Funções são difundidas em códigos em Rust. Você já viu uma das mais
+importantes funções da linguagem: a função <code>main</code>, que é o
+ponto de entrada de diversos programas. Você também já viu a notação <code>fn</code>, que permite você
+declarar uma nova função.</p>
+<p>Códigos em Rust usam, por convenção, o estilo <em>snake case</em> para nomes de função e
+variável. No snake case, todas as letras são minúsculas e sublinhado (underline) separa as palavras.
+Aqui está um programa que contém uma definição de função de exemplo:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Olá, mundo!&quot;);
+
+    outra_funcao();
+}
+
+fn outra_funcao() {
+    println!(&quot;Outra função.&quot;);
+}
+</code></pre></pre>
+<p>As definições de funções em Rust iniciam com <code>fn</code> e tem um par de parênteses
+depois do nome da função. As chaves dizem ao compilador onde o
+corpo da função começa e termina.</p>
+<p>Podemos chamar qualqer função que tenhamos definido, inserindo seu nome, seguido de um
+conjunto de parenteses. Pelo fato da <code>outra_funcao</code> ter sido definida no programa, ela pode
+ser chamada dentro da função <code>main</code>. Note que definimos <code>outra_funcao</code>
+<em>depois</em> da função <code>main</code>; poderíamos ter definido antes
+também. Rust não se importa onde você definiu suas funções, apenas que elas foram
+definidas em algum lugar.</p>
+<p>Vamos começar um novo projeto binário, chamado <em>funcoes</em> para explorar mais
+funções. Coloque o exemplo <code>outra_funcao</code> em <em>src/main.rs</em> e execute-o. Você
+verá a seguinte saída:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling funcoes v0.1.0 (file:///projects/funcoes)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.28 secs
+     Running `target/debug/funcoes`
+Olá, mundo!
+Outra função.
+</code></pre>
+<p>As linhas são executadas na ordem em que aparecem na função <code>main</code>.
+Primeiro, a mensagem &quot;Olá, mundo!&quot; é exibida, e então
+<code>outra_funcao</code> é chamada e exibida a mensagem.</p>
+<h3><a class="header" href="#parâmetros-de-função" id="parâmetros-de-função">Parâmetros de função</a></h3>
+<p>Funções também podem ser definidas tendo <em>parâmetros</em>, que são variáveis especiais
+que fazem parte da assinatura da função. Quando uma função tem parâmetros, você
+pode fornecer tipos específicos para esses parâmetros. Tecnicamente, os
+valores definidos são chamados de <em>argumentos</em>, mas informalmente, as pessoas tendem
+a usar as palavras <em>parâmetro</em> e <em>argumento</em> para falar tanto de
+variáveis da definição da função como os valores passados quando você
+chama uma função.</p>
+<p>A seguinte versão (reescrita) da <code>outra_funcao</code> mostra como os parâmetros
+aparecem no Rust:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    outra_funcao(5);
+}
+
+fn outra_funcao(x: i32) {
+    println!(&quot;O valor de x é: {}&quot;, x);
+}
+</code></pre></pre>
+<p>Tente executar este programa; você verá a seguinte saída:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling funcoes v0.1.0 (file:///projects/funcoes)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.21 secs
+     Running `target/debug/funcoes`
+O valor de x é: 5
+</code></pre>
+<p>A declaração de <code>outra_funcao</code> tem um parâmetro chamado <code>x</code>. O tipo do
+<code>x</code> é especificado como <code>i32</code>. Quando <code>5</code> é passado para a <code>outra_funcao</code>, a macro
+<code>println!</code> coloca <code>5</code> onde o par de chaves estava na string
+de formato.</p>
+<p>Nas assinaturas de função, você <em>deve</em> declarar o tipo de cada parâmetro. Essa é
+decisão deliberada no design do Rust: exigir anotações de tipo na definição da função,
+significa que o compilador quase nunca precisará que as use em outro lugar do código
+para especificar o que você quer.</p>
+<p>Quando você precisa que uma função tenha vários parâmetros, separe as declarações de parâmetros
+com vírgula, como a seguir:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    outra_funcao(5, 6);
+}
+
+fn outra_funcao(x: i32, y: i32) {
+    println!(&quot;O valor de x é: {}&quot;, x);
+    println!(&quot;O valor de y é: {}&quot;, y);
+}
+</code></pre></pre>
+<p>Este exemplo cria uma função com dois parâmetros, ambos com o 
+tipo <code>i32</code>. Então a função exibe os valores de ambos os parâmetros. Note que os
+parâmetros de função não precisam ser do mesmo tipo, isto apenas
+aconteceu neste exemplo.</p>
+<p>Vamos tentar executar este código. Substitua o programa <em>src/main.rs</em>, atualmente em seu projeto <em>funcoes</em>
+com o exemplo anterior e execute-o usando <code>cargo run</code>:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling funcoes v0.1.0 (file:///projects/funcoes)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
+     Running `target/debug/funcoes`
+O valor de x é: 5
+O valor de y é: 6
+</code></pre>
+<p>Porque nós chamamos a função com <code>5</code> sendo o valor de<code> x</code> e <code>6</code> é passado
+como o valor de <code>y</code>, as duas cadeias são impressas com esses valores.</p>
+<h3><a class="header" href="#corpos-de-função" id="corpos-de-função">Corpos de função</a></h3>
+<p>Corpos de função são constituídos por uma série de declarações que terminam,
+opcionalmente, em uma expressão. Até agora, foram apresentadas apenas funções sem uma expressão final,
+mas você viu uma expressão como parte de instruções. Porque Rust é uma
+linguagem baseada em expressão, essa é uma importante distinção a ser entendida.
+Outras linguagens não têm as mesmas distinções, então, vamos ver o que são
+declarações e expressões e como elas afetam o corpo
+das funções.</p>
+<h3><a class="header" href="#declarações-e-expressões" id="declarações-e-expressões">Declarações e Expressões</a></h3>
+<p>Na verdade, já usamos declarações e expressões. <em>Declarações</em> são
+instruções que executam alguma ação e não retornam um resultado. E <em>expressões</em>
+retornam um resultado. Vamos ver alguns exemplos.</p>
+<p>Criar uma variável e atribuir um valor a ela com a palavra-chave <code>let</code> é uma declaração.
+Na Listagem 3-1, <code>let y = 6;</code> é uma declaração:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let y = 6;
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 3-1: A declaração da função <code>main</code> contendo uma declaração.</span></p>
+<p>Definições de função também são definições; todo o exemplo
+é uma declaração em si.</p>
+<p>Definições não retornam valores. Assim sendo, você não pode atribuir uma declaração <code>let</code> para
+outra variável, como o código a seguir tenta fazer; você receberá um erro:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let x = (let y = 6);
+}
+</code></pre>
+<p>Quando você rodar esse programa, o erro será o seguinte:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling funcoes v0.1.0 (file:///projects/funcoes)
+error: expected expression, found statement (`let`)
+ --&gt; src/main.rs:2:14
+  |
+2 |     let x = (let y = 6);
+  |              ^^^
+  |
+  = note: variable declaration using `let` is a statement
+</code></pre>
+<p>A declaração <code>let y = 6</code> não retorna um valor, então não existe nada para o
+<code>x</code> se ligar. Isso é diferente do que acontece em
+outras linguagens, como
+C e Ruby, onde a atribuição retorna o valor atribuído. Nestas linguagens, você pode escrever <code>x = y = 6</code> e ter ambos, <code>x</code> e <code>y</code> contendo o valor
+<code>6</code>; esse não é o caso em Rust.</p>
+<p>Expressões avaliam algo e compõem a maior parte do código que
+você escreverá em Rust. Considere uma simples operação matemática, como um <code>5 + 6</code>, que
+é uma expressão que avalia o valor <code>11</code>. Expressões podem fazer parte de
+declarações: na Listagem 3-1, o <code>6</code> na declaração <code>let y = 6;</code> é uma
+expressão que avalia o valor <code>6</code>. A chamada de função é uma
+expressão. Chamar uma macro é uma expressão. O bloco que vamos usar para criar
+um novo escopo, <code>{}</code>, é uma expressão, por exemplo:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 5;
+
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!(&quot;O valor de y é: {}&quot;, y);
+}
+</code></pre></pre>
+<p>A expressão:</p>
+<pre><code class="language-rust ignore">{
+    let x = 3;
+    x + 1
+}
+</code></pre>
+<p>é um bloco que, nesse exemplo, avalia <code>4</code>. Esse valor fica vinculado ao <code>y</code>
+como parte da declaração <code>let</code>. Note o  <code>x + 1</code> sem um ponto e vírgula no final, que é diferente da maioria das linhas vistas até agora.
+Expressões não terminam com ponto e vírgula.
+Se você adicionar um ponto e vírgula ao fim de uma expressão,
+você a transforma em uma declaração, que então não retornará um valor.
+Tenha isso em mente, enquanto explora os valores e expressões de retorno da função a seguir.</p>
+<h3><a class="header" href="#funções-com-valor-de-retorno" id="funções-com-valor-de-retorno">Funções com valor de retorno</a></h3>
+<p>Funções podem retornar valores para o código que os chama. Não nomeamos valores de
+retorno, mas declaramos o tipo deles depois de uma seta (<code>-&gt;</code>). Em Rust, o valor de retorno
+da função é sinônimo do valor da expressão
+final no bloco do corpo de uma função. Você pode retornar cedo de uma função usando
+a palavra-chave <code>return</code> e especificando um valor, mas a maioria das funções retorna
+a última expressão implicitamente. Veja um exemplo de uma função que retorna um
+valor:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn cinco() -&gt; i32 {
+    5
+}
+
+fn main() {
+    let x = cinco();
+
+    println!(&quot;O valor de x é: {}&quot;, x);
+}
+</code></pre></pre>
+<p>Não há chamadas de função, macros ou até mesmo declarações <code>let</code> na função<code> cinco</code></p>
+<ul>
+<li>apenas o número <code>5</code> por si só. Essa é uma função perfeitamente válida em
+Rust. Observe que o tipo de retorno da função também é especificado como <code>-&gt; i32</code>. Tente
+executar este código; a saída deve ficar assim:</li>
+</ul>
+<pre><code class="language-text">$ cargo run
+   Compiling funcoes v0.1.0 (file:///projects/funcoes)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
+     Running `target/debug/funcoes`
+O valor de x é: 5
+</code></pre>
+<p>O <code>5</code> em<code> cinco</code> é o valor de retorno da função, e é por isso que o tipo de retorno
+é <code>i32</code>. Vamos verificar isso com mais detalhes. Existem dois bits importantes:
+primeiro, a linha <code>let x = cinco ();</code> mostra que estamos usando o valor de retorno de uma
+função para inicializar uma variável. Porque a função <code>cinco</code> retorna um<code> 5</code>,
+essa linha é a mesma que a seguinte:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Em segundo lugar, a função <code>cinco</code> não tem parâmetros e define o tipo de
+valor de retorno, mas o corpo da função é um <code>5</code> solitário sem ponto e vírgula
+porque é uma expressão cujo valor queremos retornar.</p>
+<p>Vamos ver outro exemplo:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = soma_um(5);
+
+    println!(&quot;O valor de x é: {}&quot;, x);
+}
+
+fn soma_um(x: i32) -&gt; i32 {
+    x + 1
+}
+</code></pre></pre>
+<p>A execução deste código irá imprimir <code>O valor de x é: 6</code>. Mas se colocarmos um
+ponto e vírgula no final da linha que contém <code>x + 1</code>, alterando-o de
+expressão para uma declaração, receberemos um erro.</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let x = soma_um(5);
+
+    println!(&quot;O valor de x é: {}&quot;, x);
+}
+
+fn soma_um(x: i32) -&gt; i32 {
+    x + 1;
+}
+</code></pre>
+<p>Executar este código produz um erro, da seguinte maneira:</p>
+<pre><code class="language-text">error[E0308]: mismatched types
+ --&gt; src/main.rs:7:28
+  |
+7 |   fn soma_um(x: i32) -&gt; i32 {
+  |  ____________________________^
+8 | |     x + 1;
+  | |          - help: consider removing this semicolon
+9 | | }
+  | |_^ expected i32, found ()
+  |
+  = note: expected type `i32`
+             found type `()`
+</code></pre>
+<p>A principal mensagem de erro, &quot;tipos incompatíveis&quot;, revela o problema central com este
+código. A definição da função <code>soma_um</code> diz que retornará uma
+<code>i32</code>, mas as declarações não avaliam um valor expresso por<code>()</code>,
+a tupla vazia. Portanto, nada é retornado, o que contradiz a função
+definição e resulta em erro. Nesta saída, Rust fornece uma mensagem para
+possivelmente ajudar a corrigir este problema: sugere a remoção do ponto e vírgula, que
+iria corrigir o erro.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch03-02-data-types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch03-04-comments.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch03-02-data-types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch03-04-comments.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,1093 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Jogo de Adivinhação - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html" class="active"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#jogo-de-adivinhação" id="jogo-de-adivinhação">Jogo de Adivinhação</a></h1>
+<p>Vamos entrar de cabeça no Rust e colocar a mão na massa! Este capítulo vai lhe
+apresentar alguns conceitos bem comuns no Rust, mostrando como usá-los em um
+programa de verdade. Você vai aprender sobre <code>let</code>, <code>match</code>, métodos, funções
+associadas, crates externos, e mais! Os capítulos seguintes vão explorar essas
+ideias em mais detalhes. Neste capítulo, você vai praticar o básico.</p>
+<p>Vamos implementar um clássico problema de programação para iniciantes: um jogo
+de adivinhação. Eis como ele funciona: o programa vai gerar um número inteiro
+aleatório entre 1 e 100. Então, ele vai pedir ao jogador que digite um palpite.
+Após darmos nosso palpite, ele vai nos indicar se o palpite é muito baixo ou
+muito alto. Uma vez que o palpite estiver correto, ele vai nos dar os parabéns e
+sair.</p>
+<h2><a class="header" href="#preparando-um-novo-projeto" id="preparando-um-novo-projeto">Preparando um Novo Projeto</a></h2>
+<p>Para iniciar um novo projeto, vá ao seu diretório de projetos que você criou no
+Capítulo 1, e execute os comandos do Cargo a seguir:</p>
+<pre><code class="language-text">$ cargo new jogo_de_advinhacao --bin
+$ cd jogo_de_advinhacao
+</code></pre>
+<p>O primeiro comando, <code>cargo new</code>, recebe o nome do projeto (<code>jogo_de_advinhacao</code>)
+como primeiro argumento. A flag <code>--bin</code> diz ao Cargo que faça um projeto
+binário, similar ao do Capítulo 1. O segundo comando muda a pasta atual para o
+diretório do projeto.</p>
+<p>Confira o arquivo <em>Cargo.toml</em> gerado:</p>
+<p><span class="filename">Arquivo: Cargo.toml</span></p>
+<pre><code class="language-toml">[package]
+name = &quot;jogo_de_advinhacao&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;Seu Nome &lt;voce@exemplo.com&gt;&quot;]
+
+[dependencies]
+</code></pre>
+<p>Se as informações sobre o autor, que o Cargo obtém do seu ambiente, não
+estiverem corretas, faça os reparos necessários e salve o arquivo.</p>
+<p>Assim como no Capítulo 1, <code>cargo new</code> gera um programa &quot;Hello, world!&quot; para nós.
+Confira em <em>src/main.rs</em>:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre></pre>
+<p>Agora vamos compilar esse programa &quot;Hello, world!&quot; e executá-lo de uma vez só
+usando o comando <code>cargo run</code>:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
+     Running `target/debug/jogo_de_advinhacao`
+Hello, world!
+</code></pre>
+<p>O comando <code>run</code> é uma boa opção quando precisamos iterar rapidamente em um
+projeto, que é o caso neste jogo: nós queremos testar rapidamente cada iteração
+antes de movermos para a próxima.</p>
+<p>Abra novamente o arquivo <em>src/main.rs</em>. Escreveremos todo nosso código nele.</p>
+<h2><a class="header" href="#processando-um-palpite" id="processando-um-palpite">Processando um Palpite</a></h2>
+<p>A primeira parte do programa vai pedir uma entrada ao usuário, processar essa
+entrada, e conferir se ela está no formato esperado. Pra começar, vamos permitir
+que o jogador entre com um palpite. Coloque este código no arquivo
+<em>src/main.rs</em>:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">use std::io;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    println!(&quot;Digite o seu palpite.&quot;);
+
+    let mut palpite = String::new();
+
+    io::stdin().read_line(&amp;mut palpite)
+        .expect(&quot;Falha ao ler entrada&quot;);
+
+    println!(&quot;Você disse: {}&quot;, palpite);
+}
+</code></pre>
+<p><span class="caption">Listagem 2-1: Código para ler um palpite do usuário e
+imprimí-lo na tela.</span></p>
+<p>Esse código tem muita informação, vamos ver uma parte de cada vez. Para obter a
+entrada do usuário, e então imprimir o resultado como saída, precisaremos trazer
+ao escopo a biblioteca <code>io</code> (de entrada/saída). A biblioteca <code>io</code> provém da
+biblioteca padrão (chamada de <code>std</code>):</p>
+<pre><code class="language-rust ignore">use std::io;
+</code></pre>
+<p>Por padrão, o Rust traz apenas alguns tipos para o escopo de todos os programas
+no <a href="../../std/prelude/index.html"><em>prelúdio</em></a><!-- ignore -->. Se um tipo que você quiser usar não
+estiver no prelúdio, você terá que importá-lo explicitamente através do <code>use</code>.
+A biblioteca <code>std::io</code> oferece várias ferramentas de entrada/saída, incluindo a
+funcionalidade de ler dados de entrada do usuário.</p>
+<p>Como visto no Capítulo 1, a função <code>main</code> é o ponto de entrada do programa:</p>
+<pre><code class="language-rust ignore">fn main() {
+</code></pre>
+<p>A sintaxe <code>fn</code> declara uma nova função, o <code>()</code> indica que não há parâmetros, e
+o <code>{</code> inicia o corpo da função.</p>
+<p>Como você também já aprendeu no Capítulo 1, <code>println!</code> é uma macro que imprime
+uma string na tela:</p>
+<pre><code class="language-rust ignore">println!(&quot;Advinhe o número!&quot;);
+
+println!(&quot;Digite o seu palpite.&quot;);
+</code></pre>
+<p>Este código está exibindo uma mensagem que diz de que se trata o jogo e solicita
+uma entrada do usuário.</p>
+<h3><a class="header" href="#armazenando-valores-em-variáveis" id="armazenando-valores-em-variáveis">Armazenando Valores em Variáveis</a></h3>
+<p>Próximo passo, vamos criar um local para armazenar a entrada do usuário:</p>
+<pre><code class="language-rust ignore">let mut palpite = String::new();
+</code></pre>
+<p>Agora o programa está ficando interessante! Tem muita coisa acontecendo nesta
+pequena linha. Repare que esta é uma declaração <code>let</code>, que é usada para criar
+<em>variáveis</em>. Segue outro exemplo:</p>
+<pre><code class="language-rust ignore">let foo = bar;
+</code></pre>
+<p>Essa linha cria uma nova variável chamada <code>foo</code>, e a vincula ao valor <code>bar</code>. Em
+Rust, variáveis são imutáveis por padrão. O exemplo a seguir mostra como usar
+<code>mut</code> antes do nome da variável para torná-la mutável:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let foo = 5; // imutável
+let mut bar = 5; // mutável
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Nota: A sintaxe <code>//</code> inicia um comentário, que continua até o fim da linha.
+Rust ignora tudo o que estiver nos comentários.</p>
+</blockquote>
+<p>Agora você sabe que <code>let mut palpite</code> vai introduzir uma variável mutável de
+nome <code>palpite</code>. No outro lado do símbolo <code>=</code> está o valor ao qual <code>palpite</code> está
+vinculado, que é o resultado da chamada <code>String::new</code>, uma função que retorna
+uma nova instância de <code>String</code>. <a href="../../std/string/struct.String.html"><code>String</code></a><!-- ignore --> é um tipo
+fornecido pela biblioteca padrão que representa uma cadeia expansível de
+caracteres codificados em UTF-8.</p>
+<p>A sintaxe <code>::</code> na linha <code>::new</code> indica que <code>new</code> é uma <em>função associada</em> do
+tipo <code>String</code>. Uma função associada é implementada sobre um tipo, neste caso
+<code>String</code>, em vez de uma instância particular de <code>String</code>. Algumas linguagens
+dão a isso o nome <em>método estático</em>.</p>
+<p>Esta função <code>new()</code> cria uma nova <code>String</code> vazia. Você encontrará uma função
+<code>new()</code> em muitos tipos, já que é um nome comum para uma função que produz um
+novo valor de algum tipo.</p>
+<p>Para resumir, a linha <code>let mut palpite = String::new();</code> criou uma variável
+mutável que está atualmente vinculada a uma nova instância vazia de uma
+<code>String</code>. Ufa!</p>
+<p>Lembre-se de que incluímos a funcionalidade de entrada/saída da biblioteca
+padrão por meio do <code>use std::io;</code> na primeira linha do programa. Agora vamos
+chamar uma função associada, <code>stdin</code>, em <code>io</code>:</p>
+<pre><code class="language-rust ignore">io::stdin().read_line(&amp;mut palpite)
+    .expect(&quot;Falha ao ler entrada&quot;);
+</code></pre>
+<p>Se não tivéssemos a linha <code>use std::io</code> no início do programa, poderíamos ter
+escrito esta chamada como <code>std::io::stdin</code>. A função <code>stdin</code> retorna uma
+instância de <a href="../../std/io/struct.Stdin.html"><code>std::io::Stdin</code></a><!-- ignore -->, um tipo que representa
+um manipulador (<em>handle</em>) da entrada padrão do seu terminal.</p>
+<p>A próxima parte do código, <code>.read_line(&amp;mut palpite)</code>, chama o método
+<a href="../../std/io/struct.Stdin.html#method.read_line"><code>read_line</code></a><!-- ignore --> do <em>handle</em> da entrada padrão para obter
+entrada do usuário. Também estamos passando um argumento para <code>read_line</code>:
+<code>&amp;mut palpite</code>.</p>
+<p>O trabalho da função <code>read_line</code> é receber o que o usuário digita na entrada
+padrão e colocar isso numa string, por isso ela recebe essa string como
+argumento. A string do argumento deve ser mutável para que o método consiga
+alterar o seu conteúdo, adicionando a entrada do usuário.</p>
+<p>O símbolo <code>&amp;</code> indica que o argumento é uma <em>referência</em>, o que permite múltiplas
+partes do seu código acessar um certo dado sem precisar criar várias cópias dele
+na memória. Referências são uma característica complexa, e uma das maiores
+vantagens do Rust é o quão fácil e seguro é usar referências. Você não precisa
+conhecer muitos desses detalhes para finalizar esse programa. O Capítulo 4 vai
+explicar sobre referências de forma mais aprofundada. Por enquanto, tudo que
+você precisa saber é que, assim como as variáveis, referências são imutáveis por
+padrão. Por isso, precisamos escrever <code>&amp;mut palpite</code>, em vez de apenas
+<code>&amp;palpite</code>, para fazer com que o palpite seja mutável.</p>
+<p>Ainda não finalizamos completamente esta linha de código. Embora esta seja uma
+única linha de texto, é apenas a primeira parte de uma linha lógica de código. A
+segunda parte é a chamada para este método:</p>
+<pre><code class="language-rust ignore">.expect(&quot;Falha ao ler entrada&quot;);
+</code></pre>
+<p>Quando você chama um método com a sintaxe <code>.foo()</code>, geralmente é bom introduzir
+uma nova linha e outro espaço para ajudar a dividir linhas muito compridas.
+Poderíamos ter feito assim:</p>
+<pre><code class="language-rust ignore">io::stdin().read_line(&amp;mut palpite).expect(&quot;Falha ao ler entrada&quot;);
+</code></pre>
+<p>Porém, uma linha muito comprida fica difícil de ler. Então é melhor dividirmos a
+linha em duas, uma para cada método chamado. Agora vamos falar sobre o que essa
+linha faz.</p>
+<h3><a class="header" href="#tratando-potenciais-falhas-com-o-tipo-result" id="tratando-potenciais-falhas-com-o-tipo-result">Tratando Potenciais Falhas com o Tipo <code>Result</code></a></h3>
+<p>Como mencionado anteriormente, <code>read_line</code> coloca o que o usuário escreve dentro
+da string que passamos como argumento, mas também retorna um valor - neste
+caso, um <a href="../../std/io/type.Result.html"><code>io::Result</code></a><!-- ignore -->. Rust tem uma variedade de
+tipos com o nome <code>Result</code> em sua biblioteca padrão: um <a href="../../std/result/enum.Result.html"><code>Result</code></a>
+genérico e as versões específicas dos submódulos, como <code>io::Result</code>.</p>
+<p>Os tipos <code>Result</code> são <a href="ch06-00-enums.html"><em>enumerações</em></a><!-- ignore -->, comumente chamadas
+de <em>enums</em>. Uma enumeração é um tipo que pode ter um conjunto fixo de valores,
+os quais são chamados de <em>variantes</em> da enum. O Capítulo 6 vai abordar enums em
+mais detalhes.</p>
+<p>Para <code>Result</code>, as variantes são <code>Ok</code> ou <code>Err</code>. <code>Ok</code> indica que a operação teve
+sucesso, e dentro da variante <code>Ok</code> está o valor resultante. <code>Err</code> significa que
+a operação falhou, e contém informações sobre como ou por que isso ocorreu.</p>
+<p>O propósito destes tipos <code>Result</code> é codificar informações de manipulação de
+erros. Valores do tipo <code>Result</code>, assim como qualquer tipo, possuem métodos
+definidos. Uma instância de <code>io::Result</code> tem um <a href="../../std/result/enum.Result.html#method.expect">método <code>expect</code></a><!-- ignore -->
+que você pode chamar. Se esta instância de <code>io::Result</code> é um <code>Err</code>, <code>expect</code> vai
+terminar o programa com erro e mostrar a mensagem que você passou como argumento
+ao <code>expect</code>. Se o método <code>read_line</code> retornar um <code>Err</code>, provavelmente seria o
+resultado de um erro vindo do sistema operacional que está por trás. Se esta
+instância de <code>io::Result</code> é um <code>Ok</code>, <code>expect</code> vai obter o valor contido no <code>Ok</code>
+e retorná-lo para que você possa usá-lo. Neste caso, o valor é o número de bytes
+dos dados que o usuário inseriu através da entrada padrão.</p>
+<p>Se não chamarmos <code>expect</code>, nosso programa vai compilar, mas vamos ter um aviso:</p>
+<pre><code class="language-text">$ cargo build
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+warning: unused `std::result::Result` which must be used
+  --&gt; src/main.rs:10:5
+   |
+10 |     io::stdin().read_line(&amp;mut palpite);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: #[warn(unused_must_use)] on by default
+</code></pre>
+<p>Rust avisa que não usamos o valor <code>Result</code>, retornado por <code>read_line</code>, indicando
+que o programa deixou de tratar um possível erro. A maneira correta de suprimir
+o aviso é realmente escrevendo um tratador de erro, mas como queremos que o
+programa seja encerrado caso ocorra um problema, podemos usar <code>expect</code>. Você
+aprenderá sobre recuperação de erros no Capítulo 9.</p>
+<h3><a class="header" href="#exibindo-valores-com-curingas-do-println" id="exibindo-valores-com-curingas-do-println">Exibindo Valores com Curingas do <code>println!</code></a></h3>
+<p>Tirando a chave que delimita a função <code>main</code>, há apenas uma linha mais a ser
+discutida no código que fizemos até agora, que é a seguinte:</p>
+<pre><code class="language-rust ignore">println!(&quot;Você disse: {}&quot;, guess);
+</code></pre>
+<p>Esta linha imprime a string na qual salvamos os dados inseridos pelo usuário. O
+<code>{}</code> é um curinga que reserva o lugar de um valor. Você pode imprimir mais de um
+valor usando <code>{}</code>: o primeiro conjunto de <code>{}</code> guarda o primeiro valor listado
+após a string de formatação, o segundo conjunto guarda o segundo valor, e
+assim por diante. Imprimir múltiplos valores em uma só chamada a <code>println!</code>
+seria assim:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 5;
+let y = 10;
+
+println!(&quot;x = {} e y = {}&quot;, x, y);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Esse código imprime <code>x = 5 e y = 10</code>.</p>
+<h3><a class="header" href="#testando-a-primeira-parte" id="testando-a-primeira-parte">Testando a Primeira Parte</a></h3>
+<p>Vamos testar a primeira parte do jogo de advinhação. Você pode executá-lo usando
+<code>cargo run</code>:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+     Running `target/debug/jogo_de_advinhacao`
+Advinhe o número!
+Digite o seu palpite.
+6
+Você disse: 6
+</code></pre>
+<p>Nesse ponto, a primeira parte do jogo está feita: podemos coletar entrada do
+teclado e mostrá-la na tela.</p>
+<h2><a class="header" href="#gerando-um-número-secreto" id="gerando-um-número-secreto">Gerando um Número Secreto</a></h2>
+<p>A seguir, precisamos gerar um número secreto que o usuário vai tentar advinhar.
+O número secreto deve ser diferente a cada execução, para que o jogo tenha graça
+em ser jogado mais de uma vez. Vamos usar um número aleatório entre 1 e 100,
+para que o jogo não seja tão difícil. Rust ainda não inclui uma funcionalidade
+de geração de números aleatórios em sua biblioteca padrão. Porém, a equipe Rust
+fornece um <a href="https://crates.io/crates/rand">crate <code>rand</code></a>.</p>
+<h3><a class="header" href="#usando-um-crate-para-ter-mais-funcionalidades" id="usando-um-crate-para-ter-mais-funcionalidades">Usando um Crate para Ter Mais Funcionalidades</a></h3>
+<p>Lembre-se que um <em>crate</em> é um pacote de código Rust. O projeto que estamos
+construindo é um <em>crate binário</em>, que é um executável. Já o <code>rand</code> é um
+<em>crate de biblioteca</em>, que contém código cujo objetivo é ser usado por outros
+programas.</p>
+<p>É no uso de crates externos que Cargo realmente brilha. Antes que possamos
+escrever o código usando <code>rand</code>, precisamos modificar o arquivo <em>Cargo.toml</em>
+para incluir o crate <code>rand</code> como uma dependência. Abra o arquivo e adicione
+esta linha no final, abaixo do cabeçalho da seção <code>[dependencies]</code> que o Cargo
+criou para você:</p>
+<p><span class="filename">Arquivo: Cargo.toml</span></p>
+<pre><code class="language-toml">[dependencies]
+
+rand = &quot;0.3.14&quot;
+</code></pre>
+<p>No arquivo <em>Cargo.toml</em>, tudo que vem depois de um cabeçalho é parte de uma
+seção que segue até o início de outra. A seção <code>[dependencies]</code> é onde você diz
+ao Cargo de quais crates externos o seu projeto depende, e quais versões desses
+crates você exige. Neste caso, especificamos o crate <code>rand</code> com a versão
+semântica <code>0.3.14</code>. Cargo compreende <a href="https://semver.org/lang/pt-BR/">Versionamento Semântico</a><!-- ignore -->
+(às vezes chamado <em>SemVer</em>), um padrão para escrever números de versões. O
+número <code>0.3.14</code> é, na verdade, uma forma curta de escrever <code>^0.3.14</code>, que
+significa &quot;qualquer versão que tenha uma API pública compatível com a versão
+0.3.14&quot;.</p>
+<p>Agora, sem mudar código algum, vamos compilar nosso projeto, conforme mostrado
+na Listagem 2-2:</p>
+<pre><code class="language-text">$ cargo build
+    Updating registry `https://github.com/rust-lang/crates.io-index`
+ Downloading rand v0.3.14
+ Downloading libc v0.2.14
+   Compiling libc v0.2.14
+   Compiling rand v0.3.14
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+</code></pre>
+<p><span class="caption">Listagem 2-2: Resultado da execução de <code>cargo build</code>
+depois de adicionar o crate <code>rand</code> como dependência.</span></p>
+<p>Talvez pra você apareçam versões diferentes (mas elas são todas compatíveis com
+o código, graças ao Versionamento Semântico!), e as linhas talvez apareçam em
+ordem diferente.</p>
+<p>Agora que temos uma dependência externa, Cargo busca as versões mais recentes de
+tudo no <em>registro</em>, que é uma cópia dos dados do <a href="https://crates.io">Crates.io</a>.
+Crates.io é onde as pessoas do ecossistema Rust postam seus projetos
+<em>open source</em> para que os outros possam usar.</p>
+<p>Após atualizar o registro, Cargo verifica a seção <code>[dependencies]</code> e baixa todas
+as que você não tem ainda. Neste caso, embora tenhamos listado apenas <code>rand</code>
+como dependência, o Cargo também puxou uma cópia da <code>libc</code>, porque <code>rand</code>
+depende da <code>libc</code> para funcionar. Depois de baixá-las, o Cargo as compila e
+então compila nosso projeto.</p>
+<p>Se, logo em seguida, você executar <code>cargo build</code> novamente sem fazer mudanças,
+não vai aparecer nenhuma mensagem de saída. O Cargo sabe que já baixou e
+compilou as dependências, e você não alterou mais nada sobre elas no seu arquivo
+<em>Cargo.toml</em>. Cargo também sabe que você não mudou mais nada no seu código, e
+por isso não o recompila. Sem nada a fazer, ele simplesmente sai. Se você abrir
+<em>src/main.rs</em>, fizer uma modificação trivial, salvar e compilar de novo, vai
+aparecer uma mensagem de apenas duas linhas:</p>
+<pre><code class="language-text">$ cargo build
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+</code></pre>
+<p>Essas linhas mostram que o Cargo só atualiza o <em>build</em> com a sua pequena mudança
+no arquivo <em>src/main.rs</em>. Suas dependências não mudaram, então o Cargo sabe que
+pode reutilizar o que já tiver sido baixado e compilado para elas. Ele apenas
+recompila a sua parte do código.</p>
+<h4><a class="header" href="#o-arquivo-cargolock-garante-builds-reproduzíveis" id="o-arquivo-cargolock-garante-builds-reproduzíveis">O Arquivo <em>Cargo.lock</em> Garante <em>Builds</em> Reproduzíveis</a></h4>
+<p>O Cargo tem um mecanismo que assegura que você pode reconstruir o mesmo artefato
+toda vez que você ou outra pessoa compilar o seu código. O Cargo vai usar apenas
+as versões das dependências que você especificou, até que você indique o
+contrário. Por exemplo, o que acontece se, na semana que vem, sair a versão
+<code>v0.3.15</code> contendo uma correção de bug, mas também uma regressão que não
+funciona com o seu código?</p>
+<p>A resposta para isso está no arquivo <em>Cargo.lock</em>, que foi criado na primeira
+vez que você executou <code>cargo build</code>, e agora está no seu diretório
+<em>jogo_de_advinhacao</em>. Quando você compila o seu projeto pela primeira vez, o
+Cargo descobre as versões de todas as dependências que preenchem os critérios
+e então as escreve no arquivo <em>Cargo.lock</em>. Quando você compilar o seu projeto
+futuramente, o Cargo verá que o arquivo <em>Cargo.lock</em> existe e usará as versões
+especificadas lá, em vez de refazer todo o trabalho descobrir as versões
+novamente. Isto lhe permite ter um <em>build</em> reproduzível automaticamente. Em
+outras palavras, seu projeto vai continuar com a versão <code>0.3.14</code> até que você
+faça uma atualização explícita, graças ao arquivo <em>Cargo.lock</em>.</p>
+<h4><a class="header" href="#atualizando-um-crate-para-obter-uma-nova-versão" id="atualizando-um-crate-para-obter-uma-nova-versão">Atualizando um Crate para Obter uma Nova Versão</a></h4>
+<p>Quando você <em>quiser</em> atualizar um crate, o Cargo tem outro comando, <code>update</code>,
+que faz o seguinte:</p>
+<ol>
+<li>Ignora o arquivo <em>Cargo.lock</em> e descobre todas as versões mais recentes que
+atendem as suas especificações no <em>Cargo.toml</em>.</li>
+<li>Se funcionar, o Cargo escreve essas versões no arquivo <em>Cargo.lock</em>.</li>
+</ol>
+<p>Mas, por padrão, o Cargo vai procurar as versões maiores que <code>0.3.0</code> e menores
+que <code>0.4.0</code>. Se o crate <code>rand</code> já tiver lançado duas novas versões, <code>0.3.15</code> e
+<code>0.4.0</code>, você verá a seguinte mensagem ao executar <code>cargo update</code>:</p>
+<pre><code class="language-text">$ cargo update
+    Updating registry `https://github.com/rust-lang/crates.io-index`
+    Updating rand v0.3.14 -&gt; v0.3.15
+</code></pre>
+<p>Nesse ponto, você vai notar também uma mudança no seu arquivo <em>Cargo.lock</em>
+dizendo que a versão do crate <code>rand</code> que você está usando agora é a <code>0.3.15</code>. </p>
+<p>Se você quisesse usar a versão <code>0.4.0</code>, ou qualquer versão da série <code>0.4.x</code> do
+<code>rand</code>, você teria que atualizar o seu <em>Cargo.toml</em> dessa forma:</p>
+<pre><code class="language-toml">[dependencies]
+
+rand = &quot;0.4.0&quot;
+</code></pre>
+<p>Na próxima vez que você executar <code>cargo build</code>, o Cargo vai atualizar o registro
+de crates disponíveis e reavaliar os seus requisitos sobre o <code>rand</code> de acordo
+com a nova versão que você especificou.</p>
+<p>Há muito mais a ser dito sobre <a href="http://doc.crates.io">Cargo</a><!-- ignore --> e o <a href="http://doc.crates.io/crates-io.html">seu
+ecossistema</a><!-- ignore --> que vai ser discutido no Capítulo 14,
+mas por ora isto é tudo que você precisa saber. Cargo facilita muito reutilizar
+bibliotecas, de forma que os <em>rustáceos</em> consigam escrever projetos menores que
+são montados a partir de diversos pacotes.</p>
+<h3><a class="header" href="#gerando-um-número-aleatório" id="gerando-um-número-aleatório">Gerando um Número Aleatório</a></h3>
+<p>Agora vamos <em>usar</em>, de fato, o <code>rand</code>. O próximo passo é atualizar o
+<em>src/main.rs</em> conforme mostrado na Listagem 2-3:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    println!(&quot;O número secreto é: {}&quot;, numero_secreto);
+
+    println!(&quot;Digite o seu palpite.&quot;);
+
+    let mut palpite = String::new();
+
+    io::stdin().read_line(&amp;mut palpite)
+        .expect(&quot;Falha ao ler entrada&quot;);
+
+    println!(&quot;Você disse: {}&quot;, palpite);
+}
+</code></pre>
+<p><span class="caption">Listagem 2-3: Mudanças necessárias do código para gerar um
+número aleatório.</span></p>
+<p>Estamos adicionando a linha <code>extern crate rand</code> ao topo do arquivo para indicar
+ao Rust que estamos usando uma dependência externa. Isto também é equivalente a
+um <code>use rand;</code>, assim podemos chamar qualquer coisa que esteja no crate <code>rand</code>
+prefixando-a com <code>rand::</code>.</p>
+<p>Em seguida, adicionamos outra linha <code>use</code>: <code>use rand::Rng</code>. <code>Rng</code> é um trait
+que define métodos a serem implementados pelos geradores de números aleatórios,
+e esse trait deve estar dentro do escopo para que possamos usar esses métodos. O
+Capítulo 10 vai abordar traits em mais detalhes.</p>
+<p>Tem outras duas linhas que adicionamos no meio. A função <code>rand::thread_rng</code> nos
+dá o gerador de números aleatórios que vamos usar, um que é local à <em>thread</em>
+corrente e que é inicializado pelo sistema operacional. Depois, vamos chamar o
+método <code>gen_range</code> no gerador de números aleatórios. Esse método está definido
+pelo trait <code>Rng</code> que trouxemos ao escopo por meio do <code>use rand::Rng</code>. Este
+método recebe dois argumentos e gera um número aleatório entre eles. Ele inclui
+o limite inferior mas exclui o superior, então precisamos passar <code>1</code> e <code>101</code>
+para obter um número de 1 a 100.</p>
+<p>Saber quais traits devem ser usadas e quais funções e métodos de um crate
+devem ser chamados não é nada trivial. As instruções de como usar um crate
+estão na documentação de cada um. Outra coisa boa do Cargo é que você pode rodar
+o comando <code>cargo doc --open</code> que vai construir localmente a documentação
+fornecida por todas as suas dependências e abrí-las no seu navegador. Se você
+estiver interessado em outras funcionalidades do crate <code>rand</code>, por exemplo,
+execute <code>cargo doc --open</code> e clique em <code>rand</code>, no menu ao lado esquerdo.</p>
+<p>A segunda linha que adicionamos imprime o número secreto. Isto é útil enquanto
+estamos desenvolvendo o programa para podermos testá-lo, mas vamos retirá-la da
+versão final. Um jogo não é muito interessante se ele mostra a resposta logo no
+início!</p>
+<p>Tente rodar o programa algumas vezes:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+     Running `target/debug/jogo_de_advinhacao`
+Advinhe o número!
+O número secreto é: 7
+Digite o seu palpite.
+4
+Você disse: 4
+$ cargo run
+     Running `target/debug/jogo_de_advinhacao`
+Advinhe o número!
+O número secreto é: 83
+Digite o seu palpite.
+5
+Você disse: 5
+</code></pre>
+<p>Você já deve obter números aleatórios diferentes, e eles devem ser todos entre 1
+e 100. Bom trabalho!</p>
+<h2><a class="header" href="#comparando-o-palpite-com-o-número-secreto" id="comparando-o-palpite-com-o-número-secreto">Comparando o Palpite com o Número Secreto</a></h2>
+<p>Agora que nós temos a entrada do usuário e o número secreto, vamos compará-los.
+Esta estapa é mostrada na Listagem 2-4:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    println!(&quot;O número secreto é: {}&quot;, numero_secreto);
+
+    println!(&quot;Digite o seu palpite.&quot;);
+
+    let mut palpite = String::new();
+
+    io::stdin().read_line(&amp;mut palpite)
+        .expect(&quot;Falha ao ler entrada&quot;);
+
+    println!(&quot;Você disse: {}&quot;, palpite);
+
+    match palpite.cmp(&amp;numero_secreto) {
+        Ordering::Less =&gt; println!(&quot;Muito baixo!&quot;),
+        Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+        Ordering::Equal =&gt; println!(&quot;Você acertou!&quot;),
+    }
+}
+</code></pre>
+<p><span class="caption">Listagem 2-4: Tratando os possíveis resultados da
+comparação de dois números.</span></p>
+<p>A primeira novidade aqui é outro <code>use</code>, que traz ao escopo um tipo da biblioteca
+padrão chamado <code>std::cmp::Ordering</code>. <code>Ordering</code> é outra enum, igual a <code>Result</code>,
+mas as suas variantes são <code>Less</code>, <code>Greater</code> e <code>Equal</code> (elas significam menor,
+maior e igual, respectivamente). Estes são os três possíveis resultados quando
+você compara dois valores.</p>
+<p>Depois, adicionamos cinco novas linhas no final que usam o tipo <code>Ordering</code>:</p>
+<pre><code class="language-rust ignore">match palpite.cmp(&amp;numero_secreto) {
+    Ordering::Less =&gt; println!(&quot;Muito baixo!&quot;),
+    Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+    Ordering::Equal =&gt; println!(&quot;Você acertou!&quot;),
+}
+</code></pre>
+<p>O método <code>cmp</code> compara dois valores, e pode ser chamado a partir de qualquer
+coisa que possa ser comparada. Ele recebe uma referência de qualquer coisa que
+você queira comparar. Neste caso, está comparando o <code>palpite</code> com o
+<code>numero_secreto</code>. <code>cmp</code> retorna uma variante do tipo <code>Ordering</code>, que trouxemos
+ao escopo com <code>use</code>. Nós usamos uma expressão <a href="ch06-02-match.html"><code>match</code></a><!-- ignore -->
+para decidir o que fazer em seguida, com base em qual variante de <code>Ordering</code> foi
+retornada pelo método <code>cmp</code>, que foi chamado com os valores <code>palpite</code> e
+<code>numero_secreto</code>.</p>
+<p>Uma expressão <code>match</code> é composta de <em>braços</em>. Um braço consiste em um <em>padrão</em>
+mais o código que deve ser executado se o valor colocado no início do <code>match</code> se
+encaixar no padrão deste braço. O Rust pega o valor passado ao <code>match</code> e o
+compara com o padrão de cada braço na sequência. A expressão <code>match</code> e os
+padrões são ferramentas poderosas do Rust que lhe permitem expressar uma
+variedade de situações que seu código pode encontrar, e ajuda a assegurar que
+você tenha tratado todas elas. Essas ferramentas serão abordadas em detalhes nos
+capítulos 6 e 18, respectivamente.</p>
+<p>Vamos acompanhar um exemplo do que aconteceria na expressão <code>match</code> usada aqui.
+Digamos que o usuário tenha colocado 50 como palpite, e o número secreto
+aleatório desta vez é 38. Quando o código compara 50 com 38, o método <code>cmp</code> vai
+retornar <code>Ordering::Greater</code>, porque 50 é maior que 38. <code>Ordering::Greater</code> é o
+valor passado ao <code>match</code>. Ele olha para o padrão <code>Ordering::Less</code> do primeiro
+braço, mas o valor <code>Ordering::Greater</code> não casa com <code>Ordering::Less</code>, então ele
+ignora o código desse braço e avança para o próximo. Já o padrão do próximo
+braço, <code>Ordering::Greater</code>, <em>casa</em> com <code>Ordering::Greater</code>! O código associado a
+este braço vai ser executado e mostrar <code>Muito alto!</code> na tela. A expressão
+<code>match</code> termina porque já não tem mais necessidade de verificar o último braço
+nesse caso particular.</p>
+<p>Porém, o código da Listagem 2-4 ainda não vai compilar. Vamos tentar:</p>
+<pre><code class="language-text">$ cargo build
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+error[E0308]: mismatched types
+  --&gt; src/main.rs:23:21
+   |
+23 |     match palpite.cmp(&amp;numero_secreto) {
+   |                       ^^^^^^^^^^^^^^^ expected struct `std::string::String`, found integral variable
+   |
+   = note: expected type `&amp;std::string::String`
+   = note:    found type `&amp;{integer}`
+
+error: aborting due to previous error
+Could not compile `jogo_de_advinhacao`.
+</code></pre>
+<p>O que este erro está dizendo é que temos <em>tipos incompatíveis</em>. Rust tem um
+sistema de tipos forte e estático. Porém, Rust também tem inferência de tipos.
+Quando escrevemos <code>let palpite = String::new()</code>, Rust foi capaz de inferir que
+<code>palpite</code> deveria ser uma <code>String</code>, então ele não nos faz escrever o tipo. O
+<code>numero_secreto</code>, por outro lado, é de um tipo numérico. Existem alguns tipos
+numéricos capazes de guardar um valor entre 1 e 100: <code>i32</code>, que é um número de
+32 bits; <code>u32</code>, um número de 32 bits sem sinal; <code>i64</code>, um número de 64 bits; e
+mais alguns outros. O tipo numérico padrão do Rust é <code>i32</code>, que é o tipo do
+<code>numero_secreto</code>, a não ser que adicionemos, em algum lugar, uma informação de
+tipo que faça o Rust inferir outro tipo numérico. A razão do erro é que o Rust
+não pode comparar uma string e um tipo numérico.</p>
+<p>Em última análise, queremos converter a <code>String</code> que lemos como entrada em um
+tipo numérico de verdade, de forma que possamos compará-lo numericamente com o
+palpite. Podemos fazer isso com mais duas linhas no corpo da função <code>main</code>:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    println!(&quot;O número secreto é: {}&quot;, numero_secreto);
+
+    println!(&quot;Digite o seu palpite.&quot;);
+
+    let mut palpite = String::new();
+
+    io::stdin().read_line(&amp;mut palpite)
+        .expect(&quot;Falha ao ler entrada&quot;);
+
+    let palpite: u32 = palpite.trim().parse()
+        .expect(&quot;Por favor, digite um número!&quot;);
+
+    println!(&quot;Você disse: {}&quot;, palpite);
+
+    match palpite.cmp(&amp;numero_secreto) {
+        Ordering::Less =&gt; println!(&quot;Muito baixo!&quot;),
+        Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+        Ordering::Equal =&gt; println!(&quot;Você acertou!&quot;),
+    }
+}
+</code></pre>
+<p>As duas linhas novas são:</p>
+<pre><code class="language-rust ignore">let palpite: u32 = palpite.trim().parse()
+    .expect(&quot;Por favor, digite um número!&quot;);
+</code></pre>
+<p>Nós criamos uma variável chamada <code>palpite</code>. Mas espera, o programa já não tinha
+uma variável chamada <code>palpite</code>? Sim, mas o Rust nos permite <em>sombrear</em> o
+<code>palpite</code> anterior com um novo. Isto é geralmente usado em situações em que você
+quer converter um valor de um tipo em outro. O sombreamento nos permite
+reutilizar o nome <code>palpite</code>, em vez de nos forçar a criar dois nomes únicos como
+<code>palpite_str</code> e <code>palpite</code>, por exemplo. (O Capítulo 3 vai cobrir sombreamento em
+mais detalhes).</p>
+<p>Nós vinculamos <code>palpite</code> à expressão <code>palpite.trim().parse()</code>. O <code>palpite</code>, na
+expressão, refere-se ao <code>palpite</code> original contendo a <code>String</code> de entrada do
+usuário. O método <code>trim</code>, em uma instância de <code>String</code>, vai eliminar quaisquer
+espaços em branco no início e no fim. <code>u32</code> pode conter apenas caracteres
+numéricos, mas o usuário precisa pressionar <span class="keystroke">Enter</span>
+para satisfazer o <code>read_line</code>. Quando o usuário pressiona
+<span class="keystroke">Enter</span>, um caractere de nova linha é inserido na
+string. Por exemplo, se o usuário digitar <span class="keystroke">5</span> e
+depois <span class="keystroke">Enter</span>, <code>palpite</code> ficaria assim: <code>5\n</code>. O
+<code>\n</code> representa uma linha nova, a tecla <span class="keystroke">Enter</span>.
+O método <code>trim</code> elimina o <code>\n</code>, deixando apenas <code>5</code>.</p>
+<p>O <a href="../../std/primitive.str.html#method.parse">método <code>parse</code> em strings</a><!-- ignore --> converte uma string para
+algum tipo de número. Dado que ele pode interpretar uma variedade de tipos
+numéricos, precisamos dizer ao Rust qual o tipo exato de número nós queremos, e
+para isso usamos <code>let palpite: u32</code>. Os dois pontos (<code>:</code>) depois de <code>palpite</code>
+informam ao Rust que estamos anotando seu tipo. O Rust tem alguns tipos
+numéricos embutidos, o <code>u32</code> visto aqui é um inteiro de 32 bits sem sinal. É uma
+boa escolha padrão para um número positivo pequeno. Você vai aprender sobre
+outros tipos numéricos no Capítulo 3. Além disso, a anotação <code>u32</code> neste
+programa de exemplo e a comparação com <code>numero_secreto</code> significam que o Rust
+vai inferir que <code>numero_secreto</code> também deve ser um <code>u32</code>. Então agora a
+comparação vai ser feita entre valores do mesmo tipo!</p>
+<p>A chamada para <code>parse</code> poderia facilmente causar um erro. Por exemplo, se a
+string contiver <code>A👍%</code>, não haveria como converter isto em um número. Como ele
+pode falhar, o método <code>parse</code> retorna um <code>Result</code>, assim como o método
+<code>read_line</code>, conforme discutido anteriormente na seção &quot;Tratando Potenciais
+Falhas com o Tipo <code>Result</code>. Vamos tratar este <code>Result</code> da mesma forma usando o
+método <code>expect</code> de novo. Se o <code>parse</code> retornar uma variante <code>Err</code> da enum
+<code>Result</code>, por não conseguir criar um número a partir da string, a chamada ao
+<code>expect</code> vai causar um <em>crash</em> no jogo e exibir a mensagem que passamos a ele.
+Se o <code>parse</code> conseguir converter uma string em um número, ele vai retornar a
+variante <code>Ok</code> da enum <code>Result</code> e <code>expect</code> vai retornar o número que queremos
+extrair do valor <code>Ok</code>.</p>
+<p>Agora vamos executar o programa!</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs
+     Running `target/jogo_de_advinhacao`
+Advinhe o número!
+O número secreto é: 58
+Digite o seu palpite.
+  76
+Você disse: 76
+Muito alto!
+</code></pre>
+<p>Boa! Até mesmo colocando alguns espaços antes de digitar o palpite, o programa
+ainda descobriu que o palpite do usuário é 76. Execute o programa mais algumas
+vezes para verificar os diferentes comportamentos com diferentes tipos de
+entrada: advinhe o número corretamente, digite um número muito alto, e digite um
+número muito baixo.</p>
+<p>Agora já temos a maior parte do jogo funcionando, mas o usuário só consegue dar
+um palpite uma vez. Vamos mudar isso adicionando laços!</p>
+<h2><a class="header" href="#permitindo-múltiplos-palpites-usando-looping" id="permitindo-múltiplos-palpites-usando-looping">Permitindo Múltiplos Palpites Usando <em>Looping</em></a></h2>
+<p>A palavra-chave <code>loop</code> nos dá um laço (<em>loop</em>) infinito. Use-a para dar aos
+usuários mais chances de advinhar o número:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    println!(&quot;O número secreto é: {}&quot;, numero_secreto);
+
+    loop {
+        println!(&quot;Digite o seu palpite.&quot;);
+
+        let mut palpite = String::new();
+
+        io::stdin().read_line(&amp;mut palpite)
+            .expect(&quot;Falha ao ler entrada&quot;);
+
+        let palpite: u32 = palpite.trim().parse()
+            .expect(&quot;Por favor, digite um número!&quot;);
+
+        println!(&quot;Você disse: {}&quot;, palpite);
+
+        match palpite.cmp(&amp;numero_secreto) {
+            Ordering::Less =&gt; println!(&quot;Muito baixo!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+            Ordering::Equal =&gt; println!(&quot;Você acertou!&quot;),
+        }
+    }
+}
+</code></pre>
+<p>Como você pode ver, movemos tudo para dentro do laço a partir da mensagem
+pedindo o palpite do usuário. Certifique-se de indentar essas linhas mais quatro
+espaços cada uma, e execute o programa novamente. Repare que há um novo
+problema, porque o programa está fazendo exatamente o que dissemos para ele
+fazer: pedir sempre outro palpite! Parece que o usuário não consegue sair!</p>
+<p>O usuário pode sempre interromper o programa usando as teclas
+<span class="keystroke">ctrl-c</span>. Mas há uma outra forma de escapar deste
+monstro insaciável que mencionamos na discussão do método <code>parse</code>, na seção
+&quot;Comparando o Palpite com o Número Secreto&quot;: se o usuário fornece uma resposta
+não-numérica, o programa vai sofrer um <em>crash</em>. O usuário pode levar vantagem
+disso para conseguir sair, como mostrado abaixo:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+     Running `target/jogo_de_advinhacao`
+Advinhe o número!
+O número secreto é: 59
+Digite o seu palpite.
+45
+Você disse: 45
+Muito baixo!
+Digite o seu palpite.
+60
+Você disse: 60
+Muito alto!
+Digite o seu palpite.
+59
+Você disse: 59
+Você acertou!
+Digite o seu palpite.
+sair
+thread 'main' panicked at 'Por favor, digite um número!: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:785
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: Process didn't exit successfully: `target/debug/jogo_de_advinhacao` (exit code: 101)
+</code></pre>
+<p>Digitar <code>sair</code>, na verdade, sai do jogo, mas isso também acontece com qualquer
+outra entrada não numérica. Porém, isto não é o ideal. Queremos que o jogo
+termine automaticamente quando o número é advinhado corretamente.</p>
+<h3><a class="header" href="#saindo-após-um-palpite-correto" id="saindo-após-um-palpite-correto">Saindo Após um Palpite Correto</a></h3>
+<p>Vamos programar o jogo para sair quando o usuário vencer, colocando um <code>break</code>:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    println!(&quot;O número secreto é: {}&quot;, numero_secreto);
+
+    loop {
+        println!(&quot;Digite o seu palpite.&quot;);
+
+        let mut palpite = String::new();
+
+        io::stdin().read_line(&amp;mut palpite)
+            .expect(&quot;Falha ao ler entrada&quot;);
+
+        let palpite: u32 = palpite.trim().parse()
+            .expect(&quot;Por favor, digite um número!&quot;);
+
+        println!(&quot;Você disse: {}&quot;, palpite);
+
+        match palpite.cmp(&amp;numero_secreto) {
+            Ordering::Less =&gt; println!(&quot;Muito baixo&quot;),
+            Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+            Ordering::Equal =&gt; {
+                println!(&quot;Você acertou!&quot;);
+                break;
+            }
+        }
+    }
+}
+</code></pre>
+<p>Adicionando a linha <code>break</code> após o <code>Você acertou!</code>, o programa vai sair do laço
+quando o usuário advinhar corretamente o número secreto. Sair do laço também
+significa sair do programa, pois o laço é a última parte da <code>main</code>.</p>
+<h3><a class="header" href="#tratando-entradas-inválidas" id="tratando-entradas-inválidas">Tratando Entradas Inválidas</a></h3>
+<p>Para refinar ainda mais o comportamento do jogo, em vez de causar um <em>crash</em> no
+programa quando o usuário insere uma entrada não numérica, vamos fazer o jogo
+ignorá-la para que o usuário possa continuar tentando. Podemos fazer isso
+alterando a linha em que o <code>palpite</code> é convertido de <code>String</code> para <code>u32</code>:</p>
+<pre><code class="language-rust ignore">let palpite: u32 = match palpite.trim().parse() {
+    Ok(num) =&gt; num,
+    Err(_) =&gt; continue,
+};
+</code></pre>
+<p>Trocando uma chamada a <code>expect</code> por uma expressão <code>match</code> é a forma como você
+geralmente deixa de causar um <em>crash</em> em um erro e passa a tratá-lo, de fato.
+Lembre-se que o método <code>parse</code> retorna um valor do tipo <code>Result</code>, uma enum que
+contém a variante <code>Ok</code> ou <code>Err</code>. Estamos usando um <code>match</code> aqui, assim como
+fizemos com o <code>Ordering</code> resultante do método <code>cmp</code>.</p>
+<p>Se o <code>parse</code> consegue converter a string em um número, ele vai retornar um <code>Ok</code>
+contendo o número resultante. Esse valor <code>Ok</code> vai casar com o padrão do primeiro
+braço, e o <code>match</code> vai apenas retornar o valor <code>num</code> produzido pelo <code>parse</code> e
+colocado dentro do <code>Ok</code>. Esse número vai acabar ficando exatamente onde
+queremos, na variável <code>palpite</code> que estamos criando. </p>
+<p>Se o <code>parse</code> <em>não</em> conseguir converter a string em um número, ele vai retornar
+um <code>Err</code> que contém mais informações sobre o erro. O valor <code>Err</code> não casa com o
+padrão <code>Ok(num)</code> do primeiro braço do <code>match</code>, mas casa com o padrão <code>Err(_)</code> do
+segundo braço. O <code>_</code> é um valor &quot;pega tudo&quot;. Neste exemplo, estamos dizendo que
+queremos casar todos os valores <code>Err</code>, não importa qual informação há dentro
+deles. Então o programa vai executar o código do segundo braço, <code>continue</code>, que
+significa ir para a próxima iteração do <code>loop</code> e pedir outro palpite.
+Efetivamente, o programa ignora todos os erros que o <code>parse</code> vier a encontrar!</p>
+<p>Agora, tudo no programa deve funcionar como esperado. Vamos tentar executá-lo
+usando o comando <code>cargo run</code>:</p>
+<pre><code class="language-text">$ cargo run
+   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+     Running `target/jogo_de_advinhacao`
+Advinhe o número!
+O número secreto é: 61
+Digite o seu palpite.
+10
+Você disse: 10
+Muito baixo!
+Digite o seu palpite.
+99
+Você disse: 99
+Muito alto!
+Digite o seu palpite.
+foo
+Digite o seu palpite.
+61
+Você disse: 61
+Você acertou!
+</code></pre>
+<p>Demais! Com apenas um último ajuste, vamos finalizar o jogo de adivinhação:
+lembre-se que o programa ainda está mostrando o número secreto. Isto foi bom
+para testar, mas estraga o jogo. Vamos apagar o <code>println!</code> que revela o número
+secreto. A Listagem 2-5 mostra o código final:</p>
+<p><span class="filename">Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">extern crate rand;
+
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!(&quot;Advinhe o número!&quot;);
+
+    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+
+    loop {
+        println!(&quot;Digite o seu palpite.&quot;);
+
+        let mut palpite = String::new();
+
+        io::stdin().read_line(&amp;mut palpite)
+            .expect(&quot;Falha ao ler entrada&quot;);
+
+        let palpite: u32 = match palpite.trim().parse() {
+            Ok(num) =&gt; num,
+            Err(_) =&gt; continue,
+        };
+
+        println!(&quot;Você disse: {}&quot;, palpite);
+
+        match palpite.cmp(&amp;numero_secreto) {
+            Ordering::Less =&gt; println!(&quot;Muito baixo!&quot;),
+            Ordering::Greater =&gt; println!(&quot;Muito alto!&quot;),
+            Ordering::Equal =&gt; {
+                println!(&quot;Você acertou!&quot;);
+                break;
+            }
+        }
+    }
+}
+</code></pre>
+<p><span class="caption">Listagem 2-5: Código completo do jogo de advinhação.
+</span></p>
+<h2><a class="header" href="#resumo" id="resumo">Resumo</a></h2>
+<p>Neste ponto, você construiu com sucesso o jogo de adivinhação! Parabéns!</p>
+<p>Este projeto foi uma forma prática de apresentar vários conceitos novos de Rust:
+<code>let</code>, <code>match</code>, métodos, funções associadas, uso de crates externos, e outros.
+Nos próximos capítulos, você vai aprender sobre esses conceitos em mais
+detalhes. O Capítulo 3 aborda conceitos que a maioria das linguagens de
+programação tem, como variáveis, tipos de dados e funções, e mostra como usá-los
+em Rust. O Capítulo 4 explora posse (<em>ownership</em>), que é a característica do
+Rust mais diferente das outras linguagens. O Capítulo 5 discute structs e a
+sintaxe de métodos, e o Capítulo 6 se dedica a explicar enums. </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch01-03-hello-cargo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch03-00-common-programming-concepts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch01-03-hello-cargo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch03-00-common-programming-concepts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

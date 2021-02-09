@@ -1,0 +1,894 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>🇧🇷 Validating References with Lifetimes - A linguagem de programação Rust</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">🇧🇷 A linguagem de programação Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">🇧🇷 Prefácio</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">🇧🇷 Introdução</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> 🇧🇷 Começando</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> 🇧🇷 Instalação</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> 🇧🇷 Olá, Mundo!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> 🇧🇷 Olá, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> 🇧🇷 Jogo de Adivinhação</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> 🇧🇷 Conceitos Comuns de Programação</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> 🇧🇷 Variáveis e Mutabilidade</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> 🇧🇷 Tipos de dados</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> 🇧🇷 Funções</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> 🇧🇷 Comentários</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> 🇧🇷 Controle de fluxo</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> 🇧🇷 Entendendo Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> 🇧🇷 O Que É Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> 🇧🇷 Referências e Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> 🇧🇷 Slices</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> 🇧🇷 Usando Structs para Estruturar Dados Relacionados</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> 🇧🇷 Definindo e Instanciando Structs</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> 🇧🇷 Um Exemplo de um Programa que usa Structs</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> 🇧🇷 Sintaxe do Método</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> 🇧🇷 Enums e Casamento de Padrões</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> 🇧🇷 Definindo uma Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> 🇧🇷 Operador match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> 🇧🇷 Controle de Fluxo Conciso com if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-modules.html"><strong aria-hidden="true">7.</strong> 🇧🇷 Módulos</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-mod-and-the-filesystem.html"><strong aria-hidden="true">7.1.</strong> 🇧🇷 mod e o Sistema de Arquivos</a></li><li class="chapter-item expanded "><a href="ch07-02-controlling-visibility-with-pub.html"><strong aria-hidden="true">7.2.</strong> 🇧🇷 Controlando a Visibilidade com pub</a></li><li class="chapter-item expanded "><a href="ch07-03-importing-names-with-use.html"><strong aria-hidden="true">7.3.</strong> 🇧🇷 Importando nomes com use</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> 🇧🇷 Coleções comuns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> 🇧🇷 Vetores</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> 🇧🇷 Strings</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> 🇧🇷 Hash Maps</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> 🇧🇷 Tratamento de Erros</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> 🇧🇷 Erros Irrecuperáveis com panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> 🇧🇷 Erros recuperáveis com Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> 🇧🇷 Entrar em panic! ou Não Entrar em panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> 🇧🇷 Tipos Genéricos, Traits, e Tempos de vida (Lifetimes)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> 🇧🇷 Tipos Genéricos de Dados</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> 🇧🇷 Traits: Definindo Comportamento Compartilhado</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html" class="active"><strong aria-hidden="true">10.3.</strong> 🇧🇷 Validating References with Lifetimes</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Testing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Writing tests</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Running tests</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Test Organization</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> 🇧🇷 Um projeto de E/S</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> 🇧🇷 Aceitando Argumentos em Linha de Comando</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> 🇧🇷 Lendo um Arquivo</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> 🇧🇷 Refatoração para Melhorar a Modularidade e o Tratamento de Erros</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> 🇧🇷 Desenvolvendo a Biblioteca de Funcionalidades</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> 🇧🇷 Trabalhando com Variáveis de Ambiente</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> 🇧🇷 Escrevendo Mensagens de Erro para Erro Padrão em Vez de Saída Padrão</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Functional Language Features in Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closures</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Iterators</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Improving our I/O Project</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Performance</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> More about Cargo and Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Release Profiles</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Publishing a Crate to Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Cargo Workspaces</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Installing Binaries from Crates.io with cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Extending Cargo with Custom Commands</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> 🇧🇷 Ponteiros Inteligentes (Smart Pointers)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> 🇧🇷 Box<T> Aponta para Dados no Heap e Tem Tamanho Conhecido</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> 🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> 🇧🇷 A Trait Drop Roda Código durante a Limpeza</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> 🇧🇷 Rc<T>, o Ponteiro Inteligente com Contagem de Referências</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> 🇧🇷 RefCell<T> e a Pattern de Mutabilidade Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> 🇧🇷 Ciclos de Referências Podem Vazar Memória</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Concurrency</a></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> 🇧🇷 Rust é uma linguagem orientada a objetos?</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-oo.html"><strong aria-hidden="true">17.1.</strong> 🇧🇷 O que significa orientado a objetos?</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> 🇧🇷 Usando objetos trait que permitem valores de tipos diferentes</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> 🇧🇷 Implementando um padrão de projeto orientado a objetos</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="ch19-00-more-lifetimes.html"><strong aria-hidden="true">19.</strong> More Lifetimes</a></li><li class="chapter-item expanded "><a href="ch20-00-advanced-types.html"><strong aria-hidden="true">20.</strong> Advanced Type System Features</a></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> Keywords</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> Operators</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> Derivable Traits</a></li><li class="chapter-item expanded "><a href="appendix-04-nightly-rust.html"><strong aria-hidden="true">21.4.</strong> Nightly Rust</a></li><li class="chapter-item expanded "><a href="appendix-05-macros.html"><strong aria-hidden="true">21.5.</strong> Macros</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.6.</strong> 🇧🇷 G - Como é feito o Rust e o &quot;Rust Nightly&quot;</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">A linguagem de programação Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#validating-references-with-lifetimes" id="validating-references-with-lifetimes">Validating References with Lifetimes</a></h2>
+<p>Quandos falamos sobre referêcias no Capítulo 4, nós deixamos de fora um detalhe
+importante: toda referência em Rust tem um <em>lifetime</em>, que é o escopo no qual
+aquela referência é válida. A maior parte das vezes tempos de vida são implícitos e
+inferidos, assim como a maior parte do tempo tipos são inferidos. Similarmente
+quando temos que anotar tipos porque múltiplos tipos são possíveis, há casos em
+que os tempos de vida das referências poderiam estar relacionados de alguns modos
+diferentes, então Rust precisa que nós anotemos as relações usando parâmetros
+genéricos de tempo de vida para que ele tenha certeza que as referênciais reais
+usadas em tempo de execução serão definitivamente válidas.</p>
+<p>Sim, é um pouco incomum, e será diferente de ferramentas que você usou em 
+outras linguagens de programação. Tempos de vida são, de alguns jeitos, a 
+característica mais distinta de Rust. </p>
+<p>Tempos de vida são um tópico grande que não poderão ser cobertos inteiramente 
+nesse capítulo, então nós vamos cobrir algumas formas comuns que você pode 
+encontrar a sintaxe de tempo de vida nesse capítulo para que você se 
+familiarize com os conceitos. O Capítulo 19 conterá informações mais avançadas
+sobre tudo que tempos de vida podem fazer.</p>
+<h3><a class="header" href="#tempos-de-vida-previnem-referências-soltas" id="tempos-de-vida-previnem-referências-soltas">Tempos de Vida Previnem Referências Soltas</a></h3>
+<p>O principal alvo de lifetimes é prevenir referências soltas, quais fazem com
+que o programa referencie dados quais nós não estamos querendo referenciar.
+Considere o programa na Listagem 10-18, com um escopo exterior e um interior.
+O escopo exterior declara uma variável chamada <code>r</code> com nenhum valor inicial, e
+o escopo interior declara uma variável chamada <code>x</code> com o valor inicial de 5.
+Dentro do escopo interior, nós tentamos estabelecer o valor de <code>r</code> como uma 
+referência para <code>x</code>. Então, o escopo interior acaba, e nós tentamos imprimir o
+valor de <code>r</code>:</p>
+<pre><code class="language-rust ignore">{
+    let r;
+
+    {
+        let x = 5;
+        r = &amp;x;
+    }
+
+    println!(&quot;r: {}&quot;, r);
+}
+</code></pre>
+<p><span class="caption">Listagem 10-18: Uma tentativa de usar uma refência cujo
+valor saiu de escopo</span></p>
+<blockquote>
+<h4><a class="header" href="#variáveis-não-inicializadas-não-podem-ser-usadas" id="variáveis-não-inicializadas-não-podem-ser-usadas">Variáveis Não Inicializadas Não Podem Ser Usadas</a></h4>
+<p>Os próximos exemplos declaram vaŕiáveis sem darem a elas um valor inicial, 
+então o nome da variável existe no escopo exterior. Isso pode parecer um 
+conflito com Rust não ter null. No entanto, se tentarmos usar uma variável
+antes de atribuir um valor a ela, nós teremos um erro em tempo de compilação.
+Tente!</p>
+</blockquote>
+<p>Quando compilarmos esse código, nós teremos um erro:</p>
+<pre><code class="language-text">error: `x` does not live long enough
+   |
+6  |         r = &amp;x;
+   |              - borrow occurs here
+7  |     }
+   |     ^ `x` dropped here while still borrowed
+...
+10 | }
+   | - borrowed value needs to live until here
+</code></pre>
+<p>A variável <code>x</code> não &quot;vive o suficiente&quot;. Por que não? Bem, <code>x</code> vai sair de 
+escopo quando passarmos pela chaves na linha 7, terminando o escopo interior.
+Mas <code>r</code> é válida para o escopo exterior; seu escopo é maior e dizemos que ela
+&quot;vive mais tempo&quot;. Se Rust permitisse que esse código funcionasse, <code>r</code> estaria
+fazendo uma referência à memória que foi desalocada quando <code>x</code> saiu de escopo,
+e qualquer coisa que tentássemos fazer com <code>r</code> não funcionaria corretamente.
+Então como o Rust determina que esse código não deve ser permitido?</p>
+<h4><a class="header" href="#o-verificador-de-empréstimos" id="o-verificador-de-empréstimos">O Verificador de Empréstimos</a></h4>
+<p>A parte do compilador chamada de <em>verificador de empréstimos</em> compara escopos
+para determinar que todos os empréstimos são válidos. A Listagem 10-19 mostra o
+mesmo exemplo da Listagem 10-18 com anotações mostrando os tempos de vida das
+variáveis.</p>
+<pre><code class="language-rust ignore">{
+    let r;         // -------+-- 'a
+                   //        |
+    {              //        |
+        let x = 5; // -+-----+-- 'b
+        r = &amp;x;    //  |     |
+    }              // -+     |
+                   //        |
+    println!(&quot;r: {}&quot;, r); // |
+                   //        |
+                   // -------+
+}
+</code></pre>
+<p><span class="caption">Listagem 10-19: Anotações de tempos de vida de <code>r</code> e <code>x</code>,
+chamadas de <code>a</code> e <code>b</code> respectivamente</span></p>
+<p>Nós anotamos o tempo de vida de <code>r</code> com <code>a</code> e o tempo de vida de <code>x</code> com <code>b</code>.
+Como você pode ver, o bloco interior de <code>'b</code> é bem menor que o bloco de tempo
+de vida do exterior <code>'a'</code>. Em tempo de compilação, o Rust compara o tamanho dos
+dois tempos de vida e vê que <code>r</code> tem um tempo de vida de <code>'a</code>, mas que ele se
+refere a um objeto com um tempo de vida <code>'b</code>. O programa é rejeitado porque o 
+tempo de vida de <code>'b</code> é mais curto que o tempo de vida de <code>'a</code>: o sujeito da
+referência não vive tanto quanto a referência.</p>
+<p>Vamos olhar para o exemplo na Listagem 10-20 que não tenta fazer uma referência
+solta e compila sem nenhum erro:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>{
+    let x = 5;            // -----+-- 'b
+                          //      |
+    let r = &amp;x;           // --+--+-- 'a
+                          //   |  |
+    println!(&quot;r: {}&quot;, r); //   |  |
+                          // --+  |
+}                         // -----+
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 10-20: Uma referência válida porque os dados têm
+um tempo de vida maior do que o da referência</span></p>
+<p>Aqui, <code>x</code> tem o tempo de vida de <code>'b</code>, que nesse caso tem um tempo de vida 
+maior que o de <code>'a</code>. Isso quer dizer que <code>r</code> pode referenciar <code>x</code>: o Rust sabe
+que a referência em <code>r</code> será sempre válida enquanto <code>x</code> for válido.</p>
+<p>Agora que mostramos onde os tempos de vida de referências estão em um exemplo
+concreto e discutimos como Rust analisa tempos de vida para garantir que
+referências sempre serão válidas, vamos falar sobre tempos de vidas genéricos
+de parâmetros e retornar valores no contexto das funções.</p>
+<h3><a class="header" href="#tempos-de-vida-génericos-em-funções" id="tempos-de-vida-génericos-em-funções">Tempos de Vida Génericos em Funções</a></h3>
+<p>Vamos escrever uma função que retornará a mais longa de dois cortes de string. 
+Nós queremos ser capazes de chamar essa função passando para ela dois cortes 
+de strings, e queremos que retorne uma string. O código na Listagem 10-21
+deve imprimir <code>A string mais longa é abcd</code> uma vez que tivermos implementado a
+função <code>maior</code>:</p>
+<p><span class="filename">Nome do Arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let string1 = String::from(&quot;abcd&quot;);
+    let string2 = &quot;xyz&quot;;
+
+    let resultado = maior(string1.as_str(), string2);
+    println!(&quot;A string mais longa é {}&quot;, resultado);
+}
+</code></pre>
+<p><span class="caption">Listagem 10-21: Uma função <code>main</code> que chama pela função
+<code>maior</code> para achar a mais longa entre duas strings</span></p>
+<p>Note que queremos que a função pegue cortes de string (que são referências, 
+como falamos no Capítulo 4) já que não queremos que a função <code>maior</code> tome posse
+de seus argumentos. Nós queremos que uma função seja capaz de aceitar cortes de
+uma <code>String</code> (que é o tipo de variável <code>string1</code>) assim como literais de string
+(que é o que a variável <code>strin2</code> contém).</p>
+<p>Recorra à seção do Capítulo 4 &quot;Cortes de Strings como Parâmetros&quot; para mais 
+discussões sobre porque esses são os argumentos que queremos.</p>
+<p>Se tentarmos implementar a função <code>maior</code> como mostrado na Listagem 10-22 ela
+não vai compilar:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn maior(x: &amp;str, y: &amp;str) -&gt; &amp;str {
+    if x.len() &gt; y.len() {
+        x
+    } else {
+        y
+    }
+}
+</code></pre>
+<p><span class="caption">Listagem 10-22: Uma implementação da função <code>maior</code> que
+retorna o mais longo de dois cortes de string, mas ele não compila ainda</span></p>
+<p>Ao invés disso recebemos o seguinte erro que fala sobre tempos de vida:</p>
+<pre><code class="language-text">error[E0106]: missing lifetime specifier
+   |
+1  | fn maior(x: &amp;str, y: &amp;str) -&gt; &amp;str {
+   |                                 ^ expected lifetime parameter
+   |
+   = help: this function's return type contains a borrowed value, but the
+   signature does not say whether it is borrowed from `x` or `y`
+</code></pre>
+<p>O texto de ajuda está nos dizendo que o tipo de retorno precisa de um parâmetro
+de tempo de vida genérico nele porque o Rust não pode dizer se a referência que
+está sendo retornada se refere a <code>x</code> ou <code>y</code>. Atualmente, nós também não 
+sabemos, já que o bloco <code>if</code> no corpo dessa função retorna uma referência para 
+<code>x</code> e o bloco <code>else</code> retorna uma referência para <code>y</code>!</p>
+<p>Enquanto estamos definindo essa função, não sabemos os valores concretos que 
+serão passados para essa função, então não sabemos se o caso <code>if</code> ou o caso
+<code>else</code> será executado. Nós também não sabemos os tempos de vida concretos das
+referências que serão passadas, então não podemos olhar para esses escopos como
+fizemos nas Listagem 10-19 e 10-20 afim de determinar que a referência que
+retornaremos sempre será válida. O verificador de empréstimos não consegue 
+determinar isso também porque não sabe como os tempos de vida de <code>x</code> e <code>y</code> se
+relacionam com o tempo de vida do valor de retorno. Nós vamos adicionar 
+parâmetros genéricos de tempo de vida que definirão a relação entre as 
+referências para que o verificador de empréstimos possa fazer sua análise.</p>
+<h3><a class="header" href="#sintaxe-de-anotação-de-tempo-de-vida" id="sintaxe-de-anotação-de-tempo-de-vida">Sintaxe de Anotação de Tempo de Vida</a></h3>
+<p>Anotações de tempo de vida não mudam quanto tempo qualquer uma das referências
+envolvidas viverão. Do mesmo modo que funções podem aceitar qualquer tipo de 
+assinatura que especifica um parâmetro de tipo genérico, funções podem aceitar
+referências com qualquer tempo de vida quando a assinatura especificar um 
+parâmetro genérico de tempo de vida. O que anotações de tempo de vida fazem é
+relacionar os tempos de vida de múltiplas referências uns com os outros.</p>
+<p>Anotações de tempo de vida tem uma sintaxe levemente incomum: os nomes dos
+parâmetros de tempos de vida precisam começar com uma apóstrofe <code>'</code>. Os nomes 
+dos parâmetros dos tempos de vida são usualmente todos em caixa baixa, e como 
+tipos genéricos, seu nome usualmente são bem curtos. <code>'a</code> é o nome que a maior
+parte das pessoas usam por padrão. Parâmetros de anotações de tempos de vida 
+vão depois do <code>&amp;</code> de uma referência, e um espaço separa a anotação de tempo de 
+vida do tipo da referência.</p>
+<p>Aqui vão alguns exemplos: nós temos uma referência para um <code>i32</code> sem um 
+parâmetro tempo de vida, uma referência para um <code>i32</code> que tem um parâmetro de
+tempo de vida chamado <code>'a</code>:</p>
+<pre><code class="language-rust ignore">&amp;i32        // uma referência
+&amp;'a i32     // uma referência com um tempo de vida explícito
+&amp;'a mut i32 // uma referência mutável com um tempo de vida explícito
+</code></pre>
+<p>Uma anotação de tempo de vida por si só não tem muito significado: anotações de
+tempos de vida dizem ao Rust como os parâmetros genéricos de tempos de vida de
+múltiplas referências se relacionam uns com os outros. Se tivermos uma função
+com o parâmetro <code>primeiro</code> que é uma referência para um <code>i32</code> que tem um tempo
+de vida de <code>'a</code>, e a função tem outro parâmetro chamado <code>segundo</code> que é outra
+referência para um <code>i32</code> que também possui um tempo de vida <code>'a</code>, essas duas
+anotações de tempo de vida com o mesmo nome indicam que as referências 
+<code>primeiro</code> e <code>segundo</code> precisam ambas viver tanto quanto o mesmo tempo de vida
+genérico.</p>
+<h3><a class="header" href="#anotações-de-tempo-de-vida-em-assinaturas-de-funções" id="anotações-de-tempo-de-vida-em-assinaturas-de-funções">Anotações de Tempo de Vida em Assinaturas de Funções</a></h3>
+<p>Vamos olhar para anotações de tempo de vida no contexto da função <code>maior</code> que
+estamos trabalhando. Assim como parâmetros de tipos genéricos, parâmetros de 
+tempos de vida genéricos precisam ser declarados dentro de colchetes angulares
+entre o nome da função e a lista de parâmetros. A limitanção que queremos 
+dar ao Rust é que para as referências nos parâmetros e o valor de retorno devem
+ter o mesmo tempo de vida, o qual nomearemos <code>'a</code> e adicionaremos para cada uma
+das referências como mostrado na Listagem 10-23:</p>
+<p><span class="filename">Nome do Arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn maior&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
+    if x.len() &gt; y.len() {
+        x
+    } else {
+        y
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 10-23: A definição da função <code>maior</code> especifica
+todas as referências na assinatura como tendo o mesmo tempo de vida, <code>'a</code></span></p>
+<p>Isso compilará e produzirá o resultado que queremos quando usada com a função
+<code>main</code> na Listagem 10-21.</p>
+<p>A assinatura de função agora diz que pra algum tempo de vida <code>'a</code>, a função
+receberá dois parâmetros, ambos serão cortes de string que vivem pelo menos
+tanto quanto o tempo de vida <code>'a</code>. A função retornará um corte de string que 
+também vai durar tanto quanto o tempo de vida <code>'a</code>. Esse é o contrato que 
+estamos dizendo ao Rust que queremos garantir.</p>
+<p>Especificando os parâmetros de tempo de vida nessa assinatura de função, não
+estamos modificando os tempos de vida de quaisquer valores passados ou 
+retornados, mas estamos dizendo que quaisqueres valores que não concordem com
+esse contrato devem ser rejeitados pelo verificador de empréstimos. Essa função
+não sabe (ou não precisa saber) exatamente quanto tempo <code>x</code> e <code>y</code> vão viver,
+apenas precisa saber que existe algum escopo que pode ser substituído por <code>'a</code>
+que irá satisfazer essa assinatura.</p>
+<p>Quando estiver anotando tempos de vidas em funções, as anotações vão na 
+assinatura da função, e não no código no corpo da função. Isso acontece porque
+o Rust consegue analisar o código dentro da função sem nenhuma ajuda, mas 
+quando uma função tem referências para ou de códigos de fora daquela função,
+os tempos de vida dos argumentos ou os valores de retorno poderão ser 
+diferentes cada vez que a função é chamada. Isso seria incrivelmente custoso e
+frequentemente impossível para o Rust descobrir. Nesse caso, precisamos anotar
+os tempos de vida nós mesmos.</p>
+<p>Quando referências concretas são passadas para <code>maior</code>, o tempo de vida 
+concreto que é substituído por <code>'a</code> é a parte do escopo de <code>x</code> que sobrepõe o
+escopo de <code>y</code>. Já que escopos sempre se aninham, outra maneira de dizer isso é
+que o tempo de vida genérico <code>'a</code> terá um tempo de vida concreto igual ao menor
+dos tempos de vida de <code>x</code> e <code>y</code>. Porque nós anotamos a referência retornada com
+o mesmo parâmetro <code>'a</code>, a referência retornada será portanto garantida de ser
+válida tanto quanto for o tempo de vida mais curto de <code>x</code> e <code>y</code>.</p>
+<p>Vamos ver como isso restringe o uso da função <code>maior</code> passando referências que
+tem diferentes tempos de vida concretos. A Listagem 10-25 é um exemplo direto
+que deve corresponder suas intuições de qualquer linguagem: <code>string1</code> é válida
+até o final do escopo exterior, <code>strin2</code> é válida até o final do escopo, a
+<code>string2</code> é válida até o final do escopo interior. Com o verificador de 
+empréstimos aprovando esse código; ele vai compilar e imprimir 
+<code>A string mais longa é</code>:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn maior&lt;'a&gt;(x: &amp;'a str, y: &amp;'a str) -&gt; &amp;'a str {
+</span><span class="boring">    if x.len() &gt; y.len() {
+</span><span class="boring">        x
+</span><span class="boring">    } else {
+</span><span class="boring">        y
+</span><span class="boring">    }
+</span><span class="boring">}
+</span><span class="boring">
+</span>fn main() {
+    let string1 = String::from(&quot;a string longa é longa&quot;);
+
+    {
+        let string2 = String::from(&quot;xyz&quot;);
+        let resultado = maior(string1.as_str(), string2.as_str());
+        println!(&quot;A string mais longa é {}&quot;, resultado);
+    }
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-24: Usando a função <code>maior</code> com referências
+para valores de <code>String</code> que tem tempos de vida concretos diferentes</span></p>
+<p>Em seguida, vamos tentar um exemplo que vai mostrar que o tempo de vida da 
+referência em <code>resultado</code> precisa ser o menor dos tempos de vida dos dois 
+argumentos. Nós vamos mover a declaração da variável <code>resultado</code> para fora do
+escopo interior, mas deixar a atribuição do valor para a variável <code>resultado</code>
+dentro do escopo com <code>string2</code>. Em seguida, vamos mover o <code>println!</code> que usa o
+<code>resultado</code> fora do escopo interior, depois que ele terminou. O código na 
+Listagem 10-25 não compilará:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    let string1 = String::from(&quot;a string longa é longa&quot;);
+    let resultado;
+    {
+        let string2 = String::from(&quot;xyz&quot;);
+        resultado = longest(string1.as_str(), string2.as_str());
+    }
+    println!(&quot;A string mais longa é {}&quot;, resultado);
+}
+</code></pre>
+<p><span class="caption">Listagem 10-25: A tentativa de usar <code>resultado</code> depois 
+que <code>string2</code> saiu de escopo não compilará</span></p>
+<p>Se tentarmos compilar isso, receberemos esse erro:</p>
+<pre><code class="language-text">error: `string2` does not live long enough
+   |
+6  |         resultadod = longest(string1.as_str(), string2.as_str());
+   |                                            ------- borrow occurs here
+7  |     }
+   |     ^ `string2` dropped here while still borrowed
+8  |     println!(&quot;The longest string is {}&quot;, result);
+9  | }
+   | - borrowed value needs to live until here
+</code></pre>
+<p>O erro está dizendo que para <code>resultado</code> ser válido para <code>println!</code>, a 
+<code>string2</code> teria que ser válida até o final do escopo exterior. Rust sabe disso
+porque nós anotamos os tempos de vida dos parâmetros da função e retornamos
+valores com o mesmo parâmetro do tempo de vida, <code>'a</code>.</p>
+<p>Nós podemos olhar para esse código como humanos e ver que a <code>string1</code> é mais
+longa, e portanto <code>resultado</code> conterá a referência para a <code>string1</code>. Porque a
+<code>string1</code> não saiu de escopo ainda, a referência para <code>string1</code> ainda será 
+válida para o <code>println!</code>. No entanto, o que dissemos ao Rust com os parâmetros
+de tempo de vida é que o tempo de vida da referência retornado pela função 
+<code>maior</code> é o mesmo que o menor dos tempos de vida das referências passadas. 
+Portanto, o verificador de empréstimos não permite o código da Listagem 10-25
+como possível já que tem um referência inválida.</p>
+<p>Tente fazer mais alguns experimentos que variam os valores e os tempos de vidas
+das referências passadas para a função <code>maior</code> e como a referência retornada é
+usada. Crie hipóteses sobre seus experimentos se eles vão passar pelo 
+verificador de empréstimos ou não antes de você compilar, e então cheque para
+ver se você está certo!</p>
+<h3><a class="header" href="#pensando-em-termos-de-tempos-de-vida" id="pensando-em-termos-de-tempos-de-vida">Pensando em Termos de Tempos de Vida</a></h3>
+<p>O modo exato de especificar parâmetros de tempos de vida depende do que sua 
+função está fazendo. Por exemplo, se mudaramos a implementação da função 
+<code>maior</code> para sempre retornar o primeiro argumento ao invés do corte de string
+mais longo, não precisaríamos especificar um tempo de vida no parâmetro <code>y</code>.
+Este código compila:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn longest&lt;'a&gt;(x: &amp;'a str, y: &amp;str) -&gt; &amp;'a str {
+    x
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Nesse exemplo, especificamos o tempo de vida do parâmetro <code>'a</code> para o parâmetro
+<code>x</code> e o tipo de retorno, mas, não para o parâmetro <code>y</code>, já que o tempo de vida 
+de <code>y</code> não tem qualquer relação com o tempo de vida <code>x</code> ou o valor retornado.</p>
+<p>Quando retornarmos uma referência de um uma função, o parâmetro de tempo de 
+vida para o tipo de retorno precisa combinar o parâmetro do tempo de vida de um
+dos argumentos. Se a referência retornada <em>não</em> refere a nenhum dos argumentos,
+a única outra possibilidade é que refira a um valor criado dentro da função, o
+que seria uma referência solta já que o valor sairá de escopo no fim da função.
+Considere essa tentativa da função <code>maior</code> que não compilará:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn maior&lt;'a&gt;(x: &amp;str, y: &amp;str) -&gt; &amp;'a str {
+    let resultado = String::from(&quot;string muito longa&quot;);
+    resultado.as_str()
+}
+</code></pre>
+<p>Mesmo especificando um parâmetro de tempo de vida <code>'a</code> para o tipo de retorno,
+essa implementação falha em compilar porque o valor de retorno do tempo de vida
+não é relacionado com o tempo de vida dos parâmetros de forma alguma. Esta é a
+mensagem de erro que recebemos:</p>
+<pre><code class="language-text">error: `resultado` does not live long enough
+  |
+3 |     resultado.as_str()
+  |     ^^^^^^ does not live long enough
+4 | }
+  | - borrowed value only lives until here
+  |
+note: borrowed value must be valid for the lifetime 'a as defined on the block
+at 1:44...
+  |
+1 | fn maior&lt;'a&gt;(x: &amp;str, y: &amp;str) -&gt; &amp;'a str {
+  |                                             ^
+</code></pre>
+<p>O problema é que <code>resultado</code> sairá de escopo e será limpo no final da função 
+<code>maior</code>, e estamos tentando retornar uma referência para <code>resultado</code> da função.
+Não há nenhum modo que possamos especificar parâmetros de tempo de vida que
+mudariam uma referência solta, e o Rust não nos deixará criar uma referência 
+solta. Nesse caso, a melhor solução seria retornar um tipo de dado com posse
+ao invés de uma referência de modo que a função chamadora é então responsável
+por limpar o valor.</p>
+<p>Em última análise, a sintaxe de tempo de vida é sobre conectar tempos de vida
+de vários argumentos e retornar valores de funções. Uma vez que estão 
+conectados, o Rust tem informação o suficiente para permitir operações seguras
+de memória e não permitir operações que criariam ponteiros soltos ou outro tipo
+de violação à segurança da memória.</p>
+<h3><a class="header" href="#anotações-de-tempo-de-vida-em-definições-de-struct" id="anotações-de-tempo-de-vida-em-definições-de-struct">Anotações de Tempo de Vida em Definições de Struct</a></h3>
+<p>Até agora, nós só definimos structs para conter tipos com posse. É possível 
+para structs manter referências, mas precisamos adicionar anotações de tempo de
+vida em todas as referências na definição do struct. A Listagem 10-26 tem a 
+struct chamada <code>ExcertoImportante</code> que contém um corte de string:</p>
+<p><span class="filename">Nome do arquivo: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">struct ExcertoImportante&lt;'a&gt; {
+    parte: &amp;'a str,
+}
+
+fn main() {
+    let romance = String::from(&quot;Chame-me Ishmael. Há alguns anos...&quot;);
+    let primeira_sentenca = romance.split('.')
+        .next()
+        .expect(&quot;Não pôde achar um '.'&quot;);
+    let i = ExcertoImportante { parte: primeira_sentenca };
+}
+</code></pre></pre>
+<p><span class="caption">Listagem 10-26: Um struct que contém uma referência,
+então sua definição precisa de uma anotação de tempo de vida</span></p>
+<p>Esse struct tem um campo, <code>parte</code>, que contém um corte de string, que é uma
+referência. Assim como tipos genéricos de dados, temos que declarar o nome do
+parâmetro genérico de tempo de vida dentro de colchetes angulares depois do
+nome do struct para que possamos usar o parâmetro de tempo de vida no corpo da
+definição do struct.</p>
+<p>A função <code>main</code> cria uma instância da struct <code>ExcertoImportante</code> que contém uma
+referência pra a primeira sentença da <code>String</code> com posse da variável <code>romance</code>.</p>
+<h3><a class="header" href="#elisão-de-tempo-de-vida" id="elisão-de-tempo-de-vida">Elisão de Tempo de Vida</a></h3>
+<p>Nessa seção, nós aprendemos que toda referência tem um tempo de vida, e nós
+precisamos especificar os parâmetros dos tempos de vida para funções ou 
+estruturas que usam referências. No entanto, no Capítulo 4 nós tínhamos a 
+função na seção &quot;Cortes de Strings&quot;, mostradas novamente na Listagem 10-27, que
+compilam sem anotações de tempo de vida:</p>
+<p><span class="filename">Nome do arquivo: src/lib.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn primeira_palavra(s: &amp;str) -&gt; &amp;str {
+    let bytes = s.as_bytes();
+
+    for (i, &amp;item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &amp;s[0..i];
+        }
+    }
+
+    &amp;s[..]
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><span class="caption">Listagem 10-27: Uma função definida no Capítulo 4 que
+compila sem anotações de tempo de vida, mesmo o parâmetro e o tipo de retorno
+sendo referências</span></p>
+<p>A razão pela qual essa função compila sem anotações de tempo de vida é 
+histórica: em versões mais antigas de pre Rust-1.0, isso não teria compilado.
+Toda referência precisava de um tempo de vida explícito. Naquele tempo, a 
+assinatura da função teria sido escrita da seguinte forma:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra&lt;'a&gt;(s: &amp;'a str) -&gt; &amp;'a str {
+</code></pre>
+<p>Depois de escrever muito código em Rust, o time de Rust descobriu que os 
+programadores de Rust estavam digitando as mesmas anotações de tempo de vida
+de novo e de novo. Essas situações eram previsíveis e seguiam alguns padrões
+determinísticos. O time de Rust programou esses padrões no compilador de código 
+de Rust para que o verificador de empréstimos pode inferir os tempos de vida
+dessas situações sem forçar o programador adicionar essas anotações 
+explicitamente.</p>
+<p>Nós mencionamos essa parte da história de Rust porque é inteiramente possível
+que mais padrões determinísticos surgirão e serão adicionado ao compilador. No
+futuro, até menos anotações de tempo de vida serão necessárias.</p>
+<p>Os padrões programados nas análises de referência de Rust são chamados de 
+<em>regras de elisão de tempo de vida</em>. Essas não são regras para o programador
+seguir; as regras são um conjunto de casos particular que o compilador irá
+considerar, e se seu código se encaixa nesses casos, você não precisa escrever
+os tempos de vida explicitamente.</p>
+<p>As regras de elisão não fornecem total inferência:  se o Rust aplicar as regras 
+de forma determinística ainda podem haver ambiguidades como quais tempos 
+de vida as referências restantes deveriam ter. Nesse caso, o compilador dará um
+erro que pode ser solucionado adicionando anotações de tempo de vida que 
+correspondem com as suas intenções para como as referências se relacionam umas
+com as outras.</p>
+<p>Primeiro, algumas definições: Tempos de vida em parâmetros de funções ou 
+métodos são chamadas <em>tempos de vida de entrada</em>, e tempos de vida em valores
+de retorno são chamados de <em>tempos de vida de saída</em>.</p>
+<p>Agora, as regras que o compilador usa para descobrir quais referências de 
+tempos de vidas têm quando não há anotações explícitas. A primeira regra se 
+aplica a tempos de vida de entrada, e a segunda regra se aplica a tempos de 
+vida de saída. Se o compilador chega no fim das três regras e ainda há 
+referências que ele não consegue descobrir tempos de vida, o compilador irá
+parar com um erro.</p>
+<ol>
+<li>
+<p>Cada parâmetro que é uma referência tem seu próprio parâmetro de tempo de
+vida. Em outras palavras, uma função com um parâmetro tem um parâmetro de 
+tempo de vida: <code>fn foo&lt;'a&gt;(x: &amp;'a i32)</code>, uma função com dois argumentos 
+recebe dois parâmetros de tempo de vida separados: 
+<code>fn foo&lt;'a, 'b&gt;(x: &amp;'a i32, y: &amp;'b i32)</code>, e assim por diante.</p>
+</li>
+<li>
+<p>Se há exatamente uma entrada de parâmetro de tempo de vida, aquele tempo de
+vida é atribuído para todos os parâmetros de saída do tempo de vida:
+<code>fn foo&lt;'a&gt;(x: &amp;'a i32) -&gt; &amp;'a i32</code>.</p>
+</li>
+<li>
+<p>Se há múltiplas entradas de parâmetros de tempo de vida, mas uma delas é
+<code>&amp;self</code> ou <code>&amp;mut self</code> porque é um método, então o tempo de vida de <code>self</code> é
+atribuído para todos os parâmetro de tempo de vida de saída. Isso melhora a
+escrita de métodos</p>
+</li>
+</ol>
+<p>Vamos fingir que somos o compilador e aplicamos essas regras para descobrir 
+quais os tempos de vida das referências na assinatura da função 
+<code>primeira_palavra</code> na Listagem 10-27. A assinatura começa sem nenhum tempo de 
+vida associado com as referências:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra(s: &amp;str) -&gt; &amp;str {
+</code></pre>
+<p>Então nós (como o compilador) aplicamos a primeira regra, que diz que cada 
+parâmetro tem sem próprio tempo de vida. Nós vamos chama-lo de <code>'a</code> como é 
+usual, então agora a assinatura é:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra&lt;'a&gt;(s: &amp;'a str) -&gt; &amp;str {
+</code></pre>
+<p>À segunda regra, que se aplica porque existe apenas um tempo de vida. A
+segunda regra diz que o tempo de vida de um parâmetro de entrada é atribuído
+a um tempo de vida de saída, então agora a assinatura é:</p>
+<pre><code class="language-rust ignore">fn primeira_palavra&lt;'a&gt;(s: &amp;'a str) -&gt; &amp;'a str {
+</code></pre>
+<p>Agora todas as referências nessa assinatura de função possuem tempos de vida, e
+o compilador pode continuar sua análise sem precisar que o programador anote os
+tempos de vida na assinatura dessa função.</p>
+<p>Vamos fazer outro exemplo, dessa vez com a função <code>maior</code> que não tinha 
+parâmetros de tempo de vida quando começamos a trabalhar com ela na Listagem 
+10-22:</p>
+<pre><code class="language-rust ignore">fn maior(x: &amp;str, y: &amp;str) -&gt; &amp;str {
+</code></pre>
+<p>Fingindo que somos o compilador novamente, vamos aplicar a primeira regra: cada
+parâmetro tem seu próprio tempo de vida. Dessa vez temos dois parâmetros, então
+temos dois tempos de vida:</p>
+<pre><code class="language-rust ignore">fn maior&lt;'a, 'b&gt;(x: &amp;'a str, y: &amp;'b str) -&gt; &amp;str {
+</code></pre>
+<p>Olhando para a segunda regra, ela não se aplica já que há mais de uma entrada 
+de tempo de vida. Olhando para a terceira regra, ela também não se aplica 
+porque isso é uma função e não um método, então nenhum dos parâmetros são 
+<code>self</code>. Então, acabaram as regras, mas não descobrimos qual é o tempo de vida 
+do tipo de retorno. É por isso que recebemos um erro quando tentamos
+compilar o código da Listagem 10-22: o compilador usou as regras de elisão de
+tempo de vida que sabia, mas ainda sim não conseguiu descobrir todos os tempos
+de vida das referências na assinatura.</p>
+<p>Porque a terceira regra só se aplica em assinaturas de métodos, vamos olhar
+tempos de vida nesse contexto agora, e ver porque a terceira regra significa 
+que não temos que anotar tempos de vida em assinaturas de métodos muito 
+frequentemente.</p>
+<h3><a class="header" href="#anotações-de-tempo-de-vida-em-definições-de-métodos" id="anotações-de-tempo-de-vida-em-definições-de-métodos">Anotações de Tempo de Vida em Definições de Métodos</a></h3>
+<p>Quando implementamos métodos em uma struct com tempos de vida, a sintaxe é
+novamente a mesma da de parâmetros de tipos genéricos que mostramos na Listagem
+10-11: o lugar que parâmetros de tempos de vida são declarados e usados depende
+se o parâmetro de tempo de vida é relacionado aos campos do struct ou aos
+argumentos dos métodos e dos valores de retorno.</p>
+<p>Nomes de tempos de vida para campos de estruturas sempre precisam ser 
+declarados após a palavra-chave <code>impl</code> e então usadas após o nome da struct,
+já que esses tempos de vida são partes do tipo da struct.</p>
+<p>Em assinaturas de métodos dentro do bloco <code>impl</code>, as referências podem estar
+amarradas às referências de tempo de vida nos campos de struct, ou elas podem
+ser independentes. Além disso, as regras de elisão de tempo de vida 
+constantemente fazem com que anotações não sejam necessárias em assinaturas de
+métodos. Vamos ver alguns exemplos usando a struct chamada <code>ExcertoImportante</code>
+que definimos na Listagem 10-26.</p>
+<p>Primeiro, aqui há um método chamado <code>level</code>. O único parâmetro é uma referência
+para <code>self</code>, e o valor de retorno é apenas um <code>i32</code>, não uma referência para
+nada:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">struct ExcertoImportante&lt;'a&gt; {
+</span><span class="boring">    part: &amp;'a str,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl&lt;'a&gt; ExcertoImportante&lt;'a&gt; {
+    fn level(&amp;self) -&gt; i32 {
+        3
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>A declaração do parâmetro de tempo de vida depois de <code>impl</code> e uso depois do 
+tipo de nome é obrigatório, mas nós não necessariamente precisamos de anotar o
+tempo de vida da referência <code>self</code> por causa da primeira regra da elisão.</p>
+<p>Aqui vai um exemplo onde a terceira regra da elisão de tempo de vida se aplica:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">struct ExcertoImportante&lt;'a&gt; {
+</span><span class="boring">    part: &amp;'a str,
+</span><span class="boring">}
+</span><span class="boring">
+</span>impl&lt;'a&gt; ExcertoImportante&lt;'a&gt; {
+    fn anuncio_e_parte_de_retorno(&amp;self, anuncio: &amp;str) -&gt; &amp;str {
+        println!(&quot;Atenção por favor: {}&quot;, anuncio);
+        self.part
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Há dois tempos de vida de entrada, então o Rust aplica a primeira regra de 
+elisão de tempos de vida e dá ambos ao <code>&amp;self</code> e ao <code>anuncio</code> seus próprios
+tempos de vida. Então, porque um dos parâmetros é <code>self</code>, o tipo de retorno
+tem o tempo de vida de <code>&amp;self</code> e todos os tempos de vida foram contabilizados.</p>
+<h3><a class="header" href="#o-tempo-de-vida-estático" id="o-tempo-de-vida-estático">O Tempo de Vida Estático</a></h3>
+<p>Há <em>um</em> tipo especial de tempo de vida que precisamos discutir: <code>'static</code>. O
+tempo de vida <code>static</code> é a duração completa do programa. Todos os literais de
+string têm um tempo de vida <code>static</code>, o qual podemos escolher anotar como o
+seguinte:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s: &amp;'static str = &quot;Eu tenho um tempo de vida estático.&quot;;
+<span class="boring">}
+</span></code></pre></pre>
+<p>O texto dessa string é guardado diretamente no binário do seu programa e o
+binário do seu programa está sempre disponível. Logo, o tempo de vida de todas
+as literais de string é <code>'static</code>.</p>
+<p>Você pode ver sugestões de usar o tempo de vida <code>'static</code> em uma mensagem de 
+ajuda de erro, mas antes de especificar <code>'static</code> como o tempo de vida para uma
+referência, pense sobre se a referência que você tem é uma que vive todo o 
+tempo de vida do seu programa ou não (ou mesmo se você quer que ele viva tanto,
+se poderia). Na maior parte do tempo, o probléma no código é uma tentativa de 
+criar uma referência solta ou uma incompatibilidade dos tempos de vida 
+disponíveis, e a solução é consertar esses problemas, não especificar um tempo
+de vida <code>'static</code>.</p>
+<h3><a class="header" href="#parâmetros-de-tipos-genéricos-limites-de-trais-e-tempos-de-vida-juntos" id="parâmetros-de-tipos-genéricos-limites-de-trais-e-tempos-de-vida-juntos">Parâmetros de Tipos Genéricos, Limites de Trais e Tempos de Vida Juntos</a></h3>
+<p>Vamos rapidamente olhar para a sintaxe de especificar parâmetros de tipos
+genéricos, limites de traits e tempos de vida todos em uma função!</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fmt::Display;
+
+fn maior_com_um_anuncio&lt;'a, T&gt;(x: &amp;'a str, y: &amp;'a str, ann: T) -&gt; &amp;'a str
+    where T: Display
+{
+    println!(&quot;Anúncio! {}&quot;, ann);
+    if x.len() &gt; y.len() {
+        x
+    } else {
+        y
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>Essa é a função <code>maior</code> da Listagem 10-23 que retorna a maior de dois cortes de
+string, mas com um argumento extra chamado <code>ann</code>. O tipo de <code>ann</code> é o tipo 
+genérico <code>T</code>, que pode ser preenchido por qualquer tipo que implemente o trait
+<code>Display</code> como está especificado na cláusula <code>where</code>. Esse argumento extra será
+impresso antes da função comparar os comprimentos dos cortes de string, que é 
+porque o trait de <code>Display</code> possui um limite. Porque tempos de vida são um tipo
+genérico, a declaração de ambos os parâmetros de tempo de vida <code>'a</code> e o tipo
+genérico <code>T</code> vão na mesma lista com chaves angulares depois do nome da função.</p>
+<h2><a class="header" href="#sumário" id="sumário">Sumário</a></h2>
+<p>Nós cobrimos várias coisas nesse capítulo! Agora que você sabe sobre parâmetros
+de tipos genéricos, traits e limites de traits, e parâmetros genéricos de tempo
+de vida, você está pronto para escrever código que não é duplicado mas pode ser
+usado em muitas situações. Parâmetros de tipos genéricos significam que o 
+código pode ser aplicado a diferentes tipos. Traits e limites de traits 
+garantem que mesmo que os tipos sejam genéricos, esses tipos terão o 
+comportamento que o código precisa. Relações entre tempos de vida de 
+referências especificadas por anotações de tempo de vida garantem que esse 
+código flexível não terá referências soltas. E tudo isso acontece em tempo de
+compilação para que a performace em tempo de execução não seja afetada!</p>
+<p>Acredite ou não, há ainda mais para aprender nessas áreas: Capítulo 17 
+discutirá objetos de trait, que são outro modo de usar traits. O Capútulo 19
+vai cobrir cenários mais complexos envolvendo anotações de tempo de vida. O
+Capítulo 20 vai tratar de alguns tipos avançados de características do sistema.
+Em seguida, porém, vamos falar sobre como escrever testes em Rust para que
+possamos ter certeza que nosso código usando todas essas características está
+funcionando do jeito que queremos!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="ch10-02-traits.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="ch11-00-testing.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="ch10-02-traits.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="ch11-00-testing.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
