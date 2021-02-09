@@ -66,7 +66,7 @@ _quarters_, poderíamos fazer isso com uma expressão `match` igual a esta:
 #    Dime,
 #    Quarter(Estado),
 # }
-# let moeda = Coin::Penny;
+# let moeda = Moeda::Penny;
 let mut contagem = 0;
 match moeda {
     Moeda::Quarter(estado) => println!("Quarter do estado {:?}!", estado),

@@ -1,4 +1,4 @@
-#Tipos Genéricos, _Traits_, e Tempos de vida (_Lifetimes_)
+# Tipos Genéricos, _Traits_, e Tempos de vida (_Lifetimes_)
 
 Cada linguagem de programação tem ferramentas para lidar de forma efetiva com a
 duplicação de conceitos; em Rust, uma dessas ferramentas são os tipos

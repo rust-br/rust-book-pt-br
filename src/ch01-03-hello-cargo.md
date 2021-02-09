@@ -1,4 +1,4 @@
-# 🇧🇷 Olá, Cargo!
+# Olá, Cargo!
 
 Cargo é o gestor de sistemas e pacotes da linguagem Rust. A maioria dos *Rustáceos* usa essa ferramenta para gerenciar seus projetos Rust porque o Cargo cuida de muitas tarefas para você, como criar seu código, fazer o download das bibliotecas das quais seu código depende e criar essas bibliotecas. (Chamamos de bibliotecas que seu código precisa de *dependências*.)
 

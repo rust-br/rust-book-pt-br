@@ -1,4 +1,4 @@
-﻿## Definindo e Instanciando Structs 
+## Definindo e Instanciando Structs
 
 Structs são semelhantes às tuplas, que foram discutidas no Capítulo 3. Como 
 tuplas, os elementos de uma struct podem ser de tipos diferentes. Ao contrário

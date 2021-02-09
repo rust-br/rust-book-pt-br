@@ -1,4 +1,4 @@
-## Hello, World!
+## Olá, mundo!
 
 Agora que você instalou Rust, vamos escrever seu primeiro programa Rust. Quando se aprende uma nova linguagem, é tradicional escrever um pequeno programa que imprime o texto `Hello, world!` na tela, para que façamos o mesmo aqui!
 
