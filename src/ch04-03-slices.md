@@ -265,7 +265,7 @@ problema no código muito mais cedo. Na versão usando slice, a função
 fn main() {
     let mut s = String::from("texto longo");
 
-    let palavra = first_word(&s);
+    let palavra = primeira_palavra(&s);
 
     s.clear(); // Erro!
 }
@@ -277,8 +277,8 @@ Aqui está o erro:
 error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
  --> src/main.rs:6:5
   |
-4 |     let word = primeira_palavra(&s);
-  |                                  - immutable borrow occurs here
+4 |     let palavra = primeira_palavra(&s);
+  |                                     - immutable borrow occurs here
 5 |
 6 |     s.clear(); // Erro!
   |     ^ mutable borrow occurs here
