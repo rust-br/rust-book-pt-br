@@ -1,3 +1,8 @@
 [book]
 title = "A linguagem de programação Rust"
 author = "Steve Klabnik e Carol Nichols, com a colaboração da comunidade Rust"
+
+[output.html]
+additional-css = ["ferris.css", "theme/2018-edition.css"]
+additional-js = ["ferris.js"]
+git-repository-url = "https://github.com/rust-br/rust-book-pt-br"
