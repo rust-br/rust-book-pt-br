@@ -144,6 +144,8 @@ let mut s = String::from("texto");
 
 let r1 = &mut s;
 let r2 = &mut s;
+
+println!("{}, {}", r1, r2);
 ```
 
 Aqui está o erro:
@@ -201,6 +203,8 @@ let mut s = String::from("texto");
 let r1 = &s; // sem problema
 let r2 = &s; // sem problema
 let r3 = &mut s; // PROBLEMA GRANDE
+
+println!("{}, {}, and {}", r1, r2, r3);
 ```
 
 Aqui está o erro:
@@ -224,6 +228,26 @@ imutável. Usuários de uma referência imutável não esperam que os valores mu
 de repente! Porém, múltiplas referências imutáveis são permitidas, pois ninguém
 que esteja apenas lendo os dados será capaz de afetar a leitura que está sendo
 feita em outra parte do código.
+
+Observe que o escopo de uma referência começa de onde é inserida e continua até
+a última vez que a referência foi usada. Por exemplo, este código será compilado
+porque o último uso das referências imutáveis, ocorrem antes da referência mutável
+ser inserida:
+
+```rust,ignore
+let mut s = String::from("texto");
+
+let r1 = &s; // sem problema
+let r2 = &s; // sem problema
+println!("{} and {}", r1, r2);
+// r1 e r2 não serão mais utilizadas a partir deste ponto
+
+let r3 = &mut s; // sem problema
+println!("{}", r3);
+```
+O escopo das referências imutáveis `r1` e `r2` terminam após o `println!` onde eles
+são utilizados pela última vez, que é antes da referência mutável `r3` ser criada.
+Esses escopos não se sobrepõem, portanto, este código é permitido.
 
 Mesmo que esses erros sejam frustrantes às vezes, lembre-se que é o compilador
 do Rust apontando um bug potencial antecipadamente (em tempo de compilação,

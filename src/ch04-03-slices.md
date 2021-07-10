@@ -265,7 +265,7 @@ problema no código muito mais cedo. Na versão usando slice, a função
 fn main() {
     let mut s = String::from("texto longo");
 
-    let palavra = first_word(&s);
+    let palavra = primeira_palavra(&s);
 
     s.clear(); // Erro!
 }
@@ -351,7 +351,7 @@ fn main() {
 
     // primeira_palavra funciona com strings literais
     let palavra = primeira_palavra(&minha_string_literal[..]);
-	
+
 	// uma vez que strings literais *são* slices de strings,
 	// isso também funciona, sem nem usar sintaxe de slice!
     let palavra = primeira_palavra(minha_string_literal);

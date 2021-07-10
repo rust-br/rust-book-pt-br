@@ -81,8 +81,8 @@ user1.email = String::from("outroemail@exemplo.com");
 instância de `User`</span>
 
 
-### Abreviatura da Inicialização dos Campos quando as 
-### Variáveis têm o mesmo Nome dos Campos
+<h3>Abreviatura da Inicialização dos Campos quando as Variáveis têm o mesmo
+Nome dos Campos</h3>
 
 Se você tiver as variáveis com os mesmos nomes dos campos da struct, você pode 
 usar o *field init shorthand* ((inicialização abreviada do campo). Isto pode 
@@ -144,8 +144,8 @@ fn build_user(email: String, username: String) -> User {
 campo init porque os parâmetros `e-mail` e `username` têm o mesmo nome dos 
 campos da struct</span>
 
-### A Criação de instâncias de outras instâncias com Sintaxe de Atualização
-### da Struct (Struct Update Syntax)
+<h3>A Criação de instâncias de outras instâncias com Sintaxe de Atualização da
+Struct (Struct Update Syntax)</h3>
 
 É frequentemente útil criar uma nova instância a partir de uma antiga instância, 
 usando a maioria dos valores da antiga instância mas mudando alguns. A Lista 5-6
