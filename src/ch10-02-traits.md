@@ -87,7 +87,7 @@ impl Resumir for ArtigoDeNoticia {
 }
 
 pub struct Tweet {
-    pub nomeusuario: String,
+    pub nome_usuario: String,
     pub conteudo: String,
     pub resposta: bool,
     pub retweet: bool,
@@ -95,7 +95,7 @@ pub struct Tweet {
 
 impl Resumir for Tweet {
     fn resumo(&self) -> String {
-        format!("{}: {}", self.nomeusuario, self.conteudo)
+        format!("{}: {}", self.nome_usuario, self.conteudo)
     }
 }
 ```
@@ -118,7 +118,7 @@ são parte de um trait:
 
 ```rust,ignore
 let tweet = Tweet {
-    nomeUsuario: String::from("horse_ebooks"),
+    nome_usuario: String::from("horse_ebooks"),
     conteudo: String::from("claro, como vocês provavelmente já sabem, 
     pessoas"),
     resposta: false,
