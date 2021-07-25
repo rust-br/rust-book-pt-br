@@ -39,7 +39,7 @@ Como alternativa, você pode adicionar a seguinte linha ao seu _~/.bash_profile_
 $ export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
-Além disso, você precisará de um *linker* de algum tipo. Provavelmente já estáinstalado, mas quando você tenta compilar um programa Rust e obtem erros, indicando que um linker não pôde executar, isso significa que um linker não está instalado no seu sistema e você precisará instalá-lo manualmente. Os compiladores C geralmente vêm com o linker correto. Verifique a documentação da sua plataforma para saber como instalar 
+Além disso, você precisará de um *linker* de algum tipo. Provavelmente já está instalado, mas quando você tenta compilar um programa Rust e obtem erros, indicando que um linker não pôde executar, isso significa que um linker não está instalado no seu sistema e você precisará instalá-lo manualmente. Os compiladores C geralmente vêm com o linker correto. Verifique a documentação da sua plataforma para saber como instalar 
 um compilador C. Além disso, alguns pacotes Rust comuns dependem do código C e precisarão de um compilador C. Portanto, pode valer a pena instalar um agora.
 
 ### Instalando `rustup` no Windows
