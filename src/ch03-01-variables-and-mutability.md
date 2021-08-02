@@ -57,7 +57,7 @@ A causa desse tipo de falha pode ser difícil de rastrear,
 especialmente quando o segundo trecho de código muda o valor apenas *algumas vezes*.
 
 Em Rust, o compilador garante que quando você afirma que um valor não pode mudar,
-ele não mude. Isso significa que quando você está lendo e ecrevendo código,
+ele não mude. Isso significa que quando você está lendo e escrevendo código,
 você não tenha de acompanhar como e onde um valor pode mudar. E assim seu código
 fica mais fácil de entender.
 
