@@ -119,7 +119,7 @@ são parte de um trait:
 ```rust,ignore
 let tweet = Tweet {
     nome_usuario: String::from("horse_ebooks"),
-    conteudo: String::from("claro, como vocês provavelmente já sabem, 
+    conteudo: String::from("claro, como vocês provavelmente já sabem,
     pessoas"),
     resposta: false,
     retweet: false,
@@ -128,7 +128,7 @@ let tweet = Tweet {
 println!("1 novo tweet: {}", tweet.summary());
 ```
 
-Isso irá imprimir `1 novo tweet: claro, como vocês provavelmente já sabem,
+Isso irá imprimir `1 novo tweet: horse_ebooks: claro, como vocês provavelmente já sabem,
 pessoas`
 
 Note que porque nós definimos o trait `Resumir` e os tipos `ArtigoDeNoticia` e
