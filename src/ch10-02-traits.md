@@ -125,7 +125,7 @@ let tweet = Tweet {
     retweet: false,
 };
 
-println!("1 novo tweet: {}", tweet.summary());
+println!("1 novo tweet: {}", tweet.resumo());
 ```
 
 Isso irá imprimir `1 novo tweet: claro, como vocês provavelmente já sabem,
