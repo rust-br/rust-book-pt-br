@@ -86,7 +86,7 @@
     - [Extending Cargo with Custom Commands](ch14-05-extending-cargo.md)
 
 - [🇧🇷 Ponteiros Inteligentes (Smart Pointers)](ch15-00-smart-pointers.md)
-    - [🇧🇷 `Box<T>` Aponta para Dados no Heap e Tem Tamanho Conhecido](ch15-01-box.md)
+    - [🇧🇷 Usando `Box<T>` para Apontar Dados no Heap](ch15-01-box.md)
     - [🇧🇷 Tratando Ponteiros Inteligentes como Referências Normais com a Trait `Deref`](ch15-02-deref.md)
     - [🇧🇷 A Trait `Drop` Roda Código durante a Limpeza](ch15-03-drop.md)
     - [🇧🇷 `Rc<T>`, o Ponteiro Inteligente com Contagem de Referências](ch15-04-rc.md)

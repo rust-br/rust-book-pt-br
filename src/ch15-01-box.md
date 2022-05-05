@@ -1,15 +1,15 @@
-## `Box<T>` Aponta para Dados no Heap e Tem Tamanho Conhecido
+## Usando `Box<T>` para Apontar Dados no Heap
 
 O ponteiro inteligente mais simples é um _box_ (literalmente, "caixa"), cujo
-tipo é escrito `Box<T>`. _Boxes_ (plural de _box_) lhe permitem armazenar dados
+tipo é escrito `Box<T>`. _Boxes_  permitem armazenar dados
 no heap em vez de na pilha. O que fica na pilha é o ponteiro para o dado no
-heap. Confira o Capítulo 4 para rever a diferença entre pilha e heap.
+heap. Confira o Capítulo 4 para relembrar a diferença entre pilha e heap.
 
-Boxes não têm custo adicional de desempenho além de armazenar dados no heap em
-vez de na pilha. Mas eles também não têm muitas habilidades a mais. Você irá
+Boxes não têm custo adicional de desempenho, além de armazenar dados no heap em
+vez de na pilha. Mas eles também não tem muitas habilidades a mais. Você irá
 usá-los mais comumente nestas situações:
 
-- Quando você tem um tipo cujo tamanho não é possível saber em tempo de
+- Quando você tem um tipo cujo tamanho não é conhecido em tempo de
   compilação, e você quer usar um valor desse tipo em um contexto que precisa
   saber um tamanho exato;
 - Quando você tem uma quantidade grande de dados e você quer transferir a posse
@@ -17,18 +17,18 @@ usá-los mais comumente nestas situações:
 - Quando você quer possuir um valor e só se importa se é um tipo que implementa
   uma trait específica, em vez de saber o tipo concreto.
 
-Vamos demonstrar a primeira situação nesta seção. Mas antes disso, vamos falar
+Vamos demonstrar a primeira situação na seção ["Boxes Possibilitam Tipos Recursivos"](#boxes-possibilitam-tipos-recursivos)<!-- ignore -->. Mas antes disso, vamos falar
 um pouco mais sobre as outras duas situações: no segundo caso, transferir posse
 de uma quantidade grande de dados pode levar muito tempo porque os dados são
 copiados de um lado para o outro na pilha. Para melhorar o desempenho nessa
 situação, podemos armazenar essa quantidade grande de dados no heap em um box.
 Assim, apenas uma quantidade pequena de dados referentes ao ponteiro é copiada
 na pilha, e os dados em si ficam em um lugar só no heap. O terceiro caso é
-conhecido como um _objeto de trait_ (_trait object_), e o Capítulo 17 dedica uma
+conhecido como um _objeto rait_ (_trait object_), e o Capítulo 17 dedica uma
 seção inteira somente a esse tópico. Então o que você aprender aqui você irá
 aplicar de novo no Capítulo 17!
 
-### Usando um `Box<T>` para Armazenar Dados no Heap
+### Usando `Box<T>` para Armazenar Dados no Heap
 
 Antes de discutirmos esse caso de uso para o `Box<T>`, vamos cobrir a sintaxe e
 como interagir com valores armazenados dentro de um `Box<T>`.
@@ -38,10 +38,7 @@ A Listagem 15-1 mostra como usar um box para armazenar um valor `i32` no heap:
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
-fn main() {
-    let b = Box::new(5);
-    println!("b = {}", b);
-}
+{{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-01/src/main.rs}}
 ```
 
 <span class="caption">Listagem 15-1: Armazenando um valor `i32` no heap usando
@@ -110,11 +107,9 @@ demonstraremos:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
-```rust,ignore
-enum List {
-    Cons(i32, List),
-    Nil,
-}
+
+```rust,ignore,does_not_compile
+{{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-02/src/main.rs:here}}
 ```
 
 <span class="caption">Listagem 15-2: A primeira tentativa de definir um enum
@@ -130,12 +125,8 @@ A listagem 15-3 mostra como fica o uso do tipo `List` para armazenar a lista
 
 <span class="filename">Arquivo: src/main.rs</span>
 
-```rust,ignore
-use List::{Cons, Nil};
-
-fn main() {
-    let list = Cons(1, Cons(2, Cons(3, Nil)));
-}
+```rust,ignore,does_not_compile
+{{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-03/src/main.rs:here}}
 ```
 
 <span class="caption">Listagem 15-3: Usando o enum `List` para armazenar a lista
@@ -149,17 +140,8 @@ recursiva que sinaliza o final da lista.
 Se tentarmos compilar o código na listagem 15-3, receberemos o erro mostrado na
 listagem 15-4:
 
-```text
-erro[E0072]: tipo recursivo `List` tem tamanho infinito
- --> src/main.rs:1:1
-  |
-1 | enum List {
-  | ^^^^^^^^^ tipo recursivo tem tamanho infinito
-2 |     Cons(i32, List),
-  |               ----- recursivo sem indireção
-  |
-  = ajuda: insira indireção (ex.: um `Box`, `Rc` ou `&`) em algum lugar para
-  tornar `List` representável
+```console
+{{#include ../listings/ch15-smart-pointers/listing-15-03/output.txt}}
 ```
 
 <span class="caption">Listagem 15-4: O erro que recebemos quando tentamos
@@ -178,12 +160,7 @@ Recorde o enum `Mensagem` que definimos na Listagem 6-2 quando discutimos
 definições de enums no Capítulo 6:
 
 ```rust
-enum Mensagem {
-    Sair,
-    Mover { x: i32, y: i32 },
-    Escrever(String),
-    MudarCor(i32, i32, i32),
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-02/src/main.rs:here}}
 ```
 
 Para determinar quanto espaço alocar para um valor `Mensagem`, o Rust percorre
@@ -205,6 +182,7 @@ Figura 15-1:
 
 <img alt="Uma cons list infinita" src="img/trpl15-01.svg" class="center"
 style="width: 50%;" />
+
 
 <span class="caption">Figura 15-1: Uma `List` infinita feita de infinitas
 variantes `Cons`</span>
@@ -239,19 +217,7 @@ Listagem 15-3 para o código na Listagem 15-5, que compila:
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust
-enum List {
-    Cons(i32, Box<List>),
-    Nil,
-}
-
-use List::{Cons, Nil};
-
-fn main() {
-    let list = Cons(1,
-        Box::new(Cons(2,
-            Box::new(Cons(3,
-                Box::new(Nil))))));
-}
+{{#rustdoc_include ../listings/ch15-smart-pointers/listing-15-05/src/main.rs}}
 ```
 
 <span class="caption">Listagem 15-5: Definição de `List` que usa `Box<T>` para
@@ -266,10 +232,10 @@ para que o compilador pudesse determinar o espaço que ele precisa para
 armarzenar um valor `List`. A Figura 15-2 mostra como ficou a variante `Cons`
 agora:
 
-<img alt="Uma lista de Cons infinita" src="img/trpl15-02.svg" class="center" />
+<img alt="Uma lista de Cons infinita" src="img/trpl15-02.svg" class="center" style="width: 50%;"/>
 
-<span class="caption">Figura 15-2: Um `List` que não tem tamanho infinito porque
-`Cons` contém um `Box`</span>
+<span class="caption">Figura 15-2: Um `List` que não tem tamanho infinito 
+porque `Cons` contém um `Box`</span>
 
 Boxes apenas proveem a indireção e a alocação no heap; eles não têm nenhuma
 outra habilidade especial, como as que vamos ver nos outros tipos de ponteiros
