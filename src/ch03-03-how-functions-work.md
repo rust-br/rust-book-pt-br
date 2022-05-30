@@ -27,7 +27,7 @@ As definições de funções em Rust iniciam com `fn` e tem um par de parêntese
 depois do nome da função. As chaves dizem ao compilador onde o
 corpo da função começa e termina.
 
-Podemos chamar qualqer função que tenhamos definido, inserindo seu nome, seguido de um
+Podemos chamar qualquer função que tenhamos definido, inserindo seu nome, seguido de um
 conjunto de parenteses. Pelo fato da `outra_funcao` ter sido definida no programa, ela pode
 ser chamada dentro da função `main`. Note que definimos `outra_funcao`
 *depois* da função `main`; poderíamos ter definido antes
