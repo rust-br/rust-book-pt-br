@@ -87,8 +87,8 @@ Rust não tem um equivalente para o operador `->`; em vez disso, Rust tem
 um recurso chamado *referenciamento e desreferenciamento automático*. 
 Chamada de métodos é um dos poucos lugares em Rust que têm este comportamento.
 
-Eis como funciona: quando você chamar um método com `objecto.algo()`, Rust 
-adiciona automaticamente `&`, `&mut` ou `*` para que `objecto` corresponda
+Eis como funciona: quando você chamar um método com `objeto.algo()`, Rust 
+adiciona automaticamente `&`, `&mut` ou `*` para que `objeto` corresponda
 à assinatura do método. Em outras palavras, as seguintes são as mesmas:
 
  ```rust
