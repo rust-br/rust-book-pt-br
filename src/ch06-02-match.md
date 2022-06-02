@@ -242,7 +242,7 @@ dos demais será testado.
 A combinação de enums e a expressão `match` é útil em diversas situações. Você
 verá muito esse padrão em Rust: fazer o `match` de uma enum, associar uma
 variável ao valor embutido, e então executar um código baseado nele. Pode
-parecer complicado no começo, mas uma vez que você se acostume, você vai querer
+parecer complicado no começo, mas uma vez que você se acostuma, você vai querer
 que tivesse isso em todas as linguagens. É, sistematicamente, um favorito dos
 usuários.
 
