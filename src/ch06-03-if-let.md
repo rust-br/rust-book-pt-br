@@ -38,7 +38,7 @@ da mesma forma que um `match`, em que a expressão seria passada para o `match`,
 e o padrão apareceria no primeiro braço.
 
 Usar o `if let` implica menos código pra digitar e menos indentação. Porém,
-perdemos a verificação exaustiva que é garantida pelo `match`. A escolhe entre
+perdemos a verificação exaustiva que é garantida pelo `match`. A escolha entre
 `match` e `if let` depende do que você está fazendo em uma situação particular,
 e se a redução no volume de código compensa a perda da verificação exaustiva.
 
