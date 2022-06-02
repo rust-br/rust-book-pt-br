@@ -235,7 +235,7 @@ em que `x` é `None`. Nós entramos no `match` e comparamos com o primeiro braç
 None => None,
 ```
 
-Confere! Não há nenhum valor para somar, então o programa pára e retorna o
+Confere! Não há nenhum valor para somar, então o programa para e retorna o
 valor `None` do lado direito do `=>`. Como o primeiro braço já casou, nenhum
 dos demais será testado.
 
