@@ -7,7 +7,7 @@ dois subconjuntos de tipos de dados: escalar e composto.
 Tenha em mente que Rust é uma linguagem de *tipagem estática*, o que significa
 que deve conhecer os tipos de todas as variáveis em tempo de compilação. O compilador
 geralmente pode inferir que tipo queremos com base no valor e como o usamos. Nos casos
-em que são é possível vários tipos de dados, como quando convertemos uma `String` em um tipo numérico
+em que são possíveis vários tipos de dados, como quando convertemos uma `String` em um tipo numérico
 usando `parse` na seção "Comparando o Adivinha ao Número Secreto" no
 Capítulo 2, devemos adicionar uma anotação de tipo, como a seguinte:
 
