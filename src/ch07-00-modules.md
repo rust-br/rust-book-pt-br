@@ -2,7 +2,7 @@
 
 Quando você começa a escrever programas em Rust, seu código pode se manter apenas na
 função `main`. À medida que seu código cresce, você acabará por mover funcionalidades para
-outras outras funções a fim de reutilizar código e melhorar a organização. Ao dividir seu código em
+outras funções a fim de reutilizar código e melhorar a organização. Ao dividir seu código em
 pequenos pedaços, cada pedaço é mais fácil de entender por si só. Mas o que acontece
 se você tem muitas funções? Rust possui um sistema de módulos que permite a reutilização
 de código de forma organizada.
