@@ -147,7 +147,7 @@ tem um valor associado a ele por vez. Quando queremos mudar os dados em
 um hash map, temos que decidir como lidar com o caso quando uma chave já possui uma
 valor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,
 desconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo
-e ignorar o novo valor, e apenas adicione o novo valor se a chave ainda *não*
+e ignorar o novo valor, e apenas adicionar o novo valor se a chave ainda *não*
 tem um valor. Ou podemos combinar o valor antigo ao valor novo.
 Vejamos como fazer cada um desses!
 
