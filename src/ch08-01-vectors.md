@@ -72,7 +72,7 @@ Como qualquer outro `struct`, um vetor será liberado quando ele sair do escopo:
 ```
 
 
-Quando o vetor é descartado, todos os seus conteúdos também será descartado, o que significa
+Quando o vetor é descartado, todos os seus conteúdos também serão descartados, o que significa
 esses inteiros que ele contém serão limpos. Isso pode parecer um
 ponto direto, mas pode ficar um pouco mais complicado quando começamos a
 introduzir referências aos elementos do vetor. Vamos abordar isso em seguida!
