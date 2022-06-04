@@ -7,7 +7,7 @@ coleções podem conter múltiplos valores. Diferente dos tipos embutidos array 
 os dados que essas coleções apontam estão guardados na heap, que significa
 que a quantidade de dados não precisa ser conhecida em tempo de compilação e pode aumentar ou 
 diminuir conforme a execução do programa. Cada tipo de coleção possui capacidades diferentes
-e custos, e escolher o apropriada para cada tipo de situação em que se encontra é uma
+e custos, e escolher a apropriada para cada tipo de situação em que se encontra é uma
 habilidade que com o tempo você irá adquirir. Nesse capítulo, veremos três 
 coleções que são usadas frequentemente em programas Rust:
 
