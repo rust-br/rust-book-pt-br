@@ -216,7 +216,7 @@ também não incide ownership em nenhum dos seus parâmetros.
 
 ### Indexação em Strings
 
-Em muitas outras linguagens, acessar caracteres individuais em uma string por
+Em muitas outras linguagens, acessar caracteres individuais em uma string
 referenciando por índice é uma operação válida e comum. Em Rust, no entanto, se
 nós tentamos acessar partes de uma `String` usando sintaxe de indexação, vamos ter um erro.
 Ou seja, este código:
