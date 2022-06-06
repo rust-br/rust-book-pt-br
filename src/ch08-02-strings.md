@@ -277,7 +277,7 @@ si. Retornar `208` provavelmente não é o que uma pessoa gostaria se eles pedis
 a primeira letra desta string, mas esse é o único dado que Rust tem no byte
 de índice 0. O retorno do valor do byte provavelmente não é o que as pessoas querem, mesmo com
 caracteres contendo acentuação: `&"hello"[0]` retornaria `104`, não` h`. Para evitar o
-retornando um valor inesperado e causando erros que podem não ser descobertos
+retorno de um valor inesperado causando erros que podem não ser descobertos
 imediatamente, Rust escolhe não compilar este código e previne
 mal-entendidos anteriormente.
 
