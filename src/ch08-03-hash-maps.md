@@ -144,7 +144,7 @@ Blue: 10
 
 Embora o número de chaves e valores sejam crescentes, cada chave individual pode apenas
 tem um valor associado a ele por vez. Quando queremos mudar os dados em
-um hash map, temos que decidir como lidar com o caso quando uma chave já possui uma
+um hash map, temos que decidir como lidar com o caso quando uma chave já possui um
 valor atribuído. Poderíamos optar por substituir o valor antigo pelo novo valor,
 desconsiderando completamente o valor antigo. Poderíamos escolher manter o valor antigo
 e ignorar o novo valor, e apenas adicionar o novo valor se a chave ainda *não*
