@@ -92,7 +92,7 @@ que foram transferidos para o hash map com a chamada para `insert`.
 
 Se inserimos referências a valores no hash map, os próprios valores
 não serão movido para o hash map. Os valores que as referências apontam devem ser
-válido pelo menos enquanto o hash map seja válido, no entanto. Falaremos mais
+válidos pelo menos enquanto o hash map seja válido, no entanto. Falaremos mais
 sobre esses problemas na seção Lifetimes do Capítulo 10. 
 
 ### Acessando Valores em um Hash Map
