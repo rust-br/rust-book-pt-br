@@ -255,7 +255,7 @@ fn main() {
 
 Nós usamos `expect` da mesma maneira que `unwrap`: para retornar o *handle* de arquivo
 ou chamar a macro de `panic!`. A mensagem de erro usada por `expect` na sua chamada
-de `panic!` será o parâmtero que passamos para `expect` em vez da mensagem padrão
+de `panic!` será o parâmetro que passamos para `expect` em vez da mensagem padrão
 que o `unwrap` usa. Aqui está como ela aparece:
 
 ```text
