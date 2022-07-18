@@ -345,7 +345,7 @@ contém um nome de usuário ou um valor de `Err` que contém um `io::Error`. Nó
 não sabemos o que o código que chamou nossa função fará com esses valores. Se o 
 código que chamou recebe um valor de `Err`, ele poderia chamar `panic!` e causar
 um crash, usar um nome de usuário padrão, ou procurar o nome de usuário em outro
-lugar que não um arquivo, por exemplo. Nós não temos informação o suficiente sobre
+lugar que não é um arquivo, por exemplo. Nós não temos informação o suficiente sobre
 o que o código que chamou está de fato tentando fazer, então propagamos toda a 
 informação de sucesso ou erro para cima para que ele a trate apropriadamente.
 
