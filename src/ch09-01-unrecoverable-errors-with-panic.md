@@ -93,7 +93,7 @@ ter acesso.
 
 Para proteger seu programa desse tipo de vulnerabilidade, se você tentar ler
 um elemento em um índice que não exista, Rust vai parar a execução e se recusar
-a continar. Vamos fazer isso e ver o que acontece:
+a continuar. Vamos fazer isso e ver o que acontece:
 
 ```text
 $ cargo run
