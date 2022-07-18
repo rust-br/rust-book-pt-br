@@ -202,7 +202,7 @@ então a sua intuição de o que é um "caractere" pode não combinar com o que 
 *Tipos compostos* podem agrupar vários valores em um único tipo. Rust tem dois
 tipos primitivos compostos: tuplas e vetores.
 
-#### O tipo tuplaero de valores
+#### O tipo tupla de valores
 
 Uma tupla é de modo geral uma forma de agrupar um certo número de valores
 com uma variável do tipo composto.
