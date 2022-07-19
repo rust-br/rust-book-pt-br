@@ -339,7 +339,7 @@ sabe se o tipo dentro das chaves angulares em `Ponto` é um tipo genérico ou um
 tipo concreto. Por exemplo, nós poderíamos escolher implementar métodos nas
 instâncias de `Ponto<f32>` ao invés nas de `Ponto` com qualquer tipo genérico.
 A listagem 10-10 mostra que não declaramos nada depois de `impl` nesse caso, já
-que estamos usanod um tipo concreto, `f32`:
+que estamos usando um tipo concreto, `f32`:
 
 ```rust
 # struct Ponto<T> {
