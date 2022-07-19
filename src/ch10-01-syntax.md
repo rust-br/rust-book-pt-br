@@ -443,7 +443,7 @@ let float = Some(5.0);
 ```
 
 Quando o Rust compilar esse código, ele vai fazer a monomorfização. O 
-compilador lerá os valores que foram passados para `Option` e ver que temos
+compilador lerá os valores que foram passados para `Option` e verá que temos
 dois tipos de `Option<T>`: um é `i32`, e o outro `f64`. Assim sendo, ele 
 expandirá a definição genérica de `Option<T>` para `Option_i32` e `Option_64`,
 substituindo a definição genérica por definições específicas.
