@@ -360,7 +360,7 @@ aplica a uma struct com o tipo específico usado pelo parâmetro de tipo genéri
 
 Esse código significa que o tipo `Ponto<f32>` terá um método chamado 
 `distancia_da_origem`, e outras instâncias do `Ponto<T>` onde `T` não é do tipo
-`f32` não terá esse método definido. Esse método quão longe nosso ponto está
+`f32` não terá esse método definido. Esse método calcula quão longe nosso ponto está
 das coordenadas (0.0, 0.0) e usa operações matemáticas que só estão disponíveis
 para tipos de ponto-flutuantes.
 
