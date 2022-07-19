@@ -472,7 +472,7 @@ fn main() {
 ```
 
 Nós podemos escrever códigos não duplicados usando tipos genéricos, e Rust vai
-compila-lo em código que especifica o tipo em cada instância. Isso significa 
+compilá-lo em código que especifica o tipo em cada instância. Isso significa 
 que não pagamos nenhum custo em tempo de processamento para usar tipos 
 genéricos; quando o código roda, ele executa do mesmo modo como executaria se
 tivéssemos duplicado cada definição particular a mão. O proccesso de 
