@@ -408,7 +408,7 @@ No `main`, nós definimos um `Ponto` que tem um `i32` para o `x` (com o valor de
  `5`) e um `f64` para `y` (com o valor de `10.4`). `p2` é um `Ponto` que tem um
 pedaço de string `x` (com o valor `"Ola"`) e um `char` para `y` (com o valor
 `c`). Chamando `mistura` no `p1` com o argumento `p2` nos dá `p3`, que terá um
-`i32` para `x`, já que `x` veio de `p1`. `p3` terá um `char` para `y`, já que 
+`i32` para `x`, já que `x` veio de `p1` e `p3` terá um `char` para `y`, já que 
 `y` veio de `p2`. O `println!` irá imprimir `p3.x = 5, p3.y = c`.
 
 Note que os parâmetro genéricos `T` e `U` são declarados depois de `impl`, já
