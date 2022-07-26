@@ -58,7 +58,7 @@ listados um por linha e cada linha terminando com um ponto e vírgula.
 
 ### Implementando um Trait em um Tipo
 
-Agora que deifnimos o trait `Resumir`, podemos implementá-lo nos tipos do nosso
+Agora que definimos o trait `Resumir`, podemos implementá-lo nos tipos do nosso
 agregador de mídias que queremos que tenham esse comportamento. A Listagem 
 10-13 mostra uma implementação do trait `Resumir` no struct `ArtigoNotícia` que
 possui o título, o autor e a localização para criar e retornar o valor de 
