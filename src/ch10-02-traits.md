@@ -50,7 +50,7 @@ nesse caso `fn resumo(&self) -> String;`. Depois da assinatura do método ao
 invés de fornecer uma implementação dentro de chaves, nós colocamos um ponto e
 vírgula. Cada tipo que implementa esse trait precisa então fornecer seu próprio
 comportamento customizado para o corpo do método, mas o compilador vai reforçar
-que qualquer qualquer tipo que tenha o trait `Resumir` terá o método `resumo`
+que qualquer tipo que tenha o trait `Resumir` terá o método `resumo`
 definido para ele com esse exata assinatura.
 
 Um trait pode ter vários métodos no seu corpo, com os métodos das assinaturas
