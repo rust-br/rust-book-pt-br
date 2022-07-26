@@ -1,6 +1,6 @@
 ## Validating References with Lifetimes
 
-Quandos falamos sobre referêcias no Capítulo 4, nós deixamos de fora um detalhe
+Quandos falamos sobre referências no Capítulo 4, nós deixamos de fora um detalhe
 importante: toda referência em Rust tem um _lifetime_, que é o escopo no qual
 aquela referência é válida. A maior parte das vezes tempos de vida são implícitos e
 inferidos, assim como a maior parte do tempo tipos são inferidos. Similarmente
