@@ -661,7 +661,7 @@ frequentemente.
 Quando implementamos métodos em uma struct com tempos de vida, a sintaxe é
 novamente a mesma da de parâmetros de tipos genéricos que mostramos na Listagem
 10-11: o lugar que parâmetros de tempos de vida são declarados e usados depende
-se o parâmetro de tempo de vida é relacionado aos campos do struct ou aos
+se o parâmetros de tempo de vida é relacionado aos campos do struct ou aos
 argumentos dos métodos e dos valores de retorno.
 
 Nomes de tempos de vida para campos de estruturas sempre precisam ser 
