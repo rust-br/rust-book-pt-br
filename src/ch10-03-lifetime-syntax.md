@@ -783,7 +783,7 @@ código flexível não terá referências soltas. E tudo isso acontece em tempo 
 compilação para que a performace em tempo de execução não seja afetada!
 
 Acredite ou não, há ainda mais para aprender nessas áreas: Capítulo 17 
-discutirá objetos de trait, que são outro modo de usar traits. O Capútulo 19
+discutirá objetos de trait, que são outro modo de usar traits. O Capítulo 19
 vai cobrir cenários mais complexos envolvendo anotações de tempo de vida. O
 Capítulo 20 vai tratar de alguns tipos avançados de características do sistema.
 Em seguida, porém, vamos falar sobre como escrever testes em Rust para que
