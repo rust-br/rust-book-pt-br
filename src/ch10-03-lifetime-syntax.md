@@ -550,7 +550,7 @@ Depois de escrever muito código em Rust, o time de Rust descobriu que os
 programadores de Rust estavam digitando as mesmas anotações de tempo de vida
 de novo e de novo. Essas situações eram previsíveis e seguiam alguns padrões
 determinísticos. O time de Rust programou esses padrões no compilador de código 
-de Rust para que o verificador de empréstimos pode inferir os tempos de vida
+de Rust para que o verificador de empréstimos possa inferir os tempos de vida
 dessas situações sem forçar o programador adicionar essas anotações 
 explicitamente.
 
