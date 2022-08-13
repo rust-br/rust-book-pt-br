@@ -475,6 +475,6 @@ Nós podemos escrever códigos não duplicados usando tipos genéricos, e Rust v
 compila-lo em código que especifica o tipo em cada instância. Isso significa 
 que não pagamos nenhum custo em tempo de processamento para usar tipos 
 genéricos; quando o código roda, ele executa do mesmo modo como executaria se
-tivéssemos duplicado cada definição particular a mão. O proccesso de 
+tivéssemos duplicado cada definição particular a mão. O processo de 
 monomorfização é o que faz os tipos genéricos de Rust serem extremamente 
 eficientes em tempo de processamento.
