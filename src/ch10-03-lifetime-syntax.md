@@ -424,7 +424,7 @@ Nesse exemplo, especificamos o tempo de vida do parâmetro `'a` para o parâmetr
 `x` e o tipo de retorno, mas, não para o parâmetro `y`, já que o tempo de vida 
 de `y` não tem qualquer relação com o tempo de vida `x` ou o valor retornado.
 
-Quando retornarmos uma referência de um uma função, o parâmetro de tempo de 
+Quando retornarmos uma referência de um valor em uma função, o parâmetro de tempo de 
 vida para o tipo de retorno precisa combinar o parâmetro do tempo de vida de um
 dos argumentos. Se a referência retornada *não* refere a nenhum dos argumentos,
 a única outra possibilidade é que refira a um valor criado dentro da função, o
