@@ -607,7 +607,7 @@ fn primeira_palavra(s: &str) -> &str {
 ```
 
 Então nós (como o compilador) aplicamos a primeira regra, que diz que cada 
-parâmetro tem sem próprio tempo de vida. Nós vamos chama-lo de `'a` como é 
+parâmetro tem seu próprio tempo de vida. Nós vamos chamá-lo de `'a` como é 
 usual, então agora a assinatura é:
 
 ```rust,ignore
