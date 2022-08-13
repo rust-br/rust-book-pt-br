@@ -734,7 +734,7 @@ Você pode ver sugestões de usar o tempo de vida `'static` em uma mensagem de
 ajuda de erro, mas antes de especificar `'static` como o tempo de vida para uma
 referência, pense sobre se a referência que você tem é uma que vive todo o 
 tempo de vida do seu programa ou não (ou mesmo se você quer que ele viva tanto,
-se poderia). Na maior parte do tempo, o probléma no código é uma tentativa de 
+se poderia). Na maior parte do tempo, o problema no código é uma tentativa de 
 criar uma referência solta ou uma incompatibilidade dos tempos de vida 
 disponíveis, e a solução é consertar esses problemas, não especificar um tempo
 de vida `'static`.
