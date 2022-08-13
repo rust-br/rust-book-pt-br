@@ -572,7 +572,7 @@ correspondem com as suas intenções para como as referências se relacionam uma
 com as outras.
 
 Primeiro, algumas definições: Tempos de vida em parâmetros de funções ou 
-métodos são chamadas *tempos de vida de entrada*, e tempos de vida em valores
+métodos são chamados *tempos de vida de entrada*, e tempos de vida em valores
 de retorno são chamados de *tempos de vida de saída*.
 
 Agora, as regras que o compilador usa para descobrir quais referências de 
