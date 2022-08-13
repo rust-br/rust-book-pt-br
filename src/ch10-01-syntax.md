@@ -270,7 +270,7 @@ enum Option<T> {
 
 Em outras palavras, `Option<T>` é um enum genérico do tipo `T`. Ele têm duas
 variantes: `Some`, que contém o valor do tipo `T`, e uma variante `None` que 
-não contém nenhum valor. A biblioteca padrão tem que ter apenas essa deifinição
+não contém nenhum valor. A biblioteca padrão tem que ter apenas essa definição
 para suportar a criação de valores desse enum que pode conter qualquer tipo
 concreto. A ideia de um "um valor opcional" é um conceito mais abstrato que o 
 de um tipo específico, e Rust nos deixa expressar esse conceito abstrato sem 
