@@ -281,7 +281,7 @@ todas as referências na assinatura como tendo o mesmo tempo de vida, `'a`</span
 Isso compilará e produzirá o resultado que queremos quando usada com a função
 `main` na Listagem 10-21.
 
-A assinatura de função agora diz que pra algum tempo de vida `'a`, a função
+A assinatura de função agora diz que para algum tempo de vida `'a`, a função
 receberá dois parâmetros, ambos serão cortes de string que vivem pelo menos
 tanto quanto o tempo de vida `'a`. A função retornará um corte de string que 
 também vai durar tanto quanto o tempo de vida `'a`. Esse é o contrato que 
@@ -289,7 +289,7 @@ estamos dizendo ao Rust que queremos garantir.
 
 Especificando os parâmetros de tempo de vida nessa assinatura de função, não
 estamos modificando os tempos de vida de quaisquer valores passados ou 
-retornados, mas estamos dizendo que quaisqueres valores que não concordem com
+retornados, mas estamos dizendo que quaisquer valores que não concordem com
 esse contrato devem ser rejeitados pelo verificador de empréstimos. Essa função
 não sabe (ou não precisa saber) exatamente quanto tempo `x` e `y` vão viver,
 apenas precisa saber que existe algum escopo que pode ser substituído por `'a`
