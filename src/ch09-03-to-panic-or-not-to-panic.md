@@ -46,7 +46,7 @@ que o compilador entenda. Você ainda vai ter um valor de `Result` que precisa
 lidar: seja qual for a operação que você está chamando, ela ainda tem uma possibilidade
 de falhar em geral, mesmo que seja logicamente impossível que isso ocorra nessa 
 situação particular. Se você consegue assegurar ao inspecionar manualmente o código que
-você nunca tera uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.
+você nunca terá uma variante `Err`, é perfeitamente aceitável chamar `unwrap`.
 Aqui temos um exemplo:
 
 ```rust
