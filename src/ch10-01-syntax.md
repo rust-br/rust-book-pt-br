@@ -412,8 +412,8 @@ pedaço de string `x` (com o valor `"Ola"`) e um `char` para `y` (com o valor
 `y` veio de `p2`. O `println!` irá imprimir `p3.x = 5, p3.y = c`.
 
 Note que os parâmetro genéricos `T` e `U` são declarados depois de `impl`, já
-que eles vão com a definição do struct. Os parâmetros genéricos `V` e `Ẁ` são
-declarados depois de `fn mistura`, já que elés só são relevantes para esse 
+que eles vão com a definição do struct. Os parâmetros genéricos `V` e `W` são
+declarados depois de `fn mistura`, já que eles só são relevantes para esse 
 método.
 
 ### Desempenho do Código Usando Genéricos
