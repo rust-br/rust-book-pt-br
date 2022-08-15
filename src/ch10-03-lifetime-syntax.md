@@ -315,9 +315,9 @@ válida tanto quanto for o tempo de vida mais curto de `x` e `y`.
 Vamos ver como isso restringe o uso da função `maior` passando referências que
 tem diferentes tempos de vida concretos. A Listagem 10-25 é um exemplo direto
 que deve corresponder suas intuições de qualquer linguagem: `string1` é válida
-até o final do escopo exterior, `strin2` é válida até o final do escopo, a
-`string2` é válida até o final do escopo interior. Com o verificador de 
-empréstimos aprovando esse código; ele vai compilar e imprimir 
+até o final do escopo exterior, `string2` e a`string2` é válida até o final do 
+escopo interior. Com o verificador de empréstimos aprovando esse código; ele 
+vai compilar e imprimir 
 `A string mais longa é`:
 
 <span class="filename">Nome do arquivo: src/main.rs</span>
