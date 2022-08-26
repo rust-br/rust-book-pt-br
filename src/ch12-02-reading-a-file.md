@@ -74,7 +74,7 @@ lê-lo. Terceiro, chamamos `read_to_string` no nosso arquivo e passamos um
 referência mutável para `contents` como argumento.
 
 Após essas linhas, adicionamos novamente uma declaração temporária `println!` que
-imprime o valor do `contents` depois que o arquivo é lido, para que possamos verificar que o
+imprime o valor do `contents` depois que o arquivo é lido, para que possamos verificar que
 o programa está funcionando até o momento.
 
 Vamos executar este código com qualquer string como o primeiro argumento da linha de comando (porque
