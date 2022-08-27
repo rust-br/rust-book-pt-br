@@ -97,7 +97,7 @@ o vetor retornado deve conter pedaços de string que fazem referência a pedaço
 argumento `contents` (em vez do argumento `query`).
 
 Em outras palavras, dizemos ao Rust que os dados retornados pela função `search`
-irá viver enquanto os dados passarem para a função `search` no
+irão viver enquanto os dados passados para a função `search` no
 argumento de `contents`. Isso é importante! Os dados referenciados *por* um pedaço precisa
 ser válido para que a referência seja válida; se o compilador assume que estamos fazendo
 pedaços de string de `query` em vez de `contents`, ele fará sua verificação de segurança
