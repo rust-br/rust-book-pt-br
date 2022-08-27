@@ -480,7 +480,7 @@ A função `run` pega a instância `Config` como um argumento.
 Com a lógica do programa restante separada na função `run`, podemos melhorar o tratamento 
 de erros, como fizemos com `Config::new` na Listagem 12-9. Em vez de permitir que o programa 
 entre em pânico ao chamar `expect`, a função `run` retornará um `Result<T, E>` quando 
-algo der errado. Isso permitirá nos permitirá consolidar ainda mais na lógica principal 
+algo der errado. Isso nos permitirá consolidar ainda mais na lógica principal 
 a manipulação de erros em uma maneira fácil de usar. A Listagem 12-12 mostra as mudanças 
 que precisamos fazer para a assinatura e corpo de `run`:
 
