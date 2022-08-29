@@ -2,9 +2,8 @@
 
 Agora vamos adicionar funcionalidades para ler o arquivo que é especificado no
 argumento `filename` da linha de comando. Primeiro, precisamos de um arquivo de amostra para testá-lo:
-o melhor tipo de arquivo a ser usado para garantir que o `minigrep` esteja funcionando é um ,com uma
-pequena quantidade de texto, em várias linhas com algumas palavras repetidas. Listagem 12-3
-tem um poema de Emily Dickinson que funcionará bem! Crie um arquivo chamado
+usaremos um arquivo com uma pequena quantidade de texto em várias linhas com algumas palavras repetidas. 
+Listagem 12-3 tem um poema de Emily Dickinson que funcionará bem! Crie um arquivo chamado
 *poem.txt* no diretório raiz do seu projeto e entre com o poema “I’m Nobody!
 Who are you?”
 
@@ -75,7 +74,7 @@ lê-lo. Terceiro, chamamos `read_to_string` no nosso arquivo e passamos um
 referência mutável para `contents` como argumento.
 
 Após essas linhas, adicionamos novamente uma declaração temporária `println!` que
-imprime o valor do `contents` depois que o arquivo é lido, para que possamos verificar que o
+imprime o valor do `contents` depois que o arquivo é lido, para que possamos verificar que
 o programa está funcionando até o momento.
 
 Vamos executar este código com qualquer string como o primeiro argumento da linha de comando (porque

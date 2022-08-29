@@ -480,7 +480,7 @@ A função `run` pega a instância `Config` como um argumento.
 Com a lógica do programa restante separada na função `run`, podemos melhorar o tratamento 
 de erros, como fizemos com `Config::new` na Listagem 12-9. Em vez de permitir que o programa 
 entre em pânico ao chamar `expect`, a função `run` retornará um `Result<T, E>` quando 
-algo der errado. Isso permitirá nos permitirá consolidar ainda mais na lógica principal 
+algo der errado. Isso nos permitirá consolidar ainda mais na lógica principal 
 a manipulação de erros em uma maneira fácil de usar. A Listagem 12-12 mostra as mudanças 
 que precisamos fazer para a assinatura e corpo de `run`:
 
@@ -651,7 +651,7 @@ escopo de *src/main.rs*</span>
 
 Para colocar a crate de biblioteca na crate binária, usamos `extern crate
 minigrep`. Em seguida, adicionaremos uma linha `use minigrep::Config` para trazer para o 
-escopo o tipo `Config`, e iremos prefixar a funão `run` com o nome da nossa crate. Agora
+escopo o tipo `Config`, e iremos prefixar a função `run` com o nome da nossa crate. Agora
 todas as funcionalidades devem estar conectadas e devem funcionar. Execute o programa com
 `cargo run` e verifique se tudo funciona corretamente.
 
