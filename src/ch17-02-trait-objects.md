@@ -353,7 +353,7 @@ algumas otimizações. No entanto, conseguimos uma maior flexibilidade no códig
 na Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem
 a se considerar.
 
-### A segurança do objeto é necessário para objetos trait
+### A segurança do objeto é necessária para objetos trait
 
 Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas
 determinam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas
