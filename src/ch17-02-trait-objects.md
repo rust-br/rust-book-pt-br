@@ -387,7 +387,7 @@ pub trait Clone {
 O tipo `String` implemento o trait `Clone` e quando chamamos o método `clone`
 numa instância de `String`, obtemos de retorno uma instância de `String`.
 Da mesma forma, se chamarmos `clone` numa instância de `Vec`, retornamos uma instância
-de `Vec`. A assinatura de do `clone` precisa saber que tipo terá o
+de `Vec`. A assinatura do método `clone` precisa saber que tipo terá o
 `Self`, porque esse é o tipo de retorno.
 
 O compilador indicará quando você estiver tentando fazer algo que viole as
