@@ -285,7 +285,7 @@ um `SelectBox`, apenas chama o método `desenhar` do componente. Especificando
 
 A vantagem de usar objetos trait e o sistema de tipos do Rust para escrever códigos
 semelhante ao código usando duck typing é que nunca precisamos verificar se um valor
-implementa umm método em particular no tempo de execução ou se preocupar com erros se
+implementa um método em particular no tempo de execução ou se preocupar com erros se
 um valor não implementa um método, mas nós o chamamos mesmo assim. Rust não irá compilar nosso
 código se os valores não implementarem os traits que o objeto trait precisa.
 
