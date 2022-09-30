@@ -160,7 +160,7 @@ definições serão monomorfizadas em tempo de compilação para os tipos concre
 
 Por outro lado, com o método usando objetos trait, uma instância de `Janela`
 pode conter um `Vec` que contém um `Box<Button>` assim como um `Box<TextField>`.
-Vamos ver como isso funciona e falaremos sobre as impliciações do desempenho
+Vamos ver como isso funciona e falaremos sobre as implicações do desempenho
 em tempo de compilação.
 
 ### Implementando o Trait
