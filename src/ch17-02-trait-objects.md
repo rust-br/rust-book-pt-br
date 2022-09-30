@@ -196,7 +196,7 @@ trait `Draw`</span>
 
 Os campos `largura`, `altura` e `label` do `Button` serão diferentes
 de campos de outros componentes, como o tipo `TextField`, que pode ter esses campos,
-mais um campo `placeholder`. Para cada um dos tipo, queremos que desenhar na
+mais um campo `placeholder`. Para cada um dos tipos, queremos desenhar na
 tela o que implementamos no trait `Draw`, mas usará códigos diferentes no
 método `desenhar` para definir como desenhar aquele tipo em específico, como o `Button` tem
 aqui (sem o atual código da interface gráfica que está além do escopo desse capítulo).
