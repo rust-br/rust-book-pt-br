@@ -366,7 +366,7 @@ trait tem as seguintes propriedades:
 A palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou
 método. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,
 o Rust não conhece mais o tipo concreto que está implementando aquele trait.
-Se um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece
+Se um método trait retorna o tipo concreto `Self`, mas um objeto trait esquece
 o tipo exato que `Self é, não há como o método usar o tipo concreto
 original. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com
 um parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem
