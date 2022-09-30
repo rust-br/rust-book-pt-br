@@ -41,7 +41,7 @@ perminir que os usuários o estendam com novos tipos.
 Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado
 `Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor
 que tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que
-implmenta o trait que especificamos. Criamos um objeto trait especificando alguns
+implementa o trait que especificamos. Criamos um objeto trait especificando alguns
 tipos de ponteiros, como uma referência `&` ou um ponteiro `Box<T>` e
 especificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait
 devem ser usados no Capítulo 19, na seção "Tipos e tamanhos dimensionados dinamicamente").
