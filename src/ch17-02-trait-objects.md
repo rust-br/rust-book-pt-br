@@ -43,7 +43,7 @@ Para implementar o comportamento que queremos que `gui` tenha, definiremos um tr
 que tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que
 implementa o trait que especificamos. Criamos um objeto trait especificando alguns
 tipos de ponteiros, como uma referência `&` ou um ponteiro `Box<T>` e
-especificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait
+especificando um trait relevante (falaremos sobre o motivo pelo qual os objetos trait
 devem ser usados no Capítulo 19, na seção "Tipos e tamanhos dimensionados dinamicamente").
 Podemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos
 um objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer
