@@ -201,7 +201,7 @@ tela o que implementamos no trait `Draw`, mas usará códigos diferentes no
 método `desenhar` para definir como desenhar aquele tipo em específico, como o `Button` tem
 aqui (sem o atual código da interface gráfica que está além do escopo desse capítulo).
 `Button`, por exemplo, pode ter um bloco `impl` adicional,
-contêndo métodos reladionados com o que acontece quando um usuário clica no botão. Esses tipos de
+contêndo métodos relacionados com o que acontece quando um usuário clica no botão. Esses tipos de
 métodos não se aplicam a tipos como `TextField`.
 
 Se alguém estiver usando nossa biblioteca para implementar a estrutura `SelectBox` que tem
