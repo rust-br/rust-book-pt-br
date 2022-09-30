@@ -392,7 +392,7 @@ de `Vec`. A assinatura do método `clone` precisa saber que tipo terá o
 
 O compilador indicará quando você estiver tentando fazer algo que viole as
 regras de segurança de objetos em relação a objetos trait. Por exemplo, digamos
-que tentamos implementar a estrutuda da Listagem 17-4 para manter os tipos que
+que tentamos implementar a estrutura da Listagem 17-4 para manter os tipos que
 implementam o trait `Clone` em vez do trait `Draw`, desta forma:
 
 ```rust,ignore
