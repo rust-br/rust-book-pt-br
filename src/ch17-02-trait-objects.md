@@ -168,7 +168,7 @@ em tempo de compilação.
 Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o
 tipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo
 deste livro, então o método `desenhar` não terá nenhum implementação útil.
-Para imaginar como a implementação pode parecerm uma estrutura `Button`
+Para imaginar como a implementação pode parecer uma estrutura `Button`
 pode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:
 
 <span class="filename">Arquivo: src/lib.rs</span>
