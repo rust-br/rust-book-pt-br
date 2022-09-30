@@ -273,7 +273,7 @@ tipo `SelectBox`, mas nossa implementação de `Janela` foi capaz de operar no
 novo tipo e desenhá-lo, porque `SelectBox` implementa o tipo `Draw`, o que
 significa que ele implementa o método `desenhar`.
 
-Esse conceito - de se preocupar apenas com as mensagem que um valor responde
+Esse conceito - de se preocupar apenas com as mensagens que um valor responde
 em vez do tipo concreto de valores - é similar ao conceito *duck typing*
 em linguagens dinâmicamente tipadas: se anda como um pato e é como um pato,
 então deve ser um pato! Na implementação do `executar` na `Janela` na Listagem
