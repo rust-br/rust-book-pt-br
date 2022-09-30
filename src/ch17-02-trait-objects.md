@@ -230,7 +230,7 @@ impl Draw for SelectBox {
 <span class="caption">Listagem 17-8: Outro crate usando `gui` e implementando
 o trait `Draw` na estrutura `SelectBox`</span>
 
-Os usuários da nosso biblioteca agoora podem escrever suas funções `main` para criar uma
+Os usuários da nosso biblioteca agora podem escrever suas funções `main` para criar uma
 instância de `Janela`. Para a instância de `Janela`, eles podem adicionar um `SelectBox` e um `Button`
 colocando cada um em um `Box<T>` para se tornar um objeto trait. Eles podem chamar o
 método `executar` na instância de `Janela`, que irá chamar o `desenhar` para cada um dos
