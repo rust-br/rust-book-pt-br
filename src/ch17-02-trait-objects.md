@@ -41,9 +41,9 @@ perminir que os usuários o estendam com novos tipos.
 Para implementar o comportamento que queremos que `gui` tenha, definiremos um trait chamado
 `Draw` que terá um método chamado `desenhar`. Então podemos definir um vetor
 que tenha um *objeto trait*. Um objeto trait aponta para uma instância de um tipo que
-implmenta o trait que especificamos. Criamos um objeto trait especificando alguns
+implementa o trait que especificamos. Criamos um objeto trait especificando alguns
 tipos de ponteiros, como uma referência `&` ou um ponteiro `Box<T>` e
-especificando um trait relevante (falaremos sobre o motimo pelo qual os objetos trait
+especificando um trait relevante (falaremos sobre o motivo pelo qual os objetos trait
 devem ser usados no Capítulo 19, na seção "Tipos e tamanhos dimensionados dinamicamente").
 Podemos usar objetos trait no lugar de um tipo genérico ou concreto. Onde quer que usemos
 um objeto trait, o sistema de tipos do Rust irá garantir em tempo de compilação que qualquer
@@ -160,7 +160,7 @@ definições serão monomorfizadas em tempo de compilação para os tipos concre
 
 Por outro lado, com o método usando objetos trait, uma instância de `Janela`
 pode conter um `Vec` que contém um `Box<Button>` assim como um `Box<TextField>`.
-Vamos ver como isso funciona e falaremos sobre as impliciações do desempenho
+Vamos ver como isso funciona e falaremos sobre as implicações do desempenho
 em tempo de compilação.
 
 ### Implementando o Trait
@@ -168,7 +168,7 @@ em tempo de compilação.
 Agora, adicionaremos alguns tipos que implementam o trait `Draw`. Forneceremos o
 tipo `Button`. Novamente, a implementação de uma biblioteca gráfica está além do escopo
 deste livro, então o método `desenhar` não terá nenhum implementação útil.
-Para imaginar como a implementação pode parecerm uma estrutura `Button`
+Para imaginar como a implementação pode parecer uma estrutura `Button`
 pode ter os campos `largura`, `altura` e `label`, como mostra  a Listagem 17-7:
 
 <span class="filename">Arquivo: src/lib.rs</span>
@@ -196,12 +196,12 @@ trait `Draw`</span>
 
 Os campos `largura`, `altura` e `label` do `Button` serão diferentes
 de campos de outros componentes, como o tipo `TextField`, que pode ter esses campos,
-mais um campo `placeholder`. Para cada um dos tipo, queremos que desenhar na
+mais um campo `placeholder`. Para cada um dos tipos, queremos desenhar na
 tela o que implementamos no trait `Draw`, mas usará códigos diferentes no
 método `desenhar` para definir como desenhar aquele tipo em específico, como o `Button` tem
 aqui (sem o atual código da interface gráfica que está além do escopo desse capítulo).
 `Button`, por exemplo, pode ter um bloco `impl` adicional,
-contêndo métodos reladionados com o que acontece quando um usuário clica no botão. Esses tipos de
+contêndo métodos relacionados com o que acontece quando um usuário clica no botão. Esses tipos de
 métodos não se aplicam a tipos como `TextField`.
 
 Se alguém estiver usando nossa biblioteca para implementar a estrutura `SelectBox` que tem
@@ -230,7 +230,7 @@ impl Draw for SelectBox {
 <span class="caption">Listagem 17-8: Outro crate usando `gui` e implementando
 o trait `Draw` na estrutura `SelectBox`</span>
 
-Os usuários da nosso biblioteca agoora podem escrever suas funções `main` para criar uma
+Os usuários da nossa biblioteca agora podem escrever suas funções `main` para criar uma
 instância de `Janela`. Para a instância de `Janela`, eles podem adicionar um `SelectBox` e um `Button`
 colocando cada um em um `Box<T>` para se tornar um objeto trait. Eles podem chamar o
 método `executar` na instância de `Janela`, que irá chamar o `desenhar` para cada um dos
@@ -273,7 +273,7 @@ tipo `SelectBox`, mas nossa implementação de `Janela` foi capaz de operar no
 novo tipo e desenhá-lo, porque `SelectBox` implementa o tipo `Draw`, o que
 significa que ele implementa o método `desenhar`.
 
-Esse conceito - de se preocupar apenas com as mensagem que um valor responde
+Esse conceito - de se preocupar apenas com as mensagens que um valor responde
 em vez do tipo concreto de valores - é similar ao conceito *duck typing*
 em linguagens dinâmicamente tipadas: se anda como um pato e é como um pato,
 então deve ser um pato! Na implementação do `executar` na `Janela` na Listagem
@@ -285,7 +285,7 @@ um `SelectBox`, apenas chama o método `desenhar` do componente. Especificando
 
 A vantagem de usar objetos trait e o sistema de tipos do Rust para escrever códigos
 semelhante ao código usando duck typing é que nunca precisamos verificar se um valor
-implementa umm método em particular no tempo de execução ou se preocupar com erros se
+implementa um método em particular no tempo de execução ou se preocupar com erros se
 um valor não implementa um método, mas nós o chamamos mesmo assim. Rust não irá compilar nosso
 código se os valores não implementarem os traits que o objeto trait precisa.
 
@@ -353,7 +353,7 @@ algumas otimizações. No entanto, conseguimos uma maior flexibilidade no códig
 na Listagem 17-5 e foram capazes de suportar na Listagem 17-9, é uma desvantagem
 a se considerar.
 
-### A segurança do objeto é necessário para objetos trait
+### A segurança do objeto é necessária para objetos trait
 
 Você apenas pode fazer *objetos traits seguros* em objetos traits. Algumas regras complexas
 determinam todas as propriedades que fazem um objeto trait seguro, mas em prática, apenas
@@ -366,7 +366,7 @@ trait tem as seguintes propriedades:
 A palavra-chave `Self` é um pseudônimo para o tipo que estamos implementando o trait ou
 método. Os objetos trait devem ser seguros, porque depois de usar um objeto trait,
 o Rust não conhece mais o tipo concreto que está implementando aquele trait.
-Se um método trait renorna o tipo concreto `Self`, mas um objeto trait esquece
+Se um método trait retorna o tipo concreto `Self`, mas um objeto trait esquece
 o tipo exato que `Self é, não há como o método usar o tipo concreto
 original. O mesmo é verdade para parâmetros de tipo genérico que  são preenchidos com
 um parâmetro de tipo concreto, quando o trait é usado: os tipos concretos fazem
@@ -387,12 +387,12 @@ pub trait Clone {
 O tipo `String` implemento o trait `Clone` e quando chamamos o método `clone`
 numa instância de `String`, obtemos de retorno uma instância de `String`.
 Da mesma forma, se chamarmos `clone` numa instância de `Vec`, retornamos uma instância
-de `Vec`. A assinatura de do `clone` precisa saber que tipo terá o
+de `Vec`. A assinatura do método `clone` precisa saber que tipo terá o
 `Self`, porque esse é o tipo de retorno.
 
 O compilador indicará quando você estiver tentando fazer algo que viole as
 regras de segurança de objetos em relação a objetos trait. Por exemplo, digamos
-que tentamos implementar a estrutuda da Listagem 17-4 para manter os tipos que
+que tentamos implementar a estrutura da Listagem 17-4 para manter os tipos que
 implementam o trait `Clone` em vez do trait `Draw`, desta forma:
 
 ```rust,ignore
