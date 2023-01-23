@@ -801,7 +801,7 @@ A chamada para `parse` poderia facilmente causar um erro. Por exemplo, se a
 string contiver `A👍%`, não haveria como converter isto em um número. Como ele
 pode falhar, o método `parse` retorna um `Result`, assim como o método
 `read_line`, conforme discutido anteriormente na seção "Tratando Potenciais
-Falhas com o Tipo `Result`. Vamos tratar este `Result` da mesma forma usando o
+Falhas com o Tipo `Result`". Vamos tratar este `Result` da mesma forma usando o
 método `expect` de novo. Se o `parse` retornar uma variante `Err` da enum
 `Result`, por não conseguir criar um número a partir da string, a chamada ao
 `expect` vai causar um _crash_ no jogo e exibir a mensagem que passamos a ele.
