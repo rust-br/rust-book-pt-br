@@ -308,7 +308,7 @@ Tirando a chave que delimita a função `main`, há apenas uma linha mais a ser
 discutida no código que fizemos até agora, que é a seguinte:
 
 ```rust,ignore
-println!("Você disse: {}", guess);
+println!("Você disse: {}", palpite);
 ```
 
 Esta linha imprime a string na qual salvamos os dados inseridos pelo usuário. O
