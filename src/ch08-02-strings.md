@@ -27,11 +27,11 @@ por exemplo, são armazenados na saída binária do programa e, portanto, são
 fatias de string.
 
 O tipo chamado `String` é fornecido na biblioteca padrão do Rust, em vez de
-codificado no núleo da linguagem, e é um extensível, mutável, `owned`, tipo string
+codificado no núcleo da linguagem, e é um extensível, mutável, `owned`, tipo string
 codificado UTF-8. Quando Rustáceos falam sobre “strings” em Rust, geralmente significa
 tanto os tipos `String` quanto os tipos de string`&str`, normalmente ambos.
 Esta seção, é em grande parte sobre `String`, mas ambos esses tipos são usados em grande parte
-na biblioteca padrão da Rust. Tanto o `String` como as fatias de string são codificadas em UTF-8.
+na biblioteca padrão do Rust. Tanto o `String` como as fatias de string são codificadas em UTF-8.
 
 A biblioteca padrão do Rust também inclui uma série de outros tipos de string, como
 `OsString`,` OsStr`, `CString` e` CStr`. Bibliotecas crates podem fornecer
@@ -110,7 +110,7 @@ operações de concatenação implementadas com o operador `+` por conveniência
 
 #### Anexando a uma String com Push
 
-Podemos criar uma `String` usando o método `push_str` para adicionar uma  seqüência de caracteres:
+Podemos criar uma `String` usando o método `push_str` para adicionar uma  sequência de caracteres:
 
 ```rust
 let mut s = String::from("foo");
@@ -258,7 +258,7 @@ UTF-8. E o que acontece para esse exemplo?
 let len = String::from("Здравствуйте").len();
 ```
 
-Uma pessoa que pergunte pelo comprimento da string pode dizer que ela deva ter 12.No entanto, a resposta de Rust
+Uma pessoa que pergunte pelo comprimento da string pode dizer que ela deva ter 12. No entanto, a resposta de Rust
 é 24. Este é o número de bytes que é necessário para codificar “Здравствуйте“ em
 UTF-8, uma vez que cada valor escalar Unicode leva dois bytes de armazenamento. Assim sendo,
 um índice nos bytes da string nem sempre se correlaciona com um  valor escalar Unicode válido.
