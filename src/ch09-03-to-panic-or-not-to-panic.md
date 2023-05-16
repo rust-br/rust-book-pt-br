@@ -134,7 +134,7 @@ uma melhoria útil guiar o usuário para chutes válidos, e ter um comportamento
 quando um usuário chuta um número fora do limite e quando um usuário digita letras, por exemplo.
 
 Uma maneira de fazer isso seria interpretar o chute como um `i32` em vez de
-somente um `u32` para permitir números potenciamente negativos, e então adicionar
+somente um `u32` para permitir números potencialmente negativos, e então adicionar
 uma checagem se o número está dentro dos limites, conforme a seguir:
 
 ```rust,ignore
