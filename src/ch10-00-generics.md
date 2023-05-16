@@ -42,7 +42,7 @@ mecânicas com tipos genéricos para extrair uma função genérica! Do mesmo mo
 que você reconhece código duplicado para extrair para uma função, você começará
 a reconhecer código duplicado que pode usar tipos genéricos.
 
-Considere um pequeno programa que acha o maior número em uma lsita, mostrado
+Considere um pequeno programa que acha o maior número em uma lista, mostrado
 na Listagem 10-1:
 
 <span class="filename">Nome do arquivo: src/main.rs</span>
@@ -157,7 +157,7 @@ fn main() {
 ```
 
 <span class="caption">Listagem 10-3: Código abstraído para encontrar o maior
-numḿero em duas listas</span>
+número em duas listas</span>
 
 A função tem o parâmetro, `list`, que representa qualquer corte concreto de
 valores `i32` que podemos passar para uma função. O código na definição da

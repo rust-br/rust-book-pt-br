@@ -153,7 +153,7 @@ tenha um trait em particular na próxima sessão, mas vamos deixar isso de lado
 por um momento e explorar outros lugares que podemos usar parâmetros de tipos 
 genéricos primeiro.
 
-### Usando Tipos de Dados Genéros em Definições de Structs
+### Usando Tipos de Dados Genéricos em Definições de Structs
 
 Nós podemos definir structs para usar um parâmetro de tipo genérico em um ou 
 mais campos de um struct com a sintaxe `<>` também. A listagem 10-6 mostra a 
