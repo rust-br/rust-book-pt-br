@@ -185,7 +185,7 @@ maneiras.</span>
 O tipo do valor que `File::open` retorna dentro da variante `Err` é `io::Error`,
 que é uma struct fornecida pela biblioteca padrão. Essa struct tem o método
 `kind` que podemos chamar para receber um valor de `io::ErrorKind`. `io::ErrorKind`
-é um enum fornecido pela biblioteca padrão que tem variantes representanto diversos
+é um enum fornecido pela biblioteca padrão que tem variantes representando diversos
 tipos de erros que podem ocorrer em uma operação de `io`. A variante que queremos 
 usar é `ErrorKind::NotFound`, que indica que o arquivo que queremos abrir não existe
 ainda.
