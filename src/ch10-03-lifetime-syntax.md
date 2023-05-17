@@ -49,7 +49,7 @@ valor saiu de escopo</span>
 
 > #### Variáveis Não Inicializadas Não Podem Ser Usadas
 >
-> Os próximos exemplos declaram vaŕiáveis sem darem a elas um valor inicial, 
+> Os próximos exemplos declaram variáveis sem darem a elas um valor inicial, 
 > então o nome da variável existe no escopo exterior. Isso pode parecer um 
 > conflito com Rust não ter null. No entanto, se tentarmos usar uma variável
 > antes de atribuir um valor a ela, nós teremos um erro em tempo de compilação.
@@ -137,7 +137,7 @@ concreto e discutimos como Rust analisa tempos de vida para garantir que
 referências sempre serão válidas, vamos falar sobre tempos de vidas genéricos
 de parâmetros e retornar valores no contexto das funções.
 
-### Tempos de Vida Génericos em Funções
+### Tempos de Vida Genéricos em Funções
 
 Vamos escrever uma função que retornará a mais longa de dois cortes de string. 
 Nós queremos ser capazes de chamar essa função passando para ela dois cortes 
@@ -164,7 +164,7 @@ Note que queremos que a função pegue cortes de string (que são referências,
 como falamos no Capítulo 4) já que não queremos que a função `maior` tome posse
 de seus argumentos. Nós queremos que uma função seja capaz de aceitar cortes de
 uma `String` (que é o tipo de variável `string1`) assim como literais de string
-(que é o que a variável `strin2` contém).
+(que é o que a variável `string2` contém).
 
 Recorra à seção do Capítulo 4 "Cortes de Strings como Parâmetros" para mais 
 discussões sobre porque esses são os argumentos que queremos.
@@ -258,7 +258,7 @@ genérico.
 Vamos olhar para anotações de tempo de vida no contexto da função `maior` que
 estamos trabalhando. Assim como parâmetros de tipos genéricos, parâmetros de 
 tempos de vida genéricos precisam ser declarados dentro de colchetes angulares
-entre o nome da função e a lista de parâmetros. A limitanção que queremos 
+entre o nome da função e a lista de parâmetros. A limitação que queremos 
 dar ao Rust é que para as referências nos parâmetros e o valor de retorno devem
 ter o mesmo tempo de vida, o qual nomearemos `'a` e adicionaremos para cada uma
 das referências como mostrado na Listagem 10-23:
@@ -375,7 +375,7 @@ Se tentarmos compilar isso, receberemos esse erro:
 ```text
 error: `string2` does not live long enough
    |
-6  |         resultadod = longest(string1.as_str(), string2.as_str());
+6  |         resultado = longest(string1.as_str(), string2.as_str());
    |                                            ------- borrow occurs here
 7  |     }
    |     ^ `string2` dropped here while still borrowed
@@ -407,7 +407,7 @@ ver se você está certo!
 ### Pensando em Termos de Tempos de Vida
 
 O modo exato de especificar parâmetros de tempos de vida depende do que sua 
-função está fazendo. Por exemplo, se mudaramos a implementação da função 
+função está fazendo. Por exemplo, se mudarmos a implementação da função 
 `maior` para sempre retornar o primeiro argumento ao invés do corte de string
 mais longo, não precisaríamos especificar um tempo de vida no parâmetro `y`.
 Este código compila:
