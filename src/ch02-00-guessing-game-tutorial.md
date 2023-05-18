@@ -3,7 +3,7 @@
 Vamos entrar de cabeça no Rust e colocar a mão na massa! Este capítulo vai lhe
 apresentar alguns conceitos bem comuns no Rust, mostrando como usá-los em um
 programa de verdade. Você vai aprender sobre `let`, `match`, métodos, funções
-associadas, crates externos, e mais! Os capítulos seguintes vão explorar essas
+associadas, crates externas, e mais! Os capítulos seguintes vão explorar essas
 ideias em mais detalhes. Neste capítulo, você vai praticar o básico.
 
 Vamos implementar um clássico problema de programação para iniciantes: um jogo
@@ -19,14 +19,12 @@ Para iniciar um novo projeto, vá ao seu diretório de projetos que você criou 
 Capítulo 1, e execute os comandos do Cargo a seguir:
 
 ```text
-$ cargo new jogo_de_advinhacao --bin
-$ cd jogo_de_advinhacao
+$ cargo new jogo_de_adivinhacao
+$ cd jogo_de_adivinhacao
 ```
 
-O primeiro comando, `cargo new`, recebe o nome do projeto (`jogo_de_advinhacao`)
-como primeiro argumento. A flag `--bin` diz ao Cargo que faça um projeto
-binário, similar ao do Capítulo 1. O segundo comando muda a pasta atual para o
-diretório do projeto.
+O primeiro comando, `cargo new`, recebe o nome do projeto (`jogo_de_adivinhacao`)
+como primeiro argumento. O segundo comando muda a pasta atual para o diretório do projeto.
 
 Confira o arquivo *Cargo.toml* gerado:
 
@@ -34,15 +32,14 @@ Confira o arquivo *Cargo.toml* gerado:
 
 ```toml
 [package]
-name = "jogo_de_advinhacao"
+name = "jogo_de_adivinhacao"
 version = "0.1.0"
-authors = ["Seu Nome <voce@exemplo.com>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 ```
-
-Se as informações sobre o autor, que o Cargo obtém do seu ambiente, não
-estiverem corretas, faça os reparos necessários e salve o arquivo.
 
 Assim como no Capítulo 1, `cargo new` gera um programa "Hello, world!" para nós.
 Confira em *src/main.rs*:
@@ -60,9 +57,9 @@ usando o comando `cargo run`:
 
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
-     Running `target/debug/jogo_de_advinhacao`
+     Running `target/debug/jogo_de_adivinhacao`
 Hello, world!
 ```
 
@@ -85,16 +82,17 @@ que o jogador entre com um palpite. Coloque este código no arquivo
 use std::io;
 
 fn main() {
-    println!("Advinhe o número!");
+    println!("Adivinhe o número!");
 
     println!("Digite o seu palpite.");
 
     let mut palpite = String::new();
 
-    io::stdin().read_line(&mut palpite)
+    io::stdin()
+        .read_line(&mut palpite)
         .expect("Falha ao ler entrada");
 
-    println!("Você disse: {}", palpite);
+    println!("Você disse: {palpite}");
 }
 ```
 
@@ -110,13 +108,17 @@ biblioteca padrão (chamada de `std`):
 use std::io;
 ```
 
-Por padrão, o Rust traz apenas alguns tipos para o escopo de todos os programas
-no [*prelúdio*][prelude]<!-- ignore -->. Se um tipo que você quiser usar não
+Por padrão, o Rust tem um conjunto de itens definidos na biblioteca padrão 
+que são trazidos para o escopo de cada programa. Este conjunto é chamado 
+de *prelúdio*, e você pode ver tudo que está incluído na 
+[documentação da biblioteca padrão][prelude].
+
+[prelude]: https://doc.rust-lang.org/std/prelude/index.html
+
+Se um tipo que você quiser usar não
 estiver no prelúdio, você terá que importá-lo explicitamente através do `use`.
 A biblioteca `std::io` oferece várias ferramentas de entrada/saída, incluindo a
 funcionalidade de ler dados de entrada do usuário.
-
-[prelude]: ../../std/prelude/index.html
 
 Como visto no Capítulo 1, a função `main` é o ponto de entrada do programa:
 
@@ -131,41 +133,46 @@ Como você também já aprendeu no Capítulo 1, `println!` é uma macro que impr
 uma string na tela:
 
 ```rust,ignore
-println!("Advinhe o número!");
+println!("Adivinhe o número!");
 
 println!("Digite o seu palpite.");
 ```
 
-Este código está exibindo uma mensagem que diz de que se trata o jogo e solicita
-uma entrada do usuário.  
+Este código está exibindo uma mensagem que diz de que se trata o jogo e solicitando
+uma entrada do usuário.
 
 ### Armazenando Valores em Variáveis
 
-Próximo passo, vamos criar um local para armazenar a entrada do usuário:
+Próximo passo, vamos criar uma variável para armazenar a entrada do usuário:
 
 ```rust,ignore
 let mut palpite = String::new();
 ```
 
 Agora o programa está ficando interessante! Tem muita coisa acontecendo nesta
-pequena linha. Repare que esta é uma declaração `let`, que é usada para criar
-*variáveis*. Segue outro exemplo:
+pequena linha. Nós usamos a declaração `let` para criar a *variável*.
+Segue outro exemplo:
 
 ```rust,ignore
-let foo = bar;
+let maçãs = 5;
 ```
 
-Essa linha cria uma nova variável chamada `foo`, e a vincula ao valor `bar`. Em
-Rust, variáveis são imutáveis por padrão. O exemplo a seguir mostra como usar
-`mut` antes do nome da variável para torná-la mutável:
+Essa linha cria uma nova variável chamada `maçãs`, e a vincula ao valor `5`. Em Rust, variáveis são imutáveis por padrão, ou seja, uma vez vinculado o valor a variável, 
+o mesmo não pode ser alterado. Nós vamos discutir este conceito em detalhes 
+na seção ["Variáveis e Mutabilidade"][variables] do Capítulo 3. Para criar uma
+variável mutável, nós adicionamos `mut` antes do nome da variável: 
+[variables]: ./ch03-01-variables-and-mutability.html#variables-and-mutability
 
 ```rust
-let foo = 5; // imutável
-let mut bar = 5; // mutável
+let maçãs = 5; // imutável
+let mut bananas = 5; // mutável
 ```
 
 > Nota: A sintaxe `//` inicia um comentário, que continua até o fim da linha.
 > Rust ignora tudo o que estiver nos comentários.
+> Nós vamos discutir comentários em mais detalhes no [Capítulo 3][chapter3]
+
+[chapter3]: ./ch03-04-comments.html
 
 Agora você sabe que `let mut palpite` vai introduzir uma variável mutável de
 nome `palpite`. No outro lado do símbolo `=` está o valor ao qual `palpite` está
@@ -174,10 +181,10 @@ uma nova instância de `String`. [`String`][string]<!-- ignore --> é um tipo
 fornecido pela biblioteca padrão que representa uma cadeia expansível de
 caracteres codificados em UTF-8.
 
-[string]: ../../std/string/struct.String.html
+[string]: https://doc.rust-lang.org/std/string/struct.String.html
 
-A sintaxe `::` na linha `::new` indica que `new` é uma *função associada* do
-tipo `String`. Uma função associada é implementada sobre um tipo, neste caso
+A sintaxe `::` na linha `::new` indica que `new` é uma função associada do
+tipo `String`. Uma *função associada* é implementada sobre um tipo, neste caso
 `String`, em vez de uma instância particular de `String`. Algumas linguagens
 dão a isso o nome *método estático*.
 
@@ -189,13 +196,16 @@ Para resumir, a linha `let mut palpite = String::new();` criou uma variável
 mutável que está atualmente vinculada a uma nova instância vazia de uma
 `String`. Ufa!
 
+### Recebendo dados do usuário
+
 Lembre-se de que incluímos a funcionalidade de entrada/saída da biblioteca
 padrão por meio do `use std::io;` na primeira linha do programa. Agora vamos
 chamar uma função associada, `stdin`, em `io`:
 
 ```rust,ignore
-io::stdin().read_line(&mut palpite)
-    .expect("Falha ao ler entrada");
+    io::stdin()
+        .read_line(&mut palpite)
+        .expect("Falha ao ler entrada");
 ```
 
 Se não tivéssemos a linha `use std::io` no início do programa, poderíamos ter
@@ -203,14 +213,14 @@ escrito esta chamada como `std::io::stdin`. A função `stdin` retorna uma
 instância de [`std::io::Stdin`][iostdin]<!-- ignore -->, um tipo que representa
 um manipulador (_handle_) da entrada padrão do seu terminal.
 
-[iostdin]: ../../std/io/struct.Stdin.html
+[iostdin]: https://doc.rust-lang.org/std/io/struct.Stdin.html
 
 A próxima parte do código, `.read_line(&mut palpite)`, chama o método
 [`read_line`][read_line]<!-- ignore --> do _handle_ da entrada padrão para obter
 entrada do usuário. Também estamos passando um argumento para `read_line`:
 `&mut palpite`.
 
-[read_line]: ../../std/io/struct.Stdin.html#method.read_line
+[read_line]: https://doc.rust-lang.org/std/io/struct.Stdin.html#method.read_line
 
 O trabalho da função `read_line` é receber o que o usuário digita na entrada
 padrão e colocar isso numa string, por isso ela recebe essa string como
@@ -227,12 +237,14 @@ você precisa saber é que, assim como as variáveis, referências são imutáve
 padrão. Por isso, precisamos escrever `&mut palpite`, em vez de apenas
 `&palpite`, para fazer com que o palpite seja mutável.
 
+### Tratando Potenciais Falhas com o Tipo `Result`
+
 Ainda não finalizamos completamente esta linha de código. Embora esta seja uma
 única linha de texto, é apenas a primeira parte de uma linha lógica de código. A
 segunda parte é a chamada para este método:
 
 ```rust,ignore
-.expect("Falha ao ler entrada");
+  .expect("Falha ao ler entrada");
 ```
 
 Quando você chama um método com a sintaxe `.foo()`, geralmente é bom introduzir
@@ -247,97 +259,95 @@ Porém, uma linha muito comprida fica difícil de ler. Então é melhor dividirm
 linha em duas, uma para cada método chamado. Agora vamos falar sobre o que essa
 linha faz.
 
-### Tratando Potenciais Falhas com o Tipo `Result`
-
 Como mencionado anteriormente, `read_line` coloca o que o usuário escreve dentro
-da string que passamos como argumento, mas também retorna um valor - neste
-caso, um [`io::Result`][ioresult]<!-- ignore -->. Rust tem uma variedade de
-tipos com o nome `Result` em sua biblioteca padrão: um [`Result`][result]
-genérico e as versões específicas dos submódulos, como `io::Result`.
-
-[ioresult]: ../../std/io/type.Result.html
-[result]: ../../std/result/enum.Result.html
-
-Os tipos `Result` são [*enumerações*][enums]<!-- ignore -->, comumente chamadas
+da string que passamos como argumento, mas também retorna um valor do tipo `Result`.
+Os tipos [`Result`][result] são [*enumerações*][enums]<!-- ignore -->, comumente chamadas
 de *enums*. Uma enumeração é um tipo que pode ter um conjunto fixo de valores,
-os quais são chamados de *variantes* da enum. O Capítulo 6 vai abordar enums em
-mais detalhes.
+os quais são chamados de *variantes* da enum.
 
+O [Capítulo 6][enums] vai abordar enums em mais detalhes.O propósito destes tipos `Result` é codificar informações de manipulação de erros. 
+
+[result]: https://doc.rust-lang.org/std/result/enum.Result.html
 [enums]: ch06-00-enums.html
 
-Para `Result`, as variantes são `Ok` ou `Err`. `Ok` indica que a operação teve
+
+As variantes de `Result` são `Ok` ou `Err`. `Ok` indica que a operação teve
 sucesso, e dentro da variante `Ok` está o valor resultante. `Err` significa que
 a operação falhou, e contém informações sobre como ou por que isso ocorreu.
 
-O propósito destes tipos `Result` é codificar informações de manipulação de
-erros. Valores do tipo `Result`, assim como qualquer tipo, possuem métodos
-definidos. Uma instância de `io::Result` tem um [método `expect`][expect]<!-- ignore -->
-que você pode chamar. Se esta instância de `io::Result` é um `Err`, `expect` vai
+Valores do tipo `Result`, assim como qualquer tipo, possuem métodos
+definidos. Uma instância de `Result` tem um [método `expect`][expect]<!-- ignore -->
+que você pode chamar. Se esta instância de `Result` é um `Err`, `expect` vai
 terminar o programa com erro e mostrar a mensagem que você passou como argumento
 ao `expect`. Se o método `read_line` retornar um `Err`, provavelmente seria o
 resultado de um erro vindo do sistema operacional que está por trás. Se esta
-instância de `io::Result` é um `Ok`, `expect` vai obter o valor contido no `Ok`
+instância de `Result` é um `Ok`, `expect` vai obter o valor contido no `Ok`
 e retorná-lo para que você possa usá-lo. Neste caso, o valor é o número de bytes
 dos dados que o usuário inseriu através da entrada padrão.
 
-[expect]: ../../std/result/enum.Result.html#method.expect
+[expect]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect
 
 Se não chamarmos `expect`, nosso programa vai compilar, mas vamos ter um aviso:
 
 ```text
 $ cargo build
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
-warning: unused `std::result::Result` which must be used
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
+warning: unused `Result` that must be used
   --> src/main.rs:10:5
    |
 10 |     io::stdin().read_line(&mut palpite);
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
-   = note: #[warn(unused_must_use)] on by default
+   = note: this `Result` may be an `Err` variant, which should be handled
+   = note: `#[warn(unused_must_use)]` on by default
+
+warning: `jogo_de_adivinhacao` (bin "jogo_de_adivinhacao") generated 1 warning
+    Finished dev [unoptimized + debuginfo] target(s) in 0.59s
 ```
 
 Rust avisa que não usamos o valor `Result`, retornado por `read_line`, indicando
 que o programa deixou de tratar um possível erro. A maneira correta de suprimir
 o aviso é realmente escrevendo um tratador de erro, mas como queremos que o
 programa seja encerrado caso ocorra um problema, podemos usar `expect`. Você
-aprenderá sobre recuperação de erros no Capítulo 9.
+aprenderá sobre recuperação de erros no [Capítulo 9][chap9].
 
-### Exibindo Valores com Curingas do `println!`
+[chap9]: ./ch09-00-error-handling.md
+
+### Exibindo Valores com Curingas com `println!` (_placeholders_)
 
 Tirando a chave que delimita a função `main`, há apenas uma linha mais a ser
 discutida no código que fizemos até agora, que é a seguinte:
 
 ```rust,ignore
-println!("Você disse: {}", palpite);
+println!("Você disse: {palpite}");
 ```
+<!-- Achei meio confuso então dei uma ajeitada, segue o texto original:
 
-Esta linha imprime a string na qual salvamos os dados inseridos pelo usuário. O
-`{}` é um curinga que reserva o lugar de um valor. Você pode imprimir mais de um
-valor usando `{}`: o primeiro conjunto de `{}` guarda o primeiro valor listado
-após a string de formatação, o segundo conjunto guarda o segundo valor, e
-assim por diante. Imprimir múltiplos valores em uma só chamada a `println!`
-seria assim:
+This line prints the string that now contains the user’s input. The {} set of curly brackets is a placeholder: think of {} as little crab pincers that hold a value in place. When printing the value of a variable, the variable name can go inside the curly brackets. When printing the result of evaluating an expression, place empty curly brackets in the format string, then follow the format string with a comma-separated list of expressions to print in each empty curly bracket placeholder in the same order. Printing a variable and the result of an expression in one call to println! would look like this:
+-->
+
+Esta linha imprime a string na qual salvamos os dados inseridos pelo usuário. O `{}` é um curinga que reserva o lugar de um valor. Para imprimir o valor de uma variável, podemos colocá-la dentro das chaves diretamente na string. Também podemos imprimir o resultado de uma ou mais expressões, colocando chaves vazias nas posições desejadas, string de formatação, e adicionando a lista de expressões separadas por vírgulas e em ordem após a string de formatação. Por exemplo, podemos imprimir uma variável e o resultado de uma expressão em uma única chamada de `println!` desta forma:
 
 ```rust
 let x = 5;
 let y = 10;
 
-println!("x = {} e y = {}", x, y);
+println!("x = {x} and y + 2 = {}", y + 2);
 ```
 
-Esse código imprime `x = 5 e y = 10`.
+Esse código imprime `x = 5 and y + 2 = 12`.
 
 ### Testando a Primeira Parte
 
-Vamos testar a primeira parte do jogo de advinhação. Você pode executá-lo usando
+Vamos testar a primeira parte do jogo de adivinhação. Você pode executá-lo usando
 `cargo run`:
 
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
-    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
-     Running `target/debug/jogo_de_advinhacao`
-Advinhe o número!
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 6.44s
+     Running `target/debug/jogo_de_adivinhacao`
+Adivinhe o número!
 Digite o seu palpite.
 6
 Você disse: 6
@@ -348,7 +358,7 @@ teclado e mostrá-la na tela.
 
 ## Gerando um Número Secreto
 
-A seguir, precisamos gerar um número secreto que o usuário vai tentar advinhar.
+A seguir, precisamos gerar um número secreto que o usuário vai tentar adivinhar.
 O número secreto deve ser diferente a cada execução, para que o jogo tenha graça
 em ser jogado mais de uma vez. Vamos usar um número aleatório entre 1 e 100,
 para que o jogo não seja tão difícil. Rust ainda não inclui uma funcionalidade
@@ -364,7 +374,7 @@ construindo é um *crate binário*, que é um executável. Já o `rand` é um
 *crate de biblioteca*, que contém código cujo objetivo é ser usado por outros
 programas.
 
-É no uso de crates externos que Cargo realmente brilha. Antes que possamos
+É no uso de crates externas que Cargo realmente brilha. Antes que possamos
 escrever o código usando `rand`, precisamos modificar o arquivo *Cargo.toml*
 para incluir o crate `rand` como uma dependência. Abra o arquivo e adicione
 esta linha no final, abaixo do cabeçalho da seção `[dependencies]` que o Cargo
@@ -375,18 +385,17 @@ criou para você:
 ```toml
 [dependencies]
 
-rand = "0.3.14"
+rand = "0.8.5"
 ```
 
 No arquivo *Cargo.toml*, tudo que vem depois de um cabeçalho é parte de uma
 seção que segue até o início de outra. A seção `[dependencies]` é onde você diz
 ao Cargo de quais crates externos o seu projeto depende, e quais versões desses
 crates você exige. Neste caso, especificamos o crate `rand` com a versão
-semântica `0.3.14`. Cargo compreende [Versionamento Semântico][semver]<!-- ignore -->
+semântica `0.8.5`. Cargo compreende [Versionamento Semântico][semver]<!-- ignore -->
 (às vezes chamado *SemVer*), um padrão para escrever números de versões. O
-número `0.3.14` é, na verdade, uma forma curta de escrever `^0.3.14`, que
-significa "qualquer versão que tenha uma API pública compatível com a versão
-0.3.14".
+número `0.8.5` é, na verdade, uma forma curta de escrever `^0.8.5`, que
+significa "qualquer versão que tenha uma API pública compatível com a versão 0.8.5".
 
 [semver]: https://semver.org/lang/pt-BR/
 
@@ -395,13 +404,23 @@ na Listagem 2-2:
 
 ```text
 $ cargo build
-    Updating registry `https://github.com/rust-lang/crates.io-index`
- Downloading rand v0.3.14
- Downloading libc v0.2.14
-   Compiling libc v0.2.14
-   Compiling rand v0.3.14
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
-    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+    Updating crates.io index
+  Downloaded rand v0.8.5
+  Downloaded libc v0.2.127
+  Downloaded getrandom v0.2.7
+  Downloaded cfg-if v1.0.0
+  Downloaded ppv-lite86 v0.2.16
+  Downloaded rand_chacha v0.3.1
+  Downloaded rand_core v0.6.3
+   Compiling libc v0.2.127
+   Compiling getrandom v0.2.7
+   Compiling cfg-if v1.0.0
+   Compiling ppv-lite86 v0.2.16
+   Compiling rand_core v0.6.3
+   Compiling rand_chacha v0.3.1
+   Compiling rand v0.8.5
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53s
 ```
 
 <span class="caption">Listagem 2-2: Resultado da execução de `cargo build`
@@ -420,8 +439,7 @@ _open source_ para que os outros possam usar.
 
 Após atualizar o registro, Cargo verifica a seção `[dependencies]` e baixa todas
 as que você não tem ainda. Neste caso, embora tenhamos listado apenas `rand`
-como dependência, o Cargo também puxou uma cópia da `libc`, porque `rand`
-depende da `libc` para funcionar. Depois de baixá-las, o Cargo as compila e
+como dependência, o Cargo também baixa outras crates que `rand` depende para funcionar. Depois de baixá-las, o Cargo as compila e
 então compila nosso projeto.
 
 Se, logo em seguida, você executar `cargo build` novamente sem fazer mudanças,
@@ -434,7 +452,7 @@ aparecer uma mensagem de apenas duas linhas:
 
 ```text
 $ cargo build
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
 ```
 
@@ -443,24 +461,24 @@ no arquivo *src/main.rs*. Suas dependências não mudaram, então o Cargo sabe q
 pode reutilizar o que já tiver sido baixado e compilado para elas. Ele apenas
 recompila a sua parte do código.
 
-#### O Arquivo *Cargo.lock* Garante _Builds_ Reproduzíveis
+#### Garantindo _Builds_ reproduzíveis com o arquivo *Cargo.lock*
 
 O Cargo tem um mecanismo que assegura que você pode reconstruir o mesmo artefato
 toda vez que você ou outra pessoa compilar o seu código. O Cargo vai usar apenas
 as versões das dependências que você especificou, até que você indique o
 contrário. Por exemplo, o que acontece se, na semana que vem, sair a versão
-`v0.3.15` contendo uma correção de bug, mas também uma regressão que não
+`v0.8.6` contendo uma correção de bug, mas também uma regressão que não
 funciona com o seu código?
 
 A resposta para isso está no arquivo *Cargo.lock*, que foi criado na primeira
 vez que você executou `cargo build`, e agora está no seu diretório
-*jogo_de_advinhacao*. Quando você compila o seu projeto pela primeira vez, o
+*jogo_de_adivinhacao*. Quando você compila o seu projeto pela primeira vez, o
 Cargo descobre as versões de todas as dependências que preenchem os critérios
 e então as escreve no arquivo *Cargo.lock*. Quando você compilar o seu projeto
 futuramente, o Cargo verá que o arquivo *Cargo.lock* existe e usará as versões
-especificadas lá, em vez de refazer todo o trabalho descobrir as versões
+especificadas no mesmo, em vez de refazer todo o trabalho descobrir as versões
 novamente. Isto lhe permite ter um _build_ reproduzível automaticamente. Em
-outras palavras, seu projeto vai continuar com a versão `0.3.14` até que você
+outras palavras, seu projeto vai continuar com a versão `0.8.5` até que você
 faça uma atualização explícita, graças ao arquivo *Cargo.lock*.
 
 #### Atualizando um Crate para Obter uma Nova Versão
@@ -469,29 +487,29 @@ Quando você *quiser* atualizar um crate, o Cargo tem outro comando, `update`,
 que faz o seguinte:
 
 1. Ignora o arquivo *Cargo.lock* e descobre todas as versões mais recentes que
-   atendem as suas especificações no *Cargo.toml*.
+   atendem às suas especificações no *Cargo.toml*.
 1. Se funcionar, o Cargo escreve essas versões no arquivo *Cargo.lock*.
 
-Mas, por padrão, o Cargo vai procurar as versões maiores que `0.3.0` e menores
-que `0.4.0`. Se o crate `rand` já tiver lançado duas novas versões, `0.3.15` e
-`0.4.0`, você verá a seguinte mensagem ao executar `cargo update`:
+Mas, por padrão, o Cargo vai procurar as versões maiores que `0.8.0` e menores
+que `0.9.0`. Se o crate `rand` já tiver lançado duas novas versões, `0.8.6` e
+`0.9.0`, você verá a seguinte mensagem ao executar `cargo update`:
 
 ```text
 $ cargo update
     Updating registry `https://github.com/rust-lang/crates.io-index`
-    Updating rand v0.3.14 -> v0.3.15
+    Updating rand v0.8.5 -> v0.8.6
 ```
 
 Nesse ponto, você vai notar também uma mudança no seu arquivo *Cargo.lock*
-dizendo que a versão do crate `rand` que você está usando agora é a `0.3.15`. 
+dizendo que a versão do crate `rand` que você está usando agora é a `0.8.6`. 
 
-Se você quisesse usar a versão `0.4.0`, ou qualquer versão da série `0.4.x` do
+Se você quisesse usar a versão `0.9.0`, ou qualquer versão da série `0.9.x` do
 `rand`, você teria que atualizar o seu *Cargo.toml* dessa forma:
 
 ```toml
 [dependencies]
 
-rand = "0.4.0"
+rand = "0.9.0"
 ```
 
 Na próxima vez que você executar `cargo build`, o Cargo vai atualizar o registro
@@ -515,38 +533,33 @@ Agora vamos *usar*, de fato, o `rand`. O próximo passo é atualizar o
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
-extern crate rand;
 
 use std::io;
 use rand::Rng;
 
 fn main() {
-    println!("Advinhe o número!");
+    println!("Adivinhe o número!");
 
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+    let numero_secreto = rand::thread_rng().gen_range(1..=100);
 
-    println!("O número secreto é: {}", numero_secreto);
+    println!("O número secreto é: {numero_secreto}");
 
     println!("Digite o seu palpite.");
 
     let mut palpite = String::new();
 
-    io::stdin().read_line(&mut palpite)
+    io::stdin()
+        .read_line(&mut palpite)
         .expect("Falha ao ler entrada");
 
-    println!("Você disse: {}", palpite);
+    println!("Você disse: {palpite}");
 }
 ```
 
 <span class="caption">Listagem 2-3: Mudanças necessárias do código para gerar um
 número aleatório.</span>
 
-Estamos adicionando a linha `extern crate rand` ao topo do arquivo para indicar
-ao Rust que estamos usando uma dependência externa. Isto também é equivalente a
-um `use rand;`, assim podemos chamar qualquer coisa que esteja no crate `rand`
-prefixando-a com `rand::`.
-
-Em seguida, adicionamos outra linha `use`: `use rand::Rng`. `Rng` é um trait
+Primeiramente adicionamos a linha `use rand::Rng`. `Rng` é um trait
 que define métodos a serem implementados pelos geradores de números aleatórios,
 e esse trait deve estar dentro do escopo para que possamos usar esses métodos. O
 Capítulo 10 vai abordar traits em mais detalhes.
@@ -556,17 +569,16 @@ dá o gerador de números aleatórios que vamos usar, um que é local à _thread
 corrente e que é inicializado pelo sistema operacional. Depois, vamos chamar o
 método `gen_range` no gerador de números aleatórios. Esse método está definido
 pelo trait `Rng` que trouxemos ao escopo por meio do `use rand::Rng`. Este
-método recebe dois argumentos e gera um número aleatório entre eles. Ele inclui
-o limite inferior mas exclui o superior, então precisamos passar `1` e `101`
-para obter um número de 1 a 100.
+método recebe dois argumentos e gera um número aleatório entre eles. O tipo de argumento que estamos usando aqui tem a forma `start..=end` que inclui os limites inferiores e superiores. Logo,
+precisamos especificar `1..=100` para obter um número de 1 a 100.
 
-Saber quais traits devem ser usadas e quais funções e métodos de um crate
-devem ser chamados não é nada trivial. As instruções de como usar um crate
-estão na documentação de cada um. Outra coisa boa do Cargo é que você pode rodar
-o comando `cargo doc --open` que vai construir localmente a documentação
-fornecida por todas as suas dependências e abrí-las no seu navegador. Se você
-estiver interessado em outras funcionalidades do crate `rand`, por exemplo,
-execute `cargo doc --open` e clique em `rand`, no menu ao lado esquerdo.
+> Nota: Saber quais traits devem ser usadas e quais funções e métodos de um crate
+>devem ser chamados não é nada trivial. As instruções de como usar um crate
+>estão na documentação de cada um. Outra coisa boa do Cargo é que você pode rodar
+>o comando `cargo doc --open` que vai construir localmente a documentação
+>fornecida por todas as suas dependências e abrí-las no seu navegador. Se você
+>estiver interessado em outras funcionalidades do crate `rand`, por exemplo,
+>execute `cargo doc --open` e clique em `rand`, no menu ao lado esquerdo.
 
 A segunda linha que adicionamos imprime o número secreto. Isto é útil enquanto
 estamos desenvolvendo o programa para podermos testá-lo, mas vamos retirá-la da
@@ -577,17 +589,17 @@ Tente rodar o programa algumas vezes:
 
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
-     Running `target/debug/jogo_de_advinhacao`
-Advinhe o número!
+     Running `target/debug/jogo_de_adivinhacao`
+Adivinhe o número!
 O número secreto é: 7
 Digite o seu palpite.
 4
 Você disse: 4
 $ cargo run
-     Running `target/debug/jogo_de_advinhacao`
-Advinhe o número!
+     Running `target/debug/jogo_de_adivinhacao`
+Adivinhe o número!
 O número secreto é: 83
 Digite o seu palpite.
 5
@@ -600,32 +612,40 @@ e 100. Bom trabalho!
 ## Comparando o Palpite com o Número Secreto
 
 Agora que nós temos a entrada do usuário e o número secreto, vamos compará-los.
-Esta estapa é mostrada na Listagem 2-4:
+Esta etapa é mostrada na Listagem 2-4. Observe que este código ainda não compila, como vamos explicar a seguir!
 
 <span class="filename">Arquivo: src/main.rs</span>
 
+<!-- Adicionar a figura do ferris indicando que o código não compila -->
+<!-- <img src="./img/ferris/does_not_compile.svg" alt= “” width="10%" height="10%" align="right">
+-->
+<pre>
+<img src="./img/ferris/does_not_compile.svg" alt= “” width="10%" height="10%" align="right">
+</pre>
+
 ```rust,ignore
-extern crate rand;
 
 use std::io;
 use std::cmp::Ordering;
 use rand::Rng;
 
-fn main() {
-    println!("Advinhe o número!");
+#fn main() {
+#    println!("Adivinhe o número!");
+#
+#    let numero_secreto = rand::thread_rng().gen_range(1..=100);
+#
+#    println!("O número secreto é: {numero_secreto}");
+#
+#    println!("Digite o seu palpite.");
+#
+#    let mut palpite = String::new();
+#
+#    io::stdin().read_line(&mut palpite)
+#        .expect("Falha ao ler entrada");
+#
+    // --snip--
 
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
-
-    println!("O número secreto é: {}", numero_secreto);
-
-    println!("Digite o seu palpite.");
-
-    let mut palpite = String::new();
-
-    io::stdin().read_line(&mut palpite)
-        .expect("Falha ao ler entrada");
-
-    println!("Você disse: {}", palpite);
+    println!("Você disse: {palpite}");
 
     match palpite.cmp(&numero_secreto) {
         Ordering::Less => println!("Muito baixo!"),
@@ -647,6 +667,7 @@ você compara dois valores.
 Depois, adicionamos cinco novas linhas no final que usam o tipo `Ordering`:
 
 ```rust,ignore
+
 match palpite.cmp(&numero_secreto) {
     Ordering::Less => println!("Muito baixo!"),
     Ordering::Greater => println!("Muito alto!"),
@@ -686,11 +707,11 @@ este braço vai ser executado e mostrar `Muito alto!` na tela. A expressão
 `match` termina porque já não tem mais necessidade de verificar o último braço
 nesse caso particular.
 
-Porém, o código da Listagem 2-4 ainda não vai compilar. Vamos tentar:
+Porém, o código da Listagem 2-4 ainda não compila. Vamos tentar:
 
 ```text
 $ cargo build
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
 error[E0308]: mismatched types
   --> src/main.rs:23:21
    |
@@ -701,7 +722,7 @@ error[E0308]: mismatched types
    = note:    found type `&{integer}`
 
 error: aborting due to previous error
-Could not compile `jogo_de_advinhacao`.
+Could not compile `jogo_de_adivinhacao`.
 ```
 
 O que este erro está dizendo é que temos *tipos incompatíveis*. Rust tem um
@@ -718,49 +739,48 @@ não pode comparar uma string e um tipo numérico.
 
 Em última análise, queremos converter a `String` que lemos como entrada em um
 tipo numérico de verdade, de forma que possamos compará-lo numericamente com o
-palpite. Podemos fazer isso com mais duas linhas no corpo da função `main`:
+palpite. Podemos fazer isso com a adição de mais uma linha no corpo da função `main`:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
-extern crate rand;
 
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    println!("Advinhe o número!");
-
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
-
-    println!("O número secreto é: {}", numero_secreto);
-
-    println!("Digite o seu palpite.");
+#use std::io;
+#use std::cmp::Ordering;
+#use rand::Rng;
+#
+#fn main() {
+#    println!("Adivinhe o número!");
+#
+#    let numero_secreto = rand::thread_rng().gen_range(1..=100);
+#
+#    println!("O número secreto é: {numero_secreto}");
+#
+#    println!("Digite o seu palpite.");
+    // --snip--
 
     let mut palpite = String::new();
 
-    io::stdin().read_line(&mut palpite)
+    io::stdin()
+        .read_line(&mut palpite)
         .expect("Falha ao ler entrada");
 
-    let palpite: u32 = palpite.trim().parse()
-        .expect("Por favor, digite um número!");
+    let palpite: u32 = palpite.trim().parse().expect("Por favor, digite um número!");
 
-    println!("Você disse: {}", palpite);
+    println!("Você disse: {palpite}");
 
     match palpite.cmp(&numero_secreto) {
         Ordering::Less => println!("Muito baixo!"),
         Ordering::Greater => println!("Muito alto!"),
         Ordering::Equal => println!("Você acertou!"),
     }
-}
+#}
 ```
 
-As duas linhas novas são:
+A linha é:
 
 ```rust,ignore
-let palpite: u32 = palpite.trim().parse()
-    .expect("Por favor, digite um número!");
+let palpite: u32 = palpite.trim().parse().expect("Por favor, digite um número!");
 ```
 
 Nós criamos uma variável chamada `palpite`. Mas espera, o programa já não tinha
@@ -768,8 +788,10 @@ uma variável chamada `palpite`? Sim, mas o Rust nos permite *sombrear* o
 `palpite` anterior com um novo. Isto é geralmente usado em situações em que você
 quer converter um valor de um tipo em outro. O sombreamento nos permite
 reutilizar o nome `palpite`, em vez de nos forçar a criar dois nomes únicos como
-`palpite_str` e `palpite`, por exemplo. (O Capítulo 3 vai cobrir sombreamento em
+`palpite_str` e `palpite`, por exemplo. (O [`Capítulo 3`][chap3-shadow] vai cobrir sombreamento em
 mais detalhes).
+
+[chap3-shadow]: ./ch03-01-variables-and-mutability.html#shadowing
 
 Nós vinculamos `palpite` à expressão `palpite.trim().parse()`. O `palpite`, na
 expressão, refere-se ao `palpite` original contendo a `String` de entrada do
@@ -790,18 +812,22 @@ para isso usamos `let palpite: u32`. Os dois pontos (`:`) depois de `palpite`
 informam ao Rust que estamos anotando seu tipo. O Rust tem alguns tipos
 numéricos embutidos, o `u32` visto aqui é um inteiro de 32 bits sem sinal. É uma
 boa escolha padrão para um número positivo pequeno. Você vai aprender sobre
-outros tipos numéricos no Capítulo 3. Além disso, a anotação `u32` neste
-programa de exemplo e a comparação com `numero_secreto` significam que o Rust
-vai inferir que `numero_secreto` também deve ser um `u32`. Então agora a
+outros tipos numéricos no [`Capítulo 3`][chap3-integer].
+
+Além disso, a anotação `u32` neste programa de exemplo e a comparação com `numero_secreto` significa que o Rust vai inferir que `numero_secreto`
+também deve ser um `u32`. Então agora a
 comparação vai ser feita entre valores do mesmo tipo!
 
-[parse]: ../../std/primitive.str.html#method.parse
+
+
+[chap3-integer]: ./ch03-02-data-types.html#integer-types
+[parse]: https://doc.rust-lang.org/std/primitive.str.html#method.parse
 
 A chamada para `parse` poderia facilmente causar um erro. Por exemplo, se a
 string contiver `A👍%`, não haveria como converter isto em um número. Como ele
 pode falhar, o método `parse` retorna um `Result`, assim como o método
-`read_line`, conforme discutido anteriormente na seção "Tratando Potenciais
-Falhas com o Tipo `Result`". Vamos tratar este `Result` da mesma forma usando o
+`read_line`, conforme discutido anteriormente na seção ["Tratando Potenciais
+Falhas com o Tipo `Result`"][sec-result]. Vamos tratar este `Result` da mesma forma usando o
 método `expect` de novo. Se o `parse` retornar uma variante `Err` da enum
 `Result`, por não conseguir criar um número a partir da string, a chamada ao
 `expect` vai causar um _crash_ no jogo e exibir a mensagem que passamos a ele.
@@ -809,14 +835,16 @@ Se o `parse` conseguir converter uma string em um número, ele vai retornar a
 variante `Ok` da enum `Result` e `expect` vai retornar o número que queremos
 extrair do valor `Ok`.
 
+[sec-result]: #tratando-potenciais-falhas-com-o-tipo-result
+
 Agora vamos executar o programa!
 
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs
-     Running `target/jogo_de_advinhacao`
-Advinhe o número!
+     Running `target/jogo_de_adivinhacao`
+Adivinhe o número!
 O número secreto é: 58
 Digite o seu palpite.
   76
@@ -827,7 +855,7 @@ Muito alto!
 Boa! Até mesmo colocando alguns espaços antes de digitar o palpite, o programa
 ainda descobriu que o palpite do usuário é 76. Execute o programa mais algumas
 vezes para verificar os diferentes comportamentos com diferentes tipos de
-entrada: advinhe o número corretamente, digite um número muito alto, e digite um
+entrada: Adivinhe o número corretamente, digite um número muito alto, e digite um
 número muito baixo.
 
 Agora já temos a maior parte do jogo funcionando, mas o usuário só consegue dar
@@ -836,36 +864,39 @@ um palpite uma vez. Vamos mudar isso adicionando laços!
 ## Permitindo Múltiplos Palpites Usando _Looping_
 
 A palavra-chave `loop` nos dá um laço (_loop_) infinito. Use-a para dar aos
-usuários mais chances de advinhar o número:
+usuários mais chances de adivinhar o número:
 
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
-extern crate rand;
+#
+#use std::io;
+#use std::cmp::Ordering;
+#use rand::Rng;
+#
+#fn main() {
+#    println!("Adivinhe o número!");
+#
+#    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+#
+    // --snip--
 
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    println!("Advinhe o número!");
-
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
-
-    println!("O número secreto é: {}", numero_secreto);
+    println!("O número secreto é: {numero_secreto}");
 
     loop {
         println!("Digite o seu palpite.");
 
-        let mut palpite = String::new();
-
-        io::stdin().read_line(&mut palpite)
-            .expect("Falha ao ler entrada");
-
-        let palpite: u32 = palpite.trim().parse()
-            .expect("Por favor, digite um número!");
-
-        println!("Você disse: {}", palpite);
+#        let mut palpite = String::new();
+#
+#        io::stdin().read_line(&mut palpite)
+#            .expect("Falha ao ler entrada");
+#
+#        let palpite: u32 = palpite.trim().parse()
+#            .expect("Por favor, digite um número!");
+#
+#        println!("Você disse: {palpite}");
+#
+        // --snip--
 
         match palpite.cmp(&numero_secreto) {
             Ordering::Less => println!("Muito baixo!"),
@@ -885,15 +916,17 @@ fazer: pedir sempre outro palpite! Parece que o usuário não consegue sair!
 O usuário pode sempre interromper o programa usando as teclas
 <span class="keystroke">ctrl-c</span>. Mas há uma outra forma de escapar deste
 monstro insaciável que mencionamos na discussão do método `parse`, na seção
-"Comparando o Palpite com o Número Secreto": se o usuário fornece uma resposta
+["Comparando o Palpite com o Número Secreto"][sec-comp]: se o usuário fornece uma resposta
 não-numérica, o programa vai sofrer um _crash_. O usuário pode levar vantagem
 disso para conseguir sair, como mostrado abaixo:
 
+[sec-comp]: #comparando-o-palpite-com-o-número-secreto
+
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
-     Running `target/jogo_de_advinhacao`
-Advinhe o número!
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
+     Running `target/jogo_de_adivinhacao`
+Adivinhe o número!
 O número secreto é: 59
 Digite o seu palpite.
 45
@@ -911,12 +944,12 @@ Digite o seu palpite.
 sair
 thread 'main' panicked at 'Por favor, digite um número!: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:785
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
-error: Process didn't exit successfully: `target/debug/jogo_de_advinhacao` (exit code: 101)
+error: Process didn't exit successfully: `target/debug/jogo_de_adivinhacao` (exit code: 101)
 ```
 
 Digitar `sair`, na verdade, sai do jogo, mas isso também acontece com qualquer
 outra entrada não numérica. Porém, isto não é o ideal. Queremos que o jogo
-termine automaticamente quando o número é advinhado corretamente.
+termine automaticamente quando o número é adivinhado corretamente.
 
 ### Saindo Após um Palpite Correto
 
@@ -925,31 +958,32 @@ Vamos programar o jogo para sair quando o usuário vencer, colocando um `break`:
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
-extern crate rand;
-
-use std::io;
-use std::cmp::Ordering;
-use rand::Rng;
-
-fn main() {
-    println!("Advinhe o número!");
-
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
-
-    println!("O número secreto é: {}", numero_secreto);
-
-    loop {
-        println!("Digite o seu palpite.");
-
-        let mut palpite = String::new();
-
-        io::stdin().read_line(&mut palpite)
-            .expect("Falha ao ler entrada");
-
-        let palpite: u32 = palpite.trim().parse()
-            .expect("Por favor, digite um número!");
-
-        println!("Você disse: {}", palpite);
+#
+#use std::io;
+#use std::cmp::Ordering;
+#use rand::Rng;
+#
+#fn main() {
+#    println!("Adivinhe o número!");
+#
+#    let numero_secreto = rand::thread_rng().gen_range(1..=100);
+#
+#    println!("O número secreto é: {numero_secreto}");
+#
+#    loop {
+#        println!("Digite o seu palpite.");
+#
+#        let mut palpite = String::new();
+#
+#        io::stdin().read_line(&mut palpite)
+#            .expect("Falha ao ler entrada");
+#
+#        let palpite: u32 = palpite.trim().parse()
+#            .expect("Por favor, digite um número!");
+#
+#        println!("Você disse: {palpite}");
+#
+        // --snip--
 
         match palpite.cmp(&numero_secreto) {
             Ordering::Less => println!("Muito baixo"),
@@ -964,7 +998,7 @@ fn main() {
 ```
 
 Adicionando a linha `break` após o `Você acertou!`, o programa vai sair do laço
-quando o usuário advinhar corretamente o número secreto. Sair do laço também
+quando o usuário adivinhar corretamente o número secreto. Sair do laço também
 significa sair do programa, pois o laço é a última parte da `main`.
 
 ### Tratando Entradas Inválidas
@@ -974,11 +1008,50 @@ programa quando o usuário insere uma entrada não numérica, vamos fazer o jogo
 ignorá-la para que o usuário possa continuar tentando. Podemos fazer isso
 alterando a linha em que o `palpite` é convertido de `String` para `u32`:
 
+
 ```rust,ignore
-let palpite: u32 = match palpite.trim().parse() {
-    Ok(num) => num,
-    Err(_) => continue,
-};
+#
+#use std::io;
+#use std::cmp::Ordering;
+#use rand::Rng;
+#
+#fn main() {
+#    println!("Adivinhe o número!");
+#
+#    let numero_secreto = rand::thread_rng().gen_range(1..=100);
+#
+#    println!("O número secreto é: {numero_secreto}");
+#
+#    loop {
+#        println!("Digite o seu palpite.");
+#
+#        let mut palpite = String::new();
+#
+#        io::stdin().read_line(&mut palpite)
+#            .expect("Falha ao ler entrada");
+#
+        // --snip--
+
+        let palpite: u32 = match palpite.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+
+        println!("Você disse: {palpite}");
+
+        // --snip--
+#
+#        match palpite.cmp(&numero_secreto) {
+#            Ordering::Less => println!("Muito baixo"),
+#            Ordering::Greater => println!("Muito alto!"),
+#            Ordering::Equal => {
+#                println!("Você acertou!");
+#                break;
+#            }
+#        }
+#    }
+#}
 ```
 
 Trocando uma chamada a `expect` por uma expressão `match` é a forma como você
@@ -1007,9 +1080,9 @@ usando o comando `cargo run`:
 
 ```text
 $ cargo run
-   Compiling jogo_de_advinhacao v0.1.0 (file:///projects/jogo_de_advinhacao)
-     Running `target/jogo_de_advinhacao`
-Advinhe o número!
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
+     Running `target/jogo_de_adivinhacao`
+Adivinhe o número!
 O número secreto é: 61
 Digite o seu palpite.
 10
@@ -1035,16 +1108,14 @@ secreto. A Listagem 2-5 mostra o código final:
 <span class="filename">Arquivo: src/main.rs</span>
 
 ```rust,ignore
-extern crate rand;
-
 use std::io;
 use std::cmp::Ordering;
 use rand::Rng;
 
 fn main() {
-    println!("Advinhe o número!");
+    println!("Adivinhe o número!");
 
-    let numero_secreto = rand::thread_rng().gen_range(1, 101);
+    let numero_secreto = rand::thread_rng().gen_range(1..=101);
 
     loop {
         println!("Digite o seu palpite.");
@@ -1059,7 +1130,7 @@ fn main() {
             Err(_) => continue,
         };
 
-        println!("Você disse: {}", palpite);
+        println!("Você disse: {palpite}");
 
         match palpite.cmp(&numero_secreto) {
             Ordering::Less => println!("Muito baixo!"),
@@ -1073,7 +1144,7 @@ fn main() {
 }
 ```
 
-<span class="caption">Listagem 2-5: Código completo do jogo de advinhação.
+<span class="caption">Listagem 2-5: Código completo do jogo de adivinhação.
 </span>
 
 ## Resumo
@@ -1081,10 +1152,10 @@ fn main() {
 Neste ponto, você construiu com sucesso o jogo de adivinhação! Parabéns!
 
 Este projeto foi uma forma prática de apresentar vários conceitos novos de Rust:
-`let`, `match`, métodos, funções associadas, uso de crates externos, e outros.
+`let`, `match`, métodos, funções associadas, uso de crates externas, e outros.
 Nos próximos capítulos, você vai aprender sobre esses conceitos em mais
 detalhes. O Capítulo 3 aborda conceitos que a maioria das linguagens de
 programação tem, como variáveis, tipos de dados e funções, e mostra como usá-los
 em Rust. O Capítulo 4 explora posse (_ownership_), que é a característica do
 Rust mais diferente das outras linguagens. O Capítulo 5 discute structs e a
-sintaxe de métodos, e o Capítulo 6 se dedica a explicar enums. 
+sintaxe de métodos, e o Capítulo 6 se dedica a explicar enums.
