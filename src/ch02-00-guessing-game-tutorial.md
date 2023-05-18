@@ -205,6 +205,7 @@ chamar uma função associada, `stdin`, em `io`:
 ```rust,ignore
     io::stdin()
         .read_line(&mut palpite)
+        .expect("Falha ao ler entrada");
 ```
 
 Se não tivéssemos a linha `use std::io` no início do programa, poderíamos ter
@@ -290,7 +291,7 @@ Se não chamarmos `expect`, nosso programa vai compilar, mas vamos ter um aviso:
 
 ```text
 $ cargo build
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
 warning: unused `Result` that must be used
   --> src/main.rs:10:5
    |
@@ -300,7 +301,7 @@ warning: unused `Result` that must be used
    = note: this `Result` may be an `Err` variant, which should be handled
    = note: `#[warn(unused_must_use)]` on by default
 
-warning: `guessing_game` (bin "guessing_game") generated 1 warning
+warning: `jogo_de_adivinhacao` (bin "jogo_de_adivinhacao") generated 1 warning
     Finished dev [unoptimized + debuginfo] target(s) in 0.59s
 ```
 
@@ -343,9 +344,9 @@ Vamos testar a primeira parte do jogo de adivinhação. Você pode executá-lo u
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 6.44s
-     Running `target/debug/guessing_game`
+     Running `target/debug/jogo_de_adivinhacao`
 Adivinhe o número!
 Digite o seu palpite.
 6
@@ -418,7 +419,7 @@ $ cargo build
    Compiling rand_core v0.6.3
    Compiling rand_chacha v0.3.1
    Compiling rand v0.8.5
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jogo_de_adivinhacao v0.1.0 (file:///projects/jogo_de_adivinhacao)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53s
 ```
 
