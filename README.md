@@ -148,7 +148,7 @@ before we merge any in, but feel free to start!
 
 ### Traduções
 
-Nós adoraríamos ajuda na tradução deste livro! Veja os labels [Translating][translations] para se ajuntar aos esforços que estão atualmente em progresso. Abra novas issues para começar a trabalhar numa nova linguagem! Nós estamos esperando pelo [suporte do mdbook][mdbook support] a múltiplas linguagens antes de juntá-las a esse repositório, mas sinta-se livre para começar!
+Nós adoraríamos ajuda na tradução deste livro! Veja os labels [Translating][translations] para se ajuntar aos esforços que estão atualmente em progresso. Abra novas issues para começar a trabalhar num novo idioma! Nós estamos esperando pelo [suporte do mdbook][mdbook support] a múltiplos idiomas, antes de juntá-las a esse repositório, mas sinta-se livre para começar!
 
 [translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
 [mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
@@ -169,7 +169,7 @@ values that don't cut off the image. -->
 
 ## Graphviz dot
 
-Nós estamos usando o [Graphviz](http://graphviz.org/) para alguns dos diagramas no livro. Os arquivos-fonte estão no diretório `dot`. Para transformar um arquivo `dot`, por exemplo o `dot/trpl04-01.dot`, em `svg`, rode:
+Nós usamos o [Graphviz](http://graphviz.org/) para alguns dos diagramas no livro. Os arquivos-fonte estão no diretório `dot`. Para transformar um arquivo `dot`, por exemplo o `dot/trpl04-01.dot`, em `svg`, rode:
 
 ```bash
 $ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
