@@ -9,7 +9,7 @@ não optar por utilizá-las.
 
 Quando uma variável é imutável, logo que um valor é associado a uma variável, você não pode mudar este valor.
 Para ilustrar isso, vamos criar um projeto chamado *variaveis*
-no seu diretório *projetos* usando `cargo new --bin variables`.
+no seu diretório *projetos* usando `cargo new --bin variaveis`.
 
 Então dentro do novo diretório chamado *variaveis*, abra *src/main.rs* e substitua o
 código com o código abaixo, que não irá compilar:
