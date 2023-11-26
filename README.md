@@ -187,4 +187,4 @@ script. It needs a dictionary of valid words, which is provided in
 
 ## Checagem de grafia
 
-Para procurar erros de grafia nos arquivos, você pode usar o _script_ `spellcheck.sh`. Ele precisa de um dicionário de palavras válidas, o qual é provido em `dictionary.txt`. Se o script produzir um falso positivo (por exemplo, se você usou a palavra `BTreeMap`, a qual o script considera inválida), você precisará adicionar essa palavra a `dicitonary.txt` (mantenha-o ordenado por consistência).
+Para procurar erros de grafia nos arquivos, você pode usar o _script_ `spellcheck.sh`. Ele precisa de um dicionário de palavras válidas, o qual é provido em `dictionary.txt`. Se o script produzir um falso positivo (por exemplo, se você usou a palavra `BTreeMap`, a qual o script considera inválida), você precisará adicionar essa palavra a `dictionary.txt` (mantenha-o ordenado por consistência).
