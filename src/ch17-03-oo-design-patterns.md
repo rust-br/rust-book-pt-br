@@ -4,8 +4,8 @@ O *padrão de estado* é um padrão de projeto orientado a objetos. O ponto cruc
 é que um valor tem algun estado interno, que é representado por um conjunto
 de *objetos de estado* e o comportamento do valor é alterado com base no estado
 interno. Os objetos de estado compartilham funcionalidade: em Rust, é claro, usamos
-estruturas e traits em vez de de objetos e herança. Cada objeto de estado é
-responsável por seu próprio comportamento e por administrar quando dev mudar para outro
+estruturas e traits em vez de objetos e herança. Cada objeto de estado é
+responsável por seu próprio comportamento e por administrar quando deve mudar para outro
 estado. O valor que contém um objeto de estado não sabe nada sobre o
 comportamento diferente dos estados ou quando fazer transição entre os estados.
 
