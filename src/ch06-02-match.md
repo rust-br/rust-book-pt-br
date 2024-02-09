@@ -221,7 +221,7 @@ próximo braço.
 Some(i) => Some(i + 1),
 ```
 
-`Some(5) casa com `Some(i)`? Sim, casa! Temos a mesma variante. O `i`
+Some(5) casa com `Some(i)`? Sim, casa! Temos a mesma variante. O `i`
 está atrelado ao valor contido em `Some`, então `i` passa a ter o valor `5`. O
 código desse braço é executado, então somamos um ao valor de `i` e criamos um
 novo `Some` contendo nosso total de `6`.
