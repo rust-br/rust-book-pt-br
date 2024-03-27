@@ -229,7 +229,7 @@ let artigo = ArtigoDeNoticia {
     time de hockey da NHL."),
 };
 
-println!("Novo artigo disponível! {}", artigo.summary());
+println!("Novo artigo disponível! {}", artigo.resumo());
 ```
 
 Esse código imprime `Novo artigo disponível! (Leia mais...)`
