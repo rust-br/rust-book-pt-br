@@ -120,7 +120,7 @@ Este programa compila sem erros, e também o faria se usássemos a variável
 de `s` de nenhuma forma, então, `palavra` ainda contém o valor `5`. Poderíamos
 usar esse valor `5` com a variável `s` para tentar extrair a primeira palavra da
 string, mas isso seria um bug, pois o conteúdo de `s` já mudou após termos salvo
-o valor `5` na variável `word`.
+o valor `5` na variável `palavra`.
 
 Ter que se preocupar sobre o índice da `palavra` ficar fora de sincronia com os
 dados em `s` é tedioso e propenso a erros! Gerenciar esses índices é ainda mais
