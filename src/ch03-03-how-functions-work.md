@@ -340,7 +340,7 @@ error[E0308]: mismatched types
 A principal mensagem de erro, "tipos incompatíveis", revela o problema central com este
 código. A definição da função `soma_um` diz que retornará uma
 `i32`, mas as declarações não avaliam um valor expresso por` () `,
-a tupla vazia. Portanto, nada é retornado, o que contradiz a função
-definição e resulta em erro. Nesta saída, Rust fornece uma mensagem para
+a tupla vazia. Portanto, nada é retornado, o que contradiz a definição da 
+função e resulta em erro. Nesta saída, Rust fornece uma mensagem para
 possivelmente ajudar a corrigir este problema: sugere a remoção do ponto e vírgula, que
 iria corrigir o erro.
