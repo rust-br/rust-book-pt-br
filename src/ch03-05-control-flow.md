@@ -9,7 +9,7 @@ laços de repetição.
 ### Expressão `if`
 
 Uma expressão `if` permite ramificar seu código dependendo das condições. Você
-fornecer uma condição e, em seguida, estado, "Se esta condição for cumprida, execute este bloco
+fornece uma condição e, em seguida, estado, "Se esta condição for cumprida, execute este bloco
 de código. Se a condição não for atendida, não execute este bloco de código. ”
 
 Crie um novo projeto chamado *branches* no seu diretório *projects* para explorar
