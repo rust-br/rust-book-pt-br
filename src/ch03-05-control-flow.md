@@ -13,7 +13,7 @@ fornece uma condição e, em seguida, estado, "Se esta condição for cumprida, 
 de código. Se a condição não for atendida, não execute este bloco de código. ”
 
 Crie um novo projeto chamado *branches* no seu diretório *projects* para explorar
-a expressão `if`. No arquivo * src / main.rs *, digite o seguinte:
+a expressão `if`. No arquivo *src/main.rs*, digite o seguinte:
 
 <span class="filename">Nome do arquivo: src/main.rs</span>
 
