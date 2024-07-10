@@ -150,10 +150,11 @@ let texto = &s[0..5];
 let longo = &s[6..11];
 ```
 
-Isto é similar a pegar uma referência à `String` inteira, mas com um `[0..5]` a
-mais. Em vez de uma referência à `String` inteira, trata-se de uma referência a
-uma porção da `String`. A sintaxe `início..fim` representa um _range_
-(uma faixa) que começa em `início` e continua até, mas não incluindo, `fim`.
+Isto é similar a pegar uma referência à `String` inteira, mas um extra-apontando 
+do pedaço `[0..5]`. Em vez de uma referência à `String` inteira, trata-se de 
+uma referência a uma porção da `String`. A sintaxe `início..fim` representa um 
+_range_ (uma faixa) que começa em `início` e continua até, mas não incluindo, 
+`fim`.
 
 Podemos criar slices usando um range entre colchetes especificando
 `[índice_inicial..índice_final]`, em que `índice_inicial` é a primeira posição
