@@ -35,7 +35,7 @@ library." lays this out enough. /Carol -->
 
 Isso cria um novo executável binário chamado `hello_cargo`. O argumento `--bin` transmitido para `cargo new` cria um aplicativo executável (geralmente chamado apenas de *binário*), em oposição a uma biblioteca. Atribuímos `hello_cargo` como o nome do nosso projeto e o Cargo cria seus arquivos em um diretório com o mesmo nome.
 
-Vá para o diretório *hello_cargo* e liste os arquivos, e você verá que Cargo gerou dois arquivos e um diretório para nós: um diretório *Cargo.toml* e *src* com um arquivo *main.rs* dentro. Também inicializou um novo repositório git, junto com um arquivo *.gitignore*.
+Vá para o diretório *hello_cargo* e liste os arquivos, e você verá que Cargo gerou dois arquivos e um diretório para nós: um arquivo *Cargo.toml* e um diretório *src* com um arquivo *main.rs* dentro. Também inicializou um novo repositório git, junto com um arquivo *.gitignore*.
 
 > Nota: Git é um sistema de controle de versão comum. Você pode alterar `cargo new` para usar um sistema de controle de versão diferente, ou nenhum sistema de controle de versão, usando o sinalizador `--vcs`. Execute `cargo new --help` para ver as opções disponíveis.
 
@@ -64,7 +64,7 @@ As próximas três linhas definem as informações de configuração que Cargo p
 Cargo obtém seu nome e informações de e-mail do seu ambiente; portanto, se isso não estiver correto, prossiga, corrija-o e salve o arquivo.
 
 A última linha, `[dependencies]`, é o início de uma seção para você listar qualquer uma das dependências do seu projeto. Em Rust, pacotes de código são referidos como *crates*. 
-Não precisaremos de outras crates para este projeto, mas precisaremos no primeiro projeto do capítulo 2, portanto, usaremos essa seção de dependências.
+Não precisaremos de outras crates para este projeto, mas precisaremos no primeiro projeto do capítulo 2, portanto, usaremos essa seção de dependências lá.
 
 Agora abra *src/main.rs* e olhe:
 
@@ -81,7 +81,7 @@ Cargo gerou um “Hello World!” para você, exatamente como o que escrevemos n
 Cargo espera que seus arquivos source morem dentro do diretório *src*, para que o diretório de projeto de nível superior seja apenas para READMEs, informações de licença, arquivos de configuração e qualquer outra coisa não relacionada ao seu código. 
 Dessa forma, o uso do Cargo ajuda a manter seus projetos organizados. Há um lugar para tudo, e tudo está em seu lugar.
 
-Se você iniciou um projeto que não usa Cargo, como fizemos com nosso projeto no diretório *hello_world*, você pode convertê-lo em um projeto que usa Cargo movendo o código do projeto para o diretório *src* e criando um apropriado *Cargo.toml*.
+Se você iniciou um projeto que não usa Cargo, como fizemos com nosso projeto no diretório *hello_world*, você pode convertê-lo em um projeto que usa Cargo movendo o código do projeto para o diretório *src* e criando um *Cargo.toml* apropriado.
 
 ### Construindo e Executando um projeto Cargo
 
