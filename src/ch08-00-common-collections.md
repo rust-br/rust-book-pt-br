@@ -20,9 +20,9 @@ coleções que são usadas frequentemente em programas Rust:
 
 
 Para aprender mais sobre outros tipos de coleções fornecidas pela biblioteca padrão,
-veja [a documentação][collections].
+veja a [documentação (em inglês)][collections].
 
-[collections]: ../../std/collections/index.html
+[collections]: https://doc.rust-lang.org/std/collections/index.html
 
 Nós iremos discutir como criar e atualizar vetores, strings, e hash 
 maps, bem como o que os tornam especiais.
