@@ -6,6 +6,7 @@
 - [Processo de revisão](#processo-de-revis%C3%A3o)
 - [Sistema de labels e Project](#sistema-de-labels-e-project)
 - [Boas práticas](#boas-pr%C3%A1ticas)
+- [Glossário](#glossário)
 
 ## Por onde começar?
 **1.** Faça o _fork_ do projeto.
@@ -96,6 +97,11 @@ fn main() {
     println!("Hello, world!");
 }
 ```
+
+## Glossário
+O vocabulário compartilhado (proposta em discussão) está em [`GLOSSARIO.md`](./GLOSSARIO.md). Use-o para manter títulos, termos recorrentes e o gênero de *enum*, *struct*, *crate* e *trait* consistentes entre capítulos.
+
+Se o termo ainda não estiver no glossário, ou se você discordar da proposta, abra uma issue no formato da seção abaixo em vez de traduzir de um jeito diferente no seu capítulo.
 
 ## Dúvidas em tradução de termos, palavras, expressões etc…
 Quando estiver em uma situação em que você não sabe exatamente como traduzir uma palavra, termo ou expressão, nós recomendamos que abra uma _Issue_ com um título descritivo como por exemplo: “_Como traduzir a palavra/termo “x”?_” e coloque uma descrição fazendo referência à linha e o capítulo que esteja trabalhando.
